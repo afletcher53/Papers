@@ -262,7 +262,9 @@ While the citation network mining approach could be used to group articles of in
 Firstly, CAL requires labelled data to train a classifier model, which is assumed to perform better with more data points. Encoder CAL approaches suffer disproportionately to that of feature-based CAL approaches due to their need for larger amounts of training data to effectively learn meaningful representations. This is because encoder models like BERT need to learn complex contextual relationships between words and concepts, whereas feature-based models can rely on simpler statistical patterns. When working with limited labeled data in the early stages of screening, encoder models may struggle to generalise well, potentially leading to suboptimal performance in identifying relevant documents. As discussed in the Encoder CAL process, often a single sample seed document is used during the first epoch for fine-tuning. A better approach would be to exhaust the citation network of that seed document first for labelling, before using revealed relevant documents to fine-tune the model, potentially resulting in a more performant model at the earlier stages of screening with less oracle cost. This potentially overcomes limitations of the Encoder CAL process, and also reduces computational costs (as citation network mining is less computationally expensive than fine-tuning). 
 
 Early work performed by the Author on a subset of the CLEF dataset demonstrates that exhausting the BCS network of a seed document resulted in greater R-Precision values when compared to that of the Encoder CAL process at similar points. The logical, and simple augmentation of the encoder CAL approach would be to exhaust both BCS and FCS networks of a seed document prior to initiating the encoder CAL process. 
-\subsubsection{More advanced citation network mining}
+\subsubsection{Extending current citation network mining approaches}
+
+
 
 One of the issues with citation network mining is that it is not able to identify indirect citations. For example, if $D_i$ references $D_{ip1}$ and $D_{ip1}$ references $D_{ip2}$, then $D_i$ and $D_{ip2}$ are related, even though $D_i$ does not cite $D_{ip2}$ directly. This limitation would prevent the use of citation network mining to replace the encoder CAL process entirely. Other citation network mining approaches have been proposed to address this issue:
 
@@ -302,7 +304,65 @@ One of the issues with citation network mining is that it is not able to identif
     
     \end{tikzpicture}
     \end{center}
-\end{document}
 
+    \hl{Section about adding other features to the network, i.e. Author, topic}
+
+    \subsubsection{Graph Neural Networks}
+    
+    \subsubsection{LLMs and citation network mining}
+
+    The motivation for using LLMs and graph networks is to combine the structurality of graph citation networks with the ability of the LLMs to comprehend the semantic meaning of documents. As outlined, citation network graph analysis occurs above the document level through utilisation of extracted features about documents. LLMs are a natural replacement for extraction of features, as they possess the ability to understand semantic meaning of documents. The ultimate goal to use LLMs and graph networks is to complment and enhance isuses with the other. 
+
+    Research has been conducted into the use of LLMs within the graph neural networks, and has developed a robust taxonomy for categorising the use of LLMs within graph networks \cite{llm4g}. 
+    
+    The first application of LLms within graph networks is to use LLM as an enchancer. Typically graph neural networks encode text into nodes using simple bag-of-words, skip-gram or TF-IDF. LLMs are able to encode text into nodes using more complex features, such as semantic meaning, which can be used within the graph neural networks. This can be further subdivided into explanation based and embedding based enchancers. 
+    
+    Explanation based enhancers query an LLM using prompting to capture higher level features about documents, which is used to enrich node representations prior to processing with a graph neural network, with the process being abstracted in in Figure \ref{fig:llm4g}. The approach used by https://arxiv.org/pdf/2305.19523 was to prompt GPT 3-5 with the abstract and text of a document along with a questions about that document using a zero-shot approach. The LLM reponse then forms features which are amended to the original node representations. Issues with this approach is that this requires domain specific knowledge, as features which are deemed important (and hence prompt used) are dependent on the domain of the research. It was performant on the pubmed domain, scoring greater node classification accuracy using this approach (0.9618 $\pm$ 0.0053) than utilising an LLM alone on pubmed data (0.9494 $\pm$ 0.0046).   
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[node distance=3cm,auto]
+        
+        % Define styles
+        \tikzstyle{node} = [circle, minimum width=2.5cm, minimum height=2.5cm, draw=black!50, thick]
+        \tikzstyle{process} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm, draw=black!50, thick]
+        \tikzstyle{features} = [text width=2cm, align=left]
+        
+        % Initial node
+        \node[node] (initial) {
+            \begin{tabular}{c}
+                Initial Node\\[2pt]
+                h\textsubscript{orig}\\[2pt]
+                \scriptsize{[Title \& Abstract]}
+            \end{tabular}
+        };
+        
+        % Process box
+        \node[process, right of=initial, xshift=3cm] (process) {
+            \begin{tabular}{c}
+                LLM \\Prompting
+            \end{tabular}
+        };
+        
+        % Enriched node
+        \node[node, right of=process, xshift=4cm] (enriched) {
+            \begin{tabular}{c}
+                Enriched Node\\[2pt]
+                [h\textsubscript{orig}, h\textsubscript{pred}, h\textsubscript{expl}]\\[2pt]
+                \scriptsize{[combined features]}
+            \end{tabular}
+        };
+        
+        % Arrows
+        \draw[->, thick] (initial) -- (process) node[midway, above] {text input};
+        \draw[->, thick] (process) -- (enriched) node[midway, above] {enriched features};
+        
+
+        
+        \end{tikzpicture}
+        \caption{Node feature enrichment process using LLM and LM}
+        \label{fig:llm4g}
+        \end{figure}
+\end{document}
 
 
