@@ -365,7 +365,7 @@ Best models were selected based on dual criteria: Predicted at least 1\% of the 
                                                 & DNN    & 0.606          & 0.630          & \textbf{0.512} \\
                                                 & LR     & 0.729          & \textbf{0.681} & 0.390          \\
                                                 & KNN    & 0.717          & 0.547          & 0.291          \\
-                                                & RF     & 0.740       & 0.685      & 0.393       \\
+                                                & RF     & 0.740          & 0.685          & 0.393          \\
         \hline
         \label{tab:final-model-hyperparameters}
     \end{tabular}
@@ -448,25 +448,100 @@ A gridsearch was conducted on the Mortality@1825 days dataset to see which datas
     \caption{Dataset representation selection}
     \begin{tabular}{l|cccc}
         \hline
-        Model                       & Raw     & Binned  & Raw PCA & Binned PCA        \\
+        Model                       & Raw              & Binned            & Raw PCA           & Binned PCA         \\
         \hline
-        BiLSTM w/ Skip Connections  & 0.292 $\pm$ 0.02 & 0.294 $\pm$ 0.02 & 0.286 $\pm$ 0.02  & 0.286 $\pm$ 0.02 \\
-        Hierachial Attention BiLSTM & 0.311 $\pm$ 0.02 & 0.290 $\pm$ 0.01 & 0.304 $\pm$ 0.01 & 0.282   $\pm$ 0.01        \\
-        Temporal Fusion Network     & 0.279 $\pm$ 0.02 & 0.286 $\pm$ 0.02 & 0.275 $\pm$ 0.02 & 0.281 $\pm$ 0.03          \\
+        BiLSTM w/ Skip Connections  & 0.292 $\pm$ 0.02 & 0.294 $\pm$ 0.02  & 0.286 $\pm$ 0.02  & 0.286 $\pm$ 0.02   \\
+        Hierachial Attention BiLSTM & 0.311 $\pm$ 0.02 & 0.290 $\pm$ 0.01  & 0.304 $\pm$ 0.01  & 0.282   $\pm$ 0.01 \\
+        Temporal Fusion Network     & 0.279 $\pm$ 0.02 & 0.286 $\pm$ 0.02  & 0.275 $\pm$ 0.02  & 0.281 $\pm$ 0.03   \\
         \hline
-        Average PR AUC              & 0.294 $\pm$ 0.02 & 0.290 $\pm$ 0.012 & 0.288 $\pm$ 0.012 & 0.283 $\pm$ 0.015          \\
+        Average PR AUC              & 0.294 $\pm$ 0.02 & 0.290 $\pm$ 0.012 & 0.288 $\pm$ 0.012 & 0.283 $\pm$ 0.015  \\
         \hline
     \end{tabular}
     \caption*{
-        Performance comparison across different data representation methods for three deep learning models on time-series data. 
-        The metrics shown are PR AUC scores (mean $\pm$ standard deviation). 
-        A one-way ANOVA analysis of all four representations yielded F = 0.5024, p = 0.6912, 
-        indicating no statistically significant differences between these representation approaches. 
-        While the Raw method showed slightly higher average performance (0.294), 
+        Performance comparison across different data representation methods for three deep learning models on time-series data.
+        The metrics shown are PR AUC scores (mean $\pm$ standard deviation).
+        A one-way ANOVA analysis of all four representations yielded F = 0.5024, p = 0.6912,
+        indicating no statistically significant differences between these representation approaches.
+        While the Raw method showed slightly higher average performance (0.294),
         the differences between methods were smaller than the within-method variations.
     }
     \label{tab:dataset-representation}
 \end{table}
 
+\begin{table}[htbp]
+    \centering
+    \caption{Hyperparameter Search Space for all temporal models}
+    \begin{tabular}{llll}
+        \toprule
+        \textbf{Model}                                 & \textbf{Hyperparameter} & \textbf{Values}        & \textbf{Description}            \\
+        \midrule
+        \multirow{7}{*}{BiLSTM w/ Skip Connections}    & Hidden Layer Sizes      & \{(32), (64), (128)\}, & Dimension of hidden layers      \\
+                                                       & Number Layers           & \{1, 2, 3\}            & Number of stacked hidden layers \\
+                                                       & Sequence Length         & \{50,100\}             & Sequence length                 \\
+                                                       & Dropout                 & \{0.2, 0.3, 0.5\}      & Dropout rate                    \\
+                                                       & Learning Rate           & \{1e-4, 3e-4, 1e-3\}   & Learning Rates                  \\
+                                                       & Batch Size              & \{32, 64, 128\}        & Mini-batch size                 \\
+                                                       & Epochs                  & \{30, 50\}             & Training iterations             \\
 
+        \midrule
+        \multirow{7}{*}{Temporal Fusion Network}       & Hidden Layer Sizes      & \{32, 64, 128\}        & Dimension of hidden layers      \\
+                                                       & Number Layers           & {2, 3, 4}              & Number of temporal conv layers  \\
+                                                       & Dropout                 & {0.3, 0.5}             & Dropout rate                    \\
+                                                       & Learning Rate           & {1e-4, 3e-4}           & Learning Rates                  \\
+                                                       & Batch Size              & {32, 64}               & Mini-batch size                 \\
+                                                       & Epochs                  & {30, 50}               & Training iterations             \\
+                                                       & Sequence Length         & \{50,100\}             & Sequence length                 \\
+        \midrule
+        \multirow{7}{*}{Hierarchial Attention Network} & Hidden Layer Sizes      & \{32, 64, 128\}        & Dimension of hidden layers      \\
+                                                       & Number Layers           & {2, 3, 4}              & Number of temporal conv layers  \\
+                                                       & Dropout                 & {0.3, 0.5}             & Dropout rate                    \\
+                                                       & Learning Rate           & {1e-4, 3e-4}           & Learning Rates                  \\
+                                                       & Batch Size              & {32, 64}               & Mini-batch size                 \\
+                                                       & Epochs                  & {30, 50}               & Training iterations             \\
+                                                       & Sequence Length         & \{50,100\}             & Sequence length                 \\
+        \midrule
+    \end{tabular}
+
+    \label{tab:dataset-representation}
+
+
+\end{table}
+
+
+\hl{need to check the lower mortality model outputs}
+\begin{table}[htbp]
+    \centering
+    \caption{Best Performing Model Perform on validation dataset following hyperparameter tuning}
+    \begin{tabular}{llccc}
+        \hline
+        Outcome                                 & Model                      & Accuracy       & ROC AUC        & PR AUC          \\
+        \hline
+        \multirow{5}{*}{Days at Home 90}        & BiLSTM w/ Skip Connections & 0.817          & \textbf{0.692} & \textbf{0.220}  \\
+                                                & Hierachial Attention       & 0.644          & 0.581          & 0.157           \\
+                                                & Temporal Fusion Network    & \textbf{0.832} & 0.585          & 0.179           \\
+
+        \hline
+        \multirow{5}{*}{Days at Home 180}       & BiLSTM w/ Skip Connections & \textbf{0.777} & \textbf{0.626} & \textbf{0.163}  \\
+                                                & Hierachial Attention       & 0.555          & 0.570          & 0.118           \\
+                                                & Temporal Fusion Network    & 0.741          & 0.595          & 0.143           \\
+        \hline
+        \multirow{5}{*}{Mortality at 30 days}   & BiLSTM w/ Skip Connections & 0.952          & 0.682          & 0.130           \\
+                                                & Hierachial Attention       & [VALUE]        & [VALUE]        & [VALUE]         \\
+                                                & Temporal Fusion Network    & [VALUE]        & [VALUE]        & [VALUE]         \\
+        \hline
+        \multirow{5}{*}{Mortality at 90 days}   & BiLSTM w/ Skip Connections & 0.959          & 0.738          & 0.155           \\
+                                                & Hierachial Attention       & [VALUE]        & [VALUE]        & [VALUE]         \\
+                                                & Temporal Fusion Network    & [VALUE]        & [VALUE]        & [VALUE]         \\
+        \hline
+        \multirow{5}{*}{Mortality at 720 days}  & BiLSTM w/ Skip Connections & \textbf{0.853} & 0.602          & 0.203           \\
+                                                & Hierachial Attention       & 0.598          & \textbf{0.625} & 0.172           \\
+                                                & Temporal Fusion Network    & 0.668          & 0.610          & \textbf{ 0.226} \\
+        \hline
+        \multirow{4}{*}{Mortality at 1825 days} & BiLSTM w/ Skip Connections & 0.375          & \textbf{0.615}        & 0.333          \\
+                                                & Hierachial Attention       & 0.231          & 0.595         & 0.297  \\
+                                                & Temporal Fusion Network    & \textbf{0.390}          & 0.610         & \textbf{0.339}         \\
+        \hline
+        \label{tab:final-model-hyperparameters}
+    \end{tabular}
+\end{table}
 \end{document}
