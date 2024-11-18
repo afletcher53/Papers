@@ -363,6 +363,89 @@ One of the issues with citation network mining is that it is not able to identif
         \caption{Node feature enrichment process using LLM and LM}
         \label{fig:llm4g}
         \end{figure}
-\end{document}
+
+    
+    \subsection{Notes on Graph Neural Networks}
 
 
+  A node is represented by a feature matrix, which contains information about the document. This \textbf{Node feature matrix}, $X$, which has the dimensions of $m$ (the number of nodes) and $n$ (the number of features). $X \in \mathbb{R}^{m \times n}$. X does not have to be a square matrix, and does not encode any information about the structure of the graph. 
+
+  Consider 3 research papers as nodes, with features: [Author, Title Length, Abstract Length, Citation Count]
+  $X = \begin{bmatrix}
+  \text{"Smith"} & 82 & 500 & 45 \\
+  \text{"Johnson"} & 95 & 475 & 23 \\
+  \text{"Zhang"} & 67 & 612 & 89
+  \end{bmatrix}$
+  Where $X \in \mathbb{R}^{3 \times 4}$ represents:
+  
+  3 papers (rows)
+  4 features per paper (columns)
+  Mixed data types (categorical and numerical)
+
+  Structural information is encoded in the \textbf{adjacency matrix}, $A$, which has the dimensions of $m$ (the number of nodes) and $m$ (the number of nodes). $A \in \mathbb{R}^{m \times m}$. A encodes information about the structure of the graph, and is used to determine relationships between nodes. Conventionally the source nodes are the rows, and the destination nodes the columns of the matrix. 1 indicates an edge between the source node $u$ and destination node $v$. Note that there is a choice to make here, with the diagonal of the matrix being 0 or 1. This choice is based on wheter you consider the source node to be connected to itself. In cases where the representation of the node is dependent on itself and adjacent nodes, the diagonal should be set to 1. In the scenario of citation networks, the diagonal should be set to 1, as a paper is likely to reference and build upon its own findings throughout. By setting the diagonal to 0, it is akin to attempting to predict the representation of the node base only on its adjacent nodes, which is not the case in citation networks. If an adjaceny metrix is symmetric around it's diagonal, then the graph is undirected, otherwise it is directed (i.e. $U$ is connected to $V$ and $V$ is conencted to $U$). In citation networks, this is not the case, as because paper A cites paper B, it does not mean the reverse is true.    
+
+  Consider the same 3 research papers, with the following adjacency matrix:
+  $A = \begin{bmatrix}
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+  1 & 0 & 0
+  \end{bmatrix}$
+  Which represents the following graph:
+
+  \begin{center}
+    \begin{tikzpicture}[
+        > = {Stealth[scale=1.2]},
+        vertex/.style = {circle, draw, minimum size=1.2cm, inner sep=1pt},
+        ref_edge/.style = {->, thick, blue},
+        label_style/.style = {font=\small}
+    ]
+
+    \node[vertex] (Smith) at (0,0) {Smith};
+    \node[vertex] (Johnson) at (2,0) {Johnson};
+    \node[vertex] (Zhang) at (1,2) {Zhang};
+
+    \draw[ref_edge] (Smith) -- (Johnson);
+    \draw[ref_edge] (Zhang) -- (Johnson);
+    \draw[ref_edge] (Smith) -- (Zhang);
+    \end{tikzpicture}
+    \end{center}
+
+    With both $X$ and $A$ defined, we can numerically represent the graph. The node feature matrix $X$ is the initial/input node features, with our goal for learning on graphs to learn node embeddings $H \in \mathbb{R}^{N\times D}$ where $D$ is a chosen hidden dimension size. 
+
+
+    \subsection{Message Passing Neural Networks}
+
+    We need an approach that can work with the graph structure, which has variable number of nodes and edge conenctions between nodes. Historically with the CNN architecture, the input size was fixed, and the network was able to learn spatial invariance through the use of convolutional filters that were invariant to the location of the feature in the input. With graph structured data, the number of nodes and connections between nodes can vary for each graph, and spatial invariance is not invariant to the location of the feature in the graph. 
+
+    Message Passing Neural Networks (MPNNs) are a type of graph neural network that can learn spatial invariance through the use of message passing between nodes. The basic idea of MPNNs is to iteratively update node representations by passing messages between connected nodes. This process is repeated for a fixed number of iterations, or until convergence.
+
+    The process is defined as follows:
+    \begin{itemize}
+        \item Message: every node decides how to send information to neighboring nodes it is conencted to by edges
+        \item Aggregate: nodes recieve messages from all their neighbors, who also passed messages and decides how to combine the information from all of its neighbors. 
+        \item Update: each node decies how to combine neighbourhood information with its own information and updates it embedding for the next timestep. 
+    \end{itemize}
+
+    By doing this we have nodes pass each other information and disseminate information around the graph, allowing the network to learn spatial invariance.  This can be repeated for a fixed number of iterations ($K$), with the larger the value of $K$, the more the more diffuse the information around the graph becomes.
+
+    Each section of the MPNN process in more detail:
+
+    \subsubsection{Message}
+
+    The source node $U$ will pass a message $m_{uv}$ to the destination node $V$. The message depends on the GNN architecture with the easiest example message being passed being $U$ node's feature $h_u$ vector to $V$.
+
+    \subsubsection{Aggregate}
+
+    The destination node $V$ will recieve messages from all its neighbouring nodes, and needs to decide how to combine the information from all of its neighbours. This is typically done using a sum, average or max pooling of the messages from all neighbouring nodes. It is important that the aggregation function has to be a permutation invariant function, as the order of the messages should not affect the output. 
+
+    This gives us a combined neighbourhood node embedding, denoted as $h_{N(V)}$, where $N(V)$ is the set of all neighbouring nodes to $V$, meaning all nodes connected to $V$ by an edge. 
+
+    $h_{N(v)}^{k+1} = AGGREGATE({h_u^k, \forall u \in N(v)})$
+
+    \subsubsection{Update}
+
+    Each node updates its own embedding based on the combined neighbourhood embedding and its own embedding from the previous timestep. 
+
+    $h_v^{k+1} = \sigma(W \cdot CONCAT(h_v^k, h_{N(v)}^{k+1}))$
+
+    \end{document}
