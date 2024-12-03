@@ -18,7 +18,8 @@
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{booktabs}
-
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{makecell}
@@ -508,7 +509,6 @@ A gridsearch was conducted on the Mortality@1825 days dataset to see which datas
 \end{table}
 
 
-\hl{need to check the lower mortality model outputs}
 \begin{table}[htbp]
     \centering
     \caption{Best Performing Model Perform on validation dataset following hyperparameter tuning}
@@ -525,13 +525,13 @@ A gridsearch was conducted on the Mortality@1825 days dataset to see which datas
                                                 & Hierachial Attention       & 0.555          & 0.570          & 0.118           \\
                                                 & Temporal Fusion Network    & 0.741          & 0.595          & 0.143           \\
         \hline
-        \multirow{5}{*}{Mortality at 30 days}   & BiLSTM w/ Skip Connections & 0.952          & 0.682          & 0.130           \\
-                                                & Hierachial Attention       & [VALUE]        & [VALUE]        & [VALUE]         \\
-                                                & Temporal Fusion Network    & [VALUE]        & [VALUE]        & [VALUE]         \\
+        \multirow{5}{*}{Mortality at 30 days}   & BiLSTM w/ Skip Connections & 0.952          & \textbf{0.682}          & \textbf{0.130}           \\
+                                                & Hierachial Attention       & 0.534        & 0.669       & 0.041        \\
+                                                & Temporal Fusion Network    & \textbf{0.973}        & 0.567        & 0.051         \\
         \hline
-        \multirow{5}{*}{Mortality at 90 days}   & BiLSTM w/ Skip Connections & 0.959          & 0.738          & 0.155           \\
-                                                & Hierachial Attention       & [VALUE]        & [VALUE]        & [VALUE]         \\
-                                                & Temporal Fusion Network    & [VALUE]        & [VALUE]        & [VALUE]         \\
+        \multirow{5}{*}{Mortality at 90 days}   & BiLSTM w/ Skip Connections & 0.959          & \textbf{0.738}          & \textbf{0.155}           \\
+                                                & Hierachial Attention       & 0.625        & 0.672        & 0.072         \\
+                                                & Temporal Fusion Network    & \textbf{0.973}        & 0.672        & 0.112         \\
         \hline
         \multirow{5}{*}{Mortality at 720 days}  & BiLSTM w/ Skip Connections & \textbf{0.853} & 0.602          & 0.203           \\
                                                 & Hierachial Attention       & 0.598          & \textbf{0.625} & 0.172           \\
@@ -543,5 +543,96 @@ A gridsearch was conducted on the Mortality@1825 days dataset to see which datas
         \hline
         \label{tab:final-model-hyperparameters}
     \end{tabular}
+    \caption*{
+        Gridsearch results for the best performing model on the validation dataset following hyperparameter tuning. Note that the PR AUC scores performance performed superior to other approaches three out of five times, with temporal fusion network performing better once better class balance was achieved.
+    }
 \end{table}
+\newpage
+\section{Time-series and non-time-series data}
+
+Investigations into combining time-series and non-time-series data were conducted. This was done through concatenation of data from a deep neural network model (the, on average, most performing model from the non-time-series section) and a bidirectional lstm model (which was the best performing model from the time-series section). The concatenated data was then passed through a series of fully connected layers before a sigmoid activation function was applied to the output layer to output a probability. This results in poorer performance than models which just consider non-time-series data alone. 
+
+\begin{table}[htbp]
+    \centering
+    \caption{Comparative results of non-time-series, time-series and combined models}
+    \begin{tabular}{lcccc}
+        \hline
+        Outcome                                 & Model                      & Accuracy       & ROC AUC        & PR AUC          \\
+        \hline
+        Mortality at 1825 days                   & Non-time-series  (DNN)          & 0.606          & 0.630          & \textbf{0.512}          \\
+                                                & Time-series       (BiLSTM)         & 0.375          & 0.615          & 0.333          \\
+                                                & Combined          (DNN + BiLSTM)         & \textbf{0.607}          & \textbf{0.671}          & 0.334          \\
+        \hline
+        Mortality at 720 days                   & Non-time-series  (DNN)          & 0.836          & \textbf{0.708}          & \textbf{0.306}          \\
+                                                & Time-series       (BiLSTM)         & \textbf{0.853}          & 0.602          & 0.203          \\
+                                                & Combined          (DNN + BiLSTM)         & 0.729         & 0.683          & 0.241          \\
+        \hline
+        Mortality at 30 days                    & Non-time-series  (RF)          & 0.961         & \textbf{0.779}          & \textbf{0.155}          \\
+                                                & Time-series       (BiLSTM)         & 0.952          & 0.682          & 0.130          \\
+                                                & Combined          (DNN + BiLSTM)         & \textbf{0.966}          & 0.802          & 0.147          \\
+        \hline
+        Mortality at 90 days                    & Non-time-series  (DNN)          & 0.955          & 0.742          & \textbf{0.264}          \\
+                                                & Time-series       (BiLSTM)         & \textbf{0.959}          & 0.738          & 0.155          \\
+                                                & Combined          (DNN + BiLSTM)         & 0.892          & \textbf{0.755}          & 0.073          \\
+        \hline
+        Days at Home 90                         & Non-time-series  (DNN)          & 0.808          & 0.583          & \textbf{0.238}          \\
+                                                & Time-series       (BiLSTM)         & \textbf{0.817}          & \textbf{0.692}          & 0.220          \\
+                                                & Combined          (DNN + BiLSTM)         & 0.747          & 0.616          & 0.210          \\
+        \hline
+        Days at Home 180                        & Non-time-series  (RF)          & \textbf{0.913}          & \textbf{0.758}          & \textbf{0.241}          \\
+                                                & Time-series       (BiLSTM)         & 0.777         & 0.626          & 0.163          \\
+                                                & Combined          (DNN + BiLSTM)         & 0.872         & 0.675          & 0.138          \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        width=\textwidth,
+        height=8cm,
+        ybar,
+        bar width=12pt,
+        ylabel={PR AUC},
+        xlabel={Outcome},
+        ymin=0,
+        ymax=0.6,
+        symbolic x coords={Mort-1825d, Mort-720d, Mort-30d, Mort-90d, DaH-90, DaH-180},
+        xtick=data,
+        xticklabel style={rotate=45,anchor=east},
+        legend style={at={(0.5,-0.25)},anchor=north,legend columns=3},
+        nodes near coords,
+        nodes near coords style={font=\tiny},
+        every node near coord/.append style={rotate=90,anchor=west}
+    ]
+    
+    \addplot[fill=blue!60] coordinates {
+        (Mort-1825d,0.512)
+        (Mort-720d,0.306)
+        (Mort-30d,0.155)
+        (Mort-90d,0.264)
+        (DaH-90,0.238)
+        (DaH-180,0.241)
+    };
+    
+    \addplot[fill=red!60] coordinates {
+        (Mort-1825d,0.333)
+        (Mort-720d,0.203)
+        (Mort-30d,0.130)
+        (Mort-90d,0.155)
+        (DaH-90,0.220)
+        (DaH-180,0.163)
+    };
+    
+    \addplot[fill=green!60] coordinates {
+        (Mort-1825d,0.334)
+        (Mort-720d,0.241)
+        (Mort-30d,0.147)
+        (Mort-90d,0.073)
+        (DaH-90,0.210)
+        (DaH-180,0.138)
+    };
+    
+    \legend{Non-time-series,Time-series,Combined}
+    \end{axis}
+    \end{tikzpicture}
 \end{document}

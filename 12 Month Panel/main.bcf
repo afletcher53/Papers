@@ -2423,24 +2423,45 @@
     <bcf:citekey order="43" intorder="2">akers2009systematic</bcf:citekey>
     <bcf:citekey order="44" intorder="1">briscoeConductReportingCitation2019</bcf:citekey>
     <bcf:citekey order="45" intorder="1">MECIRManualCochrane</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">llm4g</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">kanoulas_clef_2017</bcf:citekey>
-    <bcf:citekey order="47" intorder="2">kanoulas_clef_2018</bcf:citekey>
-    <bcf:citekey order="47" intorder="3">kanoulas_clef_2019</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">goharian_reproducibility_2024</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">de_bruin_synergy_2023</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">roegiest_trec_2015</bcf:citekey>
-    <bcf:citekey order="50" intorder="2">grossman_trec_2016</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">lewis_rcv1_2004</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">omara-eves_using_2015</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">tsafnat_systematic_2014</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">manning_introduction_2008</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">beltagy_longformer_2020</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">li_comparative_2023</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">zaheer_big_2021</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">priem_openalex_2022</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">ostendorff_enriching_2019</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">wolff_enriched_2024</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">behnamghader_llm2vec_2024</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">cai_came_2023</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">hino_active_2022</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">kanoulas_clef_2017</bcf:citekey>
+    <bcf:citekey order="46" intorder="2">kanoulas_clef_2018</bcf:citekey>
+    <bcf:citekey order="46" intorder="3">kanoulas_clef_2019</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">goharian_reproducibility_2024</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">de_bruin_synergy_2023</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">roegiest_trec_2015</bcf:citekey>
+    <bcf:citekey order="49" intorder="2">grossman_trec_2016</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">lewis_rcv1_2004</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">omara-eves_using_2015</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">tsafnat_systematic_2014</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">manning_introduction_2008</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">beltagy_longformer_2020</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">li_comparative_2023</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">zaheer_big_2021</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">priem_openalex_2022</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">ostendorff_enriching_2019</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">wolff_enriched_2024</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">behnamghader_llm2vec_2024</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">cai_came_2023</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">hino_active_2022</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="none">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2">
+      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="none/global//global/global/global"
+                type="entry"
+                sortingtemplatename="none"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>
