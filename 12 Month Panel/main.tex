@@ -1,5 +1,5 @@
 \documentclass[10pt, english]{article}
- 
+
 \title{\textbf{Continuous Active Learning with Systematic Reviews in Medicine}}
 \author{
     \fontsize{11}{13}\selectfont 
@@ -28,6 +28,9 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{makecell}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
 \onehalfspacing
 \def\mystartdate{2022-3-1}%starting date of the calendar
 \def\myenddate{2022-4-30}%ending date of the calendar
@@ -137,8 +140,8 @@ pdfkeywords={list; here; your; keywords (key words)}
 \newpage
 \subfile{sections/active-learning}
 \subfile{sections/al_literature}
-\newpage
-\subfile{sections/citation_screening}
+
+\subfile{sections/stopping_algorithms}
 \newpage
 \subfile{sections/datasets}
 
@@ -150,6 +153,9 @@ pdfkeywords={list; here; your; keywords (key words)}
 \newpage
 \section{RESEARCH GAPS}
 \subfile{sections/research-gaps}
+
+\subfile{sections/citation_screening}
+\newpage
 \newpage
 \section{TIMELINE}
 \subfile{sections/timeline}
