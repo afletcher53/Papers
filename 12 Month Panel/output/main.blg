@@ -1,19 +1,20 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'output/main.blg'
-[25] biber:340> INFO - === Thu Nov 14, 2024, 10:56:28
-[31] Biber.pm:420> INFO - Reading 'output/main.bcf'
-[54] Biber.pm:994> INFO - Found 63 citekeys in bib section 0
-[60] Biber.pm:4463> INFO - Processing section 0
-[63] Biber.pm:4654> INFO - Looking for bibtex file 'references.bib' for section 0
-[68] bibtex.pm:1713> INFO - LaTeX decoding ...
-[137] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[354] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[354] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[354] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[354] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[369] bbl.pm:676> INFO - Writing 'output/main.bbl' with encoding 'UTF-8'
-[381] bbl.pm:779> INFO - Output to output/main.bbl
-[381] Biber.pm:131> WARN - ISBN '978-3-031-56065-1 978-3-031-56066-8' in entry 'goharian_reproducibility_2024' is invalid - run biber with '--validate_datamodel' for details.
-[381] Biber.pm:131> WARN - ISBN '978-0-521-86571-5 978-0-511-80907-1' in entry 'manning_introduction_2008' is invalid - run biber with '--validate_datamodel' for details.
-[381] Biber.pm:131> WARN - I didn't find a database entry for 'felizardo_visual_2013' (section 0)
-[381] Biber.pm:133> INFO - WARNINGS: 3
+[26] biber:340> INFO - === Fri Jan 17, 2025, 11:38:09
+[33] Biber.pm:420> INFO - Reading 'output/main.bcf'
+[57] Biber.pm:994> INFO - Found 55 citekeys in bib section 0
+[63] Biber.pm:4463> INFO - Processing section 0
+[68] Biber.pm:4654> INFO - Looking for bibtex file 'references.bib' for section 0
+[73] bibtex.pm:1713> INFO - LaTeX decoding ...
+[142] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[330] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[330] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[331] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[331] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[345] bbl.pm:676> INFO - Writing 'output/main.bbl' with encoding 'UTF-8'
+[356] bbl.pm:779> INFO - Output to output/main.bbl
+[356] Biber.pm:131> WARN - ISBN '978-3-031-56065-1 978-3-031-56066-8' in entry 'goharian_reproducibility_2024' is invalid - run biber with '--validate_datamodel' for details.
+[356] Biber.pm:131> WARN - ISBN '978-0-521-86571-5 978-0-511-80907-1' in entry 'manning_introduction_2008' is invalid - run biber with '--validate_datamodel' for details.
+[356] Biber.pm:131> WARN - I didn't find a database entry for 'felizardo_visual_2013' (section 0)
+[356] Biber.pm:131> WARN - I didn't find a database entry for 'llm4g' (section 0)
+[356] Biber.pm:133> INFO - WARNINGS: 4

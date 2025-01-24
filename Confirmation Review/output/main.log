@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2024.12.24)  17 JAN 2025 11:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2024.12.24)  23 JAN 2025 18:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/aaron/Desktop/Repositories/Papers/12 Month Panel/main.tex"
-(/home/aaron/Desktop/Repositories/Papers/12 Month Panel/main.tex
+**"/home/aaron/Desktop/Repositories/Papers/Confirmation Review/main.tex"
+(/home/aaron/Desktop/Repositories/Papers/Confirmation Review/main.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -1207,6 +1207,13 @@ Package biblatex Info: ... file 'main.bbl' found.
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
+(biblatex)                cormack_evaluationsections//_2014
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
 (biblatex)                felizardo_visual_2013
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -1250,14 +1257,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}] (./sections/acronyms.tex
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 5.
+(Font)              <10> on input line 108.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 5.
+(Font)              <7> on input line 108.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 5.
-)
+(Font)              <5> on input line 108.
+
 
 [2]
 
@@ -1267,105 +1274,106 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 
-[4] (./sections/introduction.tex)
-
-[5] (./sections/systematic-review.tex (./tables/oxford_hier.tex
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 5.
-)
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 23.
+[4]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 167.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[6{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
-<sections//images/reproduced_step_by_step_guide.png, id=258, 810.02625pt x 640.3925pt>
-File: sections//images/reproduced_step_by_step_guide.png Graphic file (type png)
-<use sections//images/reproduced_step_by_step_guide.png>
-Package pdftex.def Info: sections//images/reproduced_step_by_step_guide.png  used on input line 37.
+[5{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+[6] (./tables/oxford_hier.tex
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 5.
+)
+
+[7]
+<images/reproduced_step_by_step_guide.png, id=249, 810.02625pt x 640.3925pt>
+File: images/reproduced_step_by_step_guide.png Graphic file (type png)
+<use images/reproduced_step_by_step_guide.png>
+Package pdftex.def Info: images/reproduced_step_by_step_guide.png  used on input line 234.
 (pdftex.def)             Requested size: 404.71353pt x 319.96094pt.
  (./tables/stages_of_sr.tex)
-<sections//images/increase_in_publications.jpg, id=262, 472.28445pt x 218.85765pt>
-File: sections//images/increase_in_publications.jpg Graphic file (type jpg)
-<use sections//images/increase_in_publications.jpg>
-Package pdftex.def Info: sections//images/increase_in_publications.jpg  used on input line 50.
+<images/increase_in_publications.jpg, id=256, 472.28445pt x 218.85765pt>
+File: images/increase_in_publications.jpg Graphic file (type jpg)
+<use images/increase_in_publications.jpg>
+Package pdftex.def Info: images/increase_in_publications.jpg  used on input line 248.
 (pdftex.def)             Requested size: 404.71353pt x 187.54265pt.
 
 
-LaTeX Warning: Citation 'felizardo_visual_2013' on page 7 undefined on input line 55.
+[8 <./images/reproduced_step_by_step_guide.png>]
 
-)
+LaTeX Warning: Citation 'felizardo_visual_2013' on page 9 undefined on input line 253.
 
-[7 <./sections//images/reproduced_step_by_step_guide.png>]
 
-[8 <./sections//images/increase_in_publications.jpg>] (./sections/active-learning.tex
-<sections//images/pool_based_strategy.png, id=292, 571.13374pt x 298.11375pt>
-File: sections//images/pool_based_strategy.png Graphic file (type png)
-<use sections//images/pool_based_strategy.png>
-Package pdftex.def Info: sections//images/pool_based_strategy.png  used on input line 22.
+
+[9 <./images/increase_in_publications.jpg>]
+<images/pool_based_strategy.png, id=285, 571.13374pt x 298.11375pt>
+File: images/pool_based_strategy.png Graphic file (type png)
+<use images/pool_based_strategy.png>
+Package pdftex.def Info: images/pool_based_strategy.png  used on input line 276.
 (pdftex.def)             Requested size: 252.94499pt x 132.03018pt.
 
 
-[9{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}] (./tables/mathmatical_notation_active_learning.tex
+[10{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}] (./tables/mathmatical_notation_active_learning.tex
 Overfull \hbox (9.29301pt too wide) in paragraph at lines 6--29
  [][] 
  []
 
-)) (./sections/al_literature.tex
+)
 
-[10 <./sections//images/pool_based_strategy.png (PNG copy)>]
+[11 <./images/pool_based_strategy.png (PNG copy)>]
 
-[11]
-<sections//images/autotar.jpg, id=342, 2569.6pt x 3312.375pt>
-File: sections//images/autotar.jpg Graphic file (type jpg)
-<use sections//images/autotar.jpg>
-Package pdftex.def Info: sections//images/autotar.jpg  used on input line 27.
+LaTeX Warning: Citation 'cormack_evaluationsections//_2014' on page 12 undefined on input line 296.
+
+
+
+[12]
+<images/autotar.jpg, id=331, 2569.6pt x 3312.375pt>
+File: images/autotar.jpg Graphic file (type jpg)
+<use images/autotar.jpg>
+Package pdftex.def Info: images/autotar.jpg  used on input line 311.
 (pdftex.def)             Requested size: 505.89pt x 652.10202pt.
 
 
-LaTeX Warning: Float too large for page by 35.67201pt on input line 30.
+LaTeX Warning: Float too large for page by 35.67201pt on input line 314.
 
-) (./sections/stopping_algorithms.tex)
 
-[12]
 
-[13 <./sections//images/autotar.jpg>] (./sections/datasets.tex
+[13]
 
-[14]) (./sections/evaluation-metrics.tex
+[14 <./images/autotar.jpg>]
 
 [15]
 
-[16{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}])
-
-[17] (./sections/citation_screening.tex
-
-[18]
-
-[19]
-LaTeX Font Info:    Trying to load font information for OML+lmr on input line 107.
+[16]
+LaTeX Font Info:    Trying to load font information for OML+lmr on input line 438.
  (/usr/share/texmf/tex/latex/lm/omllmr.fd
 File: omllmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OML/lmr/bx/n' in size <8> not available
-(Font)              Font shape `OML/lmm/b/it' tried instead on input line 107.
+(Font)              Font shape `OML/lmm/b/it' tried instead on input line 438.
+
+
+[17{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}]
+
+[18]
+
+[19]
+
+LaTeX Warning: Reference `fig:citation-network-mining' on page 20 undefined on input line 608.
+
 
 
 [20]
 
 [21]
 
-LaTeX Warning: Reference `fig:citation-network-mining' on page 22 undefined on input line 277.
+LaTeX Warning: Citation 'llm4g' on page 22 undefined on input line 722.
 
 
 
 [22]
-
-[23]
-
-[24]
-
-LaTeX Warning: Citation 'llm4g' on page 25 undefined on input line 391.
-
 Missing character: There is no h in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no t in font nullfont!
@@ -1609,67 +1617,35 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no h in font nullfont!
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
+[23]
 
+[24]
 
 [25]
 
 [26]
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 878.
+ (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (39.87517pt too wide) in paragraph at lines 879--879
+\OT1/lmr/m/n/10 6.1 (Dec. 2017), p. 204. \OT1/lmr/m/sc/10 issn\OT1/lmr/m/n/10 : 2046-4053. \OT1/lmr/m/sc/10 doi\OT1/lmr/m/n/10 : [][]$\OT1/lmtt/m/n/10 10 . 1186 / s13643 -[] 017 -[] 0604 -[] 6$[][]\OT1/lmr/m/n/10 . \OT1/lmr/m/sc/10 url\OT1/lmr/m/n/10 : [][]$\OT1/lmtt/m/n/10 http : / / systematicreviewsjournal .
+ []
 
-[27{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}])
 
-[28] (./sections/timeline.tex
+
+[27{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}]
+
+[28]
 
 [29]
 
 [30]
-<sections//images/Gantt1.png, id=531, 1317.42188pt x 864.22874pt>
-File: sections//images/Gantt1.png Graphic file (type png)
-<use sections//images/Gantt1.png>
-Package pdftex.def Info: sections//images/Gantt1.png  used on input line 35.
-(pdftex.def)             Requested size: 650.43001pt x 426.69342pt.
 
+[31]
 
-[31 <./sections//images/Gantt1.png>] (./tables/threats.tex)
-
-[32]) (./sections/ethics.tex)
-
-[33
-
-
-
-
-] (./sections/development.tex
-
-LaTeX Warning: Reference `appendix:COM61003' on page 34 undefined on input line 5.
-
-
-LaTeX Warning: Reference `appendix:COM61004' on page 34 undefined on input line 5.
-
-)
-
-[34] (./sections/supporting-works.tex
-
-LaTeX Warning: Reference `appendix:retractionwatch' on page 35 undefined on input line 9.
-
-)
-
-[35]
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 180.
- (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
-File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-
-[36{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}]
-
-[37]
-
-[38]
-
-[39]
-
-[40] (output/main.aux)
+[32] (output/main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
@@ -1679,24 +1655,24 @@ L3 programming layer <2024-05-27>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 66616211C066EA2C5434FF94DBB2D3A8;7230.
+(rerunfilecheck)             Checksum: F74BFF78A2E5DE4677CE9768692471D5;5934.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38677 strings out of 475468
- 758282 string characters out of 5776078
+ 38537 strings out of 475468
+ 755588 string characters out of 5776078
  1966905 words of memory out of 5000000
- 60407 multiletter control sequences out of 15000+600000
+ 60332 multiletter control sequences out of 15000+600000
  630403 words of font info for 91 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 88i,17n,93p,2799b,1850s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on output/main.pdf (40 pages, 1698213 bytes).
+ 88i,17n,93p,2804b,1850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on output/main.pdf (32 pages, 1562199 bytes).
 PDF statistics:
- 899 PDF objects out of 1000 (max. 8388607)
- 791 compressed objects within 8 object streams
- 171 named destinations out of 1000 (max. 500000)
- 342 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 854 PDF objects out of 1000 (max. 8388607)
+ 762 compressed objects within 8 object streams
+ 161 named destinations out of 1000 (max. 500000)
+ 265 words of extra memory for PDF output out of 10000 (max. 10000000)
 

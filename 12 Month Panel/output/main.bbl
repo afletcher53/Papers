@@ -1914,70 +1914,176 @@
       \verb https://github.com/ielab/goldilocks-reproduce
       \endverb
     \endentry
-    \entry{BMCMedicalResearch}{online}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Publish your healthcare research with {BMC} Medical Research Methodology, with 3.9 Impact Factor and 18 days to first decision. Focusing on manuscripts ...}
-      \field{langid}{english}
-      \field{title}{{BMC} Medical Research Methodology}
-      \field{titleaddon}{{BioMed} Central}
-      \field{urlday}{13}
-      \field{urlmonth}{11}
-      \field{urlyear}{2024}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:/home/aaronfletcher/snap/zotero-snap/common/Zotero/storage/YNTDE9DF/research-article.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://bmcmedresmethodol.biomedcentral.com/submission-guidelines/preparing-your-manuscript/research-article
-      \endverb
-      \verb{url}
-      \verb https://bmcmedresmethodol.biomedcentral.com/submission-guidelines/preparing-your-manuscript/research-article
-      \endverb
-    \endentry
-    \entry{yasunaga2022linkbertpretraininglanguagemodels}{misc}{}{}
-      \name{author}{3}{}{%
-        {{hash=f95714ad66afcfa71b317b3bec07d01d}{%
-           family={Yasunaga},
-           familyi={Y\bibinitperiod},
-           given={Michihiro},
-           giveni={M\bibinitperiod}}}%
-        {{hash=900d107125ff0ca84698cb909e4f6c51}{%
-           family={Leskovec},
+    \entry{kanoulas_clef_2017}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=6317e2fbcca5843d0d9225d119643f7c}{%
+           family={Kanoulas},
+           familyi={K\bibinitperiod},
+           given={Evangelos},
+           giveni={E\bibinitperiod}}}%
+        {{hash=fc63986540b002fd74244549ce74082f}{%
+           family={Li},
            familyi={L\bibinitperiod},
-           given={Jure},
-           giveni={J\bibinitperiod}}}%
-        {{hash=86c032bbc45c3b616f0a1170befc0e82}{%
-           family={Liang},
-           familyi={L\bibinitperiod},
-           given={Percy},
-           giveni={P\bibinitperiod}}}%
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9c1fea5799784a47c5e9e76067f41a5d}{%
+           family={Azzopardi},
+           familyi={A\bibinitperiod},
+           given={Leif},
+           giveni={L\bibinitperiod}}}%
+        {{hash=8609732b6a8d8bc1b9fe0e9acb31e94e}{%
+           family={Spijker},
+           familyi={S\bibinitperiod},
+           given={Rene},
+           giveni={R\bibinitperiod}}}%
       }
-      \strng{namehash}{17aeefef7631a5729a4ead5f02ba232d}
-      \strng{fullhash}{17aeefef7631a5729a4ead5f02ba232d}
-      \strng{fullhashraw}{17aeefef7631a5729a4ead5f02ba232d}
-      \strng{bibnamehash}{17aeefef7631a5729a4ead5f02ba232d}
-      \strng{authorbibnamehash}{17aeefef7631a5729a4ead5f02ba232d}
-      \strng{authornamehash}{17aeefef7631a5729a4ead5f02ba232d}
-      \strng{authorfullhash}{17aeefef7631a5729a4ead5f02ba232d}
-      \strng{authorfullhashraw}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{namehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{fullhash}{5c28c88fb01ace652e44948b872dab79}
+      \strng{fullhashraw}{5c28c88fb01ace652e44948b872dab79}
+      \strng{bibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authorbibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authornamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authorfullhash}{5c28c88fb01ace652e44948b872dab79}
+      \strng{authorfullhashraw}{5c28c88fb01ace652e44948b872dab79}
+      \field{extraname}{1}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprinttype}{arxiv}
-      \field{title}{{LinkBERT}: Pretraining language models with document links}
-      \field{year}{2022}
+      \field{abstract}{Systematic reviews are a widely used method to provide an overview over the current scientific consensus, by bringing together multiple studies in a reliable, transparent way. The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying all relevant studies in an unbiased way both complex and time consuming to the extent that jeopardizes the validity of their findings and the ability to inform policy and practice in a timely manner. The {CLEF} 2017 e-Health Lab Task 2 focuses on the efficient and effective ranking of studies during the abstract and title screening phase of conducting Diagnostic Test Accuracy systematic reviews. We constructed a benchmark collection of fifty such reviews and the corresponding relevant and irrelevant articles found by the original Boolean query. Fourteen teams participated in the task, submitting 68 automatic and semi-automatic runs, using information retrieval and machine learning algorithms over a variety of text representations, in a batch and iterative manner. This paper reports both the methodology used to construct the benchmark collection, and the results of the evaluation.}
+      \field{issn}{1613-0073}
+      \field{journaltitle}{{CEUR} Workshop Proceedings}
+      \field{month}{9}
+      \field{title}{{CLEF} 2017 technologically assisted reviews in empirical medicine overview}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{volume}{1866}
+      \field{year}{2017}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb 2203.15827 [cs.CL]
-      \endverb
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 29}
+      \range{pages}{29}
       \verb{urlraw}
-      \verb https://arxiv.org/abs/2203.15827
+      \verb http://ceur-ws.org/Vol-1866/
       \endverb
       \verb{url}
-      \verb https://arxiv.org/abs/2203.15827
+      \verb http://ceur-ws.org/Vol-1866/
+      \endverb
+      \keyw{Active learning,{TAR},Information retrieval,Systematic reviews,Evaluation,Text classification}
+    \endentry
+    \entry{kanoulas_clef_2018}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=6317e2fbcca5843d0d9225d119643f7c}{%
+           family={Kanoulas},
+           familyi={K\bibinitperiod},
+           given={Evangelos},
+           giveni={E\bibinitperiod}}}%
+        {{hash=fc63986540b002fd74244549ce74082f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9c1fea5799784a47c5e9e76067f41a5d}{%
+           family={Azzopardi},
+           familyi={A\bibinitperiod},
+           given={Leif},
+           giveni={L\bibinitperiod}}}%
+        {{hash=8609732b6a8d8bc1b9fe0e9acb31e94e}{%
+           family={Spijker},
+           familyi={S\bibinitperiod},
+           given={Rene},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{fullhash}{5c28c88fb01ace652e44948b872dab79}
+      \strng{fullhashraw}{5c28c88fb01ace652e44948b872dab79}
+      \strng{bibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authorbibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authornamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authorfullhash}{5c28c88fb01ace652e44948b872dab79}
+      \strng{authorfullhashraw}{5c28c88fb01ace652e44948b872dab79}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Conducting a systematic review is a widely used method to obtain an overview over the current scientific consensus on a topic of interest, by bringing together multiple studies in a reliable, transparent way. The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying all relevant studies in an unbiased way both complex and time consuming to the extent that jeopardizes the validity of their findings and the ability to inform policy and practice in a timely manner. The {CLEF} 2018 e-Health Technology Assisted Reviews in Empirical Medicine task aims at evaluating search algorithms that seek to identify all studies relevant for conducting a systematic review in empirical medicine. The task had a focus on Diagnostic Test Accuracy ({DTA}) reviews, and consisted of two subtasks: 1) given a number of relevance criteria as described in a systematic review protocol, search a large medical database of article abstracts ({PubMed}) to find the studies to be included in the review, and 2) given the article abstracts retrieved by a carefully designed Boolean Query, prioritize them to reduce the effort required by experts to screen the abstracts for inclusion in the review. Seven teams participated in the task, with a total of 12 runs submitted for subtask 1 and 19 runs for subtask 2. This paper reports both the methodology used to construct the benchmark collection, and the results of the evaluation.}
+      \field{issn}{1613-0073}
+      \field{journaltitle}{{CEUR} Workshop Proceedings}
+      \field{month}{7}
+      \field{shorttitle}{{CLEF} 2018 technologically assisted reviews in empirical medicine overview}
+      \field{title}{{CLEF} 2018 technologically assisted reviews in empirical medicine overview: 19th Working Notes of {CLEF} Conference and Labs of the Evaluation Forum, {CLEF} 2018}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{volume}{2125}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.scopus.com/inward/record.url?scp=85051077484&partnerID=8YFLogxK
+      \endverb
+      \verb{url}
+      \verb http://www.scopus.com/inward/record.url?scp=85051077484&partnerID=8YFLogxK
+      \endverb
+      \keyw{{TAR},{PubMed},relevance feedback,active learning,evaluation,systematic reviews,text classification,benchmarking,Cochrane,diagnostic test accuracy,{DTA},e-health,high recall,information retrieval,technology assisted reviews,test collection}
+    \endentry
+    \entry{kanoulas_clef_2019}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=6317e2fbcca5843d0d9225d119643f7c}{%
+           family={Kanoulas},
+           familyi={K\bibinitperiod},
+           given={Evangelos},
+           giveni={E\bibinitperiod}}}%
+        {{hash=fc63986540b002fd74244549ce74082f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9c1fea5799784a47c5e9e76067f41a5d}{%
+           family={Azzopardi},
+           familyi={A\bibinitperiod},
+           given={Leif},
+           giveni={L\bibinitperiod}}}%
+        {{hash=8609732b6a8d8bc1b9fe0e9acb31e94e}{%
+           family={Spijker},
+           familyi={S\bibinitperiod},
+           given={Rene},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{fullhash}{5c28c88fb01ace652e44948b872dab79}
+      \strng{fullhashraw}{5c28c88fb01ace652e44948b872dab79}
+      \strng{bibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authorbibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authornamehash}{3db0c498f5bf03c3f3926fb4636989e9}
+      \strng{authorfullhash}{5c28c88fb01ace652e44948b872dab79}
+      \strng{authorfullhashraw}{5c28c88fb01ace652e44948b872dab79}
+      \field{extraname}{3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Systematic reviews are a widely used method to provide an overview over the current scientific consensus, by bringing together multiple studies in a systematic, reliable, and transparent way. The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying all relevant studies in an unbiased way both complex and time consuming to the extent that jeopardizes the validity of their findings and the ability to inform policy and practice in a timely manner. The {CLEF} 2019 e-Health {TAR} Lab accommodated two tasks. Task 1 focused on retrieving relevant studies from {PubMed} without the use of a Boolean query, while Task 2 focused on the efficient and effective ranking of studies during the abstract and title screening phase of conducting a systematic review. In the 2019 lab we also expanded upon the type of systematics reviews considered. Hence, beyond Diagnostic Test Accuracy reviews, we also included Intervention, Prognosis, and Qualitative systematic reviews. We constructed a benchmark collection of 31 reviews published by Cochrane, and the corresponding relevant and irrelevant articles found by the original Boolean query. Three teams participated in Task 2, submitting automatic and semi-automatic runs, using information retrieval and machine learning algorithms over a variety of text representations, in a batch and iterative manner. This paper reports both the methodology used to construct the benchmark collection, and the results of the evaluation.}
+      \field{issn}{1613-0073}
+      \field{journaltitle}{{CEUR} Workshop Proceedings}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{note}{tex.copyright: cc\_by}
+      \field{title}{{CLEF} 2019 technology assisted reviews in empirical medicine overview}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{volume}{2380}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://strathprints.strath.ac.uk/71253/
+      \endverb
+      \verb{url}
+      \verb https://strathprints.strath.ac.uk/71253/
       \endverb
     \endentry
     \entry{goharian_reproducibility_2024}{incollection}{}{}
@@ -2079,6 +2185,516 @@
       \endverb
       \verb{url}
       \verb https://link.springer.com/10.1007/978-3-031-56066-8_13
+      \endverb
+    \endentry
+    \entry{de_bruin_synergy_2023}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=6d3c526a08ea0fa246006bf3f54225ec}{%
+           family={De\bibnamedelima Bruin},
+           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8b8bf31d88514c0c0bd0f051995f0b91}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Yongchao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=46412a1fb75e7a20fdaab25a36858201}{%
+           family={Ferdinands},
+           familyi={F\bibinitperiod},
+           given={Gerbrich},
+           giveni={G\bibinitperiod}}}%
+        {{hash=64df8c7785b0e4705907c9bd6ae7c824}{%
+           family={Teijema},
+           familyi={T\bibinitperiod},
+           given={Jelle},
+           giveni={J\bibinitperiod}}}%
+        {{hash=98f71e28f82dd9ca3ae0bb3f1b9701b7}{%
+           family={Van\bibnamedelimb De\bibnamedelima Schoot},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Rens},
+           giveni={R\bibinitperiod}}}%
+      }
+      \name{editora}{2}{}{%
+        {{hash=6d3c526a08ea0fa246006bf3f54225ec}{%
+           family={De\bibnamedelima Bruin},
+           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=98f71e28f82dd9ca3ae0bb3f1b9701b7}{%
+           family={Van\bibnamedelimb De\bibnamedelima Schoot},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Rens},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {DataverseNL}%
+      }
+      \strng{namehash}{aa46eb10b7af73862ab4e144cabf7379}
+      \strng{fullhash}{036b8e0a095f1e26636f6463cd904faa}
+      \strng{fullhashraw}{036b8e0a095f1e26636f6463cd904faa}
+      \strng{bibnamehash}{aa46eb10b7af73862ab4e144cabf7379}
+      \strng{authorbibnamehash}{aa46eb10b7af73862ab4e144cabf7379}
+      \strng{authornamehash}{aa46eb10b7af73862ab4e144cabf7379}
+      \strng{authorfullhash}{036b8e0a095f1e26636f6463cd904faa}
+      \strng{authorfullhashraw}{036b8e0a095f1e26636f6463cd904faa}
+      \strng{editorabibnamehash}{85d05d0ca31a4d45ce7eff8fa160b6ea}
+      \strng{editoranamehash}{85d05d0ca31a4d45ce7eff8fa160b6ea}
+      \strng{editorafullhash}{85d05d0ca31a4d45ce7eff8fa160b6ea}
+      \strng{editorafullhashraw}{85d05d0ca31a4d45ce7eff8fa160b6ea}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{SYNERGY} is a free and open dataset on study selection in systematic reviews, comprising 169,288 academic works from 26 systematic reviews. Only 2,834 (1.67\%) of the academic works in the binary classified dataset are included in the systematic reviews. This makes the {SYNERGY} dataset a unique dataset for the development of information retrieval algorithms, especially for sparse labels. Due to the many available variables available per record (i.e. titles, abstracts, authors, references, topics), this dataset is useful for researchers in {NLP}, machine learning, network analysis, and more. In total, the dataset contains 82,668,134 trainable data points. The easiest way to get the {SYNERGY} dataset is via the synergy-dataset Python package. See https://github.com/asreview/synergy-dataset for all information.}
+      \field{editoratype}{collaborator}
+      \field{title}{{SYNERGY} - Open machine learning dataset on study selection in systematic reviews}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.34894/HE6NAQ
+      \endverb
+      \verb{urlraw}
+      \verb https://dataverse.nl/citation?persistentId=doi:10.34894/HE6NAQ
+      \endverb
+      \verb{url}
+      \verb https://dataverse.nl/citation?persistentId=doi:10.34894/HE6NAQ
+      \endverb
+    \endentry
+    \entry{roegiest_trec_2015}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=c61207c5d33b406be50982f8dda97073}{%
+           family={Roegiest},
+           familyi={R\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8d007d505d39a8bbd47859edd9f4e9b6}{%
+           family={Cormack},
+           familyi={C\bibinitperiod},
+           given={Gordon\bibnamedelima V.},
+           giveni={G\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=627d44a3dfae51306bbd69387cb26ecf}{%
+           family={Clarke},
+           familyi={C\bibinitperiod},
+           given={Charles\bibnamedelimb L.\bibnamedelimi A.},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=8f05e7d2ea6fd59768b383b3d957f256}{%
+           family={Grossman},
+           familyi={G\bibinitperiod},
+           given={Maura\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=f13b7b0549ebe341faaf24632ca6083d}{%
+           family={Voorhees},
+           familyi={V\bibinitperiod},
+           given={Ellen\bibnamedelima M.},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=929ee6fe809d4d0968fb898144ada189}{%
+           family={Ellis},
+           familyi={E\bibinitperiod},
+           given={Angela},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {National Institute of Standards}%
+        {Technology ({NIST})}%
+      }
+      \strng{namehash}{7f18cf42e940aacf4325f52a3cf64b45}
+      \strng{fullhash}{d92d3d936e320b3321e7a9e77c03bd0f}
+      \strng{fullhashraw}{d92d3d936e320b3321e7a9e77c03bd0f}
+      \strng{bibnamehash}{7f18cf42e940aacf4325f52a3cf64b45}
+      \strng{authorbibnamehash}{7f18cf42e940aacf4325f52a3cf64b45}
+      \strng{authornamehash}{7f18cf42e940aacf4325f52a3cf64b45}
+      \strng{authorfullhash}{d92d3d936e320b3321e7a9e77c03bd0f}
+      \strng{authorfullhashraw}{d92d3d936e320b3321e7a9e77c03bd0f}
+      \strng{editorbibnamehash}{49092f893883bf5a2bde7aff57c674d7}
+      \strng{editornamehash}{49092f893883bf5a2bde7aff57c674d7}
+      \strng{editorfullhash}{49092f893883bf5a2bde7aff57c674d7}
+      \strng{editorfullhashraw}{49092f893883bf5a2bde7aff57c674d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of The Twenty-Fourth Text {REtrieval} Conference, {TREC} 2015, Gaithersburg, Maryland, {USA}, November 17-20, 2015}
+      \field{series}{{NIST} Special Publication}
+      \field{title}{{TREC} 2015 Total Recall Track Overview}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{volume}{500-319}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://trec.nist.gov/pubs/trec24/papers/Overview-TR.pdf
+      \endverb
+      \verb{url}
+      \verb https://trec.nist.gov/pubs/trec24/papers/Overview-TR.pdf
+      \endverb
+    \endentry
+    \entry{grossman_trec_2016}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=8f05e7d2ea6fd59768b383b3d957f256}{%
+           family={Grossman},
+           familyi={G\bibinitperiod},
+           given={Maura\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=aa8677c56613203ef6f25a1489c2440f}{%
+           family={Cormack},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c61207c5d33b406be50982f8dda97073}{%
+           family={Roegiest},
+           familyi={R\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{073ea5d96f71c1d489546430a5d18000}
+      \strng{fullhash}{073ea5d96f71c1d489546430a5d18000}
+      \strng{fullhashraw}{073ea5d96f71c1d489546430a5d18000}
+      \strng{bibnamehash}{073ea5d96f71c1d489546430a5d18000}
+      \strng{authorbibnamehash}{073ea5d96f71c1d489546430a5d18000}
+      \strng{authornamehash}{073ea5d96f71c1d489546430a5d18000}
+      \strng{authorfullhash}{073ea5d96f71c1d489546430a5d18000}
+      \strng{authorfullhashraw}{073ea5d96f71c1d489546430a5d18000}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The primary purpose of the Total Recall Track is to evaluate, through controlled simulation, methods designed to achieve very high recall – as close as practicable to 100\% – with a human assessor in the loop. Motivating applications include, among others, electronic discovery in legal proceedings [3], systematic review in evidencebased medicine [6], and the creation of fully labeled test collections for information retrieval (“{IR}”) evaluation [5]. A secondary, but no less important, purpose is to develop a sandboxed virtual test environment within which {IR} systems may be tested, while preventing the disclosure of sensitive test data to participants. At the same time, the test environment also operates as a “black box,” affording participants confidence that their proprietary systems cannot easily be reverse engineered. The task to be solved in the Total Recall Track is the following:}
+      \field{title}{{TREC} 2016 Total Recall Track Overview}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.semanticscholar.org/paper/TREC-2016-Total-Recall-Track-Overview-Grossman-Cormack/126240dedd75626fd736f0485d06f1f516517e54
+      \endverb
+      \verb{url}
+      \verb https://www.semanticscholar.org/paper/TREC-2016-Total-Recall-Track-Overview-Grossman-Cormack/126240dedd75626fd736f0485d06f1f516517e54
+      \endverb
+    \endentry
+    \entry{lewis_rcv1_2004}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=870d985358608ff1f593fc41f7b890b6}{%
+           family={Lewis},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima D.},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=be6dc43fe1771d8870237ce7a47c6f7f}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yiming},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=9bbd9d6ca28305b054e54f113a914d6d}{%
+           family={Rose},
+           familyi={R\bibinitperiod},
+           given={Tony\bibnamedelima G.},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=99b3b2e56c8f5ffeb95b882b3da68136}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Fan},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{427ea25ebfab4cebd778e2a7098a2e9c}
+      \strng{fullhash}{96410ecc92285617901c091beeebf8e9}
+      \strng{fullhashraw}{96410ecc92285617901c091beeebf8e9}
+      \strng{bibnamehash}{427ea25ebfab4cebd778e2a7098a2e9c}
+      \strng{authorbibnamehash}{427ea25ebfab4cebd778e2a7098a2e9c}
+      \strng{authornamehash}{427ea25ebfab4cebd778e2a7098a2e9c}
+      \strng{authorfullhash}{96410ecc92285617901c091beeebf8e9}
+      \strng{authorfullhashraw}{96410ecc92285617901c091beeebf8e9}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Reuters Corpus Volume I ({RCV}1) is an archive of over 800,000 manually categorized newswire stories recently made available by Reuters, Ltd. for research purposes. Use of this data for research on text categorization requires a detailed understanding of the real world constraints under which the data was produced. Drawing on interviews with Reuters personnel and access to Reuters documentation, we describe the coding policy and quality control procedures used in producing the {RCV}1 data, the intended semantics of the hierarchical category taxonomies, and the corrections necessary to remove errorful data. We refer to the original data as {RCV}1-v1, and the corrected data as {RCV}1-v2. We benchmark several widely used supervised learning methods on {RCV}1-v2, illustrating the collection's properties, suggesting new directions for research, and providing baseline results for future studies. We make available detailed, per-category experimental results, as well as corrected versions of the category assignments and taxonomy structures, via online appendices.}
+      \field{issn}{{ISSN} 1533-7928}
+      \field{issue}{Apr}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{shorttitle}{{RCV}1}
+      \field{title}{{RCV}1: A New Benchmark Collection for Text Categorization Research}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2024}
+      \field{volume}{5}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{361\bibrangedash 397}
+      \range{pages}{37}
+      \verb{urlraw}
+      \verb https://www.jmlr.org/papers/v5/lewis04a.html
+      \endverb
+      \verb{url}
+      \verb https://www.jmlr.org/papers/v5/lewis04a.html
+      \endverb
+    \endentry
+    \entry{omara-eves_using_2015}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=ccac0efb1dac8d3682be9929f103ddac}{%
+           family={O’Mara-Eves},
+           familyi={O\bibinithyphendelim E\bibinitperiod},
+           given={Alison},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1ad8d835a95f8df394e6faf5d8e0548f}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=344e2fe05c7c1be2d6a72e5bf27741e4}{%
+           family={{McNaught}},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=178ae3a32e06734b86a89c12931c95c8}{%
+           family={Miwa},
+           familyi={M\bibinitperiod},
+           given={Makoto},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3780b2d12b907a7196c92d8269005aba}{%
+           family={Ananiadou},
+           familyi={A\bibinitperiod},
+           given={Sophia},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{59d90a048d6ee30b5193eec35cd6736f}
+      \strng{fullhash}{84f458fc607c3ab7a1d9a23eadddb214}
+      \strng{fullhashraw}{84f458fc607c3ab7a1d9a23eadddb214}
+      \strng{bibnamehash}{59d90a048d6ee30b5193eec35cd6736f}
+      \strng{authorbibnamehash}{59d90a048d6ee30b5193eec35cd6736f}
+      \strng{authornamehash}{59d90a048d6ee30b5193eec35cd6736f}
+      \strng{authorfullhash}{84f458fc607c3ab7a1d9a23eadddb214}
+      \strng{authorfullhashraw}{84f458fc607c3ab7a1d9a23eadddb214}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying relevant studies in an unbiased way for inclusion in systematic reviews both complex and time consuming. Text mining has been offered as a potential solution: through automating some of the screening process, reviewer time can be saved. The evidence base around the use of text mining for screening has not yet been pulled together systematically; this systematic review fills that research gap. Focusing mainly on non-technical issues, the review aims to increase awareness of the potential of these technologies and promote further collaborative research between the computer science and systematic review communities.}
+      \field{issn}{2046-4053}
+      \field{journaltitle}{Systematic Reviews}
+      \field{month}{1}
+      \field{number}{1}
+      \field{shorttitle}{Using text mining for study identification in systematic reviews}
+      \field{title}{Using text mining for study identification in systematic reviews: a systematic review of current approaches}
+      \field{urlday}{2}
+      \field{urlmonth}{8}
+      \field{urlyear}{2024}
+      \field{volume}{4}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{5}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/2046-4053-4-5
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1186/2046-4053-4-5
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1186/2046-4053-4-5
+      \endverb
+      \keyw{Automation,Review efficiency,Screening,Study selection,Text mining}
+    \endentry
+    \entry{tsafnat_systematic_2014}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=b4535631ca245811e6f2e007a83b0b1d}{%
+           family={Tsafnat},
+           familyi={T\bibinitperiod},
+           given={Guy},
+           giveni={G\bibinitperiod}}}%
+        {{hash=dae7a5b87564f8a08c27665d234654a5}{%
+           family={Glasziou},
+           familyi={G\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=3ea76607fee101a07ac40c2b5375f5e1}{%
+           family={Choong},
+           familyi={C\bibinitperiod},
+           given={Miew\bibnamedelima Keen},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=1473aa7d44b71e784b0fc7ce8e3f8cb2}{%
+           family={Dunn},
+           familyi={D\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3255ecfaa8560c5146edcf4cca8686da}{%
+           family={Galgani},
+           familyi={G\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9bb08e6618a6dbb56fd9040958bdb9ff}{%
+           family={Coiera},
+           familyi={C\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{f186a9c800f5b59fe49801492cb3de5e}
+      \strng{fullhash}{4193cb19e06433c0b700a2a7b19b7a94}
+      \strng{fullhashraw}{4193cb19e06433c0b700a2a7b19b7a94}
+      \strng{bibnamehash}{f186a9c800f5b59fe49801492cb3de5e}
+      \strng{authorbibnamehash}{f186a9c800f5b59fe49801492cb3de5e}
+      \strng{authornamehash}{f186a9c800f5b59fe49801492cb3de5e}
+      \strng{authorfullhash}{4193cb19e06433c0b700a2a7b19b7a94}
+      \strng{authorfullhashraw}{4193cb19e06433c0b700a2a7b19b7a94}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Systematic reviews, a cornerstone of evidence-based medicine, are not produced quickly enough to support clinical practice. The cost of production, availability of the requisite expertise and timeliness are often quoted as major contributors for the delay. This detailed survey of the state of the art of information systems designed to support or automate individual tasks in the systematic review, and in particular systematic reviews of randomized controlled clinical trials, reveals trends that see the convergence of several parallel research projects.}
+      \field{issn}{2046-4053}
+      \field{journaltitle}{Systematic Reviews}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{Systematic review automation technologies}
+      \field{urlday}{12}
+      \field{urlmonth}{8}
+      \field{urlyear}{2024}
+      \field{volume}{3}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{74}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/2046-4053-3-74
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1186/2046-4053-3-74
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1186/2046-4053-3-74
+      \endverb
+      \keyw{Information extraction,Information retrieval,Process automation,Systematic reviews}
+    \endentry
+    \entry{manning_introduction_2008}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=2214edb8305f7ccd7cdc310b3a8ae1b4}{%
+           family={Manning},
+           familyi={M\bibinitperiod},
+           given={Christopher\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=68f523934985e2f967ab2b15f4ded07c}{%
+           family={Raghavan},
+           familyi={R\bibinitperiod},
+           given={Prabhakar},
+           giveni={P\bibinitperiod}}}%
+        {{hash=9a80de0e5ec6df57363aaf321a5d05be}{%
+           family={Schütze},
+           familyi={S\bibinitperiod},
+           given={Hinrich},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \strng{fullhash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \strng{fullhashraw}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \strng{bibnamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \strng{authorbibnamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \strng{authornamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \strng{authorfullhash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \strng{authorfullhashraw}{56b44e50eec2e98e36ad6aa3a5e7af9b}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Class-tested and coherent, this textbook teaches classical and web information retrieval, including web search and the related areas of text classification and text clustering from basic concepts. It gives an up-to-date treatment of all aspects of the design and implementation of systems for gathering, indexing, and searching documents; methods for evaluating systems; and an introduction to the use of machine learning methods on text collections. All the important ideas are explained using examples and figures, making it perfect for introductory courses in information retrieval for advanced undergraduates and graduate students in computer science. Based on feedback from extensive classroom experience, the book has been carefully structured in order to make teaching more natural and effective. Slides and additional exercises (with solutions for lecturers) are also available through the book's supporting website to help course instructors prepare their lectures.}
+      \field{edition}{1}
+      \field{isbn}{978-0-521-86571-5 978-0-511-80907-1}
+      \field{month}{7}
+      \field{title}{Introduction to Information Retrieval}
+      \field{urlday}{3}
+      \field{urlmonth}{8}
+      \field{urlyear}{2024}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1017/CBO9780511809071
+      \endverb
+      \verb{urlraw}
+      \verb https://www.cambridge.org/core/product/identifier/9780511809071/type/book
+      \endverb
+      \verb{url}
+      \verb https://www.cambridge.org/core/product/identifier/9780511809071/type/book
+      \endverb
+    \endentry
+    \entry{BMCMedicalResearch}{online}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Publish your healthcare research with {BMC} Medical Research Methodology, with 3.9 Impact Factor and 18 days to first decision. Focusing on manuscripts ...}
+      \field{langid}{english}
+      \field{title}{{BMC} Medical Research Methodology}
+      \field{titleaddon}{{BioMed} Central}
+      \field{urlday}{13}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/aaronfletcher/snap/zotero-snap/common/Zotero/storage/YNTDE9DF/research-article.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://bmcmedresmethodol.biomedcentral.com/submission-guidelines/preparing-your-manuscript/research-article
+      \endverb
+      \verb{url}
+      \verb https://bmcmedresmethodol.biomedcentral.com/submission-guidelines/preparing-your-manuscript/research-article
+      \endverb
+    \endentry
+    \entry{yasunaga2022linkbertpretraininglanguagemodels}{misc}{}{}
+      \name{author}{3}{}{%
+        {{hash=f95714ad66afcfa71b317b3bec07d01d}{%
+           family={Yasunaga},
+           familyi={Y\bibinitperiod},
+           given={Michihiro},
+           giveni={M\bibinitperiod}}}%
+        {{hash=900d107125ff0ca84698cb909e4f6c51}{%
+           family={Leskovec},
+           familyi={L\bibinitperiod},
+           given={Jure},
+           giveni={J\bibinitperiod}}}%
+        {{hash=86c032bbc45c3b616f0a1170befc0e82}{%
+           family={Liang},
+           familyi={L\bibinitperiod},
+           given={Percy},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{fullhash}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{fullhashraw}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{bibnamehash}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{authorbibnamehash}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{authornamehash}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{authorfullhash}{17aeefef7631a5729a4ead5f02ba232d}
+      \strng{authorfullhashraw}{17aeefef7631a5729a4ead5f02ba232d}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{title}{{LinkBERT}: Pretraining language models with document links}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb 2203.15827 [cs.CL]
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2203.15827
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2203.15827
       \endverb
     \endentry
     \entry{guDomainSpecificLanguageModel2021}{misc}{}{}
@@ -2364,8 +2980,8 @@
       \strng{authornamehash}{94d085dda362dbf73ea8f738b4c04d44}
       \strng{authorfullhash}{11e3cb117524c2e38df2dc87d8218f23}
       \strng{authorfullhashraw}{11e3cb117524c2e38df2dc87d8218f23}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Oxfordshire, {UK}: The Cochrane Collaboration}
@@ -2399,8 +3015,8 @@
       \strng{authornamehash}{6bc605d97cd8f05726c750d709e7ec15}
       \strng{authorfullhash}{6bc605d97cd8f05726c750d709e7ec15}
       \strng{authorfullhashraw}{6bc605d97cd8f05726c750d709e7ec15}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{University of York}
@@ -2434,8 +3050,8 @@
       \strng{authornamehash}{a6f01ecc37476b363b4100a211fb631e}
       \strng{authorfullhash}{a6f01ecc37476b363b4100a211fb631e}
       \strng{authorfullhashraw}{a6f01ecc37476b363b4100a211fb631e}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{The search for studies for a systematic review should be conducted systematically and reported transparently to facilitate reproduction. This study aimed to report on the conduct and reporting of backward citation searching (ie, checking reference ...}
@@ -2469,8 +3085,8 @@
       \endverb
     \endentry
     \entry{MECIRManualCochrane}{online}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{abstract}{Methodological Expectations of Cochrane Intervention Reviews ({MECIR}) Version August 2023}
       \field{langid}{english}
@@ -2489,1197 +3105,9 @@
       \verb https://community.cochrane.org/mecir-manual
       \endverb
     \endentry
-    \entry{kanoulas_clef_2017}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=6317e2fbcca5843d0d9225d119643f7c}{%
-           family={Kanoulas},
-           familyi={K\bibinitperiod},
-           given={Evangelos},
-           giveni={E\bibinitperiod}}}%
-        {{hash=fc63986540b002fd74244549ce74082f}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Dan},
-           giveni={D\bibinitperiod}}}%
-        {{hash=9c1fea5799784a47c5e9e76067f41a5d}{%
-           family={Azzopardi},
-           familyi={A\bibinitperiod},
-           given={Leif},
-           giveni={L\bibinitperiod}}}%
-        {{hash=8609732b6a8d8bc1b9fe0e9acb31e94e}{%
-           family={Spijker},
-           familyi={S\bibinitperiod},
-           given={Rene},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{fullhash}{5c28c88fb01ace652e44948b872dab79}
-      \strng{fullhashraw}{5c28c88fb01ace652e44948b872dab79}
-      \strng{bibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authorbibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authornamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authorfullhash}{5c28c88fb01ace652e44948b872dab79}
-      \strng{authorfullhashraw}{5c28c88fb01ace652e44948b872dab79}
-      \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Systematic reviews are a widely used method to provide an overview over the current scientific consensus, by bringing together multiple studies in a reliable, transparent way. The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying all relevant studies in an unbiased way both complex and time consuming to the extent that jeopardizes the validity of their findings and the ability to inform policy and practice in a timely manner. The {CLEF} 2017 e-Health Lab Task 2 focuses on the efficient and effective ranking of studies during the abstract and title screening phase of conducting Diagnostic Test Accuracy systematic reviews. We constructed a benchmark collection of fifty such reviews and the corresponding relevant and irrelevant articles found by the original Boolean query. Fourteen teams participated in the task, submitting 68 automatic and semi-automatic runs, using information retrieval and machine learning algorithms over a variety of text representations, in a batch and iterative manner. This paper reports both the methodology used to construct the benchmark collection, and the results of the evaluation.}
-      \field{issn}{1613-0073}
-      \field{journaltitle}{{CEUR} Workshop Proceedings}
-      \field{month}{9}
-      \field{title}{{CLEF} 2017 technologically assisted reviews in empirical medicine overview}
-      \field{urlday}{31}
-      \field{urlmonth}{7}
-      \field{urlyear}{2024}
-      \field{volume}{1866}
-      \field{year}{2017}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{1\bibrangedash 29}
-      \range{pages}{29}
-      \verb{urlraw}
-      \verb http://ceur-ws.org/Vol-1866/
-      \endverb
-      \verb{url}
-      \verb http://ceur-ws.org/Vol-1866/
-      \endverb
-      \keyw{Active learning,{TAR},Information retrieval,Systematic reviews,Evaluation,Text classification}
-    \endentry
-    \entry{kanoulas_clef_2018}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=6317e2fbcca5843d0d9225d119643f7c}{%
-           family={Kanoulas},
-           familyi={K\bibinitperiod},
-           given={Evangelos},
-           giveni={E\bibinitperiod}}}%
-        {{hash=fc63986540b002fd74244549ce74082f}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Dan},
-           giveni={D\bibinitperiod}}}%
-        {{hash=9c1fea5799784a47c5e9e76067f41a5d}{%
-           family={Azzopardi},
-           familyi={A\bibinitperiod},
-           given={Leif},
-           giveni={L\bibinitperiod}}}%
-        {{hash=8609732b6a8d8bc1b9fe0e9acb31e94e}{%
-           family={Spijker},
-           familyi={S\bibinitperiod},
-           given={Rene},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{fullhash}{5c28c88fb01ace652e44948b872dab79}
-      \strng{fullhashraw}{5c28c88fb01ace652e44948b872dab79}
-      \strng{bibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authorbibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authornamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authorfullhash}{5c28c88fb01ace652e44948b872dab79}
-      \strng{authorfullhashraw}{5c28c88fb01ace652e44948b872dab79}
-      \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Conducting a systematic review is a widely used method to obtain an overview over the current scientific consensus on a topic of interest, by bringing together multiple studies in a reliable, transparent way. The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying all relevant studies in an unbiased way both complex and time consuming to the extent that jeopardizes the validity of their findings and the ability to inform policy and practice in a timely manner. The {CLEF} 2018 e-Health Technology Assisted Reviews in Empirical Medicine task aims at evaluating search algorithms that seek to identify all studies relevant for conducting a systematic review in empirical medicine. The task had a focus on Diagnostic Test Accuracy ({DTA}) reviews, and consisted of two subtasks: 1) given a number of relevance criteria as described in a systematic review protocol, search a large medical database of article abstracts ({PubMed}) to find the studies to be included in the review, and 2) given the article abstracts retrieved by a carefully designed Boolean Query, prioritize them to reduce the effort required by experts to screen the abstracts for inclusion in the review. Seven teams participated in the task, with a total of 12 runs submitted for subtask 1 and 19 runs for subtask 2. This paper reports both the methodology used to construct the benchmark collection, and the results of the evaluation.}
-      \field{issn}{1613-0073}
-      \field{journaltitle}{{CEUR} Workshop Proceedings}
-      \field{month}{7}
-      \field{shorttitle}{{CLEF} 2018 technologically assisted reviews in empirical medicine overview}
-      \field{title}{{CLEF} 2018 technologically assisted reviews in empirical medicine overview: 19th Working Notes of {CLEF} Conference and Labs of the Evaluation Forum, {CLEF} 2018}
-      \field{urlday}{31}
-      \field{urlmonth}{7}
-      \field{urlyear}{2024}
-      \field{volume}{2125}
-      \field{year}{2018}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb http://www.scopus.com/inward/record.url?scp=85051077484&partnerID=8YFLogxK
-      \endverb
-      \verb{url}
-      \verb http://www.scopus.com/inward/record.url?scp=85051077484&partnerID=8YFLogxK
-      \endverb
-      \keyw{{TAR},{PubMed},relevance feedback,active learning,evaluation,systematic reviews,text classification,benchmarking,Cochrane,diagnostic test accuracy,{DTA},e-health,high recall,information retrieval,technology assisted reviews,test collection}
-    \endentry
-    \entry{kanoulas_clef_2019}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=6317e2fbcca5843d0d9225d119643f7c}{%
-           family={Kanoulas},
-           familyi={K\bibinitperiod},
-           given={Evangelos},
-           giveni={E\bibinitperiod}}}%
-        {{hash=fc63986540b002fd74244549ce74082f}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Dan},
-           giveni={D\bibinitperiod}}}%
-        {{hash=9c1fea5799784a47c5e9e76067f41a5d}{%
-           family={Azzopardi},
-           familyi={A\bibinitperiod},
-           given={Leif},
-           giveni={L\bibinitperiod}}}%
-        {{hash=8609732b6a8d8bc1b9fe0e9acb31e94e}{%
-           family={Spijker},
-           familyi={S\bibinitperiod},
-           given={Rene},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{fullhash}{5c28c88fb01ace652e44948b872dab79}
-      \strng{fullhashraw}{5c28c88fb01ace652e44948b872dab79}
-      \strng{bibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authorbibnamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authornamehash}{3db0c498f5bf03c3f3926fb4636989e9}
-      \strng{authorfullhash}{5c28c88fb01ace652e44948b872dab79}
-      \strng{authorfullhashraw}{5c28c88fb01ace652e44948b872dab79}
-      \field{extraname}{3}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Systematic reviews are a widely used method to provide an overview over the current scientific consensus, by bringing together multiple studies in a systematic, reliable, and transparent way. The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying all relevant studies in an unbiased way both complex and time consuming to the extent that jeopardizes the validity of their findings and the ability to inform policy and practice in a timely manner. The {CLEF} 2019 e-Health {TAR} Lab accommodated two tasks. Task 1 focused on retrieving relevant studies from {PubMed} without the use of a Boolean query, while Task 2 focused on the efficient and effective ranking of studies during the abstract and title screening phase of conducting a systematic review. In the 2019 lab we also expanded upon the type of systematics reviews considered. Hence, beyond Diagnostic Test Accuracy reviews, we also included Intervention, Prognosis, and Qualitative systematic reviews. We constructed a benchmark collection of 31 reviews published by Cochrane, and the corresponding relevant and irrelevant articles found by the original Boolean query. Three teams participated in Task 2, submitting automatic and semi-automatic runs, using information retrieval and machine learning algorithms over a variety of text representations, in a batch and iterative manner. This paper reports both the methodology used to construct the benchmark collection, and the results of the evaluation.}
-      \field{issn}{1613-0073}
-      \field{journaltitle}{{CEUR} Workshop Proceedings}
-      \field{langid}{english}
-      \field{month}{9}
-      \field{note}{tex.copyright: cc\_by}
-      \field{title}{{CLEF} 2019 technology assisted reviews in empirical medicine overview}
-      \field{urlday}{31}
-      \field{urlmonth}{7}
-      \field{urlyear}{2024}
-      \field{volume}{2380}
-      \field{year}{2019}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://strathprints.strath.ac.uk/71253/
-      \endverb
-      \verb{url}
-      \verb https://strathprints.strath.ac.uk/71253/
-      \endverb
-    \endentry
-    \entry{de_bruin_synergy_2023}{misc}{}{}
-      \name{author}{5}{}{%
-        {{hash=6d3c526a08ea0fa246006bf3f54225ec}{%
-           family={De\bibnamedelima Bruin},
-           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
-           given={Jonathan},
-           giveni={J\bibinitperiod}}}%
-        {{hash=8b8bf31d88514c0c0bd0f051995f0b91}{%
-           family={Ma},
-           familyi={M\bibinitperiod},
-           given={Yongchao},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=46412a1fb75e7a20fdaab25a36858201}{%
-           family={Ferdinands},
-           familyi={F\bibinitperiod},
-           given={Gerbrich},
-           giveni={G\bibinitperiod}}}%
-        {{hash=64df8c7785b0e4705907c9bd6ae7c824}{%
-           family={Teijema},
-           familyi={T\bibinitperiod},
-           given={Jelle},
-           giveni={J\bibinitperiod}}}%
-        {{hash=98f71e28f82dd9ca3ae0bb3f1b9701b7}{%
-           family={Van\bibnamedelimb De\bibnamedelima Schoot},
-           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod},
-           given={Rens},
-           giveni={R\bibinitperiod}}}%
-      }
-      \name{editora}{2}{}{%
-        {{hash=6d3c526a08ea0fa246006bf3f54225ec}{%
-           family={De\bibnamedelima Bruin},
-           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
-           given={Jonathan},
-           giveni={J\bibinitperiod}}}%
-        {{hash=98f71e28f82dd9ca3ae0bb3f1b9701b7}{%
-           family={Van\bibnamedelimb De\bibnamedelima Schoot},
-           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod},
-           given={Rens},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {DataverseNL}%
-      }
-      \strng{namehash}{aa46eb10b7af73862ab4e144cabf7379}
-      \strng{fullhash}{036b8e0a095f1e26636f6463cd904faa}
-      \strng{fullhashraw}{036b8e0a095f1e26636f6463cd904faa}
-      \strng{bibnamehash}{aa46eb10b7af73862ab4e144cabf7379}
-      \strng{authorbibnamehash}{aa46eb10b7af73862ab4e144cabf7379}
-      \strng{authornamehash}{aa46eb10b7af73862ab4e144cabf7379}
-      \strng{authorfullhash}{036b8e0a095f1e26636f6463cd904faa}
-      \strng{authorfullhashraw}{036b8e0a095f1e26636f6463cd904faa}
-      \strng{editorabibnamehash}{85d05d0ca31a4d45ce7eff8fa160b6ea}
-      \strng{editoranamehash}{85d05d0ca31a4d45ce7eff8fa160b6ea}
-      \strng{editorafullhash}{85d05d0ca31a4d45ce7eff8fa160b6ea}
-      \strng{editorafullhashraw}{85d05d0ca31a4d45ce7eff8fa160b6ea}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{{SYNERGY} is a free and open dataset on study selection in systematic reviews, comprising 169,288 academic works from 26 systematic reviews. Only 2,834 (1.67\%) of the academic works in the binary classified dataset are included in the systematic reviews. This makes the {SYNERGY} dataset a unique dataset for the development of information retrieval algorithms, especially for sparse labels. Due to the many available variables available per record (i.e. titles, abstracts, authors, references, topics), this dataset is useful for researchers in {NLP}, machine learning, network analysis, and more. In total, the dataset contains 82,668,134 trainable data points. The easiest way to get the {SYNERGY} dataset is via the synergy-dataset Python package. See https://github.com/asreview/synergy-dataset for all information.}
-      \field{editoratype}{collaborator}
-      \field{title}{{SYNERGY} - Open machine learning dataset on study selection in systematic reviews}
-      \field{urlday}{31}
-      \field{urlmonth}{7}
-      \field{urlyear}{2024}
-      \field{year}{2023}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.34894/HE6NAQ
-      \endverb
-      \verb{urlraw}
-      \verb https://dataverse.nl/citation?persistentId=doi:10.34894/HE6NAQ
-      \endverb
-      \verb{url}
-      \verb https://dataverse.nl/citation?persistentId=doi:10.34894/HE6NAQ
-      \endverb
-    \endentry
-    \entry{roegiest_trec_2015}{inproceedings}{}{}
-      \name{author}{4}{}{%
-        {{hash=c61207c5d33b406be50982f8dda97073}{%
-           family={Roegiest},
-           familyi={R\bibinitperiod},
-           given={Adam},
-           giveni={A\bibinitperiod}}}%
-        {{hash=8d007d505d39a8bbd47859edd9f4e9b6}{%
-           family={Cormack},
-           familyi={C\bibinitperiod},
-           given={Gordon\bibnamedelima V.},
-           giveni={G\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
-        {{hash=627d44a3dfae51306bbd69387cb26ecf}{%
-           family={Clarke},
-           familyi={C\bibinitperiod},
-           given={Charles\bibnamedelimb L.\bibnamedelimi A.},
-           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=8f05e7d2ea6fd59768b383b3d957f256}{%
-           family={Grossman},
-           familyi={G\bibinitperiod},
-           given={Maura\bibnamedelima R.},
-           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-      }
-      \name{editor}{2}{}{%
-        {{hash=f13b7b0549ebe341faaf24632ca6083d}{%
-           family={Voorhees},
-           familyi={V\bibinitperiod},
-           given={Ellen\bibnamedelima M.},
-           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-        {{hash=929ee6fe809d4d0968fb898144ada189}{%
-           family={Ellis},
-           familyi={E\bibinitperiod},
-           given={Angela},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{2}{%
-        {National Institute of Standards}%
-        {Technology ({NIST})}%
-      }
-      \strng{namehash}{7f18cf42e940aacf4325f52a3cf64b45}
-      \strng{fullhash}{d92d3d936e320b3321e7a9e77c03bd0f}
-      \strng{fullhashraw}{d92d3d936e320b3321e7a9e77c03bd0f}
-      \strng{bibnamehash}{7f18cf42e940aacf4325f52a3cf64b45}
-      \strng{authorbibnamehash}{7f18cf42e940aacf4325f52a3cf64b45}
-      \strng{authornamehash}{7f18cf42e940aacf4325f52a3cf64b45}
-      \strng{authorfullhash}{d92d3d936e320b3321e7a9e77c03bd0f}
-      \strng{authorfullhashraw}{d92d3d936e320b3321e7a9e77c03bd0f}
-      \strng{editorbibnamehash}{49092f893883bf5a2bde7aff57c674d7}
-      \strng{editornamehash}{49092f893883bf5a2bde7aff57c674d7}
-      \strng{editorfullhash}{49092f893883bf5a2bde7aff57c674d7}
-      \strng{editorfullhashraw}{49092f893883bf5a2bde7aff57c674d7}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of The Twenty-Fourth Text {REtrieval} Conference, {TREC} 2015, Gaithersburg, Maryland, {USA}, November 17-20, 2015}
-      \field{series}{{NIST} Special Publication}
-      \field{title}{{TREC} 2015 Total Recall Track Overview}
-      \field{urlday}{31}
-      \field{urlmonth}{7}
-      \field{urlyear}{2024}
-      \field{volume}{500-319}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://trec.nist.gov/pubs/trec24/papers/Overview-TR.pdf
-      \endverb
-      \verb{url}
-      \verb https://trec.nist.gov/pubs/trec24/papers/Overview-TR.pdf
-      \endverb
-    \endentry
-    \entry{grossman_trec_2016}{inproceedings}{}{}
-      \name{author}{3}{}{%
-        {{hash=8f05e7d2ea6fd59768b383b3d957f256}{%
-           family={Grossman},
-           familyi={G\bibinitperiod},
-           given={Maura\bibnamedelima R.},
-           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=aa8677c56613203ef6f25a1489c2440f}{%
-           family={Cormack},
-           familyi={C\bibinitperiod},
-           given={G.},
-           giveni={G\bibinitperiod}}}%
-        {{hash=c61207c5d33b406be50982f8dda97073}{%
-           family={Roegiest},
-           familyi={R\bibinitperiod},
-           given={Adam},
-           giveni={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{073ea5d96f71c1d489546430a5d18000}
-      \strng{fullhash}{073ea5d96f71c1d489546430a5d18000}
-      \strng{fullhashraw}{073ea5d96f71c1d489546430a5d18000}
-      \strng{bibnamehash}{073ea5d96f71c1d489546430a5d18000}
-      \strng{authorbibnamehash}{073ea5d96f71c1d489546430a5d18000}
-      \strng{authornamehash}{073ea5d96f71c1d489546430a5d18000}
-      \strng{authorfullhash}{073ea5d96f71c1d489546430a5d18000}
-      \strng{authorfullhashraw}{073ea5d96f71c1d489546430a5d18000}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The primary purpose of the Total Recall Track is to evaluate, through controlled simulation, methods designed to achieve very high recall – as close as practicable to 100\% – with a human assessor in the loop. Motivating applications include, among others, electronic discovery in legal proceedings [3], systematic review in evidencebased medicine [6], and the creation of fully labeled test collections for information retrieval (“{IR}”) evaluation [5]. A secondary, but no less important, purpose is to develop a sandboxed virtual test environment within which {IR} systems may be tested, while preventing the disclosure of sensitive test data to participants. At the same time, the test environment also operates as a “black box,” affording participants confidence that their proprietary systems cannot easily be reverse engineered. The task to be solved in the Total Recall Track is the following:}
-      \field{title}{{TREC} 2016 Total Recall Track Overview}
-      \field{urlday}{31}
-      \field{urlmonth}{7}
-      \field{urlyear}{2024}
-      \field{year}{2016}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.semanticscholar.org/paper/TREC-2016-Total-Recall-Track-Overview-Grossman-Cormack/126240dedd75626fd736f0485d06f1f516517e54
-      \endverb
-      \verb{url}
-      \verb https://www.semanticscholar.org/paper/TREC-2016-Total-Recall-Track-Overview-Grossman-Cormack/126240dedd75626fd736f0485d06f1f516517e54
-      \endverb
-    \endentry
-    \entry{lewis_rcv1_2004}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=870d985358608ff1f593fc41f7b890b6}{%
-           family={Lewis},
-           familyi={L\bibinitperiod},
-           given={David\bibnamedelima D.},
-           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=be6dc43fe1771d8870237ce7a47c6f7f}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={Yiming},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=9bbd9d6ca28305b054e54f113a914d6d}{%
-           family={Rose},
-           familyi={R\bibinitperiod},
-           given={Tony\bibnamedelima G.},
-           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
-        {{hash=99b3b2e56c8f5ffeb95b882b3da68136}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Fan},
-           giveni={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{427ea25ebfab4cebd778e2a7098a2e9c}
-      \strng{fullhash}{96410ecc92285617901c091beeebf8e9}
-      \strng{fullhashraw}{96410ecc92285617901c091beeebf8e9}
-      \strng{bibnamehash}{427ea25ebfab4cebd778e2a7098a2e9c}
-      \strng{authorbibnamehash}{427ea25ebfab4cebd778e2a7098a2e9c}
-      \strng{authornamehash}{427ea25ebfab4cebd778e2a7098a2e9c}
-      \strng{authorfullhash}{96410ecc92285617901c091beeebf8e9}
-      \strng{authorfullhashraw}{96410ecc92285617901c091beeebf8e9}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Reuters Corpus Volume I ({RCV}1) is an archive of over 800,000 manually categorized newswire stories recently made available by Reuters, Ltd. for research purposes. Use of this data for research on text categorization requires a detailed understanding of the real world constraints under which the data was produced. Drawing on interviews with Reuters personnel and access to Reuters documentation, we describe the coding policy and quality control procedures used in producing the {RCV}1 data, the intended semantics of the hierarchical category taxonomies, and the corrections necessary to remove errorful data. We refer to the original data as {RCV}1-v1, and the corrected data as {RCV}1-v2. We benchmark several widely used supervised learning methods on {RCV}1-v2, illustrating the collection's properties, suggesting new directions for research, and providing baseline results for future studies. We make available detailed, per-category experimental results, as well as corrected versions of the category assignments and taxonomy structures, via online appendices.}
-      \field{issn}{{ISSN} 1533-7928}
-      \field{issue}{Apr}
-      \field{journaltitle}{Journal of Machine Learning Research}
-      \field{shorttitle}{{RCV}1}
-      \field{title}{{RCV}1: A New Benchmark Collection for Text Categorization Research}
-      \field{urlday}{31}
-      \field{urlmonth}{7}
-      \field{urlyear}{2024}
-      \field{volume}{5}
-      \field{year}{2004}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{361\bibrangedash 397}
-      \range{pages}{37}
-      \verb{urlraw}
-      \verb https://www.jmlr.org/papers/v5/lewis04a.html
-      \endverb
-      \verb{url}
-      \verb https://www.jmlr.org/papers/v5/lewis04a.html
-      \endverb
-    \endentry
-    \entry{omara-eves_using_2015}{article}{}{}
-      \name{author}{5}{}{%
-        {{hash=ccac0efb1dac8d3682be9929f103ddac}{%
-           family={O’Mara-Eves},
-           familyi={O\bibinithyphendelim E\bibinitperiod},
-           given={Alison},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1ad8d835a95f8df394e6faf5d8e0548f}{%
-           family={Thomas},
-           familyi={T\bibinitperiod},
-           given={James},
-           giveni={J\bibinitperiod}}}%
-        {{hash=344e2fe05c7c1be2d6a72e5bf27741e4}{%
-           family={{McNaught}},
-           familyi={M\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod}}}%
-        {{hash=178ae3a32e06734b86a89c12931c95c8}{%
-           family={Miwa},
-           familyi={M\bibinitperiod},
-           given={Makoto},
-           giveni={M\bibinitperiod}}}%
-        {{hash=3780b2d12b907a7196c92d8269005aba}{%
-           family={Ananiadou},
-           familyi={A\bibinitperiod},
-           given={Sophia},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{59d90a048d6ee30b5193eec35cd6736f}
-      \strng{fullhash}{84f458fc607c3ab7a1d9a23eadddb214}
-      \strng{fullhashraw}{84f458fc607c3ab7a1d9a23eadddb214}
-      \strng{bibnamehash}{59d90a048d6ee30b5193eec35cd6736f}
-      \strng{authorbibnamehash}{59d90a048d6ee30b5193eec35cd6736f}
-      \strng{authornamehash}{59d90a048d6ee30b5193eec35cd6736f}
-      \strng{authorfullhash}{84f458fc607c3ab7a1d9a23eadddb214}
-      \strng{authorfullhashraw}{84f458fc607c3ab7a1d9a23eadddb214}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{The large and growing number of published studies, and their increasing rate of publication, makes the task of identifying relevant studies in an unbiased way for inclusion in systematic reviews both complex and time consuming. Text mining has been offered as a potential solution: through automating some of the screening process, reviewer time can be saved. The evidence base around the use of text mining for screening has not yet been pulled together systematically; this systematic review fills that research gap. Focusing mainly on non-technical issues, the review aims to increase awareness of the potential of these technologies and promote further collaborative research between the computer science and systematic review communities.}
-      \field{issn}{2046-4053}
-      \field{journaltitle}{Systematic Reviews}
-      \field{month}{1}
-      \field{number}{1}
-      \field{shorttitle}{Using text mining for study identification in systematic reviews}
-      \field{title}{Using text mining for study identification in systematic reviews: a systematic review of current approaches}
-      \field{urlday}{2}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{volume}{4}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{5}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1186/2046-4053-4-5
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1186/2046-4053-4-5
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1186/2046-4053-4-5
-      \endverb
-      \keyw{Automation,Review efficiency,Screening,Study selection,Text mining}
-    \endentry
-    \entry{tsafnat_systematic_2014}{article}{}{}
-      \name{author}{6}{}{%
-        {{hash=b4535631ca245811e6f2e007a83b0b1d}{%
-           family={Tsafnat},
-           familyi={T\bibinitperiod},
-           given={Guy},
-           giveni={G\bibinitperiod}}}%
-        {{hash=dae7a5b87564f8a08c27665d234654a5}{%
-           family={Glasziou},
-           familyi={G\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod}}}%
-        {{hash=3ea76607fee101a07ac40c2b5375f5e1}{%
-           family={Choong},
-           familyi={C\bibinitperiod},
-           given={Miew\bibnamedelima Keen},
-           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
-        {{hash=1473aa7d44b71e784b0fc7ce8e3f8cb2}{%
-           family={Dunn},
-           familyi={D\bibinitperiod},
-           given={Adam},
-           giveni={A\bibinitperiod}}}%
-        {{hash=3255ecfaa8560c5146edcf4cca8686da}{%
-           family={Galgani},
-           familyi={G\bibinitperiod},
-           given={Filippo},
-           giveni={F\bibinitperiod}}}%
-        {{hash=9bb08e6618a6dbb56fd9040958bdb9ff}{%
-           family={Coiera},
-           familyi={C\bibinitperiod},
-           given={Enrico},
-           giveni={E\bibinitperiod}}}%
-      }
-      \strng{namehash}{f186a9c800f5b59fe49801492cb3de5e}
-      \strng{fullhash}{4193cb19e06433c0b700a2a7b19b7a94}
-      \strng{fullhashraw}{4193cb19e06433c0b700a2a7b19b7a94}
-      \strng{bibnamehash}{f186a9c800f5b59fe49801492cb3de5e}
-      \strng{authorbibnamehash}{f186a9c800f5b59fe49801492cb3de5e}
-      \strng{authornamehash}{f186a9c800f5b59fe49801492cb3de5e}
-      \strng{authorfullhash}{4193cb19e06433c0b700a2a7b19b7a94}
-      \strng{authorfullhashraw}{4193cb19e06433c0b700a2a7b19b7a94}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Systematic reviews, a cornerstone of evidence-based medicine, are not produced quickly enough to support clinical practice. The cost of production, availability of the requisite expertise and timeliness are often quoted as major contributors for the delay. This detailed survey of the state of the art of information systems designed to support or automate individual tasks in the systematic review, and in particular systematic reviews of randomized controlled clinical trials, reveals trends that see the convergence of several parallel research projects.}
-      \field{issn}{2046-4053}
-      \field{journaltitle}{Systematic Reviews}
-      \field{month}{7}
-      \field{number}{1}
-      \field{title}{Systematic review automation technologies}
-      \field{urlday}{12}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{volume}{3}
-      \field{year}{2014}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{74}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1186/2046-4053-3-74
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1186/2046-4053-3-74
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1186/2046-4053-3-74
-      \endverb
-      \keyw{Information extraction,Information retrieval,Process automation,Systematic reviews}
-    \endentry
-    \entry{manning_introduction_2008}{book}{}{}
-      \name{author}{3}{}{%
-        {{hash=2214edb8305f7ccd7cdc310b3a8ae1b4}{%
-           family={Manning},
-           familyi={M\bibinitperiod},
-           given={Christopher\bibnamedelima D.},
-           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=68f523934985e2f967ab2b15f4ded07c}{%
-           family={Raghavan},
-           familyi={R\bibinitperiod},
-           given={Prabhakar},
-           giveni={P\bibinitperiod}}}%
-        {{hash=9a80de0e5ec6df57363aaf321a5d05be}{%
-           family={Schütze},
-           familyi={S\bibinitperiod},
-           given={Hinrich},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{fullhash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{fullhashraw}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{bibnamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{authorbibnamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{authornamehash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{authorfullhash}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \strng{authorfullhashraw}{56b44e50eec2e98e36ad6aa3a5e7af9b}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Class-tested and coherent, this textbook teaches classical and web information retrieval, including web search and the related areas of text classification and text clustering from basic concepts. It gives an up-to-date treatment of all aspects of the design and implementation of systems for gathering, indexing, and searching documents; methods for evaluating systems; and an introduction to the use of machine learning methods on text collections. All the important ideas are explained using examples and figures, making it perfect for introductory courses in information retrieval for advanced undergraduates and graduate students in computer science. Based on feedback from extensive classroom experience, the book has been carefully structured in order to make teaching more natural and effective. Slides and additional exercises (with solutions for lecturers) are also available through the book's supporting website to help course instructors prepare their lectures.}
-      \field{edition}{1}
-      \field{isbn}{978-0-521-86571-5 978-0-511-80907-1}
-      \field{month}{7}
-      \field{title}{Introduction to Information Retrieval}
-      \field{urlday}{3}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2008}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.1017/CBO9780511809071
-      \endverb
-      \verb{urlraw}
-      \verb https://www.cambridge.org/core/product/identifier/9780511809071/type/book
-      \endverb
-      \verb{url}
-      \verb https://www.cambridge.org/core/product/identifier/9780511809071/type/book
-      \endverb
-    \endentry
-    \entry{beltagy_longformer_2020}{misc}{}{}
-      \name{author}{3}{}{%
-        {{hash=ad932527c4d078ff96e5f0b189c66c61}{%
-           family={Beltagy},
-           familyi={B\bibinitperiod},
-           given={Iz},
-           giveni={I\bibinitperiod}}}%
-        {{hash=711e37ce316a72d79bd008a205513ef0}{%
-           family={Peters},
-           familyi={P\bibinitperiod},
-           given={Matthew\bibnamedelima E.},
-           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
-        {{hash=70ccbf1f924d7acf0682e375dfe449b2}{%
-           family={Cohan},
-           familyi={C\bibinitperiod},
-           given={Arman},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{1a000316c9c0ff5842e399f57a3d5a37}
-      \strng{fullhash}{1a000316c9c0ff5842e399f57a3d5a37}
-      \strng{fullhashraw}{1a000316c9c0ff5842e399f57a3d5a37}
-      \strng{bibnamehash}{1a000316c9c0ff5842e399f57a3d5a37}
-      \strng{authorbibnamehash}{1a000316c9c0ff5842e399f57a3d5a37}
-      \strng{authornamehash}{1a000316c9c0ff5842e399f57a3d5a37}
-      \strng{authorfullhash}{1a000316c9c0ff5842e399f57a3d5a37}
-      \strng{authorfullhashraw}{1a000316c9c0ff5842e399f57a3d5a37}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Transformer-based models are unable to process long sequences due to their self-attention operation, which scales quadratically with the sequence length. To address this limitation, we introduce the Longformer with an attention mechanism that scales linearly with sequence length, making it easy to process documents of thousands of tokens or longer. Longformer's attention mechanism is a drop-in replacement for the standard self-attention and combines a local windowed attention with a task motivated global attention. Following prior work on long-sequence transformers, we evaluate Longformer on character-level language modeling and achieve state-of-the-art results on text8 and enwik8. In contrast to most prior work, we also pretrain Longformer and finetune it on a variety of downstream tasks. Our pretrained Longformer consistently outperforms {RoBERTa} on long document tasks and sets new state-of-the-art results on {WikiHop} and {TriviaQA}. We finally introduce the Longformer-Encoder-Decoder ({LED}), a Longformer variant for supporting long document generative sequence-to-sequence tasks, and demonstrate its effectiveness on the {arXiv} summarization dataset.}
-      \field{month}{12}
-      \field{shorttitle}{Longformer}
-      \field{title}{Longformer: The Long-Document Transformer}
-      \field{urlday}{6}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2020}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2004.05150
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2004.05150
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2004.05150
-      \endverb
-      \keyw{Computer Science - Computation and Language}
-    \endentry
-    \entry{li_comparative_2023}{article}{}{}
-      \name{author}{5}{}{%
-        {{hash=3f4eae7ad6500b8d967a873bc2a48816}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Yikuan},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=c941cfbafb2d166b635ab674bd3daf71}{%
-           family={Wehbe},
-           familyi={W\bibinitperiod},
-           given={Ramsey\bibnamedelima M},
-           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-        {{hash=fee40ce69a9b772ddcee95a8553ad2e4}{%
-           family={Ahmad},
-           familyi={A\bibinitperiod},
-           given={Faraz\bibnamedelima S},
-           giveni={F\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=99d3a52ec023e3353df684e4149e93a3}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Hanyin},
-           giveni={H\bibinitperiod}}}%
-        {{hash=72e578ff3bed4af8f3c82e781d9dcec5}{%
-           family={Luo},
-           familyi={L\bibinitperiod},
-           given={Yuan},
-           giveni={Y\bibinitperiod}}}%
-      }
-      \strng{namehash}{22a79302e7a10676500e56e42ed39f3b}
-      \strng{fullhash}{dd50a1bc57703a8ec96b3369a4ab380f}
-      \strng{fullhashraw}{dd50a1bc57703a8ec96b3369a4ab380f}
-      \strng{bibnamehash}{22a79302e7a10676500e56e42ed39f3b}
-      \strng{authorbibnamehash}{22a79302e7a10676500e56e42ed39f3b}
-      \strng{authornamehash}{22a79302e7a10676500e56e42ed39f3b}
-      \strng{authorfullhash}{dd50a1bc57703a8ec96b3369a4ab380f}
-      \strng{authorfullhashraw}{dd50a1bc57703a8ec96b3369a4ab380f}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Clinical knowledge-enriched transformer models (eg, {ClinicalBERT}) have state-of-the-art results on clinical natural language processing ({NLP}) tasks. One of the core limitations of these transformer models is the substantial memory consumption due to their full self-attention mechanism, which leads to the performance degradation in long clinical texts. To overcome this, we propose to leverage long-sequence transformer models (eg, Longformer and {BigBird}), which extend the maximum input sequence length from 512 to 4096, to enhance the ability to model long-term dependencies in long clinical texts.Inspired by the success of long-sequence transformer models and the fact that clinical notes are mostly long, we introduce 2 domain-enriched language models, Clinical-Longformer and Clinical-{BigBird}, which are pretrained on a large-scale clinical corpus. We evaluate both language models using 10 baseline tasks including named entity recognition, question answering, natural language inference, and document classification tasks.The results demonstrate that Clinical-Longformer and Clinical-{BigBird} consistently and significantly outperform {ClinicalBERT} and other short-sequence transformers in all 10 downstream tasks and achieve new state-of-the-art results.Our pretrained language models provide the bedrock for clinical {NLP} using long texts. We have made our source code available at https://github.com/luoyuanlab/Clinical-Longformer, and the pretrained models available for public download at: https://huggingface.co/yikuan8/Clinical-Longformer.This study demonstrates that clinical knowledge-enriched long-sequence transformers are able to learn long-term dependencies in long clinical text. Our methods can also inspire the development of other domain-enriched long-sequence transformers.}
-      \field{issn}{1527-974X}
-      \field{journaltitle}{Journal of the American Medical Informatics Association}
-      \field{month}{2}
-      \field{number}{2}
-      \field{title}{A comparative study of pretrained language models for long clinical text}
-      \field{urlday}{6}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{volume}{30}
-      \field{year}{2023}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{340\bibrangedash 347}
-      \range{pages}{8}
-      \verb{doi}
-      \verb 10.1093/jamia/ocac225
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1093/jamia/ocac225
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1093/jamia/ocac225
-      \endverb
-    \endentry
-    \entry{zaheer_big_2021}{misc}{}{}
-      \name{author}{11}{}{%
-        {{hash=c4c46d2d2e84c4fd611f22d52ad6b782}{%
-           family={Zaheer},
-           familyi={Z\bibinitperiod},
-           given={Manzil},
-           giveni={M\bibinitperiod}}}%
-        {{hash=db8ef577871b1d68026b8ca2035d3053}{%
-           family={Guruganesh},
-           familyi={G\bibinitperiod},
-           given={Guru},
-           giveni={G\bibinitperiod}}}%
-        {{hash=903b8d53a85552eae354601eebde48b9}{%
-           family={Dubey},
-           familyi={D\bibinitperiod},
-           given={Avinava},
-           giveni={A\bibinitperiod}}}%
-        {{hash=c9e841fff6d89d0371c79b8b1eabe203}{%
-           family={Ainslie},
-           familyi={A\bibinitperiod},
-           given={Joshua},
-           giveni={J\bibinitperiod}}}%
-        {{hash=fa37075160e66d797f5e4c74f499e499}{%
-           family={Alberti},
-           familyi={A\bibinitperiod},
-           given={Chris},
-           giveni={C\bibinitperiod}}}%
-        {{hash=061a7410b9b96cc58ce8e08776b4b47a}{%
-           family={Ontanon},
-           familyi={O\bibinitperiod},
-           given={Santiago},
-           giveni={S\bibinitperiod}}}%
-        {{hash=3bf5b537ee92b51378dd1aaa85039091}{%
-           family={Pham},
-           familyi={P\bibinitperiod},
-           given={Philip},
-           giveni={P\bibinitperiod}}}%
-        {{hash=6e408c7511ca85c078f86a378abd91a7}{%
-           family={Ravula},
-           familyi={R\bibinitperiod},
-           given={Anirudh},
-           giveni={A\bibinitperiod}}}%
-        {{hash=7ac5ab242099a6000a9154bf6d51bf84}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Qifan},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=7f8a6256a19361714c6f6a011671f17d}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={Li},
-           giveni={L\bibinitperiod}}}%
-        {{hash=63ce7b48a93e8ce6d92c61fe6cd7b71a}{%
-           family={Ahmed},
-           familyi={A\bibinitperiod},
-           given={Amr},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{7f3a8d6a5ab04df1d1a78a8f34f95ea4}
-      \strng{fullhash}{a13a1bc94855f1c5af34e0ae6fe72855}
-      \strng{fullhashraw}{a13a1bc94855f1c5af34e0ae6fe72855}
-      \strng{bibnamehash}{7f3a8d6a5ab04df1d1a78a8f34f95ea4}
-      \strng{authorbibnamehash}{7f3a8d6a5ab04df1d1a78a8f34f95ea4}
-      \strng{authornamehash}{7f3a8d6a5ab04df1d1a78a8f34f95ea4}
-      \strng{authorfullhash}{a13a1bc94855f1c5af34e0ae6fe72855}
-      \strng{authorfullhashraw}{a13a1bc94855f1c5af34e0ae6fe72855}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Transformers-based models, such as {BERT}, have been one of the most successful deep learning models for {NLP}. Unfortunately, one of their core limitations is the quadratic dependency (mainly in terms of memory) on the sequence length due to their full attention mechanism. To remedy this, we propose, {BigBird}, a sparse attention mechanism that reduces this quadratic dependency to linear. We show that {BigBird} is a universal approximator of sequence functions and is Turing complete, thereby preserving these properties of the quadratic, full attention model. Along the way, our theoretical analysis reveals some of the benefits of having \$O(1)\$ global tokens (such as {CLS}), that attend to the entire sequence as part of the sparse attention mechanism. The proposed sparse attention can handle sequences of length up to 8x of what was previously possible using similar hardware. As a consequence of the capability to handle longer context, {BigBird} drastically improves performance on various {NLP} tasks such as question answering and summarization. We also propose novel applications to genomics data.}
-      \field{month}{1}
-      \field{shorttitle}{Big Bird}
-      \field{title}{Big Bird: Transformers for Longer Sequences}
-      \field{urlday}{6}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2021}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2007.14062
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2007.14062
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2007.14062
-      \endverb
-      \keyw{Computer Science - Computation and Language,Computer Science - Machine Learning,Statistics - Machine Learning}
-    \endentry
-    \entry{priem_openalex_2022}{misc}{}{}
-      \name{author}{3}{}{%
-        {{hash=4cb5aed54d6bf2860d7c4b6ec870ff2c}{%
-           family={Priem},
-           familyi={P\bibinitperiod},
-           given={Jason},
-           giveni={J\bibinitperiod}}}%
-        {{hash=6a9c975781e7bd4649a350bd594ccc43}{%
-           family={Piwowar},
-           familyi={P\bibinitperiod},
-           given={Heather},
-           giveni={H\bibinitperiod}}}%
-        {{hash=69177da7ae32492293af176e731700f5}{%
-           family={Orr},
-           familyi={O\bibinitperiod},
-           given={Richard},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{1b3e87b977c784b8a9da6c71e967b62b}
-      \strng{fullhash}{1b3e87b977c784b8a9da6c71e967b62b}
-      \strng{fullhashraw}{1b3e87b977c784b8a9da6c71e967b62b}
-      \strng{bibnamehash}{1b3e87b977c784b8a9da6c71e967b62b}
-      \strng{authorbibnamehash}{1b3e87b977c784b8a9da6c71e967b62b}
-      \strng{authornamehash}{1b3e87b977c784b8a9da6c71e967b62b}
-      \strng{authorfullhash}{1b3e87b977c784b8a9da6c71e967b62b}
-      \strng{authorfullhashraw}{1b3e87b977c784b8a9da6c71e967b62b}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{{OpenAlex} is a new, fully-open scientific knowledge graph ({SKG}), launched to replace the discontinued Microsoft Academic Graph ({MAG}). It contains metadata for 209M works (journal articles, books, etc); 2013M disambiguated authors; 124k venues (places that host works, such as journals and online repositories); 109k institutions; and 65k Wikidata concepts (linked to works via an automated hierarchical multi-tag classifier). The dataset is fully and freely available via a web-based {GUI}, a full data dump, and high-volume {REST} {API}. The resource is under active development and future work will improve accuracy and coverage of citation information and author/institution parsing and deduplication.}
-      \field{month}{6}
-      \field{shorttitle}{{OpenAlex}}
-      \field{title}{{OpenAlex}: A fully-open index of scholarly works, authors, venues, institutions, and concepts}
-      \field{urlday}{14}
-      \field{urlmonth}{6}
-      \field{urlyear}{2024}
-      \field{year}{2022}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2205.01833
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2205.01833
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2205.01833
-      \endverb
-      \keyw{Computer Science - Digital Libraries}
-    \endentry
-    \entry{ostendorff_enriching_2019}{misc}{}{}
-      \name{author}{6}{}{%
-        {{hash=a345dacf976a37577ba2e6e955cc5305}{%
-           family={Ostendorff},
-           familyi={O\bibinitperiod},
-           given={Malte},
-           giveni={M\bibinitperiod}}}%
-        {{hash=718d82de4d4959bfef0c47623f213f7c}{%
-           family={Bourgonje},
-           familyi={B\bibinitperiod},
-           given={Peter},
-           giveni={P\bibinitperiod}}}%
-        {{hash=0158f077adc2f67106bdd9caa70216f1}{%
-           family={Berger},
-           familyi={B\bibinitperiod},
-           given={Maria},
-           giveni={M\bibinitperiod}}}%
-        {{hash=c13e1ff6f1571630400a7db885a7aecf}{%
-           family={Moreno-Schneider},
-           familyi={M\bibinithyphendelim S\bibinitperiod},
-           given={Julian},
-           giveni={J\bibinitperiod}}}%
-        {{hash=5a5bc03acd0bc6d9b52061a193d32069}{%
-           family={Rehm},
-           familyi={R\bibinitperiod},
-           given={Georg},
-           giveni={G\bibinitperiod}}}%
-        {{hash=0b95556d74049673135bb563f08ae221}{%
-           family={Gipp},
-           familyi={G\bibinitperiod},
-           given={Bela},
-           giveni={B\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{fe67db1ec71b510ac446ea8cc68603d1}
-      \strng{fullhash}{da486abeba857d58b23efce51641d913}
-      \strng{fullhashraw}{da486abeba857d58b23efce51641d913}
-      \strng{bibnamehash}{fe67db1ec71b510ac446ea8cc68603d1}
-      \strng{authorbibnamehash}{fe67db1ec71b510ac446ea8cc68603d1}
-      \strng{authornamehash}{fe67db1ec71b510ac446ea8cc68603d1}
-      \strng{authorfullhash}{da486abeba857d58b23efce51641d913}
-      \strng{authorfullhashraw}{da486abeba857d58b23efce51641d913}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{In this paper, we focus on the classification of books using short descriptive texts (cover blurbs) and additional metadata. Building upon {BERT}, a deep neural language model, we demonstrate how to combine text representations with metadata and knowledge graph embeddings, which encode author information. Compared to the standard {BERT} approach we achieve considerably better results for the classification task. For a more coarse-grained classification using eight labels we achieve an F1- score of 87.20, while a detailed classification using 343 labels yields an F1-score of 64.70. We make the source code and trained models of our experiments publicly available}
-      \field{month}{9}
-      \field{title}{Enriching {BERT} with Knowledge Graph Embeddings for Document Classification}
-      \field{urlday}{6}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2019}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1909.08402
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1909.08402
-      \endverb
-      \keyw{Computer Science - Computation and Language,Computer Science - Machine Learning,Computer Science - Information Retrieval}
-    \endentry
-    \entry{wolff_enriched_2024}{misc}{}{}
-      \name{author}{3}{}{%
-        {{hash=6d794700e281c98d4bd15431b597737a}{%
-           family={Wolff},
-           familyi={W\bibinitperiod},
-           given={Benjamin},
-           giveni={B\bibinitperiod}}}%
-        {{hash=be48e0184ba7e8b1f9bb382ee728d95b}{%
-           family={Seidlmayer},
-           familyi={S\bibinitperiod},
-           given={Eva},
-           giveni={E\bibinitperiod}}}%
-        {{hash=63d71eea1b96ae37af7ea7b1c6f19e4e}{%
-           family={Förstner},
-           familyi={F\bibinitperiod},
-           given={Konrad\bibnamedelima U.},
-           giveni={K\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{c6fbb4a0645e0f57dca8f819885c9084}
-      \strng{fullhash}{c6fbb4a0645e0f57dca8f819885c9084}
-      \strng{fullhashraw}{c6fbb4a0645e0f57dca8f819885c9084}
-      \strng{bibnamehash}{c6fbb4a0645e0f57dca8f819885c9084}
-      \strng{authorbibnamehash}{c6fbb4a0645e0f57dca8f819885c9084}
-      \strng{authornamehash}{c6fbb4a0645e0f57dca8f819885c9084}
-      \strng{authorfullhash}{c6fbb4a0645e0f57dca8f819885c9084}
-      \strng{authorfullhashraw}{c6fbb4a0645e0f57dca8f819885c9084}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{With the rapid expansion of academic literature and the proliferation of preprints, researchers face growing challenges in manually organizing and labeling large volumes of articles. The {NSLP} 2024 {FoRC} Shared Task I addresses this challenge organized as a competition. The goal is to develop a classifier capable of predicting one of 123 predefined classes from the Open Research Knowledge Graph ({ORKG}) taxonomy of research fields for a given article.This paper presents our results. Initially, we enrich the dataset (containing English scholarly articles sourced from {ORKG} and {arXiv}), then leverage different pre-trained language Models ({PLMs}), specifically {BERT}, and explore their efficacy in transfer learning for this downstream task. Our experiments encompass feature-based and fine-tuned transfer learning approaches using diverse {PLMs}, optimized for scientific tasks, including {SciBERT}, {SciNCL}, and {SPECTER}2. We conduct hyperparameter tuning and investigate the impact of data augmentation from bibliographic databases such as {OpenAlex}, Semantic Scholar, and Crossref. Our results demonstrate that fine-tuning pre-trained models substantially enhances classification performance, with {SPECTER}2 emerging as the most accurate model. Moreover, enriching the dataset with additional metadata improves classification outcomes significantly, especially when integrating information from S2AG, {OpenAlex} and Crossref. Our best-performing approach achieves a weighted F1-score of 0.7415. Overall, our study contributes to the advancement of reliable automated systems for scholarly publication categorization, offering a potential solution to the laborious manual curation process, thereby facilitating researchers in efficiently locating relevant resources.}
-      \field{month}{5}
-      \field{title}{Enriched {BERT} Embeddings for Scholarly Publication Classification}
-      \field{urlday}{6}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2024}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2405.04136
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2405.04136
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2405.04136
-      \endverb
-      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language}
-    \endentry
-    \entry{behnamghader_llm2vec_2024}{misc}{}{}
-      \name{author}{6}{}{%
-        {{hash=ed8a2ddf9041208b4ff1bd7da07e6f8e}{%
-           family={{BehnamGhader}},
-           familyi={B\bibinitperiod},
-           given={Parishad},
-           giveni={P\bibinitperiod}}}%
-        {{hash=1cf8c3cd56516635571fdddc8f58e5ba}{%
-           family={Adlakha},
-           familyi={A\bibinitperiod},
-           given={Vaibhav},
-           giveni={V\bibinitperiod}}}%
-        {{hash=a337d6494f1b30bc3ab3ac3f5ecb8e9a}{%
-           family={Mosbach},
-           familyi={M\bibinitperiod},
-           given={Marius},
-           giveni={M\bibinitperiod}}}%
-        {{hash=6d80adec79a13a33e73215c5f46f1605}{%
-           family={Bahdanau},
-           familyi={B\bibinitperiod},
-           given={Dzmitry},
-           giveni={D\bibinitperiod}}}%
-        {{hash=d87069194d85b18ffb5b74737da91a0d}{%
-           family={Chapados},
-           familyi={C\bibinitperiod},
-           given={Nicolas},
-           giveni={N\bibinitperiod}}}%
-        {{hash=85bf89cac32f664ccb55dcb6bf0c9881}{%
-           family={Reddy},
-           familyi={R\bibinitperiod},
-           given={Siva},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{5d46876d19e2095aa2a76d111f323a76}
-      \strng{fullhash}{a5f57c379231ec10eba1c171d736d74d}
-      \strng{fullhashraw}{a5f57c379231ec10eba1c171d736d74d}
-      \strng{bibnamehash}{5d46876d19e2095aa2a76d111f323a76}
-      \strng{authorbibnamehash}{5d46876d19e2095aa2a76d111f323a76}
-      \strng{authornamehash}{5d46876d19e2095aa2a76d111f323a76}
-      \strng{authorfullhash}{a5f57c379231ec10eba1c171d736d74d}
-      \strng{authorfullhashraw}{a5f57c379231ec10eba1c171d736d74d}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Large decoder-only language models ({LLMs}) are the state-of-the-art models on most of today's {NLP} tasks and benchmarks. Yet, the community is only slowly adopting these models for text embedding tasks, which require rich contextualized representations. In this work, we introduce {LLM}2Vec, a simple unsupervised approach that can transform any decoder-only {LLM} into a strong text encoder. {LLM}2Vec consists of three simple steps: 1) enabling bidirectional attention, 2) masked next token prediction, and 3) unsupervised contrastive learning. We demonstrate the effectiveness of {LLM}2Vec by applying it to 3 popular {LLMs} ranging from 1.3B to 7B parameters and evaluate the transformed models on English word- and sequence-level tasks. We outperform encoder-only models by a large margin on word-level tasks and reach a new unsupervised state-of-the-art performance on the Massive Text Embeddings Benchmark ({MTEB}). Moreover, when combining {LLM}2Vec with supervised contrastive learning, we achieve state-of-the-art performance on {MTEB} among models that train only on publicly available data. Our strong empirical results and extensive analysis demonstrate that {LLMs} can be effectively transformed into universal text encoders in a parameter-efficient manner without the need for expensive adaptation or synthetic {GPT}-4 generated data.}
-      \field{month}{4}
-      \field{shorttitle}{{LLM}2Vec}
-      \field{title}{{LLM}2Vec: Large Language Models Are Secretly Powerful Text Encoders}
-      \field{urlday}{6}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2024}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2404.05961
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2404.05961
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2404.05961
-      \endverb
-      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language}
-    \endentry
-    \entry{cai_came_2023}{misc}{}{}
-      \name{author}{7}{}{%
-        {{hash=8facb2c986b99dfb59c8d88c2a11b754}{%
-           family={Cai},
-           familyi={C\bibinitperiod},
-           given={Yinqiong},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=0c2ecb63e8980eb8dbcf4a604ec94ca5}{%
-           family={Fan},
-           familyi={F\bibinitperiod},
-           given={Yixing},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=ebbd2be45d07c97c2ecbb77275a0eaf5}{%
-           family={Bi},
-           familyi={B\bibinitperiod},
-           given={Keping},
-           giveni={K\bibinitperiod}}}%
-        {{hash=3a4015314b36f50d72a43c8fb03ca87e}{%
-           family={Guo},
-           familyi={G\bibinitperiod},
-           given={Jiafeng},
-           giveni={J\bibinitperiod}}}%
-        {{hash=06debc36f6b61a405e8f0da1c7ccd6ca}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Wei},
-           giveni={W\bibinitperiod}}}%
-        {{hash=b81bf0de98d741047b84d65d15117f32}{%
-           family={Zhang},
-           familyi={Z\bibinitperiod},
-           given={Ruqing},
-           giveni={R\bibinitperiod}}}%
-        {{hash=48dc8864d7a369badfb5b1b7dab6f4fa}{%
-           family={Cheng},
-           familyi={C\bibinitperiod},
-           given={Xueqi},
-           giveni={X\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{258f193c6e71711451ce53fda7977e1f}
-      \strng{fullhash}{9f6a3b7728f80c68eee624ceb3d65b8c}
-      \strng{fullhashraw}{9f6a3b7728f80c68eee624ceb3d65b8c}
-      \strng{bibnamehash}{258f193c6e71711451ce53fda7977e1f}
-      \strng{authorbibnamehash}{258f193c6e71711451ce53fda7977e1f}
-      \strng{authornamehash}{258f193c6e71711451ce53fda7977e1f}
-      \strng{authorfullhash}{9f6a3b7728f80c68eee624ceb3d65b8c}
-      \strng{authorfullhashraw}{9f6a3b7728f80c68eee624ceb3d65b8c}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{The first-stage retrieval aims to retrieve a subset of candidate documents from a huge collection both effectively and efficiently. Since various matching patterns can exist between queries and relevant documents, previous work tries to combine multiple retrieval models to find as many relevant results as possible. The constructed ensembles, whether learned independently or jointly, do not care which component model is more suitable to an instance during training. Thus, they cannot fully exploit the capabilities of different types of retrieval models in identifying diverse relevance patterns. Motivated by this observation, in this paper, we propose a Mixture-of-Experts ({MoE}) model consisting of representative matching experts and a novel competitive learning mechanism to let the experts develop and enhance their expertise during training. Specifically, our {MoE} model shares the bottom layers to learn common semantic representations and uses differently structured upper layers to represent various types of retrieval experts. Our competitive learning mechanism has two stages: (1) a standardized learning stage to train the experts equally to develop their capabilities to conduct relevance matching; (2) a specialized learning stage where the experts compete with each other on every training instance and get rewards and updates according to their performance to enhance their expertise on certain types of samples. Experimental results on three retrieval benchmark datasets show that our method significantly outperforms the state-of-the-art baselines.}
-      \field{month}{11}
-      \field{shorttitle}{{CAME}}
-      \field{title}{{CAME}: Competitively Learning a Mixture-of-Experts Model for First-stage Retrieval}
-      \field{urlday}{16}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2023}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2311.02834
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2311.02834
-      \endverb
-      \keyw{Computer Science - Information Retrieval}
-    \endentry
-    \entry{hino_active_2022}{misc}{}{}
-      \name{author}{2}{}{%
-        {{hash=de255d5268daa335653eb88c13c9e317}{%
-           family={Hino},
-           familyi={H\bibinitperiod},
-           given={Hideitsu},
-           giveni={H\bibinitperiod}}}%
-        {{hash=c0032e01be0f052f42dd3c2063611068}{%
-           family={Eguchi},
-           familyi={E\bibinitperiod},
-           given={Shinto},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{d1695237005990fb58c79d5e347aca75}
-      \strng{fullhash}{d1695237005990fb58c79d5e347aca75}
-      \strng{fullhashraw}{d1695237005990fb58c79d5e347aca75}
-      \strng{bibnamehash}{d1695237005990fb58c79d5e347aca75}
-      \strng{authorbibnamehash}{d1695237005990fb58c79d5e347aca75}
-      \strng{authornamehash}{d1695237005990fb58c79d5e347aca75}
-      \strng{authorfullhash}{d1695237005990fb58c79d5e347aca75}
-      \strng{authorfullhashraw}{d1695237005990fb58c79d5e347aca75}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Active learning is a widely used methodology for various problems with high measurement costs. In active learning, the next object to be measured is selected by an acquisition function, and measurements are performed sequentially. The query by committee is a well-known acquisition function. In conventional methods, committee disagreement is quantified by the Kullback–Leibler divergence. In this paper, the measure of disagreement is defined by the Bregman divergence, which includes the Kullback–Leibler divergence as an instance, and the dual \${\textbackslash}gamma\$-power divergence. As a particular class of the Bregman divergence, the \${\textbackslash}beta\$-divergence is considered. By deriving the influence function, we show that the proposed method using \${\textbackslash}beta\$-divergence and dual \${\textbackslash}gamma\$-power divergence are more robust than the conventional method in which the measure of disagreement is defined by the Kullback–Leibler divergence. Experimental results show that the proposed method performs as well as or better than the conventional method.}
-      \field{month}{11}
-      \field{title}{Active Learning by Query by Committee with Robust Divergences}
-      \field{urlday}{16}
-      \field{urlmonth}{8}
-      \field{urlyear}{2024}
-      \field{year}{2022}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2211.10013
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2211.10013
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2211.10013
-      \endverb
-      \keyw{Computer Science - Machine Learning,Statistics - Machine Learning}
-    \endentry
   \enddatalist
   \missing{felizardo_visual_2013}
+  \missing{llm4g}
 \endrefsection
 \endinput
 
