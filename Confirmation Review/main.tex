@@ -197,23 +197,44 @@ The term \emph{systematic} underscores the methodical and structured approach em
 
 While this document explores the methodologies and challenges associated with systematic reviews, it is important to note that its own literature review, constrained by the typical limitations of a PhD project, cannot fulfil the criteria of a full systematic review. The resource-intensive nature of systematic reviews, often requiring dedicated funding, a multi-year timeframe, and a multidisciplinary team, necessitates a different approach for this dissertation.
 
-\subsubsection{Systematic Reviews in Medicine}
+\subsubsection{In Medicine}
 
 % systematic review use in medicine.
+Systematic reviews play a central role in medical research and practice by synthesising existing literature on clearly framed clinical questions \cite{kranke_evidence-based_2010, noauthor_cochrane_nodate}. They consolidate large bodies of evidence into a cohesive, critically appraised summary, offering clear decision support for clinicians and policymakers. Across the medical domain, systematic reviews are employed in virtually every subspecialty. Recent publications illustrate their scope: from exploring cardiovascular risks in endometriosis \cite{paras_endometriosis_2025}, to clarifying links between antidepressants and insomnia in adolescents \cite{turkmen_systematic_2025}, and examining anemia in pregnancy \cite{azzam_anaemia_2025}. Their prevalence is driven by the exponential growth of new studies, making it increasingly necessary to rely on systematic syntheses for reliable, up-to-date guidance.
 
-
-A systematic review (SR) is one approach, among many, to provide evidence that can be used to support clinical decisions \cite{kranke_evidence-based_2010}. Evidence-based medicine attempts to incorporate this into clinical practice, by recommending the preferential use of the strongest available evidence in guiding decision making. EBM ranks each approach to support decision making, sometimes referred to as a hierarchy of evidence, where SRs are deemed to provide the strongest evidence to support any clinical decision - for relative rankings of evidence strength, see Table \ref{tab:evidence_levels}.
+% How SRs support decision making
+In evidence-based medicine (EBM), systematic reviews underpin clinical decision-making by providing the highest-ranked form of evidence for many clinical questions. EBM situates different evidence types within a hierarchy, ranking expert opinion as the weakest evidence (level 5), and systematic reviews of randomized controlled trials as the strongest (level 1a), as shown in Table \ref{tab:evidence_levels}. Unlike traditional narrative reviews, systematic reviews adhere to strict methodological guidelines—such as comprehensive literature searches and critical appraisal of each included study—to minimise bias. This rigorous approach ensures that the resultant evidence synthesis is both transparent and reproducible, allowing practitioners to make more informed decisions tailored to patient needs.
 
 \input{tables/oxford_hier}
 
-SRs use reproducible systematic methodology to collect existing research, critically assess each study, and synthesise the findings into new research, and aim to provide a complete exhaustive summary of current evidence related to the research question \cite{noauthor_cochrane_nodate}. 
+% Growth of SRs
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/increase_in_publications.jpg}
+    \caption{Increasing publications over that past two decades \cite{ghasemi_scientific_2022}}
+    \label{fig:increasing_publications_over_time}
+\end{figure}
+
+The publication rate of systematic reviews in medicine has surged exponentially in recent decades, reflecting their growing centrality to evidence-based practice. Between 1986 and 2015, PubMed documented a 2728\% increase in articles labeled as systematic reviews—far outpacing the 153\% rise in other publications during the same period  \cite{ioannidis_mass_2016}. This expansion reflects a pressing demand for consolidated, high-quality evidence to address diverse clinical questions, particularly as the volume of primary research grows. For instance, the number of clinical trials—a key source of evidence—doubled between 2001 and 2020, paralleled by a near-tripling of peer-reviewed journals \cite{ghasemi_scientific_2022}; see Figure \ref{fig:increasing_publications_over_time}). Methodological advances, such as PRISMA guidelines and GRADE frameworks, have further strengthened their rigor, enabling systematic reviews to shape clinical guidelines, inform policy, and even synthesise overlapping evidence through umbrella reviews. Organizations like Cochrane exemplify this impact: its 9,000+ systematic reviews, accessed over 17.5 million times by 2023, highlight their global reach and influence, underscored by a journal impact factor of 8.8\footnote{https://www.cochrane.org/about-us/scientific-strategy}.
 
 
+\subsubsection{Process}
+
+% Brief overview of the Cochrane Review process, and the characteristics of the process.
+As elluded to, the process of producing a medical systematic review does not have a universally true process, as there are multiple forms of systematic review (i.e., Joanna Brigs Institute review (JBI), Network Meta-Analysis (Hoaglin et al 2011) or meta analysis (Gurvitch et al.)) \cite{munn_what_2018}. However, a commonly used systematic review process is the Cochrane Review \cite{cipriani_what_2011}. A Cochrane systematic review is characterised by:
+\begin{itemize}
+    \item {\bf{Standardised methology:}} SRs are often framed using a PICO format (Patient, Intervention, Comparison, Outcome). All reviews follow strict guidelines which are outlined in the Cochrane Handbook, ensuring a consistent approach to the review process. The process aims to minimise bia through methods like dual study selection, and data extraction by mutliple authors.
+    \item {\bf{Mandatory Protocol Registration:}} Cochrane reviews necessitate the registration of the protocol before the review commences, reducing bias from post-hoc changes \cite{cumpston2024planning}.
+    \item {\bf{Regular Updates:}} Cochrane systematic reviews are updated periodically, ensuring new evidence relevance. 
+    \item {\bf{GRADE framework for evidence certainty:}} A system that rates certainty of evidence (high, moderate, low, very low) in summary of findings table \cite{schunemann2024summary}.
+\end{itemize}
+
+Specificially regarding this PhD, another beneficial characteristic of Cochrane reviews is that all processes are outlined in detail, making automation of these processes possible. 
 
 
-\subsubsection{The traditional systematic review process}
+% Focus on the search process within Cochrane reviews.
 
-To understand how we might aim to improve SRs, we first need to outline the stages through which a SR progresses. Typically, the process is broken down into five distinct phases, as outlined in  Table \ref{tab:stages_of_sr}.
+Information retrieval is utilised at numerous stages within producing a Cochrane review. Typically, the process is broken down into five distinct phases, as outlined in  Table \ref{tab:stages_of_sr}.
 My PhD will focus on stage 2: Identifying relevant work, which can be further granularised into several substages:
 
 \begin{itemize}
@@ -227,32 +248,26 @@ My PhD will focus on stage 2: Identifying relevant work, which can be further gr
 \end{itemize}
 
 Figure \ref{fig:selection_and_screening} illustrates these substages.
+
+% Focus on the title and abstract screening substage.
 Specifically, this PhD will concentrate solely on the title and abstract screening substage of the "identifying relevant work" phase. At this point in the identification of works process, preliminary work has been identified through a Boolean search, providing a large list of potentially included research. Traditionally, the titles and abstracts of these works are then manually evaluated by 2-3 reviewers to decide whether they should be included or excluded based on predetermined criteria, reducing the additional work that occurs within the full text download and screening substage. This process is similar to information retrieval.
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.8\linewidth]{images/reproduced_step_by_step_guide.png}
-    \caption{PRISMA flow diagram of studies' selection and screening process: Copied from \cite{tawfik_step_2019}}
-    \label{fig:selection_and_screening}
-\end{figure*}
 
 \input{tables/stages_of_sr}
 
-\subsubsection{Challanges in producing Systematic Reviews}
+\subsubsection{Challanges}
 
-The need to improve efficiency in SRs is based on two main areas: the increasing volume of research and the resources available within healthcare care. It is known that the amount of research available to be included in these SRs is increasing; with an estimated number of peer-reviewed journals in 2020 being 46,739 (from 14, 694 in 2001), and the total number of articles published increasing threefold, and the total number of clinical research trials increasing twofold - see Figure \ref{fig:increasing_publications_over_time} \cite{ghasemi_scientific_2022}. However, the merits and disadvantages of the SR process are outside the scope of this Ph.D., but it has been succinctly conveyed in the existing literature \cite{howick_front_2011}, and, notwithstanding, SRs represent the best approach available to providing EBM.
+% The need to improve efficiency in SRs is based on two main areas: the increasing volume of research and the resources available within healthcare care. It is known that the amount of research available to be included in these SRs is increasing; with an estimated number of peer-reviewed journals in 2020 being 46,739 (from 14, 694 in 2001), and the total number of articles published increasing threefold, and the total number of clinical research trials increasing twofold - 
 
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.8\linewidth]{images/increase_in_publications.jpg}
-    \caption{Increasing publications over that past two decades \cite{ghasemi_scientific_2022}}
-    \label{fig:increasing_publications_over_time}
-\end{figure*}
+see Figure \ref{fig:increasing_publications_over_time} \cite{ghasemi_scientific_2022}. However, the merits and disadvantages of the SR process are outside the scope of this Ph.D., but it has been succinctly conveyed in the existing literature \cite{howick_front_2011}, and, notwithstanding, SRs represent the best approach available to providing EBM.
+
+
+
 
 Abstract screening averages 0.13-2.88 abstracts per minute \cite{shemilt_use_2016, giummarra_evaluation_2020, felizardo_visual_2013}. Conflict resolution, which is often necessary when multiple reviewers are used (which is preferred), takes on average 5 minutes. Screening a full-text article takes 4 minutes on average \cite{shemilt_use_2016}. Given a recently released Cochrane SR on the use of preoperative statin therapy in adults undergoing cardiac surgery, we can estimate that the total time to review all the text and abstracts for this would take 7.43 hours at best and 164.64 hours at worst \cite{antunes_preoperative_nodate}. Factored into an inflation adjusted average research cost per minute (£1.598), expected costs \textbf{for just this substage alone} could be expected to be £721.97 to £15,785.68 \cite{nussbaumer-streit_resource_2021}.
 
-\subsubsection{Automated Systems Existing with the SR process}
+\subsubsection{Existing Automated Systems}
 
 \subsection{Continuous Active Learning}
 Active Learning (AL) presents a promising approach to address one of the most resource-intensive stages of the SR: title and abstract screening. In the context of SRs, where the volume of potentially relevant literature is vast and growing, AL offers a method to significantly reduce the manual workload while maintaining high accuracy in document selection.
