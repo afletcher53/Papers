@@ -1,0 +1,42 @@
+\usepackage{titlesec}
+
+\renewcommand{\abstractnamefont}
+{\normalfont\small\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small} % Set the abstract itself to small italic text
+
+\newcommand{\abstractText}{
+    \noindent 
+    \textbf{Abstract --}
+    Continuous Active Learning (CAL) has emerged as a promising technique to enhance the efficiency and accuracy of systematic reviews in medicine. This PhD proposal investigates the application of CAL, specifically focusing on the title and abstract screening substage of systematic reviews. The primary goal is to minimize expert intervention while maintaining high accuracy in document classification, thereby addressing the increasing volume of research and limited resources in healthcare. The PhD research will focus exclusively on a pool-based sampling approach within active learning. The PhD will use datasets such as CLEF-TAR and the Synergy Dataset, which provide real-world scenarios and imbalances typical of systematic reviews. Research gaps to addressed are the lack of long context model integration, such as longformer and big bert into CAL, the limited use of metadata in the title and abstract screening process and utilising encoders as document representations.
+    
+    \smallskip
+    \smallskip
+    
+    \textbf{Keywords -  Systematic Reviews, Continous Active Learning, Technology-Assisted Review, Medical Literature Screening, Evidence-based medicine, BERT, Metadata analysis}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% customize section and subsection style %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\renewcommand{\thesection}{\Roman{section}} % section with roman numbers
+\titleformat{\section}%
+  {\centering\uppercase}{\thesection}{10pt}\textbf{{}}
+
+
+\renewcommand{\thesubsection}{\Alph{subsection}} % subsection with letters
+
+\renewcommand{\refname}{REFERENCES}
+
+\newcommand{\bibliographyLSR}[1]{\bibliography{#1}}
+
+\newcommand{\ts}{\textsuperscript} %sobrescrito 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BUG FIX ABNT2CITE - para apresentar a numeração da lista de referências entre colchetes
+% https://latex-br.narkive.com/9r6OosF0/referencia-numerica-com-colchetes-na-listagem-final-das-referencias
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

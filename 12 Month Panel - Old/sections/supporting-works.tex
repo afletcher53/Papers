@@ -1,0 +1,25 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+The author is actively involved in 3 other projects with publishable outcomes.
+
+\subsection{Predicting Retracted Research}
+
+In my study, "Predicting Retracted Research," I, along with my supervisor Mark Stevenson, explored the challenge of identifying flawed scientific publications before their dissemination - see Appendix \ref{appendix:retractionwatch}. We developed a novel data set by combining information from the Retraction Watch database and the OpenAlex API. This dataset includes metadata, abstracts, and citation metrics for 16,224 articles (8,112 retracted and 8,112 non-retracted) published between 2000 and 2020. Various machine learning models are used to predict retracted articles, with a gradient booster model achieving the highest precision at 0.691. An ablation study highlighted the critical role of the abstract in classification accuracy, recall, and F1 score, whereas the First Author's Country was pivotal for precision in feature-based classifiers. The research demonstrates the feasibility of using machine learning to aid peer review by highlighting potentially problematic research, although further refinement is necessary for practical implementation. The data set and code are publicly available to encourage further research in this area. This work has been written and is intended to be submitted to Informetrics\footnote{https://www.sciencedirect.com/journal/journal-of-informetrics}for publication. This fits the overall PhD research theme of assessing research data and ultimately showing that the evidence being assessed, even despite being published, can be flawed. Currently, no further follow-up is intended for this work.
+
+\textbf{Threat to Ph.D.:} Low. Most of the work has been completed for this project.
+
+\subsection{The stopping problem}
+
+Within the creation of SRs, the overall goal of TAR is to get to as near perfect total recall as possible, or when you have exhausted a resource such as a human reviewer. However, other stopping strategies could be more materially useful, to fulfil an information need, such as stopping when you have returned enough information to make a decision. In this joint research, between the author, Mark Stevenson and Anthony Hughes, we use information provided from cochrane reviews and create algorithms that stop when the acquisition of knowledge (positively included studies) meets a criterion and then evaluate how close these stopping algorithms got to the final outcome.
+
+\textbf{Threat to Ph.d.:} Medium, this work is ongoing and has undergone many revisions. However, it is likely to result in high-quality publishable research.
+
+\subsection{CPET analysis and deep neural networks}
+
+A cardiopulmonary exercise test (CPET) is performed before certain anaesthetic procedures, the outcome of which is used to determine the suitability of the patient for this procedure. Current approaches use summarised data to generate decision models, whose data are derived from summary values provided by the machine. The machine also records '' breath-by-breath'' data measurements, which, while they are the basis for the summary values, are not used by these models. This research project attempts to determine whether the use of deep neural networks, with these '' 'breath-by-breath''' data, is superior to that of the traditional summary-model approach. This research was devised by an NHS researcher.
+
+\textbf{Threat to Ph.d.:} Low. I am providing coding assistance to this project, and will not be involved in analysis or extensively involved in research write-up, outside of the technical side. This is also likely to result in publishable research, and will likely be published in medical domain venues, promoting interdisciplinary work.
+
+\end{document}
