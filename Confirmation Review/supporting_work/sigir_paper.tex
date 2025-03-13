@@ -1,0 +1,996 @@
+%%
+%% This is file `sample-sigconf.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `all,proceedings,bibtex,sigconf')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-sigconf.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass
+%% command.
+%%
+%% For submission and review of your manuscript please change the
+%% command to \documentclass[manuscript, screen, review]{acmart}.
+%%
+%% When submitting camera ready or to TAPS, please change the command
+%% to \documentclass[sigconf]{acmart} or whichever template is required
+%% for your publication.
+%%
+%%
+\documentclass[sigconf,natbib=true,anonymous=true]{acmart}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+\usepackage{soul,color}
+\usepackage{siunitx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{svg}
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%% Rights management information. This information is sent to you
+%% when you complete the rights form. These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmlicensed}
+\copyrightyear{2025}
+\acmYear{2025}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+% \acmConference[]{}{}{}
+\acmConference[SIGIR '25]{Proceedings of the 48th International
+ACM SIGIR Conference on Research and Development in Information Re-
+trieval,}{July 13--18,
+  2025}{Padua, Italy}
+%%
+%%  Uncomment \acmBooktitle if the title of the proceedings is different
+%%  from ``Proceedings of ...''!
+%%
+%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%%  June 03--05, 2018, Woodstock, NY}
+\acmISBN{978-1-4503-XXXX-X/18/06}
+
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references. The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%%\citestyle{acmauthoryear}
+
+
+%%
+%% end of the preamble, start of the body of the document source
+
+\settopmatter{printfolios=true}
+
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{Utility-Based Stopping Methods}
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+% \author{Aaron Fletcher}
+% \email{ahafletcher1@sheffield.ac.uk}
+% \orcid{0000-0002-4776-066X}
+% \author{Mark Stevenson}
+% \authornote{All authors contributed equally to this research.}
+% \email{mark.stevenson@sheffield.ac.uk}
+% \orcid{1234-5678-9012}
+
+
+% \authornotemark[1]
+% \affiliation{%
+%   \institution{School of Computer Science}
+%   \city{University of Sheffield}
+%   \country{United Kingdom}
+% }
+
+
+\author{Anonymous submission}
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+%% \renewcommand{\shortauthors}{Fletcher et al.}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+  Conducting efficient systematic reviews is crucial given the growing volume of scientific literature. Technology Assisted Review (TAR) offers tools to streamline this process, but traditional stopping approaches focus on achieving specific target recall levels, which may not always satisfy specific information needs. This paper introduces utility-based stopping algorithms, including Harmonic Shrinkage and Confidence Boundary, that prioritise the value of retrieved information in addressing a defined information need. These algorithms analyse statistical properties of point estimates, such as sensitivity and false positive rate, to determine when sufficient evidence has been gathered. Experiments using CLEF 2017-2019 datasets demonstrate that these moment-based approaches can significantly reduce the percentage of reviewed relevant documents (PRD) while maintaining high decision agreement. Notably, these methods achieve substantially reduced PRD while maintaining decision agreement when compared to traditional target-recall approaches. This research advances TAR methodologies by shifting from recall-oriented stopping rules to utility-driven approaches, aligning stopping decisions with users' information needs to enhance the efficiency and effectiveness of document review.
+\end{abstract}
+
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10002951.10003317.10003359.10003362</concept_id>
+<concept_desc>Information systems~Retrieval effectiveness</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10002951.10003317.10003359.10003363</concept_id>
+<concept_desc>Information systems~Retrieval efficiency</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Information systems~Retrieval effectiveness}
+\ccsdesc[500]{Information systems~Retrieval efficiency}
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\keywords{Technology Assisted Review (TAR), Stopping Rules, Information Need, Utility, Statistical Moments, Efficiency, Effectiveness, Point Estimates, Systematic Reviews.}
+%% A "teaser" image appears between the author and affiliation
+%% information and the body of the document, and typically spans the
+%% page.
+
+% \received{TODO}
+% \received[revised]{TODO}
+% \received[accepted]{TODO}
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\section{Introduction}
+
+% - Recall vs information need. 
+Technology Assisted Review (TAR) aims to develop methods to support information identification when examining the entire collection is impractical. Key applications include the development of systematic reviews in areas such as medicine and software engineering \cite{higgins2019cochrane} and eDiscovery in the legal domain \cite{roegiest2015trec,grossman2016trec,oard2018jointly,mcdonald2020accuracy}. 
+
+Within TAR, stopping rules help reviewers decide when to stop examining documents, thereby reducing workload by reviewing no more documents than necessary. A wide range of stopping methods have been proposed, all of which base the decision to stop on having identified a desired portion of all the relevant documents within the collection, known as the \emph{target recall} \cite{li2020stop,stevenson2023stopping}. However, basing the stopping decision on 
+target recall does not take account of whether a users' information need has been satisfied. Some information needs might be satisfied with information contained within a single document, even when many other relevant documents in the collection have not been discovered. On the other hand, information needs may not be satisfied at all in a given collection. 
+Therefore, relying solely on recall as a stopping criterion may be inadequate for determining when a users' information need has been fulfilled.
+Recall relies on the concept of relevance, the ``aboutness" of a document to query, which has been contrasted with utility, i.e. the value of a document to an information seeker \cite{saracevic1988study,saracevic2022notion}. Deciding when to stop by considering the utility of the information discovered is more useful than considering the documents' relevance. 
+
+This paper introduces several novel utility-based stopping algorithms for TAR that prioritise fulfilling a users' information need over achieving specific recall targets. 
+% Utility refers to the value or usefulness of a document or piece of information to an information seeker in satisfying their specific information need. It goes beyond relevance by considering how the information helps the user achieve their goal or complete a task. Utility is subjective and context-dependent, meaning that the same document can have different utility for different users or even for the same user in different situations. 
+The proposed algorithms focus on the utility derived from the retrieved documents by analysing the evolving statistical properties of the retrieved information, using metrics that assess the point estimates generated through document retrieval. These stopping algorithms evaluate the utility of the recalled information so far and determine whether that utility is sufficient to justify stopping. In essence, these algorithms seek to determine when the marginal gain in utility from reviewing additional documents is outweighed by the cost and effort involved. This approach allows for a more dynamic and adaptive stopping criterion that aligns more closely with the users' actual needs.
+
+This approach is compared against existing stopping rules (all of which base their decisions on target recall) and found to improve the efficiency of the review process significantly, achieving comparable results to target recall-based methods with substantially less relevant document review.
+
+The contributions of this paper are the development of a range of TAR-stopping algorithms based on utility rather than recall and the evaluation of these algorithms using a real-world dataset of systematic reviews. 
+
+\section{Background}
+
+% Systematic reviews, particularly for estimating DTA, are crucial in modern evidence-based medical practice. However, the process of generating a systematic review is labour-intensive, involving repeated searching and refining of large document pools to identify all relevant research. This involves labelling documents as either irrelevant (unrelated to the topic) or relevant (associated with the topic) based on title and abstract screening. The sheer volume of documents and the critical impact of the outcomes make the systematic review process an excellent candidate for efficiency improvements.
+
+Previous work on stopping methods has focused on two largely separate areas: stopping methods within TAR pipelines and methods to simulate user behaviour during search tasks. 
+
+\subsection{Stopping in TAR} Previous work on stopping methods within TAR pipelines have aimed to reduce the number of documents that need to be examined while screening collections for relevance, e.g. \cite{cormack2016engineering,li2020stop,lewis2021certifying,stevenson2023stopping}. 
+A wide range of approaches have been applied, including examination of the rate at which relevant documents are observed \cite{cormack2016engineering,stevenson2023stopping}, estimating the number of remaining relevant documents by sampling or classification \cite{shemilt2014pinpointing,callaghan2020statistical,cormack2016scalability,li2020stop} and analysis of ranking scores \cite{hollmann2017ranking,di2018study}.
+
+A common feature of these methods is that they all use the concept of a {\it target recall}, namely a percentage of all of the relevant documents within the collection, and aim to identify a suitable stopping point after a sufficient number of documents have been examined for the target recall to have been achieved. Evaluation of these stopping methods generally compares the recall achieved at the proposed stopping point against the target recall. The reliability metric \cite{cormack2016engineering} measures how often the target recall is reached or exceeded, thereby treating it as a minimum recall for acceptability. An alternative approach measures the difference between the achieved and target recalls, e.g. \cite{li2020stop,stevenson2023stopping}. 
+
+There are several advantages to evaluating stopping algorithms in terms of achieved recall. One is that recall is based on the widely accepted notion of relevance, making it straightforward to understand. Another is that a wide range of test collections are available in which documents have been labelled for relevance and these can be used to evaluate stopping algorithms, e.g. CLEF e-Health \cite{kanoulas2017clef, kanoulas2018clef,kanoulas2019clef}, TREC Total Recall \cite{grossman2016trec}, TREC Legal \cite{cormack2010overview} and RCV1 \cite{lewis2004rcv1}. Finally, recall-based evaluation is appropriate for some potential applications of stopping methods, such as within eDiscovery where the parties involved in litigation may agree on a target recall for documents relevant to a case to be disclosed (e.g. 80\%) since the collections being reviewed are large enough to make the identification of all relevant documents impractical \cite{yang2021minimizing}. 
+%Alternative (which might be clearer)
+%Finally, recall-based evaluation aligns with real-world uses of stopping methods, particularly in fields like eDiscovery. In eDiscovery, where massive document collections are reviewed for litigation, it's common to agree on a target recall (e.g., 80\% of relevant documents) because identifying all relevant documents is impractical \cite{yang2021minimizing}.
+
+However, recall-based evaluation may not always be appropriate since recall alone provides little information about whether an information need has been satisfied. The information needed might be satisfied by a single document, or it might not be fully contained even within the entire set of relevant documents. In addition, recall-based evaluation generally assumes that all documents are of equal value, which is not always true. 
+
+This is the case in systematic review automation, a significant use case for TAR methods, where some documents (e.g. those describing high-quality randomised control trials with a large number of participants) contribute more towards the review's final outcome than others. In addition, systematic reviews aim to answer a specific question which may be possible to do without identifying all of the relevant documents within the collection, particularly those with only a minor contribution to its conclusion. Norman et al. \cite{norman2019measuring} found that the number of documents screened could be reduced by more than half without affecting review conclusions. 
+% Kusa et al. \cite{kusa2023outcome} also explored alternatives to recall-based evaluation in this domain by proposing a range of alternative metrics based on review outcomes. 
+
+
+\subsection{Stopping Behaviour}
+% Focus has been on analysis of user behaviour, rather than development of methods to automate process
+Another strand of relevant work has focussed on analysis of user behaviour during search tasks, including when they decide to stop search sessions. This work suggests that users are motivated by a range of cognitive and environmental factors when deciding when to stop searching \cite{ilani2024analysis}. A key cognitive factor was found to be the individual's assessment of information sufficiency, where a feeling that the information being obtained so far is ``good enough'' motivates the decision to stop searching  \cite{cooper1973selecting,prabha2007enough,zach2005enough,dostert2009users}. Other cognitive factors include the users' experience and skills \cite{wu2014online,pennington2016much}. Relevant environmental factors are the search task being undertaken, the Information Retrieval system being used, and the time available \cite{wu2014online,azzopardi2013query,dostert2009users}.
+
+Analysis of user interactions within search systems led to the development of stopping rules. This work was largely carried out independently of the work on TAR stopping described above and generally aimed to create rules that could be applied within interactive search scenarios and which modelled observed user behaviour. 
+Early examples of such rules were the {\it satisfaction rule}, which stopped when a fixed number of relevant documents have been encountered, and the {\it frustration rule}, where the search is stopped after a fixed number of irrelevant documents have been seen \cite{cooper1973selecting}. These rules have also been combined \cite{kraft1979stopping}. Stopping rules have also been developed based on assessments of the sufficiency of the information already encountered. Nickles \cite{nickles1995judgment} proposed four such rules: stop when the user does not believe they will learn anything new; stop when the user is satisfied with the cumulative amount of information has been acquired; stop when information has been obtained about a predefined list of criteria; stop when understanding of a topic has stabilised. Browne et al. \cite{browne2005stopping} proposed a further rule where the user gathers information about a single criterion (the most important) and stops when sufficient information has been acquired. Experiments simulating search sessions revealed that variants of the frustration rule typically performed well both in terms of identifying suitable stopping points and modelling user behaviour, although the simple approach of stopping after a fixed number of documents also performed well \cite{maxwell2015initial,maxwell2015searching,maxwell2019modelling}. 
+
+Decision theory and economics methods have also been applied to propose stopping when the benefits of continuing the search process are outweighed by the cost of doing so \cite{cooper1976paradoxical,azzopardi2011economics}. 
+
+This paper aims to develop TAR-stopping rules that go beyond the current recall-based approaches and to develop stopping algorithms based on when sufficient information has been identified to satisfy an information need. The approaches are similar to those developed by Nickles \cite{nickles1995judgment} to model search behaviour, although these have not yet been applied to TAR problems. 
+
+% Potentially discuss document retrieval for QA: that work tended to focus on factoid question answering. Difference here is that problem involves consideration of combined evidence from multiple documents (see https://web.stanford.edu/~jurafsky/slp3/old_oct19/25.pdf) 
+
+\section{Problem Formulation}
+ 
+Systematic reviews aim to analyse currently available evidence to answer a specific question, such as the effectiveness of a treatment for a given condition for a particular group of individuals.  This work focuses on developing methods for identifying when enough information has been discovered to answer the question posed by the review. This contrasts existing stopping methods for systematic reviews, which aim to identify a fixed portion of the evidence, regardless of whether or not it provides enough information to answer the question. Following existing work \cite{kusa2023outcome}, the effectiveness of these methods is assessed in terms of outcomes, i.e. whether or not the question was successfully answered. 
+
+Diagnostic Test Accuracy (DTA) reviews are an important type of systematic review that aims to summarise evidence regarding the accuracy of a medical test, such as a lateral flow test for COVID-19 \cite{cochrane_infectious_diseases_group_rapid_2022}. DTA reviews are important in evidence-based medicine as the collated evidence synthesis they provide informs the appropriateness of a test for a particular circumstance and how their results should be interpreted. The majority of systematic reviews used in the CLEF e-Health task on ``Technology Assisted Reviews in Empirical Medicine'' were DTA reviews and were selected due to the challenge involved in identifying relevant studies \cite{kanoulas2017clef, kanoulas2018clef,kanoulas2019clef}.
+
+DTA reviews are created by identifying research publications that report on a test’s accuracy and combining their individual estimates together to provide a single overall estimate which can be regarded as the best possible estimate given the information available. They report test performance in terms of their {\it sensitivity} and {\it specificity}. Sensitivity measures the test's ability to identify individuals with the condition being tested for and represents the proportion successfully identified \cite{altman_diagnostic_1994}. This metric is identical to precision and is computed similarly, i.e., the number of true positives divided by the sum of true positives and false negatives. A test's specificity measures its ability to correctly identify patients without a condition. It is computed as the number of true negatives divided by the sum of true negatives and false positives \cite{fawcett_introduction_2006}. This test property may be reported as the {\it false positive rate} computed as 1 - specificity. Similar to the balance between precision and recall, diagnostic tests generally have a trade-off between sensitivity and specificity/false positive rate. This balance determines the appropriate circumstances for a test to be used. For example, large-scale screening would require a test with high sensitivity to avoid missing individuals with the condition being tested. In contrast, a test with a low false positive rate would be more appropriate before prescribing a high-risk intervention to avoid over-treatment. 
+
+Many types of systematic review aim to answer a binary question, such as whether a drug is superior to another in a particular set of conditions. The information need has been answered for these types of reviews when enough information has been gathered to answer the question. DTA reviews are somewhat different since they provide estimates of test performance, which can continue to be refined as more information is gathered, although the value of additional information generally diminishes. Although DTA reviews answer a clear information need about test accuracy, it is difficult to determine exactly at what point this has been met or what level of performance regarding the test results is required to do so since this largely depends on how an individual plans to make use of the systematic review. Consequently, we consider the information need for each DTA review to be a binary question: “Is the performance of this test > $\theta$?”, for some threshold $\theta$ and where performance is the value for some metric (e.g. sensitivity or false positive rate). This approach allows the information need to be stated clearly and simplifies the process of determining whether or not it has been met. 
+
+The best available estimates of the true values for test accuracy are those calculated by combining the results from all included studies in the review, and consequently, these are treated as gold standard values. Retrieving all relevant documents and combining their information would produce the same estimates and, therefore, the same answer to whether the test accuracy exceeds $\theta$. In contrast, if a stopping algorithm only returns a subset of all relevant studies, only some of this information will be available, and the estimate of test accuracy may differ from the one that would be produced given all the information. Consequently, the answers to whether the test accuracy exceeds $\theta$ given all or a subset of the information may differ. The aim is to develop stopping methods that provide the correct answer to the binary question (i.e. the answer that would be given when all available information is considered) while minimising the number of documents that need to be examined. That is, stopping algorithms aim to minimise the number of documents that need to be reviewed to answer the question correctly. 
+
+\section{Stopping Methods}
+
+% When reviewing a large collection of documents, a user often wants to know when enough relevant information has been gathered for a particular goal—such as determining whether additional searching is likely to change a conclusion. This section introduces several utility-based stopping methods that assess the benefit additional documents would add rather than relying on fixed recall targets.
+
+% Consider a scenario where documents arrive in a ranked order. At each index, $i$, a point estimate, $\hat{p}_i$, such as sensitivity or false positive rate, is extracted. 
+Assume that documents in a collection have been ranked and examined in the ranked order. Let $i$ be the $i$th relevant document encountered in the ranking. For each relevant document a point estimate, $\hat{p}_i$, of the metric of interest (e.g. sensitivity or false positive rate) can be extracted. The goal is to find the smallest index, $I^*$, such that sufficient information has been aquired for the binary question to be answered. 
+% beyond which reviewing additional documents is unlikely to alter the conclusion. A decision threshold, $\theta$, indicates the point at which the overall decision outcome would shift.
+
+This paper introduces utility-based stopping algorithms that leverage the statistical properties of point estimates to determine when sufficient information has been gathered to satisfy the information need. The methods described in the following sections examine distributional properties of the cumulative $\hat{p}_i$. Each approach monitors one or more of the moments: mean (first moment), variance (second moment), skewness (third), and kurtosis (fourth)~\cite{blanca_skewness_2013, wackerly2008mathematical}—as new documents are incorporated. These moments capture different indicators of convergence in the estimate's distribution. Moments are a framework in statistical analysis for characterising how data behave as they accumulate since each moment captures a different aspect of the distribution’s shape. A stable mean and small variance signal that additional studies are unlikely to shift the central value significantly, whereas low skewness and kurtosis suggest that the distribution is well-balanced and not unduly influenced by outliers.
+
+The rationale for this approach is that as relevant information accumulates, the statistical distribution of the performance estimates (like sensitivity and false positive rate) should exhibit predictable changes reflecting convergence and stability. Moments provide a quantifiable way to track these changes and infer when the marginal utility of reviewing further documents diminishes.
+
+
+
+
+% Unlike traditional approaches that rely on fixed recall targets, the proposed methods focus on the evolving statistical properties of metrics, such as sensitivity and FPR, calculated as point estimates from the retrieved documents. By analysing the behaviour of these point estimates through their statistical moments, the algorithms determine when sufficient evidence has been gathered to make a decision confidently, thus minimising unnecessary review effort while maintaining high accuracy. The section details four moment-based stopping criteria and a multi-moment approach, incorporating budget constraints.
+
+% In light of the limitations of purely recall-oriented stopping methods and the observed variability in user stopping behaviour, a suite of \emph{utility-based stopping approaches} is proposed, designed to incorporate the concept of diminishing returns. This section describes four moment-based stopping criteria, each tackling a different aspect of data convergence identified in prior studies, and a hybrid framework that integrates key ideas from user-centric stopping theories.
+
+% Stopping methods are a collection of algorithms that determine when to stop information retrieval. Information retrieval is denoted as adding a new document to a pool of known documents, which can be used to calculate point estimates (a single value calculated from sampled data). Original outcome (OO) values for information retrieval are point estimates calculated once all included study results are available. In contrast, predicted outcome (PO) values are the point estimates calculated with available study information when a stopping method was triggered and could be used to determine if early stopping of the search process resulted in an agreement with the OO. Because the final number of documents, and thus the true OO, cannot be known beforehand, the stopping method must evaluate the evolving point estimate at each step of the retrieval process, deciding whether sufficient information has been gathered at each timestep. The aim of stopping early is that the current PO is close enough to the OO that the same recommendation would be made, whether using the PO or the OO, while saving document lookups.
+
+% The datasets utilised in this study are derived from the CLEF collection. To determine the optimal stopping point for the retrieval process, stopping algorithms are employed to evaluate the utility of the information retrieved at each relevant document by analysing a calculated sensitivity and FPR for each relevant retrieval index.
+
+% These metrics, commonly used to evaluate DTA research, are calculated as point estimates based on the cumulative information retrieved at each timestep.
+
+% These point estimates are then used to determine when to stop the information retrieval. The stopping decision is based on the changes in these point estimates across timesteps, ceasing when there is little value in continuing to search, analogous to reaching a point of diminishing returns. 
+
+% Sensitivity represents the proportion of individuals with a condition correctly identified \cite{altman_diagnostic_1994}; the FPR represents those without a condition incorrectly identified \cite{fawcett_introduction_2006}.
+
+% Once the retrieval process has stopped and the PO is calculated, it can be compared to the known OO (calculated once all documents are retrieved) to determine if they are equivalent, i.e. if a different outcome decision would have been made if the retrieval continued until all documents were found.
+
+% Building upon the concept of using point estimates to assess the value of retrieved information, the approaches outlined here are derived from the notion of moments of a probability distribution. The distribution of interest is a given point estimate (e.g., sensitivity) calculated cumulatively across retrieval timesteps. Moments of a function are quantitative measures that describe the shape of its distribution. The first moment is the mean, representing the average value of the point estimate. The second moment is the variance, indicating the spread or dispersion of the point estimate values. The third moment is skewness, measuring the asymmetry of the distribution of the point estimate. The fourth moment, kurtosis, describes the shape of the distribution's peak and tails compared to a normal distribution, with higher kurtosis indicating heavier tails and a sharper peak. A stopping decision can be made by analysing how these moments change as more information is retrieved. 
+
+\subsection{Harmonic Shrinkage}
+
+Early in retrieval, a $\hat{p}_i$ further from $\theta$ provides stronger evidence for stopping. This is because subsequent information accumulation is unlikely to significantly alter future $\hat{p}_i$, as decisions based on these estimates are also unlikely to change. Conversely, $\hat{p}_i$  within an upper and lower boundary from $\theta$ suggest additional information retrieval is required before making a decision, because the estimate is not yet stable enough for confident decision-making.
+
+As more information is gathered, the confidence required for stopping can decrease. This decreasing confidence requirement is modelled through harmonic shrinkage of temporary decision thresholds. As more data is retrieved, these temporary thresholds gradually converge towards the final decision boundary, following Equation \ref{Harmonic Shrinkage Based Stopping} and illustrated with a $\theta$ of 0.5 in Figure \ref{fig:harmonic_shrinkage}.
+
+ % \begin{equation}
+ %  \label{Harmonic Shrinkage Based Stopping}
+ %  \begin{aligned}
+ %  I^* = \min \{ I : \, & \left(\forall 1 \le i \le I, \hat{p}_i \ge \theta  + \frac{s (1-\theta)}{I} \right) 
+ %                                           & \lor \left(\forall 1 \le i \le I, \hat{p}_i \le \theta - \frac{s \theta}{I} \right) \}
+ %  \end{aligned}
+ %  \end{equation}
+
+
+ \begin{equation}
+  \label{Harmonic Shrinkage Based Stopping}
+  \begin{aligned}
+  I^* = \argmin_{i}  \left( \forall j \leq i, \; \hat{p}_j \ge \theta  + \frac{s (1-\theta)}{i}  \lor \hat{p}_j \le \theta - \frac{s \theta}{i} \right)
+  \end{aligned}
+  \end{equation}
+
+This approach shrinks upper and lower temporary decision boundaries until all previous point estimates are outside or on the $I'th$ decision boundaries. A shrinkage factor, $s$, controls the convergence rate of the decision boundaries and represents the required decision confidence. When $s$ = 1, the rule demands more extreme point estimates for stopping, reflecting a high confidence requirement. When s = $0$, the temporary boundaries collapse to the decision threshold $\theta$, indicating that any point estimate can trigger a decision, regardless of the distance from the final threshold. If $\hat{p_i}$ crosses $\theta$ from above or below at any point, the algorithm will never stop, as it requires all previous point estimates to be on the same side.
+
+
+
+\begin{figure}
+    \centering
+    \includesvg[width=1\linewidth]{figs/harmonic_shrinkage.svg}
+    \Description{A simulated study run using the harmonic shrinkage approach}
+    \caption{A simulated study run using the Harmonic shrinkage stopping rule. Note stopping at Index 4 because all previous point estimates are above the temporary decision bounds.}
+    \label{fig:harmonic_shrinkage}
+\end{figure}
+
+
+% Harmonic shrinkage-based stopping involves certain trade-offs and considerations. Firstly, it relies solely on the first moment (mean) and does not consider higher moments in decision-making. This could be a limitation when dealing with highly variable data where the mean alone might not be a reliable indicator. Secondly, the method can create temporary 'no-stopping zones' around the decision threshold  $\theta$, particularly in the early stages of information retrieval when $s$ is large. This is because the temporary thresholds might be too wide initially, preventing the stopping criterion from being met even if point estimates are relatively close to  $\theta$. While this can delay stopping, it can also be beneficial in preventing premature decisions based on potentially unstable early estimates. Finally, the method can be influenced by initial point estimates, particularly when the shrinkage factor $s$ is large. If early estimates are unrepresentative, they might delay convergence towards the true mean and consequently postpone the optimal stopping time. However, as more data is gathered, the influence of these initial estimates diminishes due to the shrinking nature of the temporary thresholds. Choosing a smaller value for $s$ can reduce the sensitivity to these initial values but might also lead to premature stopping if the estimate is truly unstable. Suppose a point estimate crosses the decision threshold $\theta$ (i.e., falls on the wrong side of the threshold). This stopping algorithm will never terminate, as the criterion requires all previous estimates to be on the same side of  $\theta$.
+
+\subsection{Confidence Boundary}
+
+An alternative approach is to construct confidence intervals around each $\hat{p}_i$ using estimated variance. This approach addresses one of the key limitations of the harmonic shrinkage method, namely its sole reliance on the first moment and its failure to consider for the variability of $\hat{p}_i$. A confidence interval is calculated from cumulative data so far, providing a range within which the true value of the mean is likely to lie with a certain level of confidence. The Confidence Boundary approach is outlined in Equation \ref{Confidence Interval} and demonstrated using a $\theta$ of 0.75 in Figure \ref{fig:confidence_boundary}.
+
+% \begin{equation}
+% \label{Confidence Interval}
+% I^* = \min { i :  (\hat{p_i} + z{\alpha/2} \cdot \frac{\sigma_i}{\sqrt{n_i}} < \theta) \lor (\hat{p_i} - z{\alpha/2} \cdot \frac{\sigma_i}{\sqrt{n_i}} > \theta) }
+% \end{equation}
+\begin{equation}
+\label{Confidence Interval}
+I^* = \argmin_{i} \left(  \left(\hat{p_i} + \frac{z\alpha}{2} \cdot \frac{\sigma_i}{\sqrt{n_i}} < \theta \right) \lor \left(\hat{p_i} - \frac{z\alpha}{2} \cdot \frac{\sigma_i}{\sqrt{n_i}} > \theta \right) \right)
+\end{equation}
+
+Where $\mu_i$ and $\sigma_i$ are, respectively, the mean and standard deviation of the point estimate distribution. 
+
+\begin{figure}
+    \centering
+      \includesvg[width=1\linewidth]{figs/point_estimates_plot.svg}
+        \Description{A simulated study run using the confidence approach}
+    \caption{A simulated study run using the Confidence boundary stopping rule. Note stopping at index 3 due to a lower confidence boundary above the decision threshold. }
+    \label{fig:confidence_boundary}
+\end{figure}
+
+
+In simpler terms, the stopping criterion is met when either the interval's lower confidence boundary is above $\theta$, or the upper confidence boundary is below  $\theta$. This implies that, with the chosen confidence level (set here at 95\%), the retrieved information provides sufficient statistical evidence to conclude that the true mean is either above or below the decision threshold.
+
+% While different confidence levels could be employed, a 95\% confidence interval is chosen here to balance the need for accurate estimates with the desire for timely decisions. This is a common choice in many applications and reflects a reasonable trade-off between confidence and efficiency, especially given the high-precision requirements of medical information retrieval.
+
+% The construction of these confidence intervals relies on the assumption that the sampling distribution of the point estimates,  $\hat{p}_i$, is approximately normal. While the Central Limit Theorem (CLT) suggests that the distribution of sample means tends towards normality as the sample size increases, the CLT applies to the distribution of the sample mean across multiple experiments or samples, not necessarily to the distribution of the point estimates at each timestep within a single retrieval process. However, in practice, if the data being aggregated at each timestep is based on a reasonable number of observations, and these observations are not too heavily skewed or have extreme outliers, the normality assumption can provide a reasonable approximation.
+
+% Confidence intervals assume a normal sampling distribution of point estimates,  $\hat{p}_i$. While the Central Limit Theorem (CLT) supports this for large samples, it may not strictly hold that for each timestep within a single retrieval. However, with reasonable observations and minimal skews or outliers, normality provides an approximation.
+
+% Despite its advantages in incorporating variance, confidence interval-based stopping presents several challenges. Its reliance on the normality assumption for the sampling distribution of point estimates can be problematic with small sample sizes or skewed data, potentially leading to inaccurate confidence intervals and erroneous stopping decisions. The method's performance is sensitive to the accurate estimation of variance, which can be unstable, particularly in early stages with limited data.
+
+\subsection{Skewness}
+% Work on user-stopping behaviour emphasised the importance of perceiving a ``stable'' set of documents. Skewness- and kurtosis-based criteria reflect stability when distributions approach symmetry (low skew) or a normal shape (low excess kurtosis).
+Skewness (a measure of asymmetry) can be used to inform stopping decisions as when more evidence is accumulated through document retrieval, the $\hat{p}_i$ distribution is expected to become less skewed, indicating convergence towards a stable value. This method assumes that a symmetric distribution (i.e., skewness approaching zero) suggests sufficient information has been gathered to yield a reliable $\hat{p}_i$.  
+
+% At each index, $i$, skewness is calculated using the mean ($\mu_i$) and standard deviation ($\sigma_i$) of the point estimate distribution, as shown in Equation \ref{eq:skewness}.
+Skewness is calculated according to Equation \ref{eq:skewness}.
+
+\begin{equation}
+\label{eq:skewness}
+\text{Skewness}_i = \frac{\sum{x=1}^{n_i} (\hat{p}{x,i} - \mu_i)^3}{n_i * \sigma_i^3}
+\end{equation}
+
+$I^*$ is determined when the absolute value of the calculated skewness is below a predefined threshold, $\gamma$, formally expressed in Equation \ref{eq:skewness_stopping}.
+
+\begin{equation}
+\label{eq:skewness_stopping}
+I^* = \argmin_{i}  \left( |\text{Skewness}_i| < \gamma \right)
+\end{equation}
+
+% The rationale behind skewness-based stopping is rooted in the observation that the distribution of a point estimate tends to become more symmetric as it stabilises. Early in the retrieval process, when data is sparse, the distribution may exhibit significant skewness due to the influence of individual data points. However, as more documents are retrieved and the sample size grows, the impact of individual data points diminishes, and the distribution tends to become more symmetric around the true value. A skewness value approaching 0 suggests that the distribution is symmetric, indicating that further information retrieval is unlikely to alter the point estimate significantly.
+
+The hyperparameter choice, $\gamma$, can be considered a required confidence level within the point estimate needed before terminating information retrieval. Smaller $\gamma$ values enforce stricter symmetry requirements, potentially leading to prolonged retrieval but more confidence in the point estimate. Larger $\gamma$ values might result in premature stopping.
+
+% This criterion assumes that the absolute skewness decreases monotonically as more information is gathered. This may not be true, particularly if an outlier is present in the early stages of information recall. Additionally, a symmetric skewness does not guarantee that point estimates have converged to the true value but could indicate symmetry around an incorrect estimate, which could be the case if bimodal distributions were present. This could be the case in systematic reviews considering multiple diagnostic tests, which could have inherently different sensitivities due to variations in the populations studied, the methodologies employed, or the specific thresholds used to determine a positive result. For example, if one set of studies uses a highly sensitive but less specific test, and another set uses a less sensitive but more specific test, the resulting distribution of sensitivity estimates could exhibit bimodality, with each mode representing a cluster of studies using a particular type of test. Similarly, studies that are more prone to publication bias or with differing levels of methodological quality may introduce further modes or skew the distribution of the point estimate, even if the tests are identical.
+
+% This criterion assumes a monotonic decrease in absolute skewness, which may not hold with early outliers. Symmetric skewness doesn't guarantee convergence to the true value. It might indicate symmetry around an incorrect estimate, especially with bimodal distributions, as seen in studies with varying test sensitivities or methodological quality.
+
+\subsection{Kurtosis}
+Kurtosis measures the concentration of data around the peak and the heaviness of the tails. As more data is accumulated through document retrieval, the $\hat{p}_i$ distribution is anticipated to approach a stable shape, characterised by a specific kurtosis value. This method leverages changes in kurtosis to inform stopping decisions, suggesting that a stable distribution shape, as reflected in a relatively constant kurtosis, indicates that variability is consistent. This approach assumes that a kurtosis value approaching that of a normal distribution (i.e., excess kurtosis approaching zero) suggests sufficient information has been gathered to yield a reliable point estimate.
+
+This stopping method is outlined in Equation \ref{eq:kurtosis}:
+
+\begin{equation}
+\label{eq:kurtosis}
+\text{Kurtosis}_i = \frac{\sum{x=1}^{n_i} (\hat{p}{x,i} - \mu_i)^4}{n_i \times \sigma_i^4} - 3
+\end{equation}
+
+The subtraction of 3 adjusts the kurtosis value to represent ``excess kurtosis'', where a value of 0 corresponds to the kurtosis of a normal distribution \cite{decarlo_meaning_1997}. Positive excess kurtosis (leptokurtic) indicates a distribution with heavier tails and a sharper peak than a normal distribution. In comparison, negative excess kurtosis (platykurtic) indicates lighter tails and a flatter peak \cite{Balanda01051988}.
+
+As with skewness, $I^*$ is determined when the absolute value of the calculated kurtosis is below $\gamma$, see Equation \ref{eq:kurtosis_stopping}.
+
+\begin{equation}
+\label{eq:kurtosis_stopping}
+I^* = \argmin_{i} \left( |\text{Kurtosis}_i| < \gamma  \right)
+\end{equation}
+% \begin{equation}
+%    I^*(i) =
+% \begin{cases}
+%   i, & \text{if } \left| \frac{\sum_{x=1}^{n_i} (\hat{p}_{x,i} - \mu_i)^4}{n_i \sigma_i^4} - 3 \right| < \gamma \\
+%   \text{undefined}, & \text{otherwise}
+% \end{cases}
+% \end{equation}
+
+% The rationale behind kurtosis-based stopping is rooted in the observation that the shape of the distribution of a point estimate, particularly its tailedness, tends to stabilise as it converges towards a true value. Early in the retrieval process, when data is sparse, the distribution may exhibit significant deviations from normality, resulting in high positive or negative excess kurtosis. However, as more documents are retrieved and the sample size grows, the impact of individual data points diminishes, and the distribution tends to approach a more stable shape. An excess kurtosis value approaching 0 suggests that the distribution's shape is similar to a normal distribution, indicating that further information retrieval is unlikely to alter the point estimate or its associated distribution significantly.
+
+% As with the other higher moments (kurtosis), similar assumptions are made about the underlying probability distribution and are subject to the same limitations.
+
+\subsection{Multi-moments}
+While a single-stopping criterion might lack sufficient discriminatory power or be overly sensitive to specific data characteristics, a collective assessment based on multiple moments can provide a more reliable and nuanced decision-making framework. By considering multiple facets of the evolving distribution, this method aims to capitalise on the early stopping potential offered by lower-moment methods like Harmonic Shrinkage while also assessing the stability and shape considerations provided by higher-moment methods like skewness and kurtosis-based stopping. The combined approach also benefits from the variance-aware nature of confidence boundary-based stopping.
+
+The integration mechanism can be conceptualised as an "OR" operation, where the information retrieval process is terminated at the earliest index when any of the individual stopping criteria are met, as outlined in Equation \ref{eq:full_momentum_stopping}.
+
+\begin{equation}
+\label{eq:full_momentum_stopping}
+I^* = \argmin_{i} \left( \text{HS}(i) \lor \text{CB}(i) \lor \text{SK}(i) \lor \text{KU}(i) \right)
+\end{equation}
+
+% This reflects the assumption that each moment-based method provides a unique perspective on the evolving distribution, and if any one method signals sufficient confidence for stopping based on its specific criteria, then further retrieval is deemed unnecessary.
+    
+% \subsection{Budget Constraints}
+
+% In many real-world scenarios, information retrieval must conclude within a predefined resource limit, even if statistical stopping rules have not been met. To address this, a budget constraint is applied:
+
+% \begin{enumerate}
+%     \item Information retrieval continues while statistical stopping rules (e.g., Confidence Boundary) are evaluated at each index.
+%     \item If a stopping rule triggers, the process terminates.
+%     \item If the maximum document limit $D_{max}$ is reached first, retrieval stops regardless of confidence levels.
+% \end{enumerate}
+
+This ensures retrieval aligns with resource constraints. The $D_{max}$ value is search-specific, reflecting domain priorities and resource availability.
+
+\section{Experiments}
+This section evaluates our proposed utility-based stopping algorithms against established recall-based baselines. DTA reviews from the CLEF datasets illustrate how utility-based stopping performs in a real-world context by identifying sufficient rather than complete evidence. These experiments aim to answer two key questions: First, do utility-based stopping methods maintain high decision agreement? Second, do they reduce the number of documents reviewed while maintaining high decision agreement?
+\subsection{Dataset Description}
+
+Norman et al. \cite{norman2018data} developed the Limsi-Cochrane dataset to aid research in this domain. This dataset, derived from 63 DTA systematic reviews, captures crucial information needed for developing and evaluating automated stopping algorithms. The Limsi-Cochrane dataset was constructed using a combination of optical character recognition technology (Tesseract\footnote{\url{https://tesseract-ocr.github.io/}}), manual verification and post-editing.
+
+This work obtained a low extraction error rate (0.06-0.3\%) encompassing 5,848 test results from 1,354 diagnostic tests and 1,738 diagnostic studies. Each review within the dataset contains one or more outcomes (sets of tests), and each test is linked to a set of underlying studies. PubMed identifiers uniquely identify most studies.
+
+\subsection{Dataset Generation}
+
+The included studies were grouped by outcome from the Limsi-Cochrane dataset, each containing absolute values for true positives, true negatives, false positives and false negatives. The included studies were matched to the CLEF dataset via their Cochrane Database (CD) and PubMed identification numbers. If this lookup resulted in no matches, a document identifier, if present in the Limsi-Cochrane dataset, was converted to a PubMed identification number using Entrez\footnote{\url{https://pypi.org/project/entrezpy/}} Python package. This PubMed identification number was then used to query the CLEF dataset for a matching document. Any included studies that could not be matched to the CLEF dataset were removed from the outcome study run. The studies were then ranked using AutoStop \cite{li2020stop}, an implementation of an active learning approach to document ranking in TAR \cite{Cormack2015} representing state-of-the-art performance on total recall tasks. This formed the CLEF 2017 and CLEF 2018 DTA datasets.
+
+% The matching of the Limsi-Cochrane dataset to the CLEF dataset was a source of loss of study data. This is attributed to several factors:
+
+% \begin{itemize}
+%     \item CDs within the CLEF dataset did not exist within the Limsi-Cochrane dataset (i.e. CD008643).
+%     \item Internal identifiers within the Limsi-Cochrane Dataset cannot be resolved. There should a resolvable identifier between the included study and the data utilised from that study. I.e. a study is identified as Boelart 2008 within the included studies of a systematic review, however the data refers to Boelaert 2008 - Ethopia, Boelaert 2008 - India, Boelaert 2008 - Napal, Boelaert 2008 - Sudan.
+%     \item No PMID or DOI information is available within the Limsi-Cochrane dataset within the identifier tag.
+% \end{itemize}
+
+The Limsi-Cochrane dataset predates the CLEF 2019 dataset; and therefore, it did not contain those systematic reviews. For all the 8 CLEF 2019 DTA systematic reviews, Amazon's Textract optical character recognition technology\footnote{https://aws.amazon.com/textract/} was used to read each outcome obtained on the Cochrane website. This data contained the absolute values for true positives, true negatives, false positives and false negatives. These results were manually linked to a PubMed identification number if one was reported on the Cochrane website, generating the CLEF 2019 DTA dataset. 
+
+Each dataset had an ordered list of included studies for each outcome within a systematic review. With each included research study, a position within the AutoTAR ranking and values for true positives, true negatives, false negatives and false positives were available. At each point of included research, sensitivity and false positive rate were calculated using the Reistma R Package\footnote{https://www.rdocumentation.org/packages/mada/versions/0.5.11/topics/reitsma}, which uses a bivariate approach \cite{reitsma_bivariate_2005}. In total, 135 outcomes study runs were available after the dataset matching process that met the minimum number (5) of relevant studies threshold (90 from CLEF 2017, 29 from CLEF 2018 and 16 from CLEF 2019 DTA).
+
+\subsection{Hyperparameter selection}
+
+In diagnostic testing, appropriate decision thresholds ($\theta$) are crucial for determining test outcomes. For this experiment, the decision thresholds were established based on values generally considered desirable within the broader domain of diagnostic testing, particularly for screening purposes, given the context-agnostic nature of this experimental setup.
+
+Sensitivity's $\theta$ was set to 0.75. A sensitivity of 0.75 may be acceptable in screening scenarios where the primary objective is to identify a substantial proportion of individuals potentially affected by a disease and warrant further confirmatory testing. This is especially relevant in cases where the screening test is relatively inexpensive and non-invasive compared to subsequent diagnostic procedures. A higher sensitivity is often preferred in early-stage screening to avoid missing cases.
+False positive rate's $\theta$ was set to 0.1. Lower false positive rate values are generally preferred as they minimise the risk of misclassifying healthy individuals as having the condition. The acceptability of this rate is contingent upon the potential ramifications of false positives, such as undue anxiety, unnecessary follow-up tests, or unwarranted treatments. A false positive rate of 0.1 might be considered acceptable if the follow-up confirmatory tests are relatively accurate and the consequences of a false positive are not severe.
+
+
+While these thresholds are reasonable starting points for this context, it is important to acknowledge that selecting appropriate decision thresholds ($\theta$) for each outcome (sensitivity, false positive rate) is ideally informed by the specific diagnostic testing context, including the disease's nature, the condition's prevalence, and the relative consequences of false positive and false negative classifications. A universal threshold is unlikely to be optimal across all scenarios, and further research could explore the impact of varying these thresholds within specific contexts.
+% $D_{max}$ was set to 500.
+
+$s$ was set to 0.25, $\gamma$ was set to 0.5, as these values showed promise in preliminary empirical testing as reasonable starting points balancing early stopping and decision stability. Both parameters can be interpreted as considered confidence levels, with higher values of $s$ and lower values of $\gamma$ corresponding to higher confidence levels. 
+
+
+
+\subsection{Baselines}
+
+The proposed utility-based stopping algorithms were compared against several baselines. All of these are \emph{idealised} in that they rely on perfect knowledge of the relevant documents in the collection, which is not available in a real-world review scenario.
+
+\paragraph{First Relevant Stop:}  A simple baseline where information retrieval ceases after encountering the first relevant document. This represents an extreme version of minimal effort.
+
+\paragraph{70\% Recall Stop:} Information retrieval is terminated once at least 70\% of relevant documents are retrieved. This represents a common heuristic used in some TAR applications, aiming to balance search effort with the desire to find a substantial portion of relevant material.
+
+\paragraph{Last Relevant Stop:}  This is an idealised baseline method where retrieval stops immediately after the last relevant document has been found. It is not realistically achievable but is an upper bound on efficiency.
+
+All stopping algorithms (utility-based and baselines) were applied to all outcomes.
+
+\subsection{Evaluation metrics}
+
+
+Following Kusa et al. \cite{kusa2023outcome}, a stopping algorithm's effectiveness was evaluated by calculating the proportion of time which the decision when the algorithm stops is the same as the decision would have been given all potential evidence, i.e. comparing the decision at index $I^{*}$ against that at $n$. The decision at index $i$ is a binary value given by 
+
+\begin{equation}
+\label{decision}
+Decision(i) = 
+\begin{cases}
+\text{1,} & \text{if} \; \hat{p}_i >\theta\\
+\text{0,} & \text{otherwise}
+\end{cases}
+\end{equation}
+
+% Let $\mathbb{I}(i, j)$ be an indicator function comparing the decision at two indexes, $i$ and $j$, where 
+% \begin{equation}
+% \label{decision}
+% \mathbb{I}(i, j) = 
+% \begin{cases}
+% \text{1,} & \text{if} \; Decision(i) = Decision(j)\\
+% \text{0,} & \text{otherwise}
+% \end{cases}
+% \end{equation}
+
+Then the decision agreement ({\bf DA}) for a set of outcomes, $O$, is calculated as the proportion of times the decisions agree over all outcomes, i.e. 
+\begin{equation}
+\label{DA}
+\text{Decision Agreement} = \frac{\sum_{O} \mathbb{I}(Decision(I^{*}), Decision(n))}{|O|}
+\end{equation}
+
+where $O$ is a set of outcomes and $\mathbb{I}$ an indicator function that returns 1 when the values are identical and 0 otherwise. 
+
+% The point estimate calculated at $I^*$ was converted into a binary decision using that outcome's decision threshold - see Equation \ref{decision}. Decision agreement was then calculated by comparing the decision at $I^*$ to $i_{max}$ (the decision made using all relevant documents), see Equation \ref{DA}.
+
+% \begin{equation}
+% \label{decision}
+% \text{Decision} = 
+% \begin{cases}
+% \text{1,} & \text{if point estimate} >\theta\\
+% \text{0,} & \text{otherwise}
+% \end{cases}
+% \end{equation}
+
+% \begin{equation}
+% \label{DA}
+% \text{Decision Agreement} = \frac{\sum_{i=1}^n \mathbb{I}(x_i = y_i)}{n}
+% \end{equation}
+
+As this research aims to determine if utility-based approaches can make high-quality decisions but with less information, efficiency was additionally measured by reporting the percentage of relevant documents ({\bf PRD}) looked at (i.e., out of the total relevant documents within an outcome, how many were recalled before arriving at the stopping decision). 
+In line with existing research, a stopping algorithm's retrieval efficiency is measured by calculating document retrieval savings ({\bf Savings}). The calculation subtracts the number of documents reviewed before the stopping point from the total documents in the document collection. Lower savings values indicate less efficient retrieval. 
+
+A key aspect of utility-based stopping is not just efficiency but also \emph{appropriateness}, i.e., stopping when enough information is available to make a sound decision, but not before. For each outcome, the appropriateness of the stopping algorithm's decision is assessed, quantified as ({\bf{App. Stops}}). A stopping decision is deemed appropriate if either: (1) the algorithm stopped when sufficient information was available for a confident decision, or (2) the algorithm continued when insufficient information was available. Sufficient information is defined as a state where the decision threshold ($\theta$) lies outside the margin of error of the point estimate \emph{after} all relevant documents have been retrieved (see Figure \ref{fig:sufficient_information}). 
+
+Let $S_o$ be a binary variable indicating whether the algorithm stopped for outcome $o$ (1 = stopped, 0 = did not stop) and $I_o$ be a  binary variable indicating whether information was sufficient for outcome $o$ (1 = sufficient, 0 = insufficient). Appropriate stopping is then calculated as the percentage of outcomes where the stopping decision was appropriate, as shown in Equation \ref{AppStops}.
+
+\begin{equation}
+\label{AppStops}
+\text{Appropriate Stops} = \frac{\sum_{O} \mathbb{I}(S_i = I_i)}{|O|}
+\end{equation}
+
+\begin{figure}[b!]
+    \centering
+    \includesvg[width=1\linewidth]{figs/Error Type A.svg}
+    \caption{Sufficency of information demonstration on run data as at the last index, the decision threshold is outside of the margin of error.}
+    \label{fig:sufficient_information}
+    \Description{A graph demonstrating sufficiency of information}
+\end{figure}
+
+The frequency of a stopping algorithm's stopping frequency was also reported as a percentage ({\bf Stops}).
+
+Due to the paired nature of the data and the small sample sizes in some of the comparisons, a non-parametric Wilcoxon signed-rank test was chosen to evaluate the performance differences between the moment-based approaches and the 70\% Recall baseline on DA and PRD, with a Bonferroni correction for multiple comparisons.
+
+
+
+
+
+
+\section{Results}
+
+
+% \begin{table*}[htbp]
+% \caption{Performance Comparison of Stopping Algorithms on CLEF Dataset}
+% \label{tab:stopping-comparison}
+% \begin{tabular}{l@{\hspace{0.5em}}l@{\hspace{0.5em}}rrrr@{\hspace{0.5em}}rrrr}
+% \toprule
+% & & \multicolumn{4}{c}{\textbf{False Positive Rate}} & \multicolumn{4}{c}{\textbf{Sensitivity}} \\
+% \cmidrule(lr){3-6} \cmidrule(lr){7-10}
+% \textbf{Dataset} & \textbf{Algorithm} & \textbf{DA} & \textbf{Stops} & \textbf{Savings} & \textbf{PRD} & \textbf{DA} & \textbf{Stops} & \textbf{Savings} & \textbf{PRD} \\
+% \midrule
+% \multirowcell{16}{\rotatebox{90}{2017}}&  \multicolumn{7}{l}{\textit{Oracle}} \\
+% & Last Relevant Stop & 1.000 & 1.000 & 0.973 & 1.000 & 1.000 & 1.000 & 0.973 & 1.00 \\
+% & 1st Relevant Stop & 0.767 & 1.000 & 0.999 & 0.094  & 0.767 & 1.000 & 0.999 & 0.094 \\
+% & 70\% Recall & 0.989 & 1.000 & 0.991 & 0.654   & 0.933 & 1.000 & 0.991 & 0.654 \\
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{Moment-based}} \\
+% & Harmonic Shrinkage  & 0.889 & 0.811 & 0.827 & 0.284  & 0.833 & 0.878 & 0.799 & 0.279 \\
+% & \quad with Budget  & 0.889 & 1.000 & 0.984 & 0.263  & 0.833 & 1.000 & 0.991 & 0.240 \\
+% & Confidence Boundary  & 0.978 & 0.911 & 0.948 & 0.298   & 0.967 & 0.811 & 0.873 & 0.365 \\
+% & \quad with Budget & 0.978 & 1.000 & 0.991 & 0.298  & 0.967 & 1.000 & 0.986 & 0.363 \\
+% & Skewness  & 1.000 & 0.489 & 0.486 & 0.685  & 0.944 & 0.567 & 0.560 & 0.641 \\
+% & \quad with Budget  & 1.000 & 1.000 & 0.963 & 0.627  & 0.944 & 1.000 & 0.969 & 0.597 \\
+% & Kurtosis  & 0.989 & 0.600 & 0.567 & 0.593  &  0.956 & 0.611 & 0.555 & 0.637 \\
+% & \quad with Budget & 0.989 & 1.000 & 0.967 & 0.573  & 0.956 & 1.000 & 0.964 & 0.613 \\
+% & Multi-moments & 0.867 & 1.000 & 0.998 & 0.142   &  0.811 & 1.000 & 0.998 & 0.150 \\
+% & \quad with Budget  & 0.767 & 1.000 & 0.999 & 0.095  & 0.767 & 1.000 & 0.998 & 0.114 \\
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{IP H}} \\
+% & 0.7 & 1.000 & 1.000 &0.948 &1.000 & 1.000 & 1.000 &0.948 &1.000 \\
+% & 0.8 & 1.000 & 1.000 & 0.946 &1.000 & 1.000 & 1.000 & 0.946 &1.000 \\
+% & 0.9 & 1.000 & 1.000 &0.941  &1.000 & 1.000 & 1.000 &0.941  &1.000 \\
+% & 1.0 & 1.000 & 1.000 &0.880 &1.000 & 1.000 & 1.000 &0.880 &1.000 \\
+% \cmidrule{1-10}
+
+% \multirowcell{16}{\rotatebox{90}{2018}}&  \multicolumn{7}{l}{\textit{Oracle Methods}} \\
+% & Last Relevant Stop& 1.000 & 1.000 & 0.936 & 1.000& 1.000 & 1.000 & 0.936 & 1.000 \\
+% & 1st Relevant Stop &  0.724 & 1.000 & 0.994 & 0.065  & 0.724 & 1.000 & 0.994 & 0.065 \\
+
+% & 70\% Recall & 0.897 & 1.000 & 0.970 & 0.672  & 0.828 & 1.000 & 0.970 & 0.672 \\
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{Moment-based}} \\
+
+% & Harmonic Shrinkage  & 0.793 & 0.897 & 0.788 & 0.182   & 0.862 & 0.759 & 0.835 & 0.584 \\
+% & \quad with Budget  & 0.793 & 1.000 & 0.970 & 0.171  & 0.828 & 1.000 & 0.948 & 0.258 \\
+% & Confidence Boundary  & 0.828 & 0.897 & 0.831 & 0.146 &  0.862 & 0.897 & 0.829 & 0.220 \\
+% & \quad with Budget &  0.828 & 1.000 & 0.974 & 0.146  & 0.862 & 1.000 & 0.968 & 0.220  \\
+% & Skewness  & 0.931 & 0.517 & 0.436 & 0.452  & 0.897 & 0.483 & 0.385 & 0.782  \\
+% & \quad with Budget  &  0.931 & 1.000 & 0.899 & 0.425  & 0.862 & 1.000 & 0.898 & 0.449 \\
+% & Kurtosis  & 0.966 & 0.724 & 0.799 & 0.479  & 0.931 & 0.621 & 0.761 & 0.476  \\
+% & \quad with Budget &  0.966 & 1.000 & 0.915 & 0.458  & 0.931 & 1.000 & 0.904 & 0.461 \\
+% & Multi-moments & 0.759 & 1.000 & 0.992 & 0.081  & 0.793 & 1.000 & 0.988 & 0.126 \\
+% &\quad with Budget  & 0.724 & 1.000 & 0.994 & 0.065  & 0.724 & 1.000 & 0.992 & 0.079  \\
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{IP H}} \\
+% & 0.7 & 1.000 & 1.000 &0.817 &1.000 & 1.000 & 1.000 &0.817&1.000 \\
+% & 0.8 & 1.000 & 1.000 & 0.808 &1.000 & 1.000 & 1.000 & 0.808 &1.000 \\
+% & 0.9 & 1.000 & 1.000 &0.794  &1.000 & 1.000 & 1.000 &0.794 &1.000 \\
+% & 1.0 & 1.000 & 1.000 &0.616&1.000 & 1.000 & 1.000 &0.616 &1.000 \\
+% \cmidrule{1-10}
+
+
+% \multirowcell{16}{\rotatebox{90}{2019}}&  \multicolumn{7}{l}{\textit{Oracle}} \\
+
+% & Last Relevant Stop & 1.000 & 1.000 & 0.919 & 1.000 &  1.000& 1.000 & 0.919 & 1.000 \\
+% & 1st Relevant Stop & 0.688 & 1.000 & 0.998 & 0.056  & 1.000 & 1.000 & 0.998 & 0.056   \\
+
+% & 70\% Recall & 0.875 & 1.000 & 0.970 & 0.677  & 0.875 & 1.000 & 0.970 & 0.677 \\
+
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{Moment-based}} \\
+
+% & Harmonic Shrinkage  & 0.875 & 0.688 & 0.556 & 0.354  & 1.000 & 0.938 & 0.945 & 0.142\\
+% & \quad with Budget  & 0.812 & 1.000 & 0.945 & 0.253  & 1.000 & 1.000 & 0.986 & 0.142 \\
+% & Confidence Boundary  & 0.938 & 0.688 & 0.510 & 0.361  & 1.000 & 0.750 & 0.887 & 0.271 \\
+% & \quad with Budget & 0.938 & 1.000 & 0.950 & 0.361  & 1.000 & 1.000 & 0.960 & 0.271 \\
+
+% & Skewness  & 0.875 & 0.562 & 0.499 & 0.517  & 0.938 & 0.750 & 0.671 & 0.410  \\
+% & \quad with Budget  &  0.812 & 1.000 & 0.921 & 0.424  &  0.938 & 1.000 & 0.953 & 0.378 \\
+% & Kurtosis  & 0.875 & 0.812 & 0.975 & 0.406  & 1.000 & 0.812 & 0.912 & 0.472  \\
+% & \quad with Budget &0.875 & 1.000 & 0.975 & 0.406  & 1.000 & 1.000 & 0.960 & 0.424   \\
+% & Multi-moments & 0.812 & 1.000 & 0.995 & 0.108 & 1.000 & 1.000 & 0.997 & 0.094  \\
+% & \quad with Budget  &  0.688 & 1.000 & 0.998 & 0.062  & 1.000 & 1.000 & 0.997 & 0.076  \\
+
+% \bottomrule
+% \end{tabular}
+% \end{table*}
+
+% \begin{table*}[htbp]
+% \caption{Performance Comparison of Stopping Algorithms on CLEF Datasets. Note * indicates statistical significance detected between the moment-based approach when compared with a 70\% baseline metric using a Wilcoxon signed rank test with a Bonferroni correction performed on DA and PRD ($\alpha = 0.05$).}
+% \label{tab:stopping-comparison}
+% \begin{tabular}{l@{\hspace{0.5em}}l@{\hspace{0.5em}}rrrr@{\hspace{0.5em}}rrrr}
+% \toprule
+% & & \multicolumn{4}{c}{\textbf{False Positive Rate}} & \multicolumn{4}{c}{\textbf{Sensitivity}} \\
+% \cmidrule(lr){3-6} \cmidrule(lr){7-10}
+% \textbf{Dataset} & \textbf{Algorithm} & \textbf{DA} & \textbf{PRD} & \textbf{Savings} & \textbf{Stops} & \textbf{DA} & \textbf{PRD} & \textbf{Savings} & \textbf{Stops} \\
+% \midrule
+% \multirowcell{16}{\rotatebox{90}{2017}}&  \multicolumn{7}{l}{\textit{Baseline}} \\
+% & Last Relevant Stop & 1.000 & 1.000 & 0.973 & 1.000 & 1.000 & 1.000 & 0.973 & 1.000 \\
+% & 1st Relevant Stop & 0.767 & 0.094 & 0.999 & 1.000  &0.767 & 0.094 & 0.999 & 1.000 \\
+% & 70\% Recall &  0.989 & 0.745 & 0.988 & 1.000  & 0.944 & 0.745 & 0.988 & 1.000 \\
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{Moment-based}} \\
+% & Harmonic Shrinkage  & 0.889 & 0.284* & 0.827 & 0.811  & 0.833 & 0.279* & 0.799 & 0.878 \\
+% % & \quad with Budget  &  0.889 & 0.263 & 0.984 & 1.000  &  0.833 & 0.240 & 0.991 & 1.000 \\
+% & Confidence Boundary  &  0.978 & 0.298* & 0.948 & 0.911   & 0.967 & 0.365* & 0.873 & 0.811 \\
+% % & \quad with Budget & 0.978 & 0.298 & 0.991 & 1.000   & 0.967 & 0.363 & 0.986 & 1.000  \\
+% & Skewness  & 1.000 & 0.685 & 0.486 & 0.489  &  0.944 & 0.641 & 0.560 & 0.567 \\
+% % & \quad with Budget  & 1.000 & 0.627 & 0.963 & 1.000  & 0.944 & 0.597 & 0.969 & 1.000 \\
+% & Kurtosis  & 0.989 & 0.593 & 0.567 & 0.600 &  0.956 & 0.637 & 0.555 & 0.611 \\
+% % & \quad with Budget &  0.989 & 0.573 & 0.967 & 1.000  &  0.956 & 0.613 & 0.964 & 1.000 \\
+% & Multi-moments & 0.867 & 0.142* & 0.998 & 1.000   &  0.811 & 0.150* & 0.998 & 1.000 \\
+% % & \quad with Budget  &  0.767 & 0.095 & 0.999 & 1.000  & 0.767 & 0.114 & 0.998 & 1.000 \\
+% % \cmidrule{2-10}
+% % & \multicolumn{7}{l}{\textit{IP H}} \\
+% % & 0.7 0.95 & 1.000 & 1.000 & 0.948 & 1.000 &  1.000 & 1.000 & 0.948 & 1.000 \\
+% % & 0.8 0.95 & 1.000 & 1.000 & 0.946 & 1.000  &  1.000 & 1.000 & 0.946 & 1.000  \\
+% % & 0.9 0.95 & 1.000 & 1.000 & 0.941 & 1.000 &  1.000 & 1.000 & 0.941 & 1.000 \\
+% % & 1.0 0.95 & 1.000 & 1.000 & 0.880 & 1.000 &  1.000 & 1.000 & 0.880 & 1.000 \\
+% \cmidrule{1-10}
+
+% \multirowcell{16}{\rotatebox{90}{2018}}&  \multicolumn{7}{l}{\textit{Baseline}} \\
+% & Last Relevant Stop& 1.000 & 1.000 & 0.936 & 1.000 & 1.000 & 1.000 & 0.936 & 1.000\\
+% & 1st Relevant Stop &  0.724 & 0.065 & 0.994 & 1.000  & 0.724 & 0.065 & 0.994 & 1.000 \\
+
+% & 70\% Recall & 0.931 & 0.735 & 0.961 & 1.000  & 0.897 & 0.735 & 0.961 & 1.000 \\
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{Moment-based}} \\
+
+% & Harmonic Shrinkage  & 0.793 & 0.182* & 0.788 & 0.897   & 0.862 & 0.584* & 0.835 & 0.759 \\
+% % & \quad with Budget  &  0.793 & 0.171 & 0.970 & 1.000   & 0.828 & 0.258 & 0.948 & 1.000 \\
+% & Confidence Boundary  & 0.828 & 0.146* & 0.831 & 0.897 & 0.862 & 0.220* & 0.829 & 0.897  \\
+% % & \quad with Budget &  0.828 & 0.146 & 0.974 & 1.000  & 0.862 & 0.220 & 0.968 & 1.000  \\
+% & Skewness  & 0.931 & 0.452 & 0.436 & 0.517 & 0.897 & 0.782 & 0.385 & 0.483  \\
+% % & \quad with Budget  & 0.931 & 0.425 & 0.899 & 1.000  & 0.862 & 0.449 & 0.898 & 1.000 \\
+% & Kurtosis  &0.966 & 0.479 & 0.799 & 0.724 & 0.931 & 0.476 & 0.761 & 0.62  \\
+% % & \quad with Budget & 0.966 & 0.458 & 0.915 & 1.000   & 0.931 & 0.461 & 0.904 & 1.000\\
+% & Multi-moments & 0.759 & 0.081* & 0.992 & 1.000 & 0.793 & 0.126* & 0.988 & 1.000  \\
+% % &\quad with Budget  &0.724 & 0.065 & 0.994 & 1.000   & 0.724 & 0.079 & 0.992 & 1.000 \\
+% % \cmidrule{2-10}
+% % & \multicolumn{7}{l}{\textit{IP H}} \\
+% % & 0.7 0.95 & 1.000 & 1.000 & 0.817 & 1.000  &  1.000 & 1.000 & 0.817 & 1.000  \\
+% % & 0.8 0.95 & 1.000 & 1.000 & 0.808 & 1.000 & 1.000 & 1.000 & 0.808 & 1.000  \\
+% % & 0.9 0.95  & 1.000 & 1.000 & 0.794 & 1.000 & 1.000 & 1.000 & 0.794 & 1.000\\
+% % & 1.0 0.95 & 1.000 & 1.000 & 0.616 & 1.000&  1.000 & 1.000 & 0.616 & 1.000\\
+% \cmidrule{1-10}
+
+% \multirowcell{16}{\rotatebox{90}{2019}}&  \multicolumn{7}{l}{\textit{Baseline}} \\
+
+% & Last Relevant Stop & 1.000 & 1.000 & 0.919 & 1.000 &  1.000 & 1.000 & 0.919 & 1.000 \\
+% & 1st Relevant Stop &  0.688 & 0.056 & 0.998 & 1.000  & 1.000 & 0.056 & 0.998 & 1.000   \\
+
+% & 70\% Recall & 0.938 & 0.726 & 0.968 & 1.000  & 0.875 & 0.726 & 0.968 & 1.000 \\
+
+% \cmidrule{2-10}
+% & \multicolumn{7}{l}{\textit{Moment-based}} \\
+
+% & Harmonic Shrinkage  &  0.875 & 0.354 & 0.556 & 0.688  & 1.000 & 0.142* & 0.945 & 0.938\\
+% % & \quad with Budget  &0.812 & 0.253 & 0.945 & 1.000  & 1.000 & 0.142 & 0.986 & 1.000  \\
+% & Confidence Boundary  &  0.938 & 0.361 & 0.510 & 0.688   & 1.000 & 0.271 & 0.887 & 0.750 \\
+% % & \quad with Budget & 0.938 & 0.361 & 0.950 & 1.000   & 1.000 & 0.271 & 0.960 & 1.000 \\
+
+% & Skewness  & 0.875 & 0.517 & 0.499 & 0.562  & 0.938 & 0.410 & 0.671 & 0.750  \\
+% % & \quad with Budget  &  0.812 & 0.424 & 0.921 & 1.000  &  0.938 & 0.378 & 0.953 & 1.000 \\
+% & Kurtosis  & 0.875 & 0.406 & 0.975 & 0.812  & 1.000 & 0.472 & 0.912 & 0.812  \\
+% % & \quad with Budget & 0.875 & 0.406 & 0.975 & 1.000  &1.000 & 0.424 & 0.960 & 1.000    \\
+% & Multi-moments & 0.812 & 0.108* & 0.995 & 1.000 & 1.000 & 0.094* & 0.997 & 1.000  \\
+% % & \quad with Budget  &   0.688 & 0.062 & 0.998 & 1.000  & 1.000 & 0.076 & 0.997 & 1.000  \\
+
+% \bottomrule
+% \end{tabular}
+% \end{table*}
+
+\begin{table*}[htbp]
+    \caption{Performance Comparison of Stopping Algorithms on CLEF Datasets. Note * indicates statistical significance detected between the moment-based approach when compared with a 70\% baseline metric using a Wilcoxon signed rank test with a Bonferroni correction performed on DA and PRD ($\alpha = 0.05$).}
+    \label{tab:stopping-comparison}
+    \begin{tabular}{l@{\hspace{0.5em}}l@{\hspace{0.5em}}lllll@{\hspace{0.5em}}lllll}
+    \toprule
+    & & \multicolumn{5}{c}{\textbf{False Positive Rate}} & \multicolumn{5}{c}{\textbf{Sensitivity}} \\
+    \cmidrule(lr){3-7} \cmidrule(lr){8-12}
+    \textbf{Dataset} & \textbf{Algorithm} & \textbf{DA} & \textbf{PRD} & \textbf{Savings} & \textbf{Stops} & \textbf{App. Stops} & \textbf{DA} & \textbf{PRD} & \textbf{Savings} & \textbf{Stops} & \textbf{App. Stops} \\
+    \midrule
+    \multirowcell{16}{\rotatebox{90}{2017}}&  \multicolumn{8}{l}{\textit{Baselines}} \\
+    & Last Relevant Stop & 1.000 & 1.000 & 0.973 & 1.000 & 0.789& 1.000 & 1.000 & 0.973 & 1.000 &0.567 \\
+    & First Relevant Stop & 0.767 & 0.094 & 0.999 & 1.000 &  0.789&0.767 & 0.094 & 0.999 & 1.000 & 0.567\\
+    & 70\% Recall &  0.989 & 0.745 & 0.988 & 1.000  &0.789& 0.944 & 0.745 & 0.988 & 1.000 &0.567\\
+    \cmidrule{2-12}
+    & \multicolumn{8}{l}{\textit{Moment-based}} \\
+   & Harmonic Shrinkage  & 0.889 & 0.284* & 0.827 & 0.811 & 0.667  & 0.833 & 0.279* & 0.799 & 0.878 & 0.578\\
+& Confidence Boundary  &  0.978 & 0.298* & 0.948 & 0.911 & 0.878  & 0.967 & 0.365* & 0.873 & 0.811 & 0.756\\
+& Skewness  & 1.000 & 0.685 & 0.486 & 0.489  &0.500 &  0.944 & 0.641 & 0.560 & 0.567 & 0.422\\
+& Kurtosis  & 0.989 & 0.593 & 0.567 & 0.600 &  0.633 &  0.956 & 0.637 & 0.555 & 0.611 & 0.533 \\
+& Multi-moments & 0.867 & 0.142* & 0.998 & 1.000 & 0.789   &  0.811 & 0.150* & 0.998 & 1.000 & 0.567 \\
+    \cmidrule{1-12}
+    
+    \multirowcell{16}{\rotatebox{90}{2018}}&  \multicolumn{8}{l}{\textit{Baselines}} \\
+   & Last Relevant Stop& 1.000 & 1.000 & 0.936 & 1.000 & 0.655 & 1.000 & 1.000 & 0.936 & 1.000&0.552 \\
+& First Relevant Stop &  0.724 & 0.065 & 0.994 & 1.000 &0.655   & 0.724 & 0.065 & 0.994 & 1.000& 0.552 \\
+& 70\% Recall & 0.931 & 0.735 & 0.961 & 1.000  &0.655 & 0.897  & 0.735 & 0.961 & 1.000 &0.552\\
+    \cmidrule{2-12}
+    & \multicolumn{8}{l}{\textit{Moment-based}} \\
+
+& Harmonic Shrinkage  & 0.793 & 0.182* & 0.788 & 0.897  & 0.621& 0.862 & 0.584* & 0.835 & 0.759 &0.651\\
+
+& Confidence Boundary  & 0.828 & 0.146* & 0.831 & 0.897 &0.759 &0.862 & 0.220* & 0.829 & 0.897 &0.759\\
+
+& Skewness  & 0.931 & 0.452 & 0.436 & 0.517 &0.379& 0.897 & 0.782 & 0.385 & 0.483 & 0.379\\
+
+& Kurtosis  &0.966 & 0.479 & 0.799 & 0.724& 0.793 & 0.931 & 0.476 & 0.761 & 0.620 & 0.793\\
+
+& Multi-moments & 0.759 & 0.081* & 0.992 & 1.000 &0.655& 0.793 & 0.126* & 0.988 & 1.000 &0.552 \\
+
+    \cmidrule{1-12}
+    
+    \multirowcell{16}{\rotatebox{90}{2019}}&  \multicolumn{8}{l}{\textit{Baselines}} \\
+   
+& Last Relevant Stop & 1.000 & 1.000 & 0.919 & 1.000 &  0.438&1.000 & 1.000 & 0.919 & 1.000& 0.689\\
+& First Relevant Stop &  0.688 & 0.056 & 0.998 & 1.000  &0.438 &1.000 & 0.056 & 0.998 & 1.000  &0.689 \\
+
+& 70\% Recall & 0.938 & 0.726 & 0.968 & 1.000& 0.438 & 0.875 &0.726 & 0.968 & 1.000 &0.689\\
+
+    
+    \cmidrule{2-12}
+    & \multicolumn{8}{l}{\textit{Moment-based}} \\
+    & Harmonic Shrinkage  &  0.875 & 0.354 & 0.556 & 0.688 & 0.750 & 1.000 & 0.142* & 0.945 & 0.938& 0.750\\
+
+& Confidence Boundary  &  0.938 & 0.361 & 0.510 & 0.688  & 0.750 & 1.000 & 0.271 & 0.887 & 0.750 & 0.938\\
+
+& Skewness  & 0.875 & 0.517 & 0.499 & 0.562 & 0.375 & 0.938 &0.410 & 0.671 & 0.750 & 0.688 \\
+
+& Kurtosis  & 0.875 & 0.406 & 0.975 & 0.812  & 0.375& 1.000  &0.472 & 0.912 & 0.812  & 0.625\\
+
+& Multi-moments & 0.812 & 0.108* & 0.995 & 1.000 & 0.438 &1.000  &0.094* & 0.997 & 1.000  & 0.689 \\
+
+    \bottomrule
+    \end{tabular}
+    \end{table*}
+
+The performance of the utility-based stopping algorithms is compared against several baseline methods presented in Table \ref{tab:stopping-comparison} for false positive rate and sensitivity.
+% A follow-up study using Youden's index as a composite measure of diagnostic test accuracy is presented in Table \ref{tab:stopping-comparison-youden}.
+
+
+
+Decision agreement compares algorithm decisions to those made with complete data. As expected, the baseline Last Relevant Stop method achieved perfect decision agreement, while the First Relevant Stop method showed a wide decision agreement range (0.688-1.000), highlighting the risks of premature stopping. The 70\% Recall baseline consistently achieved strong decision agreement (0.931-0.989).
+
+Crucially, none of the moment-based methods showed a statistically significant decrease in decision agreement compared to the 70\% Recall baseline, indicating they maintain comparable decision accuracy. Harmonic Shrinkage's decision agreement ranges from 0.793 to 1.000. Confidence Boundary achieves decision agreement ranging between 0.828 and 1.000. While the Multi-moments method typically yields lower decision agreements than individual moment approaches, with its range of decision agreement values matching that of First Relevant Stop (0.688-1.000), it improves upon or matches the First Relevant Stop decision agreement 12/12 times. It potentially suggests an over-aggressiveness in the Multi-moments stopping point but still makes it a superior choice to First Relevant Stop.
+
+The PRD metric indicates the proportion of relevant documents reviewed before a stopping decision is made. As expected, the Last Relevant Stop baseline method reviewed all relevant documents, while the First Relevant Stop method reviewed the least (0.056-0.094). The 70\% Recall baseline has a narrow range of PRD (0.654-0.677)
+
+The lower moment-based methods, Harmonic Shrinkage and Confidence Boundary, on average, reviewed a smaller proportion of relevant documents (0.142-0.584 and 0.146-0.365, respectively) than the 70\% Recall baseline, which, in combination with their high decision agreements, suggests lower moments are more efficient in identifying when a sufficient subset of relevant documents have been retrieved to make accurate stopping decisions. This trend was statistically significant within the 2017 and 2018 datasets. However, in the 2019 dataset, statistical significance was only observed for Harmonic Shrinkage on the sensitivity point estimate. The lack of significance for other comparisons in the 2019 dataset could be attributed to the small sample size (n=16), which reduces statistical power. Given this small sample size, the absence of statistical significance does not strongly indicate a lack of effect. Conversely, the statistically significant findings in the 2017 and 2018 datasets provide stronger evidence for the effectiveness of the Harmonic Shrinkage and Confidence Boundary methods. Skewness and Kurtosis required more relevant documents before stopping (0.406-0.782). The Multi-moments method exhibits a very low PRD (0.062-0.150), which, combined with similar decision agreement levels with First Relevant Stop, makes it a superior stopping algorithm choice if minimising the review of relevant documents is a priority, even at the risk of poorer decision agreement.
+
+Savings, the proportion of documents not reviewed, highlight the reduction in screening efforts. The Last Relevant Stop achieves substantial savings, ranging from 0.919-0.973, benefiting from perfect knowledge of the last relevant document, and highlights the difficulty of achieving savings while preserving a robust decision agreement. The First Relevant Stop method achieves near-maximum savings (0.994-0.999). The 70\% Recall baseline achieves relatively consistent savings (0.961-0.988). All baseline methods savings highly benefit from the effectiveness of screening prioritisation and always having a stopping point.
+
+% Expectedly, without budgeting, moment-based methods exhibit a wide range of savings.
+
+In cases where a moment-based approach did not stop, it incurred a penalty of the entire document pool (relevant and irrelevant), affecting the lower boundaries of these ranges. Harmonic Shrinkage and Confidence Boundary have a wide range of savings (0.510-0.948). Skewness and Kurtosis generally result in lower savings (0.385-0.975) than the lower moments, which is expected given that higher moments typically require more point estimates to arrive at a stopping decision. The Multi-moments method achieves high savings (0.988-0.998) across all datasets and point estimates.
+
+% The budget constraint reduces the lower moment's savings penalty (0.945-0.991) yet only reduces decision agreement in 2 out of 12 cases. 
+
+
+% Again, adding a budget constraint negatively affected 2 out of 12 cases, suggesting that budget constraints are a practical addition to real-world applications. 
+
+
+
+An analysis of outcomes using lower-moment methods (e.g., Harmonic Shrinkage and Confidence Boundary) revealed a limitation of using overall savings as an evaluation metric. While these methods often reviewed a smaller proportion of relevant documents (lower PRD) than the 70\% recall baseline, their overall savings were sometimes lower. This discrepancy arises because a failure of the moment-based algorithms to identify a stopping point resulted in a significant penalty – the review of the entire document set. Figure \ref{fig:savings_analysis_clef_19}, which illustrates the Confidence Boundary approach on the CLEF 2018 dataset for sensitivity, demonstrates this phenomenon. Although savings were achieved in 68.97\% of outcomes, the few instances where the algorithm failed to stop, and thus reviewed all documents, drastically reduced the average savings. 
+% This highlights that overall savings can be a misleading metric, particularly when a small number of failures can disproportionately skew the results. It suggests that alternative metrics, potentially in combination with budget constraints, may be necessary for a more accurate assessment of stopping algorithm performance.
+
+This suggests that not stopping was appropriate for these outcomes, which is supported by the Appropriate Stops metric for the Confidence Boundary approach. The Confidence Boundary approach exceeded the Appropriate Stopping rate of all baseline methods, in all datasets. Notably, all baseline approaches, and the Multi-moments share the same values as they always stop, regardless of whether sufficient information has been obtained. In contrast to target-recall-based approaches, which force a decision even with potentially insufficient information, the Confidence Boundary approach yielded a 10.3\% continuation rate, demonstrating the approaches ability to identify cases where further evidence was needed. An example of such a case is given for 70\% recall from the CLEF 2019 dataset for the sensitivity point estimate is given in Figure \ref{fig:Type B}. Regardless of \emph{any} specified target recall, stopping is not particularly appropriate, which can be identified with utlity-based approaches.
+
+In conclusion, these results indicate that the confidence boundary approach maintains good decision agreement, utilises less relevant documents and stops appropriately more  than the 70\% baseline.  
+\begin{figure}
+    \centering
+    \includesvg[width=1\linewidth]{figs/Type B.svg}
+    \caption{Example from CLEF 2019 dataset, demonstrating cases where specifying any target recall level would result in an inappropriate decision - further information is needed.}
+    \label{fig:Type B}
+    \Description{A graph showing insufficiency of information}
+\end{figure}
+
+% In contrast, \emph{target-recall} based approaches attempted to answer the question despite insufficient information utility in the complement of the moment based stopping rate.
+
+% \begin{figure*}
+%     \centering
+%     \includegraphics[width=1\linewidth]{figs/confidence_boundary_savings.png}
+%             \Description{A figure demonstrating the loss in savings attributed to small number of outcomes}
+%     \caption{Relative savings of the Confidence Boundary approach on CLEF 2018 dataset for sensitivity. Note that the black horizontal line indicates savings made with 70\% recall method. Orange bars are the Confidence Boundary approach without a budget, and blue with a budget.}
+%     \label{fig:savings_analysis_clef_19}
+% \end{figure*}
+
+\begin{figure}
+    \centering
+    \includesvg[width=1\linewidth]{figs/savings_comparison.svg}
+    \Description{Relative Savings of Confidence Boundary approach compared to 70\% Recall on CLEF 2018 dataset for Sensitivity, highlighting savings variation across outcomes.}
+    \caption{Relative savings of the Confidence Boundary approach on CLEF 2018 dataset for sensitivity. Note that the savings metric includes relevant and non-relevant documents, with the black horizontal line indicating savings made with 70\% recall method.}
+    \label{fig:savings_analysis_clef_19}
+\end{figure}
+
+% To further assess stopping algorithm performance, a follow-up study employed Youden's index (Sensitivity - FPR), a composite measure of DTA  \cite{youden_1950}. Ranging from -1 (perfectly incorrect) to +1 (perfect), with 0 representing random chance, Youden's index provides a single value representing overall DTA at each stopping point. A $\theta$ of 0.5 was used, signifying a test performing better than chance and offering some diagnostic value.
+
+% \begin{table}[htbp]
+% \caption{Performance Comparison of Youden's Stopping Algorithms on CLEF Dataset}
+% \label{tab:stopping-comparison-youden}
+% \setlength{\tabcolsep}{2pt}
+% \begin{tabular}{l@{\hspace{1em}}l@{\hspace{1em}}cccc}
+% \toprule
+% & & \multicolumn{4}{c}{\textbf{Youden's Index}} \\
+% \cmidrule(lr){3-6}
+% \textbf{Dataset} & \textbf{Algorithm} & \textbf{DA} & \textbf{Stops} & \textbf{Savings} & \textbf{PRD} \\
+% \midrule
+
+% \multirowcell{8}{\rotatebox{90}{2017}}&  \multicolumn{5}{l}{\textit{Oracle}} \\
+% & Last Relevant Stop & 1.000 & 1.000 & 0.973 & 1.000\\\
+% & 1st Relevant Stop& 0.856 & 1.000 & 0.999 & 0.094  \\
+% & 70\% Recall& 0.922 & 1.000 & 0.991 & 0.654   \\
+% \cmidrule{2-6}
+% & \multicolumn{5}{l}{\textit{Moment-based}} \\
+% & Harmonic Shrinkage& 0.867 & 0.878 & 0.903 & 0.321   \\
+% & \quad with Budget& 0.844 & 1.000 & 0.989 & 0.233 \\
+% \cmidrule{1-6}
+
+% \multirowcell{8}{\rotatebox{90}{2018}}&  \multicolumn{5}{l}{\textit{Oracle}} \\
+% & Last Relevant Stop & 1.000 & 1.000 & 0.936 & 1.000  \\
+% & 1st Relevant Stop & 0.862 & 1.000 & 0.994 & 0.065  \\
+% & 70\% Recall & 0.931 & 1.000 & 0.970 & 0.672 \\
+% \cmidrule{2-6}
+% & \multicolumn{5}{l}{\textit{Moment-based}} \\
+% & Harmonic Shrinkage & 0.966 & 0.828 & 0.789 & 0.207 \\
+% & \quad with Budget &  0.966 & 1.000 & 0.961 & 0.191  \\
+% \cmidrule{1-6}
+
+% \multirowcell{8}{\rotatebox{90}{2019}}&  \multicolumn{5}{l}{\textit{Oracle}} \\
+% & Last Relevant Stop & 1.000 & 1.000 & 0.919 & 1.000  \\
+% & 1st Relevant Stop &  0.875 & 1.000 & 0.998 & 0.056 \\
+% & 70\% Recall &  0.938 & 1.000 & 0.970 & 0.677  \\
+% \cmidrule{2-6}
+% & \multicolumn{5}{l}{\textit{Moment-based}} \\
+% & Harmonic Shrinkage & 0.938 & 0.938 & 0.995 & 0.083 \\
+% & \quad with Budget &  0.938 & 1.000 & 0.995 & 0.083 \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
+
+% Lower moments performed well in the initial analysis, so they were chosen to be analysed with Youden's index point estimate. However, calculating accurate confidence intervals for two composite point estimates (delta method or bootstrap), which didn't result in large margins of error, was challenging. Therefore, only the Harmonic shrinkage-stopping algorithm was applied to this point estimate.
+
+% The results of this follow-up study are presented in Table \ref{tab:stopping-comparison-youden}. The Harmonic Shrinkage method applied to Youden's index yielded decision agreement values of 0.867, 0.966, and 0.938 for the 2017, 2018, and 2019 datasets. These results demonstrate that the stopping algorithm, when evaluated using a composite measure of diagnostic accuracy, maintains a high level of agreement with decisions based on the full dataset. The savings achieved using Youden's index with Harmonic Shrinkage are also substantial, ranging from 0.789 to 0.995. The PRD ranges from 0.083 to 0.321. These findings suggest that using Youden's index as a stopping criterion can achieve substantial efficiency gains while preserving decision accuracy.
+
+\section{Discussion}
+%Potential further points for discussion
+% Multi-Moment as a replacement for ultra-conservative searching (1st relevant stop) as it achieves higher DA yet similar savings to it
+
+The experimental results demonstrate the potential and challenges of transitioning from recall-centric to utility-based adaptive stopping algorithms in TAR. By grounding the stopping decision in the \emph{value} rather than fixed recall thresholds, the moment-based stopping algorithms achieved notable gains in PRD while maintaining a robust alignment in decision agreement with outcomes based on full document sets. 
+
+% Moment-based approaches offer a more conceptually sound method for determining stopping points than fixed-recall thresholds. Traditional methods, such as the 70\% Recall baseline, predefine a target recall level, assuming that this level universally corresponds to sufficient information for decision-making. However, the optimal recall level can vary significantly depending on factors such as the specific research question, the heterogeneity of the studies, and the desired precision of the outcome estimates.
+
+Moment-based methods, particularly Harmonic Shrinkage and Confidence Boundary, address this limitation by adapting to the specific characteristics of the data. These methods dynamically assess the evolving statistical properties of key metrics (e.g., sensitivity, false positive rate) as more documents are reviewed. Instead of aiming for a fixed recall target, they monitor the convergence of these metrics, using their moments (mean, variance, skewness, kurtosis) to infer when additional information is unlikely to alter the overall conclusions significantly. The results show that Harmonic Shrinkage and Confidence Boundary often achieve comparable or superior decision agreement to the 70\% Recall baseline while reviewing a smaller proportion of relevant documents, underscoring their adaptive nature.
+
+% While moment-based methods offer a more nuanced approach to stopping, the results highlight the practical necessity of incorporating budget constraints. Without constraints,
+
+Some moment-based methods, especially those based on higher moments (Skewness and Kurtosis), tend to delay stopping, potentially reviewing a large proportion of the document collection. This can negate the efficiency gains of early stopping. The experiments also revealed trade-offs associated with using higher moments (Skewness and Kurtosis) for stopping decisions. While these methods generally resulted in higher decision agreement compared to lower moments (harmonic shrinkage or confidence boundary), they achieved this at the cost of reduced savings. This is likely because higher moments typically require more data points (i.e., reviewed documents) to stabilise and provide reliable estimates of distribution shape.
+
+This finding suggests that higher moments may not be ideal for datasets with few relevant documents. Such datasets are common in systematic reviews of niche topics or rare diseases. In such scenarios, the instability of higher moment estimates due to limited data can lead to delayed or even absent stopping signals, undermining the efficiency of the review process.
+
+It is crucial to acknowledge the limitations of moment-based stopping methods, especially in small sample sizes and skewed data distributions, which are common challenges in systematic reviews.
+
+% {\textbf{Impact of small sample size.}} 
+Small sample sizes are common without systematic reviews, particularly for rare diseases or conditions. With few data points, moment estimates become highly unstable and sensitive to individual studies. A single study with an unusually high or low point estimate (e.g., of sensitivity or false positive rate) can disproportionately influence the calculated moments. This can lead to erratic fluctuations in the stopping methods, causing premature or delayed stopping.
+
+Several stopping methods, such as the Confidence Boundary \- method, assume that the sampling distribution of the point estimates is approximately normal. While the Central Limit Theorem suggests that this assumption holds for sufficiently large samples, it often fails with small sample sizes. When normality is violated, the calculated confidence intervals can be inaccurate, leading to unreliable stopping decisions. The algorithm might stop too early or too late based on a flawed understanding of the uncertainty surrounding the point estimate. This could be mitigated through implementing a minimum number of studies to be reviewed before stopping.
+
+Even a single outlier study can have a disproportionately large impact on moment estimates in small samples. This can further exacerbate the instability of the stopping criteria and lead to erroneous stopping decisions. An outlier might artificially inflate or deflate the mean, skew the distribution, or distort the kurtosis, misleading the stopping algorithm. 
+
+While small sample sizes can pose challenges for moment-based stopping criteria, it is important to recognise that the systematic review process protects against this issue. A core component of systematic reviews is the rigorous assessment of evidence quality, which involves critically appraising each included study for potential biases and limitations. This quality assessment often leads to the down-weighting or exclusion of studies deemed to be of low quality. Consequently, the remaining studies contributing to the synthesis tend to be more homogeneous and of higher quality. This effective filtering mechanism reduces the likelihood of highly divergent or unreliable data points skewing the overall synthesis, even with a limited number of included studies. In essence, the quality control inherent in systematic reviews can result in a narrower, more reliable distribution of evidence, making moment-based stopping methods more robust even with limited sample sizes.
+
+
+\section{Conclusion}
+
+This paper has presented a series of utility-based stopping methods for technology-assisted review. These methods focus on the utility of retrieved information rather than pursuing predefined recall thresholds. Experimental results with systematic reviews of DTA reviews suggest that lower moment-based stopping approach can reduce relevant document screening requirements significantly while preserving decision agreement. By modelling statistical moments such as the mean, variance, skewness, and kurtosis of key clinical metrics, these approaches adapt to the usefulness of the evidence, supporting more efficient screening processes. Overall, the results emphasise the benefits of shifting from recall-oriented stopping methods to user-centric, utility-based approaches for stopping decisions, with potential applications in systematic reviews and beyond. Future research should focus on refining stopping criteria by incorporating information redundancy, such as analysing how new documents alter point estimates. Adaptive decision thresholds, adjusted dynamically based on accumulating evidence, including quality and prior knowledge, should be explored.
+
+%%
+%% The acknowledgments section is defined using the "acks" environment
+%% (and NOT an unnumbered section). This ensures the proper
+%% identification of the section in the article metadata, and the
+%% consistent spelling of the heading.
+\begin{acks}
+This work was supported by the Centre for Doctoral Training in Speech and Language Technologies (SLT) and their Applications funded by UK Research and Innovation [grant number EP/S023062/1].
+\end{acks}
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
+
+
+%%
+%% If your work has an appendix, this is the place to put it.
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-sigconf.tex'.

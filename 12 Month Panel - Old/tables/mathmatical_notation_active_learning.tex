@@ -1,0 +1,31 @@
+
+\begin{table*}[t]
+    \centering
+    \footnotesize
+
+    \begin{tabular}{|c|c|>{\raggedright\arraybackslash}p{11cm}|}
+        \hline
+        \textbf{Notation}    & \textbf{Explanation}                            & \textbf{Notes}                                                                                \\
+        \hline
+        \(\textbf{T}\)       & Total dataset                                   & e.g. Research gathered after Identification phase of the selection process.                   \\
+        \hline
+        \(i\)                & Iteration                                       & A single cycle within the active learning process.                                            \\
+        \hline
+        \(\textbf{T}_{K,i}\) & Known datapoints per iteration                  & e.g. research that has been screened by a reviewer                                            \\
+        \hline
+        \(\textbf{T}_{U,i}\) & Unknown datapoints per iteration                & e.g. research that has not been screened by a reviewer                                        \\
+        \hline
+        \(\textbf{T}_{C,i}\) & A subset of \(\textbf{T}_{U,i}\) to be labelled & chosen by a policy, datapoints to be screened by a reviewer.                                  \\
+        \hline
+        $\pi$                & Policy                                          & How \(\textbf{T}_{U,i}\) is selected, e.g. uncertainty, random, certainty, diversity sampling \\
+        \hline
+        O                    & Oracle                                          & Often a domain expert, who assigns labels to unscreened research.                             \\
+        \hline
+        \(T_R\)              & Total Relevant Documents                        & All research that should be included in a systematic review.                                  \\
+        \hline
+        \(T_{IR}\)           & Total Irrelevant Documents                      & All research that should not be included in a systematic review.                              \\
+        \hline
+    \end{tabular}
+    \caption{Notation used for active learning within this review}
+    \label{tab:notation}
+\end{table*}
