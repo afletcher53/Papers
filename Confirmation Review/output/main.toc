@@ -2,11 +2,11 @@
 \contentsline {section}{\numberline {I}INTRODUCTION}{5}{section.1}%
 \contentsline {section}{\numberline {II}BACKGROUND LITERATURE}{6}{section.2}%
 \contentsline {subsection}{\numberline {A}Systematic Reviews}{6}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {A.1}Systematic Reviews in Medicine}{7}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {A.2}The traditional systematic review process}{7}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {A.3}Challanges in producing Systematic Reviews}{8}{subsubsection.2.1.3}%
-\contentsline {subsubsection}{\numberline {A.4}Automated Systems Existing with the SR process}{9}{subsubsection.2.1.4}%
-\contentsline {subsection}{\numberline {B}Continuous Active Learning}{9}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {A.1}In Medicine}{7}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {A.2}Process}{8}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {A.3}Challanges}{9}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {A.4}Existing Automated Systems}{10}{subsubsection.2.1.4}%
+\contentsline {subsection}{\numberline {B}Continuous Active Learning}{10}{subsection.2.2}%
 \contentsline {subsection}{\numberline {C}Stopping Algorithms}{15}{subsection.2.3}%
 \contentsline {section}{\numberline {III}RESEARCH QUESTIONS}{15}{section.3}%
 \contentsline {subsection}{\numberline {A}Leveraging Citation Networks for Medical TAR}{15}{subsection.3.1}%

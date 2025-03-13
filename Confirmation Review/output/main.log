@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2024.12.24)  23 JAN 2025 18:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2024.12.24)  25 JAN 2025 12:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1207,6 +1207,13 @@ Package biblatex Info: ... file 'main.bbl' found.
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
+(biblatex)                azzam_anaemia_2025
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
 (biblatex)                cormack_evaluationsections//_2014
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -1222,6 +1229,13 @@ Package biblatex Warning: The following entry could not be found
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
 (biblatex)                llm4g
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                paras_endometriosis_2025
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
@@ -1282,36 +1296,41 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 [5{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
 
-[6] (./tables/oxford_hier.tex
+[6]
+
+LaTeX Warning: Citation 'paras_endometriosis_2025' on page 7 undefined on input line 203.
+
+
+LaTeX Warning: Citation 'azzam_anaemia_2025' on page 7 undefined on input line 203.
+
+(./tables/oxford_hier.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 5.
 )
-
-[7]
-<images/reproduced_step_by_step_guide.png, id=249, 810.02625pt x 640.3925pt>
-File: images/reproduced_step_by_step_guide.png Graphic file (type png)
-<use images/reproduced_step_by_step_guide.png>
-Package pdftex.def Info: images/reproduced_step_by_step_guide.png  used on input line 234.
-(pdftex.def)             Requested size: 404.71353pt x 319.96094pt.
- (./tables/stages_of_sr.tex)
-<images/increase_in_publications.jpg, id=256, 472.28445pt x 218.85765pt>
+<images/increase_in_publications.jpg, id=237, 472.28445pt x 218.85765pt>
 File: images/increase_in_publications.jpg Graphic file (type jpg)
 <use images/increase_in_publications.jpg>
-Package pdftex.def Info: images/increase_in_publications.jpg  used on input line 248.
-(pdftex.def)             Requested size: 404.71353pt x 187.54265pt.
+Package pdftex.def Info: images/increase_in_publications.jpg  used on input line 213.
+(pdftex.def)             Requested size: 505.89pt x 234.42915pt.
 
 
-[8 <./images/reproduced_step_by_step_guide.png>]
+[7]
 
-LaTeX Warning: Citation 'felizardo_visual_2013' on page 9 undefined on input line 253.
+[8 <./images/increase_in_publications.jpg>]
+
+LaTeX Warning: Reference `fig:selection_and_screening' on page 9 undefined on input line 250.
+
+(./tables/stages_of_sr.tex)
+
+LaTeX Warning: Citation 'felizardo_visual_2013' on page 9 undefined on input line 268.
 
 
 
-[9 <./images/increase_in_publications.jpg>]
-<images/pool_based_strategy.png, id=285, 571.13374pt x 298.11375pt>
+[9]
+<images/pool_based_strategy.png, id=295, 571.13374pt x 298.11375pt>
 File: images/pool_based_strategy.png Graphic file (type png)
 <use images/pool_based_strategy.png>
-Package pdftex.def Info: images/pool_based_strategy.png  used on input line 276.
+Package pdftex.def Info: images/pool_based_strategy.png  used on input line 291.
 (pdftex.def)             Requested size: 252.94499pt x 132.03018pt.
 
 
@@ -1324,19 +1343,19 @@ Overfull \hbox (9.29301pt too wide) in paragraph at lines 6--29
 
 [11 <./images/pool_based_strategy.png (PNG copy)>]
 
-LaTeX Warning: Citation 'cormack_evaluationsections//_2014' on page 12 undefined on input line 296.
+LaTeX Warning: Citation 'cormack_evaluationsections//_2014' on page 12 undefined on input line 311.
 
 
 
 [12]
-<images/autotar.jpg, id=331, 2569.6pt x 3312.375pt>
+<images/autotar.jpg, id=342, 2569.6pt x 3312.375pt>
 File: images/autotar.jpg Graphic file (type jpg)
 <use images/autotar.jpg>
-Package pdftex.def Info: images/autotar.jpg  used on input line 311.
+Package pdftex.def Info: images/autotar.jpg  used on input line 326.
 (pdftex.def)             Requested size: 505.89pt x 652.10202pt.
 
 
-LaTeX Warning: Float too large for page by 35.67201pt on input line 314.
+LaTeX Warning: Float too large for page by 35.67201pt on input line 329.
 
 
 
@@ -1347,21 +1366,25 @@ LaTeX Warning: Float too large for page by 35.67201pt on input line 314.
 [15]
 
 [16]
-LaTeX Font Info:    Trying to load font information for OML+lmr on input line 438.
+LaTeX Font Info:    Trying to load font information for OML+lmr on input line 453.
  (/usr/share/texmf/tex/latex/lm/omllmr.fd
 File: omllmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OML/lmr/bx/n' in size <8> not available
-(Font)              Font shape `OML/lmm/b/it' tried instead on input line 438.
+(Font)              Font shape `OML/lmm/b/it' tried instead on input line 453.
 
 
 [17{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}]
 
 [18]
 
+LaTeX Warning: Reference `fig:selection_and_screening' on page 19 undefined on input line 542.
+
+
+
 [19]
 
-LaTeX Warning: Reference `fig:citation-network-mining' on page 20 undefined on input line 608.
+LaTeX Warning: Reference `fig:citation-network-mining' on page 20 undefined on input line 623.
 
 
 
@@ -1369,7 +1392,7 @@ LaTeX Warning: Reference `fig:citation-network-mining' on page 20 undefined on i
 
 [21]
 
-LaTeX Warning: Citation 'llm4g' on page 22 undefined on input line 722.
+LaTeX Warning: Citation 'llm4g' on page 22 undefined on input line 737.
 
 
 
@@ -1624,12 +1647,16 @@ Missing character: There is no h in font nullfont!
 
 [25]
 
+LaTeX Warning: Reference `fig:selection_and_screening' on page 26 undefined on input line 848.
+
+
+
 [26]
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 878.
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 893.
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (39.87517pt too wide) in paragraph at lines 879--879
+Overfull \hbox (39.87517pt too wide) in paragraph at lines 894--894
 \OT1/lmr/m/n/10 6.1 (Dec. 2017), p. 204. \OT1/lmr/m/sc/10 issn\OT1/lmr/m/n/10 : 2046-4053. \OT1/lmr/m/sc/10 doi\OT1/lmr/m/n/10 : [][]$\OT1/lmtt/m/n/10 10 . 1186 / s13643 -[] 017 -[] 0604 -[] 6$[][]\OT1/lmr/m/n/10 . \OT1/lmr/m/sc/10 url\OT1/lmr/m/n/10 : [][]$\OT1/lmtt/m/n/10 http : / / systematicreviewsjournal .
  []
 
@@ -1655,24 +1682,24 @@ L3 programming layer <2024-05-27>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F74BFF78A2E5DE4677CE9768692471D5;5934.
+(rerunfilecheck)             Checksum: 1325C0FEC1831EB020DC39D2A34710C7;5367.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38537 strings out of 475468
- 755588 string characters out of 5776078
+ 38567 strings out of 475468
+ 756770 string characters out of 5776078
  1966905 words of memory out of 5000000
- 60332 multiletter control sequences out of 15000+600000
+ 60356 multiletter control sequences out of 15000+600000
  630403 words of font info for 91 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 88i,17n,93p,2804b,1850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,17n,93p,3155b,1850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on output/main.pdf (32 pages, 1562199 bytes).
+Output written on output/main.pdf (32 pages, 1457014 bytes).
 PDF statistics:
- 854 PDF objects out of 1000 (max. 8388607)
- 762 compressed objects within 8 object streams
- 161 named destinations out of 1000 (max. 500000)
- 265 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 878 PDF objects out of 1000 (max. 8388607)
+ 788 compressed objects within 8 object streams
+ 167 named destinations out of 1000 (max. 500000)
+ 260 words of extra memory for PDF output out of 10000 (max. 10000000)
 

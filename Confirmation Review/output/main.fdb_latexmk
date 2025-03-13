@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber output/main"] 1737656748.00735 "output/main.bcf" "output/main.bbl" "output/main" 1737656751.24948 0
-  "output/main.bcf" 1737656751.16903 113767 8293cdb821562e7dd2a066550636fa5d "pdflatex"
-  "references.bib" 1737656099.58871 174617 d8a1e9e832bbf11ccb771d85c2ceaf35 ""
+["biber output/main"] 1737808921.46251 "output/main.bcf" "output/main.bbl" "output/main" 1737808926.03204 0
+  "output/main.bcf" 1737808925.9564 114379 9495a3c09cd70de64f629a66dfe69d82 "pdflatex"
+  "references.bib" 1737808909.88809 190086 67cfeae7c613a1dd5788a72fc0c27029 ""
   (generated)
   "output/main.bbl"
   "output/main.blg"
   (rewritten before read)
-["pdflatex"] 1737656749.94474 "/home/aaron/Desktop/Repositories/Papers/Confirmation Review/main.tex" "output/main.pdf" "main" 1737656751.24967 0
+["pdflatex"] 1737808924.74668 "/home/aaron/Desktop/Repositories/Papers/Confirmation Review/main.tex" "output/main.pdf" "main" 1737808926.03223 0
   "/etc/texmf/web2c/texmf.cnf" 1729377765.99619 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/aaron/Desktop/Repositories/Papers/Confirmation Review/main.tex" 1737656746.59894 79185 0f4e62aeb835e72efef6b1fae4544910 ""
+  "/home/aaron/Desktop/Repositories/Papers/Confirmation Review/main.tex" 1737808909.88709 82746 c6379451cf1a0a4f738e617b236367d6 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -299,15 +299,14 @@
   "images/autotar.jpg" 1737114533.74493 434537 db0d298880eef1aa700b7294063cce1a ""
   "images/increase_in_publications.jpg" 1737114533.74493 452036 55840449d377e7001b765753b98ba481 ""
   "images/pool_based_strategy.png" 1737114533.74593 21632 ebf1ed7ce2730d8c20d770a8bfba7413 ""
-  "images/reproduced_step_by_step_guide.png" 1737114533.74593 149813 42bb497ea44c81b0738b666fa4a14a4a ""
-  "main.tex" 1737656746.59894 79185 0f4e62aeb835e72efef6b1fae4544910 ""
-  "output/main.aux" 1737656751.16003 25950 1ba17dae41c0c4406a014a5e6f46be29 "pdflatex"
-  "output/main.bbl" 1737656748.67998 212825 33859f4203ffc3f4d866b65772060a2f "biber output/main"
-  "output/main.out" 1737656751.16703 5934 f74bff78a2e5de4677ce9768692471d5 "pdflatex"
-  "output/main.run.xml" 1737656751.16903 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
-  "output/main.toc" 1737656751.16903 2776 bacc8d9784f82b22633329b504b402d7 "pdflatex"
+  "main.tex" 1737808909.88709 82746 c6379451cf1a0a4f738e617b236367d6 ""
+  "output/main.aux" 1737808925.9464 26937 ae79c438ef4c47ba11b142c520b1f07b "pdflatex"
+  "output/main.bbl" 1737808922.15133 238790 f77359e0f563ceeafc2c44f9ea450819 "biber output/main"
+  "output/main.out" 1737808925.9554 5367 1325c0fec1831eb020dc39d2a34710c7 "pdflatex"
+  "output/main.run.xml" 1737808925.9574 2305 52095dfad395b381e9a32937e764a41c "pdflatex"
+  "output/main.toc" 1737808925.9574 2673 cf3f0242244f7e49612aa74cf2752897 "pdflatex"
   "tables/mathmatical_notation_active_learning.tex" 1737114580.59784 2186 126a9013f8ea5a1f49034a9961010fe9 ""
-  "tables/oxford_hier.tex" 1737114382.82557 946 02c83ce570b098b8ae67402e2ce628fe ""
+  "tables/oxford_hier.tex" 1737808909.88809 948 ea53ee4d4c1e596bb39f420cacb73d20 ""
   "tables/stages_of_sr.tex" 1737114401.96617 1199 47feb95605bf1d1a6a624fa8bf2f7166 ""
   (generated)
   "output/main.aux"
