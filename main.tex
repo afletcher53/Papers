@@ -34,7 +34,6 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 \usepackage{tablefootnote}
-\usepackage{rotating}
 \usepackage{pgfgantt}
 \usepackage{multicol}
 \usepackage{enumitem}
@@ -43,7 +42,7 @@
 \usepackage[dvipsnames]{xcolor}
 
 \usepackage[table]{xcolor}
-\usepackage[acronyms]{glossaries}
+\usepackage[acronyms, nonumberlist]{glossaries}
 \usepackage[
 layout=letterpaper, 
 paper=letterpaper, 
@@ -79,7 +78,7 @@ margin=1in
 \newacronym{fcs}{FCS}{Forwards Citation Searching}
 \newacronym{ebm}{EBM}{Evidence-Based Medicine}
 \newacronym{spl}{SPL}{Simple Passive Learning}
-\newacronym{sal}{SAL}{Simple Passive Learning}
+\newacronym{sal}{SAL}{Simple Active Learning}
 \newacronym{rct}{RCT}{Randomised Controlled Trial}
 \newacronym{ir}{IR}{Information Retrieval}
 \newacronym{tfidf}{TF-IDF}{Term Frequency-Inverse Document Frequency}
@@ -97,7 +96,7 @@ margin=1in
 \newacronym{ukri}{UKRI}{UK Research and Innovation}
 \newacronym{prd}{PRD}{Percentage of Relevant Doocuments}
 \newacronym{wssk}{WSS@k}{Work saved over sampling}
-
+\newacronym{fpt}{FPT}{Further Pretraining}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % Other commands
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,7 +108,7 @@ margin=1in
 
 \AtBeginBibliography{\small}
 
-\usetikzlibrary{shapes, arrows, positioning, fit,backgrounds}
+\usetikzlibrary{shapes, arrows, positioning, fit, backgrounds}
 \usetikzlibrary{arrows.meta}
 
 \hypersetup{
@@ -117,10 +116,10 @@ colorlinks=true,
 urlcolor=blue,
 linkcolor=blue,
 citecolor=blue,
-pdftitle={@title - @author},
+pdftitle={Efficient Screening in Medical Systematic Reviews - Aaron HA Fletcher},
 pdfsubject={Systematic Review},
-pdfauthor={@author},
-pdfkeywords={list; here; your; keywords (key words)}
+pdfauthor={Aaron HA Fletcher},
+pdfkeywords={Systematic Reveiws; Technology-Assisted Review; Citation Analysis; Metadata; Stopping Methods}
 }
 
 \addbibresource{zot_references.bib}
@@ -142,7 +141,7 @@ pdfkeywords={list; here; your; keywords (key words)}
 \linespread{1.2}\huge {\bfseries Efficient Screening in Medical Systematic Reviews}\\[1.5cm]
 \linespread{1}
 \includegraphics[width=5cm]{Confirmation Review/images/tuoslogo.png}\\[1cm]
-{\Large Dr. Aaron HA Fletcher}\\[1cm]
+{\Large Aaron HA Fletcher}\\[1cm]
 % {\large \emph{Supervisor:} Dr. Mark Stevenson}\\[1cm] % if applicable
 \large A report submitted in partial fulfilment of the requirements\\ for the degree of PhD in Computer Science\\[0.3cm] 
 \textit{in the}\\[0.3cm]
@@ -164,38 +163,44 @@ All sentences or passages quoted in this document from other people's work have 
 The following are specifically replicated figure(s), grouped by license: 
 
 \begin{itemize}
-    \item Figure \ref{fig:increasing_publications_over_time} - CC BY-NC 4.0\footnote{\url{https://creativecommons.org/licenses/by-nc/4.0/}}
-    \item Figures \ref{fig:prisma_flow}, \ref{fig:cochrane_ultrasound}, \ref{fig:pool_based_query} - CC BY 4.0 \footnote{\url{https://creativecommons.org/licenses/by/4.0/}}
-    \item Figure \ref{fig:autotar_process} - In the Public Domain 
+    \item Figure \ref{fig:increasing_sr_over_time} - CC BY-NC-ND 4.0\footnote{\url{https://creativecommons.org/licenses/by-nc/4.0/}}.
+    \item Figures \ref{fig:prisma_flow}, \ref{fig:cochrane_ultrasound}, \ref{fig:pool_based_query} - CC BY 4.0\footnote{\url{https://creativecommons.org/licenses/by/4.0/}}.
+    \item Figure \ref{fig:autotar_process} - In the Public Domain.
 \end{itemize}
 
 \vspace{20em}
 
-\noindent Name: Aaron HA Fletcher\\[1mm]
-\rule[1em]{25em}{0.5pt}
-
-\noindent Signature:\\[1mm]
-\rule[1em]{25em}{0.5pt}
-
-\noindent Date:04/04/2025\\[1mm]
+\noindent \textbf{Name:} Aaron HA Fletcher\\[1mm]
 \rule[1em]{25em}{0.5pt}
 
 
+\noindent \textbf{Signature:} Aaron HA Fletcher\\[1mm]
+\rule[1em]{25em}{0.5pt}
 
-%%%%%%%%%%%%
-% Abstract %
-%%%%%%%%%%%%
-%% remove spacing from abstract
 
-\chapter*{\Large \center Abstract}
+\noindent \textbf{Date:}   04/04/2025\\[1mm]
+\rule[1em]{25em}{0.5pt}
 
-% Guidance of how to write an abstract/summary provided by Nature: https://cbs.umn.edu/sites/cbs.umn.edu/files/public/downloads/Annotated_Nature_abstract.pdf
+\chapter*{Executive Summary}
 
-Systematic reviews are indispensable for evidence-based medicine but remain time-intensive and vulnerable to delays. As biomedical literature grows, conventional screening workflows become unsustainable. This research addresses these challenges by developing new Technology-Assisted Review (TAR) techniques that integrate richer metadata and relational signals, combined with flexible stopping rules. First, it uses citation network analysis—leveraging backwards and forwards references—to enhance early retrieval of critical studies and expand the training set for Continuous Active Learning (CAL). Second, it incorporates structured metadata (e.g., publication date, authorship, citation counts) into Graph Neural Networks to capture deeper inter-document relationships and improve prioritisation. Finally, it proposes utility-driven stopping criteria that move beyond fixed recall thresholds, focusing instead on how newly identified evidence shifts overall clinical conclusions. These methods will be evaluated on publicly available datasets such as CLEF-TAR and Synergy using metrics including recall@95\%, R-Precision, Work Saved over Sampling, and Percentage of Relevant Documents screened. By uniting novel ranking and stopping approaches, the research aims to substantially reduce screening workloads and accelerate high-quality, resource-efficient systematic reviews
-    \smallskip
-    \smallskip
-    
-    \textbf{Keywords} -  Systematic Reviews, Stopping Algorithms, Continuous Active Learning, Technology-Assisted Review, Utility, Medical Literature Screening, Evidence-based medicine, Metadata analysis
+The exponential growth in biomedical publications makes it increasingly difficult to conduct high-quality systematic reviews, the cornerstone of evidence-based medicine. Despite their central role in synthesising medical knowledge, they are exceptionally resource-intensive, requiring substantial human effort to screen thousands of candidate studies for relevance. As publication volume increases, so does the labour and cost of identifying, appraising, and including relevant documents. Therefore, efficient approaches to screening are crucial to ensure the continued production of high-quality systematic reviews.
+
+Systematic review screening occurs in multiple phases; however, a single phase ``Title and Abstract" screening accounts for 10-20\% of the entire time it takes to conduct a systematic review~\cite{haddaway_predicting_2019}. As the name suggests, thousands of titles and abstracts are assessed for relevance to a specific search question during this phase. Various efforts have sought to automate or semi-automate this phase, including using \gls*{tar} systems that rely on \gls*{cal} to rank and prioritise documents for human labelling iteratively. \gls*{cal} approaches have consistently demonstrated the potential to reduce screening workloads while maintaining near-total recall (minimising the risk of missing relevant studies), which is critical in healthcare contexts. However, even greater efficiency gains are possible by reconsidering \gls*{cal} screening prioritisation and stopping methods. Current \gls*{cal} methods often fail to consider how a given research article relates to other articles within the pool, typically relying on embeddings or bag-of-words features derived solely from its title and abstract. Valuable clues from citation networks and structured metadata (e.g., publication date, author information) are only loosely or not incorporated. Traditional processes often use \gls*{bcs} and \gls*{fcs} to form the initial pool of documents to be screened. However, the structured integration of document relations within the \gls*{cal} ``Title and Abstract" screening loop remains unexplored. Additionally, approaches to generate document representations that incorporate richer metadata, such as the publication journal, remain under-explored. Similarly, standard stopping rules are predominantly based on recall targets (e.g., 95\%), which can be suboptimal in medical contexts where discovering informative evidence is more important than exhaustively finding every relevant study. A new direction is to replace strict coverage targets with more nuanced, utility-based stopping approaches, halting the screening process once the accumulated evidence sufficiently answers the clinical question. This thesis proposes research to advance three interconnected themes: (1) integrating citation networks into \gls*{cal}, (2) harnessing structured metadata with \glspl*{gnn}, and (3) developing utility-based stopping criteria that better capture the true value of newly discovered studies.
+
+The proposed research addresses three core questions:
+
+\begin{enumerate}
+    \item \emph{What is the impact of integrating backwards and forward citation network analysis on the performance of \gls*{cal} models for medical systematic review screening?} 
+    \item \emph{How does incorporating structured article metadata (e.g., publication date, author information, citation counts) into document representations using \gls*{gnn} architectures affect the efficiency and accuracy of document prioritisation in \gls*{cal} for medical systematic reviews, compared to traditional approaches?} 
+    \item \emph{How do stopping criteria based on the utility of retrieved information (aligned with user information needs) influence the total manual screening workload in \gls*{cal} for systematic reviews, and how do these criteria compare with conventional recall-based stopping rules?}
+\end{enumerate}
+Established \gls*{tar} benchmarks (CLEF-TAR (2017–2019) and Synergy datasets) will be used to investigate these questions, alongside augmented metadata obtained from sources like OpenAlex.
+
+
+The research will adopt existing \gls*{cal} approaches and develop novel ones to investigate these research questions. \gls*{bcs} and \gls*{fcs} relational information will be integrated into existing \gls*{cal} approaches through re-ranking model outputs, adjusting the ranking scores of documents based on their citation relationships to seed documents. Approaches to structured article metadata integration for document representations will be explored through the construction of a citation graph, and enrichment of model features with domain-specific metadata, with multiple \gls*{gnn} architectures (e.g., \glspl*{gcn}, \glspl*{gat}  evaluated to determine their effectiveness in encoding inter-document relationships, focusing on the message-passing mechanisms of each architecture. Finally, utility-focused stopping methods, including confidence-bound approaches and skewness-based rules, will be tested, by monitoring how the accumulated evidence changes with the addition of each new document, measuring how often they match the “final” consensus decision while screening fewer documents. 
+
+Preliminary experiments support the potential benefits of integrating citation information and refining stopping criteria. A strong citation signal was demonstrated to exist: studies deemed relevant tend to cite other relevant studies at significantly higher rates than irrelevant control studies. On the stopping side, ``information sufficiency" rules, e.g., halting once the accumulated sensitivity and false positive rate estimates stabilise, can reduce the percentage of screened documents without compromising final conclusions within \gls*{dta} reviews.
+
 \newpage
 \begingroup % Localize font size change
 \small % Or \scriptsize or \tiny
@@ -218,83 +223,66 @@ Systematic reviews are indispensable for evidence-based medicine but remain time
 %%%%%%%%%%%
 % Article %
 %%%%%%%%%%%
-\chapter{Executive Overview}
-
-\epigraph{A man is known by the company he keeps}{Aesop}
-
-\section{Background}
-Systematic reviews are a cornerstone for \gls*{ebm}, providing rigorous, high-level research syntheses to guide clinical practice and policy. Yet this rigour carries a steep cost: systematic reviews are labour-intensive, often requiring researchers to screen thousands of documents manually. The problem this research aims to improve is efficiency in this process (i.e., the amount of documents screened). \gls*{tar} methods, particularly \gls*{cal}, promise to alleviate some of this burden; however, many existing approaches still treat documents as isolated entities, overlooking inter-document relationships or disregarding previously recalled documents' contribution to a search goal.
-
-Better document representation can solve this problem. Just as an individual's quality might be inferred from their associations, the true value of a research document often lies not only in its isolated content but also in its connections to the broader scholarly landscape. Manual screening, and even many \gls*{cal} approaches, shallowly represent documents. That is to say, they use only information sourced from the title and abstract despite many more signals being available (inter-document connections), such as citation networks or metadata (e.g., source of publication, authorship, date of publication). These signals, used instinctively by human operators, could steer the selection for screening towards high-value studies. Moreover, the conventional practice of stopping screening relies on a simplistic, binary categorisation of documents as relevant or not, triggering the stop after a fixed ``target recall" threshold is met. This shallow document representation fails to recognise that documents contribute variably to a review's conclusions. While it provides a seemingly objective benchmark, target recall fails to consider the information's utility. Whether the accumulated evidence sufficiently addresses (i.e., how the information contained within a document relates to other documents) the research question or whether further screening will likely produce diminishing returns remains unexamined. 
-
-This PhD, therefore, seeks more efficient and information-centric strategies to automate systematic review screening. First, this research will investigate relationship-aware \gls*{cal} methods that harness inter-document connections to rank and prioritise more intelligently for screening. Second, this research will examine the value of intra-document information, creating utility-driven stopping criteria that shift the focus from static recall targets to the actual value of newly discovered evidence. Rather than screen indiscriminately to meet a blanket recall requirement, the process stops once the reviewed studies collectively offer a robust answer to the research question. By utilising existing inter-document information or aligning the screening endpoint with genuine evidence needs, the resource demands of systematic reviews can be reduced while maintaining quality.
 
 
-\section{Objectives and research questions}
 
-The overarching goal is to reduce the manual screening workload (e.g., low \gls*{wssk}, \gls*{prd}) while maintaining key performance measures (e.g., high Recall@k, R-Precision).
+% section on future work
 
-To address this goal, both document screening prioritisation and stopping methods must be considered (see Sections~\ref{sec:screening Priorisation}, \ref{sec:metadata}, and \ref{sec:Stopping_algorithms}). Specifically, this PhD proposes improving the representation of documents in \gls*{cal} and aligning stopping methods with user information needs (see Section~\ref{sec:Project_Overview}). Three core research questions guide the work:
+\chapter{Introduction}
 
-\begin{enumerate} 
+Systematic reviews provide comprehensive syntheses of research that guide clinical practice and shape healthcare policy.  Their hallmark is methodological rigour, requiring a substantial time investment. Conducting a single systematic review often involves manually screening thousands of documents, a time-consuming and resource-intensive process~\cite{nussbaumer-streit_resource_2021}, incurring significant financial costs~\cite{michelson_significant_2019}. Moreover, the burden of this screening process is rapidly escalating. With the sheer volume of biomedical research growing, so does the challenge of creating comprehensive systematic reviews.
 
-\item \textbf{RQ 1}: \emph{What is the impact of integrating backwards and forward citation network analysis on the performance of \gls*{cal} models for medical systematic review screening?}
-\item \textbf{RQ 2}: \emph{How does incorporating \gls*{gnn} architectures that utilize article metadata (e.g., publication date, author information, citation counts) affect the efficiency and accuracy of document prioritisation in \gls*{cal}, compared to traditional text-only representations?}
-\item \textbf{RQ 3}: \emph{How do stopping criteria based on the utility of retrieved information (aligned with user information needs) influence the total manual screening workload in \gls*{cal}, and how do these criteria compare with conventional recall-based stopping rules?}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Confirmation Review/images/sr_per_day.jpg}
+    \caption{Estimated number of systematic reviews indexed in PubMed per year, 2000-2019, with 95\% confidence intervals, showing a 20-fold increase from 1,432 in 2000 to 29,073 in 2019 \cite{hoffmann_nearly_2021}. The X-axis is the year, and the y-axis is the publication count.\protect\footnotemark}
+    \label{fig:increasing_sr_over_time}
+\end{figure}
+\footnotetext{Reproduced from \cite{ghasemi_scientific_2022} under the CC BY-NC-ND 4.0 license \url{https://creativecommons.org/licenses/by-nc-nd/4.0/}. No changes were made. Noncommercial use only.}
 
-\end{enumerate}
+%The result = Out-of-date information at publication
+Because screening is laborious, many systematic reviews become outdated alarmingly fast. At the time of publication, 7\% are already considered outdated, and within two years, this figure jumps to 23\%~\cite{shojania_how_2007}. The reported average 61~\cite{sampson_surveillance_2008} to 67.3~\cite{borah_analysis_2017} weeks gap between the literature search and publication causes the delay, as new studies inevitably emerge during this time. This rapid obsolescence means clinical decisions may be based on incomplete or inaccurate evidence, potentially leading to suboptimal patient care or ineffective health policies. 
 
-These questions will be addressed using publicly available datasets such as \gls*{clef}-\gls*{tar} and Synergy, enriched with metadata from resources like OpenAlex (see Section~\ref{sec:datasets}). Experiments will employ existing approaches (e.g., Encoder-CAL, Baseline Model implementations) and introduce novel methods (e.g., utility-based stopping algorithms that factor in the implications of recalled information; see Section~\ref{sec:research_proposals}).
+%More Systematic Reviews are being created
+The number of published systematic reviews is expanding exponentially (Figure~\ref{fig:increasing_sr_over_time}). Between 1986 and 2015, PubMed indexed a 2{,}728\% increase in articles categorised as systematic reviews, far surpassing the 153\% growth in other publications during that same period \cite{ioannidis_mass_2016}. In 2019, it was estimated that 80 systematic reviews were published daily~\cite{hoffmann_nearly_2021}. The continued proliferation of primary research largely drives this dramatic rise. For example, the number of published clinical trials, a foundational source of evidence for systematic reviews, nearly doubled between 2001 and 2020~\cite{ghasemi_scientific_2022}. Also, the number of published \glspl*{rct} increased from 9{,}486 in 1995 to 22{,}650 in 2017 ~\cite{niforatos_assessment_2019}. Consequently, the volume of potentially relevant material that must be sifted through in any new systematic review continues to grow. Therefore, a key dilemma arises: How can systematic reviews balance the need for thoroughness with a desire to accelerate the review process so that evidence remains accurate and actionable?
 
-Ultimately, this PhD aims to develop methods that reduce the screening demands of systematic reviews. By combining better document representations through metadata or citation-aware insights and flexible stopping rules, the research seeks to make evidence synthesis more resource-efficient and timely in an era of exploding medical literature.
+%Solution
+Increasing efficiency reduces the number of documents a human reviewer must review. Existing \gls*{tar} methods promise to improve screening efficiency; however, their approaches are limited because they treat each piece of research as an isolated entity, overlooking inter-document relationships or recalled documents' contribution to a search goal. The true value of a research document often lies in both its content \emph{and} its connections to the broader scholarly landscape. That is to say, certain parts of the screening process use limited information sources, such as the title and abstract, despite other readily available signals. These signals include citation networks and metadata, such as the source of publication, authorship, and publication date. These signals, used instinctively by human operators, could help select high-value studies for screening. Moreover, the conventional practice of stopping screening relies on a simplistic, binary categorisation of documents as relevant or not, triggering the stop after a fixed ``target recall" threshold is met. This shallow document representation fails to recognise that documents contribute variably to a review's conclusions. While it provides a seemingly objective benchmark, the target recall approach fails to consider the information's utility. The approach does not examine whether the accumulated evidence sufficiently addresses the research question or whether further screening will likely produce diminishing returns. Better document representation can improve screening further than existing \gls*{tar} approaches. 
 
-\chapter{Literature Review}
+Given that inter-document connections are largely ignored, a research gap exists. This PhD, therefore, seeks more efficient and information-centric strategies  (i.e. methods which use metadata and citation networks to aid automation) to automate the systematic review screening process. First, to develop the proposed relationship-aware \gls*{tar}, this research will investigate relationship-aware \gls*{tar} methods that harness inter-document connections to rank and prioritise more intelligently for screening. In this way, a document can be known, at least in part, by the company it keeps. Second, to create utility-driven stopping criteria, this research will examine the value of intra-document information, creating utility-driven stopping criteria  (i.e., assessing whether the accumulated evidence adequately addresses the research question) that shift the focus from static recall targets to the actual value of newly discovered evidence. Rather than screen indiscriminately to meet a blanket recall requirement, the process stops once the reviewed studies collectively offer a robust answer to the search question. By utilising existing inter-document information or aligning the screening endpoint with genuine evidence needs, this PhD aims to reduce the resource demands of systematic reviews while maintaining their quality.
+
+\chapter{Literature review}
+
+Within the increasingly demanding process of conducting systematic reviews, the title and abstract screening phase represents a particularly critical bottleneck. While rigorous methodology aims to minimise bias, the sheer volume of citations requiring manual review in this phase renders it exceptionally resource-intensive. This, in turn, contributes to the risk of reviews becoming outdated, hindering evidence-based decision-making. Against this backdrop, researchers have explored a range of machine learning approaches to reduce the screening workload; however, many existing methods treat documents as isolated entities. In doing so, they often neglect valuable inter-document signals—such as citation networks or shared metadata across publications—that could further improve both recall and cost-effectiveness. To provide context, this chapter is structured as follows. Section 2 outlines the broader systematic review workflow and identifies the title and abstract screening phase as a key efficiency bottleneck. Section 3 surveys current prioritisation techniques—especially active learning—and critiques their frequent reliance on document representations without relations. Section 4 introduces the potential of integrating citation networks and structured metadata, outlining how these signals can address the shortcomings identified in earlier approaches. Section 5 compares conventional recall-based stopping rules with emerging utility-driven methods, which seek to halt screening once enough information is gathered to inform robust clinical conclusions. Section 6 discusses the datasets commonly used in this research domain, detailing their relevance and limitations. Finally, Section 7 synthesises the literature review's key findings, identifies unresolved gaps in the literature, and positions the subsequent thesis chapters as direct responses to these challenges.
 
 \section{Systematic reviews}
 
-Systematic reviews provide a rigorous and transparent approach to synthesising research evidence on a specific topic, forming a cornerstone of evidence-based practice. Unlike traditional narrative reviews, systematic reviews adhere to a pre-defined, systematic methodology that minimises bias and ensures reproducibility. This methodical approach encompasses comprehensive literature searches, critical appraisal of studies, and careful synthesis of findings, ultimately providing a reliable and comprehensive overview of the current state of knowledge.
-
-The term \emph{systematic} underscores the methodical and structured approach used throughout the review process. While the precise execution varies depending on the type of review and research question, several core characteristics define this methodology:
+Systematic reviews provide a rigorous and transparent approach to synthesising research evidence on a specific topic. Unlike traditional narrative reviews, systematic reviews adhere to a pre-defined, systematic methodology that minimises bias and ensures reproducibility. This methodical approach encompasses comprehensive literature searches, critical appraisal of studies, and careful synthesis of findings, ultimately providing a reliable and extensive overview of the current state of knowledge. The term \emph{systematic} underscores the methodical and structured approach used throughout the review process. While the precise execution varies depending on the type of review and research question, several core characteristics define this methodology, ensuring that they are rigorous, transparent, reproducible and maximising the reliability of their findings:
 
 \begin{itemize}
-    \item {\bf{Explicit, Step-by-Step Methodology:}} systematic reviews follow a clearly defined, step-by-step methodology, often documented in comprehensive procedural manuals. In medicine, for instance, the Cochrane Collaboration's Review Manual \cite{lefebvre_cochrane_2011} provides a detailed guide to conducting Cochrane Reviews. Similarly, in qualitative research, Noblit and Hare's book on meta-ethnography \cite{noblit_meta-ethnography_1988} outlines procedures for synthesising qualitative studies. These manuals provide a framework for standardised, transparent reviews.
-    \item {\bf{Pre-Established Review Protocol:}} systematic reviews require the development of a detailed protocol {\it{before}} the review commences. This protocol acts as a blueprint, outlining the review's objectives, search strategy, inclusion and exclusion criteria, data extraction methods, and analysis plan. The pre-defined protocol prevents arbitrary changes in the review's scope during the process and minimises duplication of effort among reviewers. Furthermore, many reviewers register their protocols in publicly accessible registries like PROSPERO\footnote{https://www.crd.york.ac.uk/prospero/}, or open-access platforms, enhancing transparency and accountability \cite{tawfik_protocol_2020}.
-    \item {\bf{Reporting Guidelines:}} systematic reviews adhere to established reporting guidelines to ensure clarity and consistency. These guidelines specify the essential elements to include in the final review report \cite{moher_preferred_2010}. Numerous reporting guidelines are available, tailored to various review types and research designs. Resources like the EQUATOR Network\footnote{https://www.equator-network.org/} compile and offer these guidelines, promoting standardised reporting across different fields.
+    \item {\bf{Explicit, step-by-step methodology:}} systematic reviews follow a clearly defined, step-by-step methodology, often documented in comprehensive procedural manuals. In medicine, for instance, the Cochrane Collaboration's Review Manual \cite{lefebvre_cochrane_2011} provides a detailed guide to conducting Cochrane Reviews. Similarly, in qualitative research, Noblit and Hare's book on meta-ethnography \cite{noblit_meta-ethnography_1988} outlines procedures for synthesising qualitative studies. These manuals provide a framework for standardised, transparent reviews.
+    \item {\bf{Pre-established review protocol:}} systematic reviews require the development of a detailed protocol {\it{before}} the review commences. This protocol acts as a blueprint, outlining the review's objectives, search strategy, inclusion and exclusion criteria, data extraction methods, and analysis plan. The pre-defined protocol prevents arbitrary changes in the review's scope during the process and minimises duplication of effort among reviewers. Furthermore, many reviewers register their protocols in publicly accessible registries like PROSPERO\footnote{https://www.crd.york.ac.uk/prospero/}, or open-access platforms, enhancing transparency and accountability \cite{tawfik_protocol_2020}.
+    \item {\bf{Reporting guidelines:}} systematic reviews adhere to established reporting guidelines to ensure clarity and consistency. These guidelines specify the essential elements to include in the final review report \cite{moher_preferred_2010}. Numerous reporting guidelines are available, tailored to various review types and research designs. Resources like the EQUATOR Network\footnote{https://www.equator-network.org/} compile and offer these guidelines, promoting standardised reporting across different fields.
     
-    \item {\bf{Quality Assessment Checklist:}} The checklist provides an assessment of the methodological quality (risk of bias) of included studies, aiding the reader in interpreting the overall credibility of the review's findings. This allows the reader to answer the question, ``Is this a good or bad example of a review?". This process typically uses validated quality assessment checklists or tools appropriate for the study designs under review \cite{whiting_proposed_2017}.
-    \item {\bf{Methodological Surveys or Audits:}} Methodological surveys or audits evaluate how emerging review types (e.g., scoping or umbrella reviews) are conducted, often signalling the need for refined reporting standards. They can occur before formal guidelines are established or continuously e.g., \cite{dalton_potential_2017, france_methodological_2014}. By aggregating practices from published reviews, they identify methodological inconsistencies (e.g., misuse of meta-analysis for heterogeneous data) or innovations. Such audits signal when a review type gains traction and inform consensus on best practices, often catalysing reporting standards (e.g., PRISMA extensions) or warnings against flawed approaches \cite{tricco_prisma_2018, sarkis-onofre_how_2021,rethlefsen_prisma-s_2021, rethlefsen_prisma-s_2021-1}
+    \item {\bf{Quality assessment checklist:}} The checklist provides an assessment of the methodological quality (risk of bias) of included studies, aiding the reader in interpreting the overall credibility of the review's findings. This allows the reader to answer the question, ``Is this a good or bad example of a review?". This process typically uses validated quality assessment checklists or tools appropriate for the study designs under review \cite{whiting_proposed_2017}.
+    \item {\bf{Methodological surveys or audits:}} Methodological surveys or audits evaluate how emerging review types (e.g., scoping or umbrella reviews) are conducted, often signalling the need for refined reporting standards. They can occur before formal guidelines are established or continuously e.g., \cite{dalton_potential_2017, france_methodological_2014}. By aggregating practices from published reviews, they identify methodological inconsistencies (e.g., misuse of meta-analysis for heterogeneous data) or innovations. Such audits signal when a review type gains traction and inform consensus on best practices, often catalysing reporting standards (e.g., PRISMA extensions) or warnings against flawed approaches \cite{tricco_prisma_2018, sarkis-onofre_how_2021,rethlefsen_prisma-s_2021, rethlefsen_prisma-s_2021-1}
 \end{itemize}
 
 While this document explores the methodologies and challenges of systematic reviews, its literature review, constrained by the typical limitations of a PhD project, cannot be a full systematic review because systematic reviews are resource-intensive, often requiring dedicated funding, a multi-year timeframe, and a multidisciplinary team.
-\subsection{In medicine}
+% \subsection{In medicine}
 
 % systematic review use in medicine.
-Central to medical research and practice, systematic reviews synthesise existing literature on clearly framed clinical questions \cite{kranke_evidence-based_2010, higgins_cochrane_2019}. They consolidate extensive evidence into a cohesive, critically appraised summary that offers clear decision support for clinicians and policymakers. systematic reviews are created across virtually every medical sub-specialty. Recent publications illustrate their scope, exploring cardiovascular risks in endometriosis \cite{parsa_endometriosis_2025}, clarifying links between antidepressants and insomnia in adolescents \cite{turkmen_systematic_2025}, and examining anaemia in pregnancy \cite{azzam_anemia_2025}. The exponential growth of new studies necessitates reliance on systematic syntheses for reliable, up-to-date guidance.
-
+Medical systematic reviews synthesise existing literature on clearly framed clinical questions \cite{kranke_evidence-based_2010, higgins_cochrane_2019}. They consolidate extensive evidence into a cohesive, critically appraised summary that provides accurate, up-to-date guidance and clear decision support for clinicians and policymakers. Systematic reviews are created across virtually every medical sub-specialty. Recent publications illustrate their scope, exploring cardiovascular risks in endometriosis \cite{parsa_endometriosis_2025}, clarifying links between antidepressants and insomnia in adolescents \cite{turkmen_systematic_2025}, and examining anaemia in pregnancy \cite{azzam_anemia_2025}. Reliance on systematic reviews in of itself is a way to increase screening efficiency, as the end-users (clinicians and policy makers) do not have to maintain knowledge of the ever-expanding list of new studies.
 
 % How systematic reviews support decision making
-Systematic reviews provide the highest-ranked evidence for many clinical questions in \gls*{ebm} underpinning clinical decision-making. As shown in Table \ref{tab:evidence_levels}, \gls*{ebm} organises evidence types hierarchically, ranking expert opinion as the weakest (level 5) and systematic reviews of \glspl*{rct} as the strongest (level 1a). To minimise bias, systematic reviews, unlike traditional narrative reviews, follow strict methodological guidelines such as comprehensive literature searches and critical appraisal of each included study. This rigorous approach ensures a transparent and reproducible evidence synthesis, enabling practitioners to make more informed decisions tailored to patient needs.
+The systematic review process's rigour enables this reliance. \gls*{ebm}, a ranking system that orders clinical evidence from strongest to weakest~\cite{swanson_how_2010, guyatt_grade_2008},  ranks systematic reviews as the highest-ranked evidence for many clinical questions. Unlike traditional narrative reviews, to minimise bias, systematic reviews follow strict methodological guidelines such as comprehensive literature searches and critical appraisal of each included study. This rigorous approach ensures a transparent and reproducible evidence synthesis, enabling practitioners to make more informed decisions tailored to patient needs.
 
-\input{Confirmation Review/tables/oxford_hier}
-
-% Growth of systematic reviews
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{Confirmation Review/images/increase_in_publications.jpg}
-    \caption{Increasing publications over the past two decades \cite{ghasemi_scientific_2022}.\protect\footnotemark}
-    \label{fig:increasing_publications_over_time}
-\end{figure}
-\footnotetext{Reproduced from \cite{ghasemi_scientific_2022} under the CC BY-NC 4.0 license \url{https://creativecommons.org/licenses/by-nc/4.0/}. No changes were made. Noncommercial use only.}
-
-The publication rate of systematic reviews in medicine has surged exponentially in recent decades, a trend reflecting their growing centrality to evidence-based practice. Between 1986 and 2015, PubMed indexed a 2,728\% increase in articles labelled as systematic reviews, far outpacing the 153\% rise in other publications during the same period \cite{ioannidis_mass_2016}. This expansion underscores a growing need for consolidated, high-quality evidence to address diverse clinical questions, especially as the volume of primary research increases. For instance, the number of clinical trials—a key source of evidence—doubled between 2001 and 2020, while peer-reviewed journals nearly tripled \cite{ghasemi_scientific_2022}; see Figure \ref{fig:increasing_publications_over_time}). Methodological advances, such as PRISMA guidelines and GRADE frameworks, have strengthened systematic review rigour, enabling them to shape clinical guidelines, inform policy, and even synthesise overlapping evidence through umbrella reviews. Cochrane exemplifies this impact: its 9,000+ systematic reviews, accessed over 17.5 million times by 2023, underscore its global reach and influence, reflected in a journal impact factor of 8.8\footnote{https://www.cochrane.org/about-us/scientific-strategy}.
-
-
-\subsection{The process}
+\subsection{Process}
 
 % Brief overview of the Cochrane Review process and its characteristics.
 No single universally correct process for conducting a medical systematic review exists, with various approaches available (e.g., Joanna Briggs Institute review~\cite{santos_joanna_2018}, Meta-Analysis~\cite{moher_improving_1999} Network Meta-Analysis~\cite{bafeta_reporting_2014} or Cochrane Review~\cite{cipriani_what_2011, munn_what_2018}). 
 
-The Cochrane Review framework is particularly interesting for computer science because each step is meticulously documented~\cite{guyatt_grade_2008, cumpston_chapter_2024}, which, along with their abundance, enables potential automation. Broadly, a Cochrane systematic review undergoes five steps: question framing, identifying relevant work, quality assessment, summarisation and interpretation, as shown in Table \ref{tab:stages_of_systematic review}. The ``identifying relevant work" phase iteratively narrows down a large document pool until only eligible documents remain, with this process often being visualised within the final review itself in a PRISMA flow diagram (Figure \ref{fig:prisma_flow}). There are multiple procedures within the ``Identifying Relevant Work" phase, yet a single substage called ``Title and Abstract screening" commands 10-20\% of the time it takes to plan and conduct an entire systematic review~\cite{haddaway_predicting_2019}, making it a prime target for efficiency improvements. 
+The Cochrane Review framework is particularly interesting for computer science because each step is meticulously documented~\cite{guyatt_grade_2008, cumpston_chapter_2024}, which, along with their abundance, facilitates \gls*{tar}. Broadly, a Cochrane systematic review undergoes five steps: question framing, identifying relevant work, quality assessment, summarisation and interpretation, as shown in Table \ref{tab:stages_of_systematic review}. The ``identifying relevant work" phase iteratively narrows down a large document pool until only eligible documents remain, with this process often being visualised within the final review itself in a PRISMA flow diagram.
 
 \begin{figure}
     \centering
@@ -302,24 +290,15 @@ The Cochrane Review framework is particularly interesting for computer science b
     \caption{PRISMA flow diagram for a simulated Cochrane systematic review \cite{tawfik_protocol_2020}. Note the different substages of the identification of relevant work in blue.\protect\footnotemark}
     \label{fig:prisma_flow}
 \end{figure}
-\footnotetext{Reproduced from \cite{tawfik_protocol_2020} under the CC BY 4.0 license \url{https://creativecommons.org/licenses/by/4.0/}. No changes were made.}
+\footnotetext{Reproduced from \cite{tawfik_protocol_2020} under the CC BY 4.0 license \url{https://creativecommons.org/licenses/by/4.0/}. No changes made.}
 
+To illustrate the screening process and how it yields a final pool of relevant documents, consider the PRISMA flow diagram from a systematic review protocol~\cite{tawfik_protocol_2020} (Figure \ref{fig:prisma_flow}).  The process begins with the identification stage.  This stage casts a wide net, compiling all potentially relevant studies from various databases (e.g., PubMed, Embase, Scopus).  This initial search typically results in a large, heterogeneous dataset of studies – in this example, $n = 1{,}785$ – many of which will not be relevant to the specific research question.
 
-To further understand the ``Identifying relevant work" stage, consider the PRISMA flow diagram for a recent systematic review~\cite{tawfik_protocol_2020}. An identification stage compiles all potential studies from searched databases into a large dataset of studies that may or may not be relevant to the systematic review, $n=1785$. Screening further refines this pool by removing duplicates and assessing titles and abstracts to reduce the number of full-text articles requiring assessment in the eligibility substage, $n=895$. This is traditionally achieved through 2-3 reviewers manually evaluating titles and abstracts to determine whether each study should be included or excluded based on predetermined criteria. At this stage, studies are typically categorised as relevant (related to the systematic review) or not relevant (unrelated to the systematic review) and passed to the full-text eligibility assessment.
+Next, the screening phase begins. This phase has multiple substages. The first substage is often duplicate removal, where identical records retrieved from multiple databases are eliminated. The core of the screening phase, and the most time-consuming part, is title and abstract screening.  Here, reviewers (typically two to three independent reviewers) manually examine the titles and abstracts of each remaining record. They apply pre-defined inclusion and exclusion criteria (established in the review protocol) to judge whether a study might be relevant.  The goal is to quickly eliminate clearly irrelevant studies based on their title and abstract. Studies judged as potentially relevant are passed to the next substage, while those judged irrelevant are excluded. This substage reduced the pool from 1{,}785 to 895 records in the example.
 
-% This stage can be further granularised into several substages, many of which directly involve the tasks outlined above:
+The next substage is full-text eligibility assessment. The 895 records that passed the title/abstract screening are now retrieved in full text. Reviewers then meticulously examine the entire article, again applying the pre-defined inclusion/exclusion criteria. This is a much more detailed assessment than the title/abstract screening. Only studies that meet all inclusion criteria and none of the exclusion criteria are deemed eligible and included in the final systematic review. Those that don't are excluded, with reasons for exclusion often documented. This iterative, staged approach ensures that only the most relevant and high-quality studies are included in the final synthesis, providing a robust and reliable answer to the review's research question.
 
-% \begin{itemize}
-% \item {\bf{Inclusion/exclusion criteria generation:}} Defining the precise criteria for including or excluding studies, supported by \gls*{ir} specialist guidance on source selection and search strategy development.
-% \item {\bf{Search Strategy Development:}} Creating the detailed search algorithms used to query databases (a core \gls*{ir} specialist responsibility).
-% \item {\bf{Database Searching:}} Implementing the search strategy across various databases and trial registers (conducted by \gls*{ir} specialists).
-% \item {\bf{Protocol Writing:}} Documenting the search methodology in detail, with \gls*{ir} specialists contributing the search methods section.
-% \item {\bf{Title and Abstract Screening:}} Initially assessing study relevance based on titles and abstracts, facilitated by \gls*{ir} specialist results management and de-duplication.
-% \item {\bf{Full-Text Download and Screening:}} Obtaining and reviewing the full text of potentially relevant studies supported by \gls*{ir} specialist document retrieval.
-% \item {\bf{Manual Search:}} Supplementing database searches with manual searching of relevant journals, conference proceedings, and other sources, often guided by \gls*{ir} specialists.
-% \end{itemize}
-
-
+Systematic review screening is a meticulous process designed to narrow down the document pool at each stage to reduce the cost to the next - effectively, an iteratively stricter filter is applied. This is structured this way because each subsequent screening part requires more resources than the previous one. Despite this approach, a single substage stands out in the ``Identifying Relevant Work" phase, called ``Title and Abstract Screening", as it commands 10-20\% of the time~\cite{haddaway_predicting_2019} it takes to plan and conduct an entire systematic review, making it a prime target for efficiency improvements. 
 
 \begin{table*}[t]
 \centering
@@ -328,10 +307,10 @@ To further understand the ``Identifying relevant work" stage, consider the PRISM
 \hline
 \textbf{Stage} & \textbf{Purpose} \\
 \hline
-1 & \textbf{Question Framing:} The research question is structured and explicitly formulated. \\\hline
+1 & \textbf{Question framing:} The research question is structured and explicitly formulated. \\\hline
 2 & \textbf{Identifying relevant work:} A wide range of databases are searched to identify research to be included. Potential research is first identified, screened, and eligibility checked, and then a decision is made on including that research \cite{tawfik_step_2019}. \\\hline
-3 & \textbf{Quality Assessment:} Research is tested for quality, such as minimum research design, and subjected to higher quality assessment checks, including tests for research heterogeneity. \\\hline
-4 & \textbf{Summarisation:} Data synthesis occurs with tabulation of study characteristics and quality. Statistical testing is performed at this stage. \\\hline
+3 & \textbf{Quality assessment:} Research is tested for quality, such as minimum research design, and subjected to higher quality assessment checks, including tests for research heterogeneity. \\\hline
+4 & \textbf{Summarisation:} Data synthesis occurs with the tabulation of study characteristics and quality. Statistical testing is performed at this stage. \\\hline
 5 & \textbf{Interpretation:} Any issues highlighted in the previous steps should be addressed. Generate recommendations guided by reference to the strength of the evidence. \\
 \hline
 \end{tabular}
@@ -339,18 +318,7 @@ To further understand the ``Identifying relevant work" stage, consider the PRISM
 \label{tab:stages_of_systematic review}
 \end{table*}
 
-% % Focus on the title and abstract screening substage.
-% This PhD research focuses on the Title and Abstract screening substage of the `Identifying Relevant Work' phase, a critical process often visualised using the PRISMA flow diagram (Figure \ref{fig:prisma_flow}). This stage alone is estimated to account for 10-20\% of the time it takes to plan and conduct a systematic review \cite{haddaway_predicting_2019}.
-
-% Research within the title and abstract screening substage
-
-% Best practices for traditional title and abstract screening have been outlined to increase consistency and reduce bias in the title and abstract screening phase \cite{polanin_best_2019}.
-
-% At the start of this stage, using an abstract screening tool with clear, concise questions and conducting training sessions where screeners learn and pilot test the screening process using 20-30 abstracts is recommended to ensure intercoder agreement. During the screening phase, teams should hold weekly meetings, avoid changes to the screening tool, use text-mining, employ independent double-screening of each work, and immediately reconcile disputes. After the screening phase, analysing the process itself for validity is recommended.
-
-Research on title and abstract screening reveals crucial elements for successful outcomes and strongly supports using both the title \emph{and} abstract. For instance, recent work comparing title-only (Ti/O) versus title-plus-abstract (Ti+Ab) screening found that Ti+Ab achieved significantly higher sensitivity (94.7\% vs. 57.9\%) by capturing studies with ambiguous titles but relevant abstract content. At the same time, Ti/O risked excluding 42.1\% of eligible studies due to insufficient title clarity~\cite{teo_title-plus-abstract_2023}. Another study showed that adopting a Title-First screening approach (rejecting a study based on the title, followed by abstract assessment for inclusion) reduced workload compared to a title-and-abstract approach, with no reduction in recall of relevant research~\cite{mateen_titles_2013}.
-
-% The use of non-experts (medical students) as a feasible alternative to experts when undertaking citation screening was demonstrated in the TASER study \cite{ng_title_2014}.
+Researchers have investigated various strategies to improve efficiency and accuracy to address the time-consuming nature of title and abstract screening. A key finding here is that using more information results in better results. For instance, ~\cite{teo_title-plus-abstract_2023} directly compared title-only (Ti/O) screening to title-plus-abstract (Ti+Ab) screening and found that Ti+Ab achieved dramatically higher sensitivity (94.7\% vs. 57.9\%). This means that Ti+Ab was far superior at correctly identifying relevant studies, while Ti/O screening risked excluding a substantial 42.1\% of eligible studies due to insufficient information in the title alone. While leveraging the full abstract clearly improves accuracy, other research explores how to optimise the process. ~\cite{mateen_titles_2013} demonstrated that a ``Title-First" approach – initially rejecting studies based solely on the title, followed by a more focused abstract assessment for potential inclusion – can significantly reduce workload compared to a simultaneous title-and-abstract evaluation, without compromising the recall of relevant literature. Therefore, a strategic approach to title and abstract screening combines the comprehensiveness of Ti+Ab with the efficiency of a staged ``Title-First" assessment, maximising the use of available information to improve both the speed and accuracy of the process.
 
 \subsection{Challenges}
 
@@ -362,34 +330,20 @@ A crucial challenge in undertaking a systematic review is efficiency. The title 
 
 Furthermore, attempts to mitigate costs by reducing screening requirements, such as employing a single reviewer, substantially compromise the recall of relevant studies. \glspl*{rct} using the Cochrane Crowd platform demonstrated that single-reviewer approaches could miss up to 13\% of relevant studies, whereas a dual-reviewer approach missed only 3\% \cite{gartlehner_single-reviewer_2020}. Similar findings have been reported in other studies, indicating that even experienced reviewers, when working in isolation, consistently missed more relevant references \cite{waffenschmidt_single_2019}. Because minimising the risk of excluding pertinent evidence is crucial, dual screening is considered indispensable despite the associated resource implications. The use of non-experts (medical students) was demonstrated to be a feasible alternative to experts when undertaking citation screening, as shown in the TASER study \cite{ng_title_2014}.
 
-The temporal demands of systematic reviews are also substantial, with an average completion time of 67.3 weeks \cite{borah_analysis_2017}. The screening phase alone can prolong the timeline by several months. While the precise number of abstracts screened per review is not uniformly documented, surveys of established systematic reviews report a median of 555 abstracts, spanning from 232 to 9,648 \cite{nama_successful_2021}. In one analysis of 14 systematic reviews, 19,334 abstracts were screened, yielding only 3.1\% (605) relevant studies \cite{nama_successful_2021}. At such scales, reviewer fatigue poses a legitimate concern, as prolonged engagement in tedious screening tasks can diminish vigilance and compromise the accuracy of the review process.
+The temporal demands of systematic reviews are also substantial, with an average reported completion time ranging from 61 to 67.3 weeks \cite{sampson_surveillance_2008, borah_analysis_2017}. The screening phase alone can prolong the timeline by several months. While the precise number of abstracts screened per review is not uniformly documented, surveys of established systematic reviews report a median of 555 abstracts, spanning from 232 to 9,648 \cite{nama_successful_2021}. In one analysis of 14 systematic reviews, 19,334 abstracts were screened, yielding only 3.1\% (605) relevant studies \cite{nama_successful_2021}. At such scales, reviewer fatigue poses a legitimate concern, as prolonged engagement in tedious screening tasks can diminish vigilance and compromise the accuracy of the review process.
 
 
-% % Consistency 
-% Consistently applying inclusion and exclusion criteria across all studies poses a persistent challenge, with inter-coder discrepancies common, even when two reviewers evaluate the same abstracts. This is particularly true for studies in a ``grey area" that require nuanced judgment for inclusion or exclusion. Resolving these discrepancies typically requires discussion between reviewers or consultation with a third, adding roughly 5 minutes per conflict \cite{shemilt_use_2016}. With thousands of abstracts, this resolution process significantly increases resource and time demands. Moreover, inherent variability within review teams—differing expertise, subjective interpretations, and individual biases—fosters inconsistencies. Although rigorous pilot testing and ongoing calibration exercises help, consistently applying criteria remains challenging, especially over extended screening periods with numerous abstracts.
-
-% % Bias
-% Bias in title and abstract screening occurs when certain studies are systematically favoured or excluded. Several factors contribute to this risk: 
-% \begin{itemize} 
-% \item \textbf{Single-reviewer bias:} As previously discussed, single-reviewer approaches miss more eligible studies, potentially reducing the comprehensiveness of the final evidence base.
-% \item \textbf{User fatigue:} Extended screening periods can cause ``attention drift", leading reviewers to exclude relevant studies inadvertently.
-% \item \textbf{Prior knowledge and expectations:} Reviewers with pre-existing knowledge may unconsciously favour studies aligning with their beliefs or published in well-regarded journals. Conversely, they may dismiss studies they deem less relevant, introducing selection bias.
-% \end{itemize}
-
-% % Bias Ctd
-% Another source of bias is assuming humans always label documents correctly. Wang et al. report error rates as high as 10.76\% during abstract screening \cite{wang_error_2020}. While strategies like dual-review and reporting inter-coder agreements help, they do not guarantee error elimination.
- 
 \section{Screening prioritisation}\label{sec:screening Priorisation}
 
-%What is screening prioritisation
-Screening prioritisation is an approach to improve efficiency in the title and abstract screening phase of systematic reviews. Screening prioritisation is the process of ranking documents by their likelihood of relevance. Prioritisation puts the documents at the top of the list that should address the systematic review's research question, enabling reviewers to find relevant literature more quickly. In principle, prioritisation can dramatically reduce screening efforts by allowing a screener to stop once they have recalled most or all of the relevant articles. For example, consider a hypothetical dataset of 20 documents, with 5 of those being relevant. All 20 must be screened without any prioritisation to find the five that matter. If the documents are ranked perfectly in descending order of relevance, the screener could theoretically recall all five relevant documents by examining only the first 5 in the list, reducing total document reviews. 
+
+Screening prioritisation is an approach to improve efficiency in the title and abstract screening phase of systematic reviews. Screening prioritisation is the process of ranking documents by their likelihood of relevance. Prioritisation puts the documents at the top of the list that should address the systematic review's research question, enabling reviewers to find relevant literature more quickly. In principle, prioritisation can dramatically reduce screening efforts by allowing a screener to stop once they have recalled most or all of the relevant articles. For example, consider a hypothetical dataset of 20 documents, with five of those being relevant. All 20 must be screened without any prioritisation to find the five that matter. If the documents are ranked perfectly in descending order of relevance, the screener could theoretically recall all five relevant documents by examining only the first five in the list, reducing total document reviews. 
 
 \gls*{tar}, also known as Computer-Assisted Review or Predictive Coding, is a process that uses machine learning to assist in document screening. Approaches to \gls*{tar} fall into two categories: (1) those ranking directly with queries (e.g. the query being the title \cite{alharbi_ranking_2017, alharbi_retrieving_2018}, boolean search terms  \cite{alharbi_ranking_2017, alharbi_retrieving_2018, alharbi_ranking_2019}, or review objectives \cite{ferro_qut_2017, scells_integrating_2017}), and (2) those using indirect methods like relevance feedback \cite{alharbi_ranking_2019} or active learning \cite{cormack_technology-assisted_2017, cormack_systems_2019, grossman_technology-assisted_2010, grossman_automatic_2017}. This research focuses on using active learning, which has successfully been used in many areas of \gls*{ir} \cite{cormack_autonomy_2015, cormack_engineering_2016, yu_fast2_2019, yu_finding_2018, miwa_reducing_2014}.
 
 \subsection{Active learning}
 
 % What is active learning
-Deep learning models and other classifiers often require large labelled datasets to perform well. In systematic review screening, gathering labels can be slow and expensive, especially at the outset when little is known about relevance. Active learning aims to mitigate this challenge by selecting the most \emph{informative} unlabelled documents for human labelling in iterative cycles.
+Deep learning models and other classifiers often require large labelled datasets to perform well. This is not the case when a new systematic review is created. In systematic review screening, gathering labels can be slow and expensive, especially at the outset when little is known about relevance. Active learning aims to mitigate this challenge by selecting the most \emph{informative} unlabelled documents for human labelling in iterative cycles.
 
 This iterative process aims to substantially improve model performance while minimising the time and effort required for labelling. A typical active learning workflow selects a batch of unlabelled samples based on their potential to improve the model. These selected samples are then labelled and incorporated into the growing training dataset. The model is subsequently retrained using this expanded dataset, leading to improved model classification and ranking accuracy. The core principle behind active learning is to balance exploring uncertain or ambiguous documents (exploration) and exploiting documents that are likely to be highly relevant (exploitation). This approach enhances the model's ability to rank documents accurately, making the systematic review process more efficient and effective.
 
@@ -429,9 +383,9 @@ The oracle within systematic reviews denotes a human-verified label resulting fr
 While active learning offers advantages, its direct application to systematic reviews has limitations:
 
 \begin{itemize}
-    \item \textbf{Delayed Incorporation of Early Information:} Waiting until a minimum number of documents has been assessed before training the model means valuable information gathered in the early phases is not incorporated into the ranking process.
-    \item \textbf{Delayed Search Phase:} The actual search and screening process is delayed until sufficient relevant studies are present in the document collection.
-    \item \textbf{Minimum Number of Relevant Studies Required:} A minimum number of relevant studies is often required in the initial document collection. This is usually impractical in the early stages of a systematic review.
+    \item \textbf{Delayed incorporation of early Information:} Waiting until a minimum number of documents has been assessed before training the model means valuable information gathered in the early phases is not incorporated into the ranking process.
+    \item \textbf{Delayed search phase:} The actual search and screening process is delayed until sufficient relevant studies are present in the document collection.
+    \item \textbf{Minimum number of relevant studies required:} A minimum number of relevant studies is often required in the initial document collection. This is usually impractical in the early stages of a systematic review.
 \end{itemize}
 
 To truly minimise screening effort, a scenario is needed where minimal expert screening is performed on documents returned from the identification phase, and the model can safely extrapolate that screening to a larger pool.
@@ -458,7 +412,7 @@ These disadvantages lead to diversifying \gls*{tar} approaches. The different \g
         Prioritisation & Based on initial model & Adapts per batch & Adapts continuously \\
         \hline
     \end{tabular}
-    \caption{The key differences between the different forms of active learning within \gls*{tar}.}
+    \caption{The key differences between the different forms of active learning within \gls*{tar}. Due to the \gls*{cal} process closely aligning with the systematic review screening process, it will be further explored in this literature review.}
     \label{tab:differences_in_tar}
 \end{table*}
 
@@ -466,16 +420,14 @@ These disadvantages lead to diversifying \gls*{tar} approaches. The different \g
 
 \subsection{Metadata usage in screening}
 
-% Clarify what is meant by metadata, and where we can find it!
 \gls*{cal}, in principle, benefits greatly from additional signals that can quickly surface the most relevant documents. Citation networks and metadata can do exactly that. Within this research, metadata refers to the structured or semi-structured information accompanying a publication beyond its raw text—such as author affiliations, publication dates, co-author relationships, journal or conference venues, keywords (including MeSH terms), and other bibliographic details. This metadata is abundant, freely available, and already computed. OpenAlex\footnote{https://www.openalex.org}, for example, is an open-sourced API that covers a large proportion of the literature, providing extensive metadata.
 
-Inter-document relationship refers to citation network analysis, which can be performed using this metadata. So, for example, if a paper cites another, this document is said to be related. Analysis of inter-document relationships and metadata is something that searchers instinctively do when screening documents. To illustrate, if a searcher finds a foundational relevant document, such as Cormack's work on Auto \gls*{tar}, their other work is likely related to that topic. If a searcher is searching for research on COVID-19, publications before 2019 are not likely to be related. 
+Inter-document relationship refers to citation network analysis, which can be performed using this metadata. So, for example, if a paper cites another, this document is said to be related. The analysis of inter-document relationships and metadata is something that searchers instinctively do when screening documents. To illustrate, if a searcher finds a foundational relevant document, such as Cormack's work on Auto \gls*{tar}, their other work is likely related to that topic. If a searcher is searching for research on COVID-19, publications before 2019 are not likely to be related. 
 
 The manual approach to title and abstract screening reviews all documents within the total document pool, so inter-document relationships offer little benefit. Interestingly, \gls*{bcs} and \gls*{fcs} are used in the Cochrane approach in the preceding stage, ``identification" that forms the pool~\cite{briscoe_conduct_2020, noauthor_mecir_nodate}. Once the pool of candidate articles is set, the screening phase—where documents are prioritised or ranked—almost always relies solely on each document’s title/abstract, ignoring citation or co-authorship signals that might refine relevance scores. This standard approach—extracting only an article’s abstract and minimal bibliographic fields—overlooks valuable signals embedded in established citation networks, co-author clusters, and publication venues.
 
-Despite the substantial research on automating systematic review screening, most approaches rely almost exclusively on a document’s title and abstract (rarely supplemented with keywords or MeSH terms). A recent scoping review of PubMed-indexed studies on systematic review automation (covering 123 articles) demonstrates this gap clearly: Tóth et al. found that the great majority of record-screening automation tools (broadly utilising \gls*{spl}, \gls*{cal} or \gls*{spl} approaches) used either bag-of-words or \gls*{tfidf} representations of the title and abstract text, with only a small proportion incorporating additional metadata such as publication date or author information \cite{toth_automation_2024}. Indeed, a typical pipeline in these tools converts the abstract into a vector of token counts or embeddings and then applies a machine learning classifier or an active learning framework to predict relevance. While a handful of studies appended ``bibliographic details” or ``MeSH terms,” Tóth et al. note that these uses of metadata are inconsistent, rarely extend beyond indexing keywords and do not systematically exploit inter-document relationships (e.g., citation networks, co-authorship, or shared references). The author has not identified studies that incorporate metadata into \gls*{cal} in a structured way. 
+Despite the substantial research on automating systematic review screening, most approaches rely almost exclusively on titles and abstracts (rarely supplemented with keywords, binary publication type flags \cite{schneider_evaluation_2022} (i.e., if a work is an \gls*{rct}), or MeSH terms~\cite{wallace_semi-automated_2010}). A recent scoping review of PubMed-indexed studies on systematic review automation (covering 123 articles) demonstrates this gap clearly: Tóth et al. found that the great majority of record-screening automation tools (broadly utilising \gls*{spl}, \gls*{cal} or \gls*{spl} approaches) used either bag-of-words or \gls*{tfidf} representations of the title and abstract text, with only a small proportion incorporating additional metadata such as publication date or author information \cite{toth_automation_2024}. Indeed, a typical pipeline in these tools converts the abstract into a vector of token counts or embeddings and then applies a machine learning classifier or an active learning framework to predict relevance. While a handful of studies appended ``bibliographic details” or ``MeSH terms", Tóth et al. note that these uses of metadata are inconsistent, rarely extend beyond indexing keywords and do not systematically exploit inter-document relationships (e.g., citation networks, co-authorship, or shared references). Existing research has not yet fully explored the potential of structured metadata integration within \gls*{cal}. Incorporating structured metadata into \gls*{cal} prioritisation pipelines could improve recall by surfacing relevant clusters of connected documents earlier. Simultaneously, it may reduce screening workloads by deprioritising documents in low-yield regions of the citation or co-authorship graph. 
 
-Addressing this gap represents both a challenge and a major opportunity. Incorporating structured metadata into \gls*{cal} prioritisation pipelines could improve recall by surfacing relevant clusters of connected documents earlier. Simultaneously, it may reduce screening workloads by deprioritising documents in low-yield regions of the citation or co-authorship graph. Thus, research into \gls*{cal} here is viewed through the lens of how they represent documents and if they consider inter-document relationships.  
 
 \subsection{\gls*{cal} for systematic reviews}
 
@@ -592,11 +544,9 @@ The reviewed literature consistently demonstrates the benefit of moving beyond s
 
 \section{Metadata and citation networks}\label{sec:metadata}
 
-% As outlined in the preceding sections, this PhD research aims to enhance the efficiency and accuracy of systematic review screening through \gls*{cal}. 
-
 A key limitation of current \gls*{cal} approaches is their shallow document representation, often neglecting valuable metadata and inter-document relationships within citation networks. This section explores how incorporating these elements can significantly improve document screening prioritisation, addressing the PhD's core objective of minimising expert screening effort while maintaining high recall. Firstly, traditional methods like \gls*{bcs} and \gls*{fcs} are considered. Secondly, \glspl*{gnn} are assessed. Finally, the potential of integrating \glspl*{llm} into the screening process is reviewed.
 
-In scientific research, understanding relationships between documents is critical for identifying relevant literature, tracing ideas' evolution, and assessing individual studies' impact. To situate their findings within the broader literature, authors must reference prior works in their research papers, substantiating claims and demonstrating connections to existing knowledge. This practice relies on standardised formatting conventions and peer-reviewed publication systems, which ensure consistency and credibility in research communication \cite{noauthor_bmc_nodate}. These references form an explicit and analysable indicator of document relationships: the citation network. Specifically, citations documented in a paper's reference section create a structured graph that maps connections between studies. By analysing this network, researchers can infer relationships between papers, assuming that cited or cited works share meaningful relevance to the original research. This signal can be exploited for screening prioritisation as if a researcher has published relevant work towards a search; their other work is likely to be related.
+Understanding relationships between documents in scientific research is critical for identifying relevant literature, tracing ideas' evolution, and assessing individual studies' impact. To situate their findings within the broader literature, authors must reference prior works in their research papers, substantiating claims and demonstrating connections to existing knowledge. This practice relies on standardised formatting conventions and peer-reviewed publication systems, which ensure consistency and credibility in research communication \cite{noauthor_bmc_nodate}. These references form an explicit and analysable indicator of document relationships: the citation network. Specifically, citations documented in a paper's reference section create a structured graph that maps connections between studies. By analysing this network, researchers can infer relationships between papers, assuming that cited or cited works share meaningful relevance to the original research. This signal can be exploited for screening prioritisation as if a researcher has published relevant work towards a search; their other work is likely to be related.
 
 \subsection{Citation network mining}
 
@@ -615,7 +565,7 @@ Let $G = (D, E)$ be a directed citation graph, where each vertex $D_i \in D$ rep
 In most citation graphs (which are usually directed acyclic graphs, or at least lack reciprocal citations), the set of articles cited by a given paper and the set of articles that cite it are disjoint: $D_{ip} \cap D_{if} = \emptyset$. This is because a single edge represents only a citation relationship in a temporal direction. Searching both sets will, therefore, provide different relevant articles.
 \newline
 \newline
-Two primary citation network mining approaches are defined, utilising the sets of related articles:
+Two primary citation network mining approaches are defined, utilising the sets of related articles and are visualised in Figure 2.5:
 
 \begin{itemize}
     \item \gls*{bcs}:  This approach examines the set of articles \emph{cited by} the paper of interest, $D_{ip}$.  In practice, this involves analysing the relevancy of each article in $D_{ip}$ to the research question. \cite{lefebvre_cochrane_2011, akers2009systematic}
@@ -626,7 +576,7 @@ Two primary citation network mining approaches are defined, utilising the sets o
 
 
 % Research on using BCS and FCS in screening:
-\gls*{bcs} and\gls*{fcs} are valuable tools within the identification phase of systematic reviews, helping researchers discover relevant studies by leveraging citation relationships to form the total document pool. They are not yet, however, utilised within the screening process that this research will focus on (as traditional approaches look at all documents within the pool). Even the use of \gls*{bcs} in the \emph{identification phase} (as mandated by the Cochrane Handbook, criterion C30~\cite{noauthor_mecir_nodate}) is not ubiquitous, with 87\% of sampled systematic reviews reportedly using \gls*{bcs} and 9\% \gls*{fcs} \cite{briscoe_conduct_2019}. Within this context, success is often measured by the number of relevant articles retrieved, with studies demonstrating the benefits of \gls*{bcs}/\gls*{fcs} in increasing recall. For example, research consistently shows that utilising \gls*{bcs} and \gls*{fcs} improves the retrieval of eligible articles, with the vast majority of studies (over 96\%) reporting some level of benefit \cite{hirt_citation_2023}. This research highlights the important role these methods play in comprehensive literature searching, yet they are not utilised within \gls*{cal}, which effectively searches for relevant documents for humans to screen. A search of relevant literature (see Figure \ref{fig:search-results}) demonstrates that neither \gls*{bcs} nor \gls*{fcs} has been integrated into \gls*{cal} processes.
+\gls*{bcs} and \gls*{fcs} are valuable tools within the identification phase of systematic reviews, helping researchers discover relevant studies by leveraging citation relationships to form the total document pool. The use of \gls*{bcs} in the \emph{identification phase} (as mandated by the Cochrane Handbook, criterion C30~\cite{noauthor_mecir_nodate}) is not ubiquitous, with 87\% of sampled systematic reviews reportedly using \gls*{bcs} and 9\% \gls*{fcs} \cite{briscoe_conduct_2019}. Within this context, success is often measured by the number of relevant articles retrieved, with studies demonstrating the benefits of \gls*{bcs}/\gls*{fcs} in increasing recall. For example, research consistently shows that utilising \gls*{bcs} and \gls*{fcs} improves the retrieval of eligible articles, with the vast majority of studies (over 96\%) reporting some level of benefit \cite{hirt_citation_2023}. This research highlights the important role these methods play in comprehensive literature searching, yet they are not utilised within \gls*{cal}, which effectively searches for relevant documents for humans to screen. A search of relevant literature found that neither \gls*{bcs} nor \gls*{fcs} has been integrated into \gls*{cal} title and abstract screening processes.
 
 \begin{figure}[t]
 \begin{center}
@@ -677,14 +627,16 @@ Two primary citation network mining approaches are defined, utilising the sets o
 \node[label_style] at (7,-3.8) {Future};
 
 \end{tikzpicture}
-\label{fig:bcs-fcs-explained}
-\caption{Visual comparison of \gls*{bcs} and \gls*{fcs} approaches. Note that citation mining effectively operates on a temporal axis.}
+
+\caption{Visual comparison of \gls*{bcs} and \gls*{fcs} approaches. Citation mining effectively operates on a temporal axis. Different groups are generated through each approach.}
 \end{center}
+\label{fig:bcs-fcs-explained}
 \end{figure}
 
-% How this approach will benefit CAL
-The logical and simple augmentation of the encoder \gls*{cal} approach would be to exhaust both the \gls*{bcs} and \gls*{fcs} networks of a seed document before initiating the encoder \gls*{cal} process. A simple and performant approach could be achieved by first identifying all documents related to the seed document through \gls*{bcs} or \gls*{fcs} searches, assessing their relevance, and then adding the labelled documents to the training data used in the first epoch of the encoder \gls*{cal} process (see Figure 2.6). The theoretical benefits of citation network mining are that it can be used to augment the \gls*{cal} process in ways that overcome some of the limitations of this process. Firstly, \gls*{cal} requires labelled data to train a classifier model, which is assumed to perform better with more data points. Encoder \gls*{cal} approaches suffer disproportionately from feature-based \gls*{cal} approaches due to their need for larger training data to effectively learn meaningful representations, as they need to learn complex contextual relationships between words and concepts. Feature-based models, in contrast, can rely on simpler statistical patterns. When working with limited labelled data in the early screening stages, encoder models may struggle to generalise well, potentially leading to suboptimal performance in identifying relevant documents. Citation mining can also neatly fit into the existing performant encoder \gls*{cal} process, as a single sample seed document is often used during the first epoch for fine-tuning. A better approach would be to exhaust the \gls*{bcs}/\gls*{fcs} citation network of that seed document for labelling before using revealed relevant documents to fine-tune the model, potentially resulting in a more performant model at the earlier screening stages with less Oracle cost.
 
+While SYMBALS~\cite{van_haastrecht_symbals_2021} and similar approaches incorporating citation information (e.g., through snowballing) demonstrate improved recall compared to methods relying solely on textual features, they are subject to several key limitations.  A primary constraint is the \emph{discrete} nature of the citation analysis.  In SYMBALS, for instance, backward snowballing is performed \emph{after} the active learning phase is complete.  This means the active learning algorithm does not benefit from the potentially valuable relational information provided by citations \emph{during} its iterative screening prioritisation.  The learning process is, therefore, driven primarily by textual similarity, with citation information applied only as a separate, post-hoc step.
+
+% How this approach will benefit CAL
 While \gls*{bcs} and \gls*{fcs} are effective methods for initial document discovery, they are inherently limited by their reliance on direct citation links. This reliance prevents them from identifying thematic connections between uncited yet related documents. This limitation is particularly relevant because the initial document pool is vastly smaller than the total scholarly literature, increasing the likelihood of important non-direct citations. Furthermore, \gls*{bcs} and \gls*{fcs} do not consider the semantic content of the papers beyond the presence or absence of citation links. This potential citation disconnection could mean relevant documents that do not share direct citations or use different terminology to describe similar concepts may be missed. Additionally, constraining document representations to the title, abstract, and citation analysis miss other relevant features, such as author information, publication date, or journal. Previous work by this author has demonstrated that additional features are important for downstream document classification tasks - see Appendix \ref{app:Predicting_article_retractions}. Publication year was found to be the most important feature when using standard feature-based and encoder- and decoder-based \glspl*{llm} (more so than the title and abstract). It might be argued that the importance of this feature might be specific to that task (i.e., retraction classification); yet, logically, it follows that when searching through a pool of documents, publication year could be an important signal for relevance, as knowledge of that search area improves, so does the definition, experimental design and even disease classification process improves.
 
 These limitations highlight the need for a more sophisticated approach to capturing the full complexity of structural and semantic inter-document relationships. \glspl*{gnn} excel precisely in this area: They can capture multi-hop relationships (e.g., documents that share a chain of citations), leverage co-author networks, or incorporate publication venues.
@@ -801,8 +753,6 @@ While a comprehensive exploration of each \gls*{gnn} variant is beyond the scope
 
     With both $X$ and $A$ defined, we can numerically represent the graph. The node feature matrix $X$ is the initial/input node features, with our goal for learning on graphs to learn node embeddings $H \in \mathbb{R}^{N\times D}$ where $D$ is a chosen hidden dimension size. 
 
-
-   
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Message Passing Neural Networks in \glspl*{gnn}]  
@@ -822,7 +772,7 @@ While a comprehensive exploration of each \gls*{gnn} variant is beyond the scope
 
     \begin{itemize}
         \item {\bf{Message:}} The source node $U$ will pass a message $m_{uv}$ to the destination node $V$. The message depends on the \gls*{gnn} architecture, with the easiest example message being passed being $U$ node's feature $h_u$ vector to $V$.
-        \item {\bf{Aggregate: }} The destination node $V$ will receive messages from all its neighbouring nodes and needs to decide how to combine the information from all of its neighbours. This is typically done using a sum, average or max pooling of the messages from all neighbouring nodes. It is important that the aggregation function has to be a permutation invariant function, as the order of the messages should not affect the output. This gives us a combined neighbourhood node embedding, denoted as $h_{N(V)}$, where $N(V)$ is the set of all neighbouring nodes to $V$, meaning all nodes connected to $V$ by an edge. $h_{N(v)}^{k+1} = AGGREGATE({h_u^k, \forall u \in N(v)})$
+        \item {\bf{Aggregate:}} The destination node $V$ will receive messages from all its neighbouring nodes and needs to decide how to combine the information from all of its neighbours. This is typically done using a sum, average or max pooling of the messages from all neighbouring nodes. It is important that the aggregation function has to be a permutation invariant function, as the order of the messages should not affect the output. This gives us a combined neighbourhood node embedding, denoted as $h_{N(V)}$, where $N(V)$ is the set of all neighbouring nodes to $V$, meaning all nodes connected to $V$ by an edge. $h_{N(v)}^{k+1} = AGGREGATE({h_u^k, \forall u \in N(v)})$
         \item {\bf{Update: }} Each node updates its own embedding based on the combined neighbourhood embedding and its own embedding from the previous timestep. $h_v^{k+1} = \sigma(W \cdot CONCAT(h_v^k, h_{N(v)}^{k+1}))$
     \end{itemize}
 
@@ -834,7 +784,6 @@ Modelling document relationships as citations allows us to leverage a homogeneou
 
 \glspl*{gnn} offer two primary learning paradigms for node prediction: transductive and inductive learning. Transductive learning leverages the entire graph structure during training to infer labels for unlabelled nodes within that same graph. Conversely, inductive learning trains on a subset of the graph, enabling it to generalise and predict labels for previously unseen documents. Transductive \glspl*{gnn} can be particularly useful for systematic review screening because they leverage the relationships between documents within a fixed set to enhance the screening process. Similarly, inductive \gls*{gnn}s facilitate automated screening of new papers, improving efficiency and scalability and providing a strategy to integrate these new documents into the graph, potentially lending themselves more to a systematic review update. Given the temporal nature of research publications, where papers cannot cite each other bidirectionally, a directed (i.e., edges explicitly flow from one node to another) graph models these relationships appropriately. Furthermore, since the larger pool of documents remains constant during the screening phase, the graph is static (i.e., not evolving).
 
-
 \paragraph{\gls*{gnn} document representation approaches:}
 Researchers have achieved \gls*{gnn} document representation via different approaches. For example, Yao et al. proposed a transductive approach called Text \gls*{gcn} \cite{yao_graph_2018}, which constructs a single, global graph representing the entire corpus. In this global graph, nodes represent both words and documents, and edges reflect word co-occurrence across the corpus and document-word relationships using methods like \gls*{tfidf}. While this approach effectively captures global word co-occurrence, it struggles with unseen documents and prioritises corpus-level relationships over document-level contextual nuances. Later, Zhang et al. built individual graphs for each document and then used a GNN to learn the fine-grained word representations based on their logical structures \cite{zhang_evaluating_2020}. They construct these graphs using a sliding window inside each document, allowing them to capture contextual word relationships. Creating individual graphs for each document also enables inductive learning of new words, overcoming another limitation of previous approaches. GNN document representation was advanced further with the conTextING approach by combining the per-document graph with \glspl*{bert}  contextual embeddings \cite{huang_contexting_2022}. More recently, Piao et al. proposed a novel method called Sparse Structure Learning \cite{piao_sparse_2022}, which builds upon these prior works by creating trainable, individual, and sparse graphs for each document. This method starts with sentence-level subgraphs and then learns to connect them sparsely, capturing both local syntactic and global semantic information while dynamically adjusting to the specific structure of each document. These four papers highlight a progression in \gls*{gnn}-based text classification: from leveraging global, corpus-wide information via a single, large graph (Text \gls*{gcn}) to focusing on local, document-specific information through individual graphs and inductive learning (TextING/conTextING) and finally to learning dynamic, sparse graph structures tailored to each document (Sparse Structure Learning). However, these approaches primarily focus on textual features. This research, in contrast, will investigate integrating structural features (citations) and document metadata to enhance \gls*{gnn}-based document classification further.
 
@@ -845,6 +794,72 @@ Researchers have achieved \gls*{gnn} document representation via different appro
 Research specifically on document classification using \glspl*{gnn} demonstrates their performance. Ly et al. classified research output into context-specific categories by enriching a simple \gls*{gnn} with representations that encode references, co-authorships, shared publication sources, and subject headings as distinct edge types \cite{ly_article_2024}. They demonstrated that using multi-graphs (i.e. more than one edge allowed between nodes, each denoting a different type of relationship) to encode this data consistently improved the performance of various \gls*{gnn} models on a PubMed diabetes dataset. Zhang et al.'s work used on medical bibliographic classification task demonstrated increased performance when utilising a novel Transformer-based heterogeneous \gls*{gnn}, namely Text Graph Transformer (TG-Transformer), which captures structure and heterogeneity from the text graph and is scalable to large-sized corpora due to a mini-batch text graph sampling method \cite{zhang_evaluating_2020}. This method significantly reduces computing and memory costs, making TG-Transformer outperform state-of-the-art approaches on text classification tasks. The authors also found that modelling heterogeneity information and including structural encodings and pre-trained word embeddings further improved performance.
 
 All this research supports the premise that representing a document less shallowly (i.e., with a \gls*{gnn} architecture) results in improved classification performance. Better representation is not an end in itself but a means to reduce screening loads and ensure near-total recall in a fraction of the time.
+
+% \paragraph{Isolated nodes:}
+% A limitation of the \gls*{bcs} and \gls*{fcs} citation network mining approach is their inability to identify indirect citation relationships. An indirect citation occurs when research papers are connected through intermediate references, forming a chain of citations rather than a direct reference. For instance, when document $D_i$ cites document $D_{ip1}$, which in turn cites document $D_{ip2}$, a relationship exists between $D_i$ and $D_{ip2}$ despite the absence of a direct citation. 
+
+% This relationship represents an indirect citation shown in Figure \ref{fig:indirect-citation}. This causes issues if $D_{ip1}$ is not included in the document pool, as $D_i$ and $D_{ip1}$ will no longer have an edge.
+
+% \begin{figure}[h]
+%     \centering
+    
+%     \begin{tikzpicture}[
+%         > = {Stealth[scale=1.2]},
+%         vertex/.style = {circle, draw, minimum size=1.2cm, inner sep=1pt},
+%         ref_edge/.style = {->, thick, blue},
+%         indirect_edge/.style = {->, thick, red, dashed},
+%         label_style/.style = {font=\small}
+%     ]
+    
+%     % Main document Di
+%     \node[vertex, fill=yellow!20] (Di) at (0,0) {$D_i$};
+    
+%     % Direct reference
+%     \node[vertex] (Dip1) at (-2,2) {$D_{ip1}$};
+    
+%     % Indirect reference
+%     \node[vertex] (Dip2) at (2,4) {$D_{ip2}$};
+    
+%     % Add edges
+%     \draw[ref_edge] (Di) -- (Dip1) node[midway, left] {Direct};
+%     \draw[ref_edge] (Dip1) -- (Dip2) node[midway, right] {Direct};
+%     \draw[indirect_edge] (Di) to[bend right] node[midway, right] {Indirect} (Dip2);
+    
+%     % Time arrow (vertical)
+%     \draw[{Stealth[scale=1.5]}->, thick] (4,4.5) -- (4,-1);
+%     \node[label_style] at (4,4.8) {Past};
+%     \node[label_style] at (4,-1.3) {Future};
+    
+%     % Legend
+%     \node[label_style] at (6,2) {Legend:};
+%     \draw[ref_edge] (5,1.5) -- (7,1.5) node[right] {Direct citation};
+%     \draw[indirect_edge] (5,1) -- (7,1) node[right] {Indirect citation};
+
+%     \end{tikzpicture}
+
+    
+%     \caption{Demonstration of an indirect citation. $D_i$ is related to $D_{ip2}$ yet only through $D_{ip1}$. This can occur for single nodes or entire components. }
+%     \label{fig:indirect-citation}
+% \end{figure}
+
+% Research addressing this limitation was analysed, and these potential solutions exist to address this limitation:
+
+% \begin{itemize}
+%     \item \textbf{Matching isolated nodes based on similarity metric of their embeddings}: If $N$ is all the documents in the total pool, and $N_{isolated}$ is the set of documents that are not cited by any other document in $N$, then for each document $D_{ip} \in N_{isolated}$, find the document $D_i \in N$ with the highest similarity metric (i.e. cosine similarity) to $D_{ip}$. Add an artificial edge between $D_i$ and $D_{ip}$.
+%     \item \textbf{Matching isolated components on similarity metric of their embeddings}: Some small groups of documents (called isolated components) may be disconnected from the main cluster when analysing document clusters. These isolated components have fewer connections to other documents, which can reduce classification accuracy. To fix this:
+%     \begin{itemize}
+%         \item Identify isolated components $C_{isolated}$ that have fewer or equal nodes than the main cluster.
+%         \item For each node in these isolated components.
+%         \item Calculate a similarity metric (i.e. cosine similarity) to nodes in larger clusters $C_i$.
+%         \item Connect it to the most similar large cluster by adding an artificial edge.
+%     \end{itemize}
+
+% \end{itemize}
+
+
+
+% Even without these potential fixes, node isolation does not prevent \gls*{bcs} or \gls*{fcs} augmenting the title and abstract screening \gls*{cal} process. Assessing the citation network of the seed document(s) can potentially provide a strong signal to improve recall in the early screening stages.
+
 
 \paragraph{Active learning with \glspl*{gnn}:}
 Work on using \gls*{gnn} node classification in an active learning setting has been reviewed \cite{madhawa_active_2020}. Katsimpras proposed a framework that first uses active learning to select highly uncertain unlabelled nodes to be labelled and included in the training dataset \cite{katsimpras_improving_2024}. While their approach is not exactly a \gls*{cal} approach (they created pseudo labels to augment training with \emph{uncertain} data points), it demonstrates that active learning can be used. Building upon this, the recent FICOM (Feature Influence Diversified COverage Maximization) paper by Zhang et al. introduces a novel active learning framework specifically designed for \glspl*{gnn} in semi-supervised node classification tasks \cite{zhang_ficom_2024}. FICOM addresses key challenges in this area, such as scalability to large graphs and the need for effective node selection criteria. The authors proposed a unique approach combining Personalized PageRank coverage to capture node importance in the graph structure with embedding diversity to account for feature similarity. Both of these researchers did not use a \gls*{cal} approach.
@@ -899,7 +914,7 @@ Explanation-based enhancers query an \gls*{llm} using prompting to capture highe
 
         
     \end{tikzpicture}
-    \caption{Node feature enrichment process using an \gls*{llm}.}
+    \caption{Node feature enrichment process using an \gls*{llm}. A \gls*{llm} is prompted to generate features from a document, a process called feature enrichment.}
     \label{fig:llm4g}
     \end{figure}
 
@@ -913,10 +928,6 @@ Tenti et al. have previously shown that integrating OpenAlex and Microsoft Acade
 A critical shortcoming in current screening approaches for systematic reviews using active learning is their tendency to treat each document as an isolated text. Commonly, only the title and abstract are used to prioritise documents for manual screening, neglecting the rich metadata available in bibliographic databases (e.g., publication year, venue, or author information) and the structures inherent in citation networks. Traditional methods like \gls*{bcs} and \gls*{fcs} help identify relevant studies by tracing references across papers, but they remain limited to direct citations. Consequently, they overlook deeper or indirect relationships—such as shared co‐authors, research topics, or citation ``chains"—that could reveal additional high‐value documents.
 
 \gls*{gnn} models offer a way to exploit these richer inter‐document relationships. \glspl*{gnn} can treat each document as a node enriched with metadata and connected by edges (citations or co‐authorship links), enabling ``message‐passing" that propagates relevance signals across the network. Incorporating metadata and citation information in this way has shown promise for improving accuracy and reducing screening efforts. Although GNN‐based classification has succeeded in analogous tasks, few—if any—published approaches integrate \glspl*{gnn} into a \gls*{cal} workflow specifically for medical systematic reviews. Two methods could be explored: 1) How using \gls*{gnn} document representations (along with metadata) can improve the encoder \gls*{cal} process, and 2) How to utilise a \gls*{gnn} to recommend articles for screening based on a dynamic update of the \glspl*{gnn} understanding of document relevance based on an oracle updating documents within it. 
-
-% The PhD is driven by the need to minimise expert screening time while safeguarding near‐total recall in systematic reviews. Existing \gls*{cal} pipelines already reduce effort relative to manual screening but still rely on shallow document representations. By systematically integrating metadata (e.g., publication date, journal status) and citation networks (e.g., references, co‐authors) into \gls*{cal}, this PhD aims to rank and prioritise relevant documents more intelligently. Doing so could surface key studies earlier—allowing reviewers to find the needed evidence faster.
-
-
 
 \section{Stopping algorithms}\label{sec:Stopping_algorithms}
 
@@ -956,7 +967,7 @@ Utility refers to the value or usefulness of a document or piece of information 
 
 Each of these above stopping methods can interpreted as a form of ``satisfaction" or ``frustration" rule \cite{ilani_analysis_2024, cooper_selecting_1973}: do we have enough relevant items (satisfaction) or have we encountered too many misses in a row (frustration)?
 
-\paragraph{Incorporating User and Utility Factors:}
+\paragraph{Incorporating user and utility factors:}
 While the approaches above suit many retrieval tasks, a significant body of research—both within information science and in broader domains of user behaviour—shows that people use complex heuristics to judge the utility or sufficiency of additional information \cite{nickles_judgment-based_1995, browne_stopping_2005, ilani_analysis_2024}. Research on the analysis of user behaviour during search tasks, including when they decide to stop search sessions, suggests that users are motivated by the following cognitive and environmental factors when deciding when to stop searching \cite{ilani_analysis_2024}:
 
 \begin{itemize}
@@ -978,7 +989,7 @@ While the approaches above suit many retrieval tasks, a significant body of rese
 
 \end{itemize}
 
-\paragraph{Utility-Based Approaches:}
+\paragraph{Utility-based approaches:}
 Therefore, broader research into stopping methods indicates that other more intuitive approaches exist (e.g., reasoning-based rules) rather than the traditional fixed-recall-based approaches (e.g., fixed judgement-based rules). Reasoning-based approaches diverge from the existing literature as they do not assume that a fixed-recall level will result in an answerable question.
 
 Rather than forcing a fixed recall threshold, reasoning-based methods capture information utility: they watch how newly included studies shift an aggregated result (such as effect size) or a summary conclusion (such as whether a new risk factor emerges). Some approaches draw on the concept of ``representational stability" \cite{nickles_judgment-based_1995}—if adding more studies does not alter the meta-analysis outcome or the qualitative synthesis, the process can stop \cite{ilani_analysis_2024}.
@@ -988,7 +999,6 @@ Utility-based stopping is highly relevant in medical systematic reviews, where n
 \section{Datasets}\label{sec:datasets}
 
 Numerous data sets relate to screening and stopping methods, all of which have been used in the reviewed literature. Datasets were chosen based on whether they were related to medical research in some way, if relevancy judgements were available for each piece of research and if a meaningful structural relationship could be formed between pieces of research using the OpenAlex API\footnote{https://openalex.org/}.
-% Notably excluded datasets include TREC 2015/2016 Total Recall~\cite{roegiest_trec_2015, grossman_trec_2016}, Jeb Bush Email\footnote{https://ab21www.s3.amazonaws.com/JebBushEmails-Text.7z} and RCV1-v2~\cite{lewis_rcv1_2004}, all of which did not contain medical research.
 
 \subsection{\gls*{clef}-\gls*{tar} 2017, 2018, 2019)}
 
@@ -1005,15 +1015,15 @@ Numerous data sets relate to screening and stopping methods, all of which have b
        \gls*{clef}  2019 & 40 & Intervention & 31644 &  448 & 0.014 \\   \hline
         Synergy & 26 & Mixed & 169288 &  2834 & 0.017 \\   \hline
     \end{tabular}
-    \caption{Training Dataset sizes for the \gls*{tar} datasets}
+    \caption{Training dataset sizes for the \gls*{tar} datasets. Note that there are ample systematic reviews (154 in total) and various types. The overall TR/T percentage (sometimes called \emph{prevalence}) is 1.69\%, demonstrating that relevant documents are rare.}
     \label{tab:training_dataset_clef}
 \end{table*}
 
 Due to copyright laws, the \gls*{clef} dataset did not provide the titles or abstracts for each research found in the Identification Phase; rather, it relied on the users to download them for experimentation. This is an important oversight of the data set as titles and abstracts \emph{can} be updated or retracted post-publication, meaning fair comparison across time might become increasingly challenging.
 
-
 \subsection{Synergy dataset}
 The Synergy dataset \cite{de_bruin_synergy_2023}, while less frequently used in the literature, offers a more contemporary collection of systematic reviews\footnote{https://github.com/asystematic revieweview/synergy-dataset/tree/master}. This data set comprises 26 systematic reviews spanning multiple domains, focusing predominantly on the medical field (20 out of 26 reviews). Reviews included in this data set range from 2002 to 2022, providing more recent information than the \gls*{clef} data set.
+
 The Synergy data set features diverse domains, allowing cross-domain analysis despite its primary focus on medical reviews. It also includes an expanded variable set. In addition to the basic information found in the \gls*{clef} dataset, Synergy incorporates authorship details, referenced works, and publication years, all sourced from the OpenAlex API.
 Due to its more recent compilation, limited use in existing research, and cross-domain nature, this dataset will externally validate approaches. Including systematic reviews from non-medical domains, such as computer science, allows evaluations of the transferability of \gls*{tar} approaches across different fields. Synergy's TR/T ratio of 0.017 is consistent with the class imbalance observed in the \gls*{clef} datasets, making it suitable for comparative studies and model evaluation in the context of title and abstract selection tasks.
 
@@ -1021,18 +1031,6 @@ Due to its more recent compilation, limited use in existing research, and cross-
 The Limsi-Cochrane dataset consists of 1939 meta-analyses from 63 systematic reviews\cite{norman_cochrane_2018}. It includes all studies in the systematic review, along with tables denoting the number of true positives, false positives, true negatives and false negatives within those studies. By filtering this dataset by the \gls*{clef} dataset, you can start incorporating stopping methods considering accumulated information utility (e.g., sensitivity, specificity). 
 
 
-
-% \subsubsection{TREC Total Recall Track Dataset (2015, 2016)}
-% The TREC Total Recall Track produced data sets specifically designed for high-recall retrieval tasks, similar to those encountered in systematic reviews\footnote{https://trec.nist.gov/data/total-recall/}\cite{roegiest_trec_2015, grossman_trec_2016}. This data set simulates scenarios where the goal is to find all or nearly all relevant documents in a collection, which aligns closely with the objectives of the title and abstract screening phase in systematic reviews. The data set includes a corpus of documents, topics (which can be seen as analogous to research questions in systematic reviews), and relevance judgments.
-
-% \subsubsection{Jeb Bush Emails Dataset}
-% The Jeb Bush Emails dataset is an unconventional choice for TAR research, originally consisting of emails released by former Florida Governor Jeb Bush\footnote{https://ab21www.s3.amazonaws.com/JebBushEmails-Text.7z}. This data set is suitable for TAR experiments because of its large size and the presence of both relevant and irrelevant documents. Although not directly related to systematic reviews, it provides a real-world corpus that can be used to simulate document classification tasks inherent in the systematic review process.
-
-% \subsubsection{RCV1-v2 Dataset}
-% The RCV1-v2 (Reuters Corpus Volume 1, Version 2) is a large, manually categorised newswire data set \cite{lewis_rcv1_2004} that was published by Reuters between August 20, 1996, and August 19, 1997\footnote{https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/datasets/\_rcv1.py}. The dataset features 804,414 documents with multi-label classification across 103 topic categories, organised in a hierarchy. The documents are provided in XML format with rich metadata and the content is primarily English news stories covering a wide range of topics.
-% Although not originally designed for systematic reviews, RCV1-v2 has been used in various text classification and information retrieval tasks.  In the context of systematic reviews and TAR, the use of the RCV1-v2 data set lies in the simulation of approaches on a large-scale dataset to test the scalability and efficiency of screening algorithms and to evaluate any potential transferability of the approaches.
-
-% RCV1-v2 dataset is adapted for use in AL by denoting all documents as \textbf{$T$}, \textbf{$T_R$} as all documents having a specific label, and those without it, as by treating the entire corpus as \textbf{$T$}, \textbf{$T_{IR}$}, we can approximate the binary classification challenge of title and abstract Screening within systematic reviews.
 
 \section{Evaluation metrics}
 Evaluation metrics for systematic review \gls*{tar} process can be categorised between assessing how well a classifier minimised the relevant documents excluded by the classifier with a set work budget (i.e. effectiveness) or the reduction in the reviewer's workload by excluding the maximum number of irrelevant documents while maintaining recall (efficiency).  Most of the research produced within this will focus on improving the effectiveness of AL models within the medical \gls*{tar} domain. The author chooses not to optimise the computational efficiency between approaches but rather to improve the final result. This is for numerous reasons; however, the main two are that as computer processing increases, these practical limitation concerns become less and improvement in effectiveness will have a greater impact on systematic review usefulness than maximising efficiency.  The author aims to report the time taken to run the algorithms, time complexity, and hardware that ran upon them so that a comparison to the time taken by humans can occur.
@@ -1095,110 +1093,47 @@ Typical ``work saved" metrics (e.g., \gls*{wssk}) focus on the overall proportio
 
 \section{Conclusions}
 
-In summary, existing work on \gls*{cal} for systematic review screening demonstrates the potential for substantial workload reductions compared with traditional manual approaches but also reveals noteworthy limitations. Current methods — whether feature-based classifiers or advanced neural models — have tended to treat each document in isolation, relying predominantly on title and abstract text. Although some research integrates metadata in ad hoc ways (e.g., MeSH terms or keywords), there is little systematic exploitation of the relational structure in scientific corpora (e.g., citation networks, co-author links). Similarly, established stopping strategies often hinge on high recall targets that can perpetuate unnecessary screening once marginal returns have diminished — overlooking user and task contexts where near-complete recall may not always be critical.
+In summary, while active learning has proven its value in systematic review screening, a core limitation persists: most existing methods treat each document as an isolated text, largely ignoring the metadata and citation signals that could substantially improve prioritisation. Recent work on graph-based architectures and \gls*{llm} suggests opportunities to represent publications more holistically, incorporating authorship, venue, and referencing patterns into the screening pipeline. Likewise, prevailing stopping approaches revolve around recall thresholds, yet broader research on information-seeking behaviour indicates that utility-based or reasoning-based stopping may better reflect real-world decision-making in systematic reviews.
 
-In medical domains, where systematic reviews must assemble trustworthy evidence under resource constraints, such gaps can hamper the efficiency and effectiveness of automated screening pipelines. The literature surveyed here converges on several pivotal themes:
+In medical domains, where systematic reviews must assemble trustworthy evidence under resource constraints, such gaps can hamper the efficiency and effectiveness of automated screening pipelines. The reviewed literature converges on several pivotal themes:
 
-\begin{itemize} \item \textbf{Citation Network Analysis.} Although long used in earlier \emph{search} phases to augment bibliographic discovery, citation relationships have rarely been incorporated directly \emph{within} \gls*{cal} to guide document prioritisation. Simple mechanisms like \gls*{bcs} and \gls*{fcs} are already proven to yield additional relevant studies efficiently, yet no title and abstract screening pipelines incorporate them.
+\begin{itemize} \item \textbf{Citation network analysis.} Although long used in earlier \emph{search} phases to augment bibliographic discovery, citation relationships have rarely been incorporated directly \emph{within} \gls*{cal} to guide document prioritisation. Simple mechanisms like \gls*{bcs} and \gls*{fcs} are already proven to yield additional relevant studies efficiently, yet no title and abstract screening pipelines incorporate them.
 
-\item \textbf{Structured Metadata Integration.} Metadata such as publication venue, author networks, temporal markers (e.g., publication date), and citation counts have demonstrated utility in various text-classification tasks but remain underexplored in systematic review \gls*{cal}. Graph-based approaches (e.g., \glspl*{gnn}) offer a powerful framework to combine textual features with these relational signals for more nuanced ranking.
+\item \textbf{Structured metadata integration.} Metadata such as publication venue, author networks, temporal markers (e.g., publication date), and citation counts have demonstrated utility in various text-classification tasks but remain underexplored in systematic review \gls*{cal}. Graph-based approaches (e.g., \glspl*{gnn}) offer a powerful framework to combine textual features with these relational signals for more nuanced ranking.
 
-\item \textbf{Utility-Focused Stopping.} Methods for knowing when to stop screening typically hinge on reaching or approximating a desired recall threshold. Recent information-seeking research suggests that domain experts often stop once they have ``enough'' information to answer the principal question — an approach that might be modelled through metrics of \emph{utility} rather than strict recall. Incorporating domain-specific outcomes (e.g., summary effect sizes) in a real-time or iterative fashion can detect when further studies add little marginal insight, thereby reducing screening loads without undermining the review’s conclusions.
+\item \textbf{Utility-focused stopping.} Methods for knowing when to stop screening typically hinge on reaching or approximating a desired recall threshold. Recent information-seeking research suggests that domain experts often stop once they have ``enough'' information to answer the principal question — an approach that might be modelled through metrics of \emph{utility} rather than strict recall. Incorporating domain-specific outcomes (e.g., summary effect sizes) in a real-time or iterative fashion can detect when further studies add little marginal insight, thereby reducing screening loads without undermining the review’s conclusions.
 
 \end{itemize}
 
 Building on these gaps, this thesis examines how structured citation networks, metadata-rich \glspl*{gnn}, and utility-based stopping criteria can be combined to enhance the efficiency and thoroughness of systematic review screening. This thesis aims to advance the state of automated screening in systematic reviews from purely text-based prioritisation toward more holistic methods that exploit the metadata and citations around each article while aligning stopping decisions with real-world information-seeking practices. The following chapters, therefore, detail the methodology for integrating these elements—building and evaluating new \gls*{cal} pipelines that incorporate graph embeddings, metadata features, and utility-based stopping—to reduce screening times and enhance confidence in the final evidence base.
 
-\chapter{Proposed Research}\label{sec:Project_Overview}
 
-\section{Research Questions}
+\chapter{Research questions and progress}\label{sec:Research_Questions}
+
+\section{Research questions}
 
 The research gaps identified previously (citation network analysis, structured metadata integration and utility-focused stopping) motivate the following research questions, each addressing a key opportunity for more effective, resource-conscious, systematic reviewing.
 
-\begin{enumerate}
-    \item \textbf{Research Question 1}: What is the impact of integrating backwards and forward citation network analysis on the performance of \gls*{cal} models for medical systematic review screening?
-    \item \textbf{Research Question 2}: How does the use of \gls*{gnn} architectures that integrate article metadata (e.g., publication date, author information, citation counts) affect the efficiency and accuracy of document prioritisation in \gls*{cal} for systematic reviews, relative to traditional text-only representations?
-    \item \textbf{Research Question 3}: How do stopping criteria based on the utility of retrieved information (aligned with user information needs) influence the total manual screening workload in \gls*{cal} for systematic reviews, and how do these criteria compare with conventional recall-based stopping rules?
-\end{enumerate}
-
-\section{Research proposals}\label{sec:research_proposals}
-
-\subsection{Question 1: Leverage citation networks for \gls*{cal}}
-
 \begin{tcolorbox}[colback=skyblue!10, colframe=skyblue, sharp corners=southwest, boxrule=0.8pt]
-\emph{\textbf{What is the impact of integrating backwards and forward citation network analysis on the performance of \gls*{cal} models for medical systematic review screening?}}
+\textbf{Research Question 1:} What is the impact of integrating backwards and forward citation network analysis on the performance of \gls*{cal} models for medical systematic review screening?
+\end{tcolorbox}
+\vspace{1.5em}
+\begin{tcolorbox}[colback=lightgreen!10, colframe=lightgreen, sharp corners=southwest, boxrule=0.8pt]
+\textbf{Research Question 2:} How does incorporating structured article metadata (e.g., publication date, author information, citation counts) into document representations using \gls*{gnn} architectures affect the efficiency and accuracy of document prioritisation in \gls*{cal} for medical systematic reviews, compared to traditional approaches?
+\end{tcolorbox}
+\vspace{1.5em}
+\begin{tcolorbox}[colback=salmon!10, colframe=salmon, sharp corners=southwest, boxrule=0.8pt]
+\textbf{Research Question 3:} How do stopping criteria based on the utility of retrieved information (aligned with user information needs) influence the total manual screening workload in \gls*{cal} for systematic reviews, and how do these criteria compare with conventional recall-based stopping rules?
 \end{tcolorbox}
 
-The aim is to determine whether enriching the initial training set with documents identified through citation networks leads to higher recall rates, improved R-Precision, and reduced overall human screening workload. 
 
-\paragraph{Isolated nodes:}
-A limitation of the \gls*{bcs} and \gls*{fcs} citation network mining approach is their inability to identify indirect citation relationships. An indirect citation occurs when research papers are connected through intermediate references, forming a chain of citations rather than a direct reference. For instance, when document $D_i$ cites document $D_{ip1}$, which in turn cites document $D_{ip2}$, a relationship exists between $D_i$ and $D_{ip2}$ despite the absence of a direct citation. 
+Progress has been made towards Research Questions 1 and 3. 
 
-
-
-This relationship represents an indirect citation shown in Figure \ref{fig:indirect-citation}. This causes issues if $D_{ip1}$ is not included in the document pool, as $D_i$ and $D_{ip1}$ will no longer have an edge.
-
-\begin{figure}[h]
-    \centering
-    
-    \begin{tikzpicture}[
-        > = {Stealth[scale=1.2]},
-        vertex/.style = {circle, draw, minimum size=1.2cm, inner sep=1pt},
-        ref_edge/.style = {->, thick, blue},
-        indirect_edge/.style = {->, thick, red, dashed},
-        label_style/.style = {font=\small}
-    ]
-    
-    % Main document Di
-    \node[vertex, fill=yellow!20] (Di) at (0,0) {$D_i$};
-    
-    % Direct reference
-    \node[vertex] (Dip1) at (-2,2) {$D_{ip1}$};
-    
-    % Indirect reference
-    \node[vertex] (Dip2) at (2,4) {$D_{ip2}$};
-    
-    % Add edges
-    \draw[ref_edge] (Di) -- (Dip1) node[midway, left] {Direct};
-    \draw[ref_edge] (Dip1) -- (Dip2) node[midway, right] {Direct};
-    \draw[indirect_edge] (Di) to[bend right] node[midway, right] {Indirect} (Dip2);
-    
-    % Time arrow (vertical)
-    \draw[{Stealth[scale=1.5]}->, thick] (4,4.5) -- (4,-1);
-    \node[label_style] at (4,4.8) {Past};
-    \node[label_style] at (4,-1.3) {Future};
-    
-    % Legend
-    \node[label_style] at (6,2) {Legend:};
-    \draw[ref_edge] (5,1.5) -- (7,1.5) node[right] {Direct citation};
-    \draw[indirect_edge] (5,1) -- (7,1) node[right] {Indirect citation};
-
-    \end{tikzpicture}
-
-    
-    \caption{Demonstration of an indirect citation. $D_i$ is related to $D_{ip2}$ yet only through $D_{ip1}$. This can occur for single nodes or entire components. }
-    \label{fig:indirect-citation}
-\end{figure}
-
-Research addressing this limitation was analysed, and these potential solutions exist to address this limitation:
-
-\begin{itemize}
-    \item \textbf{Matching isolated nodes based on similarity metric of their embeddings}: If $N$ is all the documents in the total pool, and $N_{isolated}$ is the set of documents that are not cited by any other document in $N$, then for each document $D_{ip} \in N_{isolated}$, find the document $D_i \in N$ with the highest similarity metric (i.e. cosine similarity) to $D_{ip}$. Add an artificial edge between $D_i$ and $D_{ip}$.
-    \item \textbf{Matching isolated components on similarity metric of their embeddings}: Some small groups of documents (called isolated components) may be disconnected from the main cluster when analysing document clusters. These isolated components have fewer connections to other documents, which can reduce classification accuracy. To fix this:
-    \begin{itemize}
-        \item Identify isolated components $C_{isolated}$ that have fewer or equal nodes than the main cluster.
-        \item For each node in these isolated components.
-        \item Calculate a similarity metric (i.e. cosine similarity) to nodes in larger clusters $C_i$.
-        \item Connect it to the most similar large cluster by adding an artificial edge.
-    \end{itemize}
-
-\end{itemize}
+\section{Progress: research question 1}
 
 
+To answer this research question, prioritising the selection of documents related to the seed document via \gls*{bcs} and \gls*{fcs} in \gls*{cal} screening is investigated, with the aim of higher recall rates, improved R-Precision, and reduced overall human screening workload. Pilot experiments were conducted. Firstly, an experiment explored the strength of this relational signal. The ratio of cited relevant documents was determined by a starting seed and the subsequent \gls*{bcs} network. This was then compared with ratios from negative and random seeds. Secondly, an experiment demonstrated the feasibility of utilising modern \gls*{cal} approaches within this PhD's hardware constraints and explored whether assumptions from the literature review held true, specifically whether larger pre-trained \glspl*{llm} or further training resulted in superior performance.
 
-Even without these potential fixes, node isolation does not prevent \gls*{bcs} or \gls*{fcs} augmenting the title and abstract screening \gls*{cal} process. Assessing the citation network of the seed document(s) can potentially provide a strong signal to improve recall in the early screening stages.
-
-\subsubsection{Work completed towards RQ1}
 
 \paragraph{Quantifying the \gls*{bcs} citation mining signal:}
 The strength of the \gls*{bcs} signal was quantified through a pilot experiment designed to quantify the ratio of relevant documents directly citing other relevant documents, leveraging the OpenAlex API. For each document in the pool of the \gls*{clef} 2019 \gls*{dta} dataset, the OpenAlexAPI was used to retrieve its references, and these references were filtered to include only those documents that were in the total pool. Then, three groups of ``seed” documents were sampled for comparative analysis: a positive group (up to 100 documents labelled as relevant), a negative group (up to 100 documents labelled as irrelevant), and a random group (100 documents selected at random from the total pool). The total count of its one-hop cited references marked as relevant or not relevant was calculated for each seed document. The counts of relevant (true) and irrelevant (false) citations were aggregated across the eight systematic reviews. Z-tests for proportions were performed to compare the three groups, and the differences were visualised using stacked bar charts (with 95\% confidence intervals computed via a normal approximation). The results show that the positive seed group exhibited a higher proportion of one-hop relevant citations (0.28) compared to both the negative (0.14) and random groups (0.17) - See Figure \ref{fig:bcs_experiement}, with statistical tests (e.g., z-statistics over 11 and p-values $\leq$ 0.001) confirming that these differences were highly significant.
@@ -1207,16 +1142,14 @@ The strength of the \gls*{bcs} signal was quantified through a pilot experiment 
 \begin{figure}
     \centering
     \includesvg[width=1\linewidth]{Confirmation Review/images/relatedness.svg}
-    \caption{Ratio of one-hop relevance ratio from starting seeds}
+    \caption{Ratio of one-hop relevance ratio from starting seeds. Relevant documents are more likely to cite other relevant documents (0.28 on average) than non-relevant documents (0.15 on average). This difference is statistically significant.}
     \label{fig:bcs_experiement}
 \end{figure}
 
-
-
 \paragraph{Replication of Encoder-CAL approach:}
-Mao's study~\cite{mao_reproducibility_2024}, where an Encoder \gls*{cal} approach was used in the \gls*{cal} process was recreated by the author, except the larger $\text{BioLinkBERT}_{\text{large}}$ formed the classifier. The larger model achieved higher performance in R-Precision in 7 of 12 datasets/policy combinations. The Friedman test for individual datasets found significant differences between the FPT epochs 4 out of 12 times; however, when considering all datasets together, there was no significant difference between the FPT epochs and R-precision for relevant selection policy or uncertainty selection policy. Original Encoder-CAL research investigated the ``Goldilocks problem", which essentially posited an ``optimum" number of further pertaining epochs needed on encoder-based models to achieve good performance. The research conducted by the author and Mao demonstrates that the ``Goldilocks problem", while present in non-medical domains, is not apparent when using the BiolinkBERT models for the \gls*{clef} dataset within a \gls*{cal} process, indicating that further pre-training of models was unnecessary as it does not produce a statistically significant improvement in R-precision. The average R-precision of each FPT epoch is reported in Table \ref{tab:results}, with the highest R-precision for relevancy selection policy being 0.847 at further pretrain epoch two and the highest R-precision for uncertainty being 0.832 at further pretrain epoch 1.  
+Mao's study~\cite{mao_reproducibility_2024}, where an Encoder \gls*{cal} approach was used in the \gls*{cal} process was recreated, except the larger $\text{BioLinkBERT}_{\text{large}}$ formed the classifier. The larger model achieved higher performance in R-Precision in 7 of 12 datasets/policy combinations. The Friedman test for individual datasets found significant differences between the \gls*{fpt} epochs 4 out of 12 times; however, when considering all datasets together, there was no significant difference between the \gls*{fpt} epochs and R-precision for relevant selection policy or uncertainty selection policy. Original Encoder-CAL research investigated the ``Goldilocks problem", which essentially posited an ``optimum" number of \gls*{fpt}g epochs needed on encoder-based models to achieve good performance. This research and Mao's demonstrates that the ``Goldilocks problem", while present in non-medical domains, is not apparent when using the BiolinkBERT models for the \gls*{clef} dataset within a \gls*{cal} process, indicating that \gls*{fpt} of models was unnecessary step in encoder-CAL as it does not produce a statistically significant improvement in R-precision. The average R-precision of each \gls*{fpt} epoch is reported in Table \ref{tab:results}, with the highest R-precision for relevancy selection policy being 0.847 at \gls*{fpt} epoch two and the highest R-precision for uncertainty being 0.832 at \gls*{fpt} epoch 1.  
 
-Key findings from this exploratory research are that an optimal pre-training epoch is unlikely to be found within the \gls*{clef} dataset and, hence, not a viable avenue for future research. This is also of great practical importance to this PhD, as it removes the need for the computationally costly model further pre-training.  In terms of experimental design, certain hyperparameters were chosen without clear reasoning (such as batch size being 25, fine-tuning for 20 epochs and stopping after 501 documents labelled). This limitation is considered a barrier to improving the performance of the encoder \gls*{cal} process within that experimental framework, given that reported R-Precision values are already close to the natural ceiling of 1 (with R-Precision reaching 0.945 in some cases). Furthermore, using a more performance/larger model will likely be fruitful for future research. However, it depends on the availability and development of superior models (the creation of which is unfeasible during a PhD period). This undertaken research did, however, highlight that leveraging citations themselves was valuable to the \gls*{cal} process. 
+Key findings from this exploratory research are that an optimal pre-training epoch is unlikely to be found within the \gls*{clef} dataset and, hence, not a viable avenue for future research. This is also of great practical importance to this PhD, as it removes the need for the computationally costly model \gls*{fpt}.  In terms of experimental design, certain hyperparameters were chosen without clear reasoning (such as batch size being 25, fine-tuning for 20 epochs and stopping after 501 documents labelled). This limitation is considered a barrier to improving the performance of the encoder \gls*{cal} process within that experimental framework, given that reported R-Precision values are already close to the natural ceiling of 1 (with R-Precision reaching 0.945 in some cases). Furthermore, using a more performance/larger model will likely be fruitful for future research. However, it depends on the availability and development of superior models (the creation of which is unfeasible during a PhD period). This undertaken research did, however, highlight that leveraging citations themselves was valuable to the \gls*{cal} process. 
 
 \begin{table}[htbp]
     \centering
@@ -1278,16 +1211,31 @@ Key findings from this exploratory research are that an optimal pre-training epo
     \hline
    
     \end{tabular}
-    \caption{Performance comparison across different collections and models}
+    \caption{Performance comparison across different collections and models. While some improvements in effectiveness (increased R-Precision) were seen, this was not consistent across all datasets.}
     \label{tab:results}
 \end{table}
 
+\section{Progress: research question 3}
 
-\subsubsection{Experimental approach}
+To develop this research area for \gls*{tar}, a study has been submitted for peer review to the SIGIR 2025 conference\footnote{https://sigir2025.dei.unipd.it}. This study proposes using moments of a probability distribution and a decision threshold to quantify information utility and optimize the stopping point for document screening in systematic reviews.
 
-The proposed initial experiment evaluates if prioritising one-hop away from a known relevant document improves \gls*{cal} for Title and Abstract Screening. To do this, a Relation-Prioritised \gls*{cal} (RP-CAL) approach will be compared with Baseline \gls*{cal} (B-CAL) approaches. 
+\paragraph{Utility-Based Stopping Methods: }This research investigated the potential of utility-based stopping methods for \gls*{tar}, specifically in the context of \glspl*{dta} systematic reviews. The primary goal was to determine if these methods could accurately identify when sufficient information had been gathered to answer a searcher's question.
 
-To understand the RP-CAL approach, consider the \gls*{cal} process output at each active learning iteration to understand the approach. A sigmoid value from a model trained on the known data pool determines document ranking where a policy selects relevant samples. Exceptions to this are revealed documents; a score of infinity is assigned if relevant to the search, and negative infinity is assigned if not. Figure \ref{fig:document_ranking_iteration} provides a simple outline of this process.
+The core finding is that grounding the stopping decision in the statistical properties of accumulating evidence, rather than pre-defined recall targets, significantly reduces the \gls*{prd} while maintaining a high level of decision agreement with the full dataset.  Specifically, the Harmonic Shrinkage and Confidence Boundary methods consistently outperformed the 70\% recall baseline in \gls*{prd}, often by a substantial margin, without a statistically significant decrease in decision agreement. This directly addresses research question 3 by demonstrating that, within the limitations of this study, utility-based stopping methods are more efficient at identifying a sufficient subset of relevant information during screening prioritization.
+
+To provide a clear and objective stopping criterion, the information need of the \gls*{dta} review was framed as a binary question: ``Is the performance of this test  $< \theta$?". The thresholds ($\theta = 0.75$ for sensitivity and $\theta = 0.1$ for false positive rate) were chosen to represent generally desirable performance characteristics for diagnostic screening tests. Ideally, these thresholds should be determined by the specific clinical context and test requirements. Future work could extend this approach to other types of systematic reviews, such as intervention studies, where a clinically meaningful difference (analogous to $\theta$) can often be defined a priori.
+
+\chapter{Research proposal}\label{sec:Research_Proposal}
+
+\section{Research question 1}
+
+\begin{tcolorbox}[colback=skyblue!10, colframe=skyblue, sharp corners=southwest, boxrule=0.8pt]
+What is the impact of integrating backwards and forward citation network analysis on the performance of \gls*{cal} models for medical systematic review screening?
+\end{tcolorbox}
+
+The logical and simple augmentation of a \gls*{cal} approach would be to prioritise the \gls*{bcs} and \gls*{fcs} networks of a seed document during the encoder \gls*{cal} process, increasing their selection chance by a policy for oracle judgment. A prioritisation approach could overcome some of the limitations of the \gls*{cal} process. For example, in these recreated studies, the author often noted that recall is impeded in the first few iterations because of a lack of relevant document samples. In literature, this is frequently referred to as the cold start problem, where there are inadequate samples to start active learning effectively~\cite{chen_making_2024}. By prioritising a set of documents that are known to be more likely to be relevant, this cold start problem should become less impactful on \gls*{cal} efficiency. Set prioritisation can also neatly fit into the existing performant \gls*{cal} processes, as a single sample seed document is often used during the first iteration. This approach is coined a Relation-Prioritised \gls*{cal} (RP-CAL) approach.
+
+To understand the RP-CAL approach, consider the traditional \gls*{cal} process output at each active learning iteration. A sigmoid value from a model trained on the known data pool determines document ranking where a policy selects relevant samples. Exceptions to this are revealed documents; a score of infinity is assigned if relevant to the search, and negative infinity is assigned if not. Figure \ref{fig:document_ranking_iteration} provides a simple outline of this process.
 
 \begin{figure}[h!]
 \centering
@@ -1346,9 +1294,10 @@ D2 & 0 & $-\infty$ & - &  \\
 };
 \end{tikzpicture}
 
-\caption{Document ranking and selection before and after an Active Learning iteration. Note that the selection policy used here is relevance with a batch size of 3.}
+\caption{Document ranking and selection before and after an Active Learning iteration. Note that the selection policy used here is relevance with a batch size of three (i.e., the highest three ranked documents are selected for oracle judgement.}
 \label{fig:document_ranking_iteration}
 \end{figure}
+
 
 In the \gls*{cal} process, one or more relevant seed documents, denoted $s$, are first identified. From these seeds, document relationships to the entire pool, $\textbf{T}$ can be extracted (e.g., via OpenAlex). A simple document relationship is if a document $d$ in $\textbf{T}$ are reachable from $s$, within $n$ hops (where a \emph{hop} indicates the number of edges traversed on a \gls*{gnn} using \gls*{bcs} or \gls*{fcs} as edges). This could be returned as set for the $s$, as outlined in Equation \ref{eq:related_eq}.
 
@@ -1367,21 +1316,28 @@ The goal is to make the \gls*{cal} ranking procedure \emph{relationship‐aware}
 \label{eq:Indicator_function_ons}
 \end{equation}
 
-Let X be the original sigmoid output (or any scoring function). This score is adjusted using a scaling factor $\alpha \in [-1, 1]$ to control the influence of the relationship information - as shown in Equation \ref{eq:Adjusted_score}:
+Let X be the original sigmoid output (or any scoring function). X adjusted using a scaling factor $\alpha \in [-1, 1]$ to control the influence of the relationship information - as shown in Equation \ref{eq:Adjusted_score}:
 
 \begin{equation}
-\text{Adjusted Score}_{(d)} = X(d) \cdot(1+\alpha I_{O_{n{(s0)}}}(d))
+\text{Adjusted Score}_{(d)} = X(d) \cdot(1+\alpha I_{O_{n{(s)}}}(d))
 \label{eq:Adjusted_score}
 \end{equation}
-When $\alpha > 0$, documents in $O_{n(s)}$ receive a higher score; when $\alpha < 0$, they receive a lower score.
 
-An RP-CAL approach using \cite{mao_reproducibility_2024}'s encoder-CAL method and \cite{cormack_scalability_2016}'s BMI will be compared to a B-CAL approach that is not relationship-aware (i.e., the default \cite{mao_reproducibility_2024} and \cite{cormack_scalability_2016} approach).   
+As the score determines the rank, the effect of $\alpha$ values on experiments can be explored. Consider a simulated ranking, where 20\% of the documents are related to the seed document. Applying the Adjusted Score function results in related documents being placed higher than they would have been without adjustment. Increasing $\alpha$ increases the magnitude of score adjustment, with the functions' effect becoming more pronounced the further away a document is from the highest ranks (1). This property is useful in relevance selection policy (the more performant policy in \gls*{cal}), as it would result in prioritising documents related to $s$ earlier for Oracle judgment.
 
-This approach can be expanded further by making the \gls*{cal} process aware of other document relations. You can, for example, use the RA-CAL approach to consider the highest-cited documents more preferentially or authors who appear most in the $\textbf{T}$. It can be used on any \gls*{cal} approach as it utilises the model output (score). 
+% \begin{figure}
+%     \centering
+%     \includesvg[width=1\linewidth]{Confirmation Review/images/simulated_run.svg}
+%     \caption{Demonstration of effect of score adjustment on rankings. A negative rank difference means the document moves closer to the top of the rankings, resulting in a higher chance of selection by a relevant policy. Increasing $alpha$ increases the magnitude of this adjustment.}
+%     \label{fig:simulated_adjusted}
+% \end{figure}
+
+The proposed RP-CAL experiments evaluate if prioritising one-hop away from a known relevant document improves \gls*{cal} for Title and Abstract Screening. To do this, an RP-CAL approach using \cite{mao_reproducibility_2024}'s encoder-CAL method and \cite{cormack_scalability_2016}'s \gls*{bmi} will be compared to a B-CAL approach that is not relationship-aware (i.e., the default \cite{mao_reproducibility_2024} and \cite{cormack_scalability_2016} approach).   
+
+\cite{van_haastrecht_symbals_2021}'s work presents the most relevant research, yet the current approach differs in several key aspects. While \cite{van_haastrecht_symbals_2021} relied exclusively on backward citation screening, this methodology employs both backward and forward screening. This comprehensive approach broadens the pool of potentially relevant documents, capturing not only those cited by the initial set but also more recent publications that cite those initial papers. Furthermore, the current approach integrates active learning with citation network analysis after each iteration. In contrast, \cite{van_haastrecht_symbals_2021} applied snowballing after the active learning phase, precluding continuous learning from citation links. The iterative integration in this design allows the active learning algorithm to refine its prioritisation dynamically based on the evolving citation network, potentially leading to faster convergence on relevant documents and a higher recall rate, thus increasing the efficiency of the screening process. Finally, this methodology extends beyond direct citation links, the sole focus of SYMBALS in the original study. It can incorporate any relationship that can be represented as present or absent. This includes, but is not limited to, co-authorship, shared keywords, institutional affiliations, or semantic textual similarity
 
 \paragraph{Experimental variations:}
-The experimental design can incorporate several key variations to understand the impact of different parameters on \gls*{cal} performance. Seed size selection is likely to be highly impactful (i.e., vary how many positive cases the RP-CAL process starts with compared to the B-CAL). This is likely to be due to the larger $O_{n{(s)}}$ size. Additionally, you can continually update the $O_{n{(s)}}$ set, as when more positive document classifications come along, you can extend this set with the updated pool. The contribution of each citation searching approach of \gls*{bcs}, (i.e., form $O_{n{(s)}}$ using only \gls*{bcs}, RP-CAL-BCS), \gls*{fcs} (i.e., form $O_{n{(s)}}$ using only \gls*{fcs}, RP-CAL-FCS) can be compared to using both \gls*{bcs}+\gls*{fcs} (RP-CAL-BCS+FCS). Finally, the effect of network expansion can be assessed by evaluating the effectiveness of the best-performing RP-CAL approaches that are one hop away versus two or three hops away.  
-
+The experimental design can incorporate several key variations to understand the impact of different parameters on \gls*{cal} performance. Seed size selection is likely to be highly impactful (i.e., vary how many positive cases the RP-CAL process starts with compared to the B-CAL). This is likely to be due to the larger $O_{n{(s)}}$ size. Additionally, you can continually update the $O_{n{(s)}}$ set, as when more positive document classifications come along, you can extend this set with the updated pool. The contribution of each citation searching approach of \gls*{bcs}, (i.e., form $O_{n{(s)}}$ using only \gls*{bcs}, RP-CAL-BCS), \gls*{fcs} (i.e., form $O_{n{(s)}}$ using only \gls*{fcs}, RP-CAL-FCS) can be compared to using both \gls*{bcs}+\gls*{fcs} (RP-CAL-BCS+FCS). $\alpha$ can be decayed over iterations. Finally, the effect of network expansion can be assessed by evaluating the effectiveness of the best-performing RP-CAL approaches that are one hop away versus two or three hops away.  
 
 \begin{figure}[h!]
 \centering
@@ -1451,7 +1407,7 @@ D10 & 0 & 0 & 0.07 & 0.07 & 9 &  \\
 };
 \end{tikzpicture}
 
-\caption{Effect of relationship‐aware CAL when $O_{n(s)} = {D4, D5, D7}$ (rows highlighted grey) are in  with $\alpha = 0.3$. Scores are boosted by a factor of $(1+\alpha)$ if $I_{O_{n(s)}}(d)=1$, causing  $O_{n(s)}$ to rise in ranking.}
+\caption{Effect of RP-CAL when $O_{n(s)} = \{D4, D5, D7\}$ (rows highlighted grey) are in  with $\alpha = 0.3$. Scores are boosted by a factor of $(1+\alpha)$ if $I_{O_{n(s)}}(d)=1$, causing  $O_{n(s)}$ to rise in ranking.}
 \label{fig:relationship_aware_example}
 \end{figure}
 
@@ -1461,18 +1417,21 @@ Existing hyperparameter choices (e.g., batch size, learning rates, fine-tuning e
 \paragraph{Evaluation:}
 The performance of these approaches will be evaluated on the \gls*{clef}-\gls*{tar} (2017, 2018, 2019) and Synergy datasets. To combat any effect of title and abstract updating, this PhD will use a recently collected set \(2024\) of titles/abstracts created by Mao et al.~\cite{mao_reproducibility_2024} for the \gls*{clef} dataset\footnote{https://github.com/ielab/goldilocks-reproduce}. Success will be measured through several performance metrics, including Recall@95\%, R-Precision, WSS@95\%. Statistical analyses (e.g., paired t-tests) will assess whether the observed differences between RP-CAL approaches and the B-CAL approach are significant.
 
-\subsection{Question 2: Leveraging metadata for \gls*{cal}}
+Extensions of this approach are also possible, making the \gls*{cal} process prioritise other document relations. You can, for example, use the RA-CAL approach to consider the highest-cited documents more preferentially or authors who appear most in the $\textbf{T}$. It can be used on any \gls*{cal} approach as it utilises the model output (score). 
+
+
+\section{Research question 2}
 \begin{tcolorbox}[colback=lightgreen!10, colframe=lightgreen, sharp corners=southwest, boxrule=0.8pt]
 \emph{\textbf{How does incorporating structured article metadata (e.g., publication date, author information, citation counts) into document representations using \gls*{gnn} architectures affect the efficiency and accuracy of document prioritisation in \gls*{cal} for medical systematic reviews, compared to traditional approaches?}}
 \end{tcolorbox}
 
-The aim is to determine if creating document representations enriched with metadata leads to higher recall rates, improved R-Precision, and reduced overall human screening workload.
+The experiment proposed in Research question 1 is valid if there is a signal to exploit to adjust rankings; however, what if such a signal does not exist, or what if such a signal is too complex to express via an indicator function? Generating representations incorporating additional information (such as citation networks and metadata) removes the need for explicit adjustments, leaving the model to determine what features, if any, are relevant to the search process.
 
-\subsubsection{Experimental Approach} 
+Therefore, the approach to this research question is to create document representations enriched with metadata through \glspl*{gnn}, hopefully leading to higher recall rates, improved R-Precision, and reduced overall human screening workload.
 
-To evaluate the benefits of metadata integration, a comparative study involving three groups is proposed:
+To evaluate the benefits of metadata integration, a comparative study involving three document representations are proposed:
 
-\begin{enumerate} \item \textbf{Baseline \gls*{cal} (BE-CAL)\cite{mao_reproducibility_2024}:}
+\begin{enumerate} \item \textbf{Baseline \gls*{cal} (BE-CAL) \cite{mao_reproducibility_2024}:}
 This approach uses a standard encoder model (e.g., BioLinkBERT) that encodes each document’s title and abstract into a fixed-size (e.g., 768-dimensional) vector derived from the [CLS] token. This representation is then used within the active learning loop for ranking and selection.
 
 \item \textbf{\gls*{gnn}-based Document Representation without Metadata (\gls*{gnn}-DR):}
@@ -1498,19 +1457,13 @@ Further extensions can occur to understand key choices about this experimental d
 \paragraph{Evaluation:}
 Will be the same as per RQ1. 
 
-\subsection{Question 3: Informing stopping decisions with information utility}
+\section{Research question 3}
 
 \begin{tcolorbox}[colback=salmon!10, colframe=salmon, sharp corners=southwest, boxrule=0.8pt]
 \emph{\textbf{How do stopping criteria based on the utility of retrieved information (aligned with user information needs) influence the total manual screening workload in \gls*{cal} for systematic reviews, and how do these criteria compare with conventional recall-based stopping rules?}}
 \end{tcolorbox}
 
 Rather than enforcing a strict recall target, \emph{utility-based} stopping seeks to halt once the pool of included documents collectively provides enough evidence to address the research question. 
-
-\subsubsection{Work completed towards RQ3}
-
-To extend this research area, the author has submitted work for peer review that measures information utility through moments of a probability distribution, along with a decision threshold to reduce screening of relevant documents. This was submitted to the SIGIR 2025 conference\footnote{https://sigir2025.dei.unipd.it} and is under peer review. This work introduces a novel utility-based approach to stopping rules for medical literature screening within \gls*{tar}. Moving beyond traditional recall-based methods, this work focuses on halting the search process based on the utility of the information retrieved thus far, specifically its value in answering the underlying research question (modelled as a decision threshold). Several new algorithms were developed, leveraging the statistical concept of moments of a probability distribution: Harmonic Shrinkage, Confidence Boundary, Skewness, Kurtosis, and Multi-Moments. Experiments demonstrated that the Confidence Boundary algorithm achieves high decision agreement with significantly reduced document review compared to target-recall approaches. This research supports this PhD's goal of improving efficiency in the medical screening process by offering a more efficient and reasoning-based approach, aligning stopping decisions with the actual information needs of the user. As this has already been submitted (and contributed to this research question), further experimental avenues are discussed in this section.   
-
-\subsubsection{Experimental Approach}
 
 Limitations of the author's previous work lie in that the approaches were only applied to \gls*{dta}. \gls*{dta} were chosen as the point estimates primary research reports (i.e. sensitivity and false-positive rate) are easily interpretable. They can be combined into a single combined point estimate easily (via summing true positives, true negatives, false positives and false negatives across all research), values for which were available from the  Limsi-Cochrane Dataset~\cite{norman_cochrane_2018}. Although these utility-based methods proved successful in \gls*{dta}, other systematic reviews (e.g., interventional, prognostic, qualitative) may require different outcome measures or stopping criteria. A stopping method must be applied in various review types, such as interventional studies, to have a broad impact. 
 
@@ -1579,22 +1532,9 @@ Studies would be screened according to their ranking within AuthTAR (which is pr
 \paragraph{Evaluation:}
 Would utilise the author's previous research evaluation metrics. Efficiency will be measured through the \gls*{prd}  alongside a traditional savings metric. Effectiveness will be measured through Decision agreement (a binary indicator function determining if the decision made at stopping matches the decision made with all available information). 
 
-
-
-
-\section{Ethics statement}\label{sec:ethics}
-
-This PhD research will utilise pre-existing, publicly available datasets for analysis. Crucially, this research does not involve any direct interaction with human participants, and no new data collection will be undertaken. The datasets being analysed consist of anonymised data from prior research, ensuring the privacy of the original participants is already protected. Therefore, this research poses minimal ethical risk, as it avoids direct engagement with human subjects and relies solely on data where identifiability has already been removed through prior anonymisation processes.
-
-Furthermore, as this research re-uses existing data and archival data, its scope aligns with the University's ethical guidelines in Policy Note No. 13. Policy Note No. 9 respectively\footnote{https://students.sheffield.ac.uk/research-ethics/ethics/notes/policy-note-13}\footnote{https://students.sheffield.ac.uk/research-ethics/ethics/notes/policy-note-9}. Given these factors and by these policies, formal ethics approval was deemed unnecessary and has not been sought for this project.
-\section{Data management plan}
-
-A data management plan has been created for this PhD period and included in Appendix \ref{app:dmp}.
-
-
 \section{Timeline}
 
-A timeline for this PhD is presented in Gantt formation in Figure \ref{fig:gantt}. This timetable needs to be flexible and will likely change. More detail on each research task is outlined in for each Research Question in Tables \ref{tab:taskoverview_rq1}, \ref{tab:taskoverview_rq2} \& \ref{tab:taskoverview_rq3}.
+The timeline for this PhD has been structured around the three research questions and is presented in Gantt formation in Figure \ref{fig:gantt}. More detail on each research task is outlined in for each Research Question in Tables \ref{tab:taskoverview_rq1}, \ref{tab:taskoverview_rq2} \& \ref{tab:taskoverview_rq3}.
 
 
 \begin{figure}
@@ -1800,31 +1740,77 @@ A timeline for this PhD is presented in Gantt formation in Figure \ref{fig:gantt
 
 };
 \end{tikzpicture}
-\caption{Specific task details for RQ 3.}
+\caption{Specific task details for Research question 3.}
 \label{tab:taskoverview_rq3}
 \end{sidewaystable}
 
-In creating this time-line for the PhD several assumptions were made:
+% In creating this time-line for the PhD several assumptions were made:
+% \begin{itemize}
+%     \item \textbf{Holiday Periods:} Two weeks of holiday have been accounted for during the summer and a two-week period over Christmas and New Year. This timeline does not account for additional holidays, which will be determined later.
+%     \item \textbf{Front-Loaded Research:} The research plan is front-loaded, with significant emphasis placed on the early stages of the project. This approach allows additional literature searching, coding, and experimental setup to be completed in advance, providing a solid foundation for later stages of research, the research questions of which are currently flexible. This strategy also ensures that any necessary adaptations can be made based on early findings, reducing the risk of major delays later in the project. 
+%     \item \textbf{Research Flexibility:} Breaks are scheduled between work on research questions to allow for adaptation or extension if research questions need to be adjusted. In addition, there is a dedicated period for each of the three research themes before beginning coding or experimental setups. This time is intended for further literature review, acknowledging the rapidly evolving nature of this field. The literature is expected to advance before each research question period starts.
+%     \item \textbf{Undetermined Research Questions:} A single research period has deliberately been left open, \emph{RQ4}. Depending on the findings of the first three research questions, new research opportunities or developments in the field may emerge that require investigation. Additionally, it could be utilised if there are any delays to this project. 
+% \end{itemize}
+
+
+\section{Conclusion}
+
+ This project brings together critical gaps in systematic review automation, such as more sophisticated document representations, inter-document relations, and user-centric stopping rules, to advance \gls*{cal} in medical literature screening. By combining citation information and metadata with modern encoder models and \gls*{gnn}, the planned research aims to systematically reduce the screening burden while preserving near-total recall. Moreover, by exploring utility-based stopping criteria, it seeks to align the screening endpoint with the actual value of additional studies, mitigating the inefficiency of rigid recall thresholds. The proposed investigations—spanning citation-augmented seed sets, \gls*{gnn}-driven metadata integration, and novel stopping heuristics — will be validated on widely used \gls*{clef}-\gls*{tar} and Synergy datasets to ensure robust, reproducible results. Ultimately, this work can potentially reduce costs in performing systematic reviews and bolster decision-making quality in \gls*{ebm}, offering an answer to the issue of the ever-growing volume of biomedical research.
+
+
+\chapter{Supporting works}
+
+\section{Completed research}
+
+\subsection{Presented research}
+
+\paragraph{Screening prioritisation lecture:}
+A tutorial was given by the author, along with their supervisor, at the British Computing Society on November 26th, 2024, for the Search Solutions 2024 conference on screening prioritisation\footnote{https://www.bcs.org/membership-and-registrations/member-communities/information-retrieval-specialist-group/conferences-and-events/search-solutions/search-solutions-2024}. A copy of the tutorial has been supplied - see Appendix \ref{app:Screening_Prioritisation}. The tutorial was designed to provide an accessible introduction to screening prioritisation within systematic reviews for an audience of \gls*{ir} practitioners and researchers attending the conference. It was structured as a half-day event, with the author delivering a dedicated hour-long lecture. This lecture aimed to demystify the complexities of systematic review screening and highlight the potential of prioritisation techniques to improve efficiency and reduce workload significantly. Key topics covered included the fundamental screening concepts, the challenges of manual screening in large datasets, and a comprehensive overview of various prioritisation strategies, drawing directly from the literature discussed in Section \ref{sec:screening Priorisation}. The lecture effectively served as a practical guide, offering attendees a clear understanding of the current approaches and the potential impact of screening prioritisation in real-world applications. For the author, this lecture experience provided a way to improve their skills in effectively conveying comprehensive overviews of complex literature to a diverse audience. Furthermore, the interactive nature of the tutorial, including the question and answer session, forced engagement with the audience (from the public to \gls*{ir} specialists) and directly supported the communication and dissemination aspects of their PhD research.
+
+\subsection{Research under peer review}
+
+\paragraph{Utility-Based Stopping Methods:}
+This research, submitted to SIGIR 2025 conference\footnote{https://sigir2025.dei.unipd.it} and currently under peer review, introduces a novel utility-based approach to stopping rules for medical literature screening within \gls*{tar}. A copy of the paper has been supplied - See Appendix~\ref{app:Utility_Based_Stopping_Methods}. Moving beyond traditional recall-based methods, this work focuses on stopping the search process based on the utility of the information retrieved thus far, specifically its value in answering the underlying research question. Several new algorithms were developed, leveraging the statistical concept of moments of a probability distribution: Harmonic Shrinkage, Confidence Boundary, Skewness, Kurtosis, and Multi-Moments. Experiments demonstrated that the Confidence Boundary algorithm achieves high decision agreement with significantly reduced document review compared to target-recall approaches. This research supports this PhD's goal of improving efficiency in the medical screening process by offering a more efficient and user-centric approach, aligning stopping decisions with the actual information needs of the user.
+
+\paragraph{Predicting Article Retractions:}
+This research, submitted to the journal Research Integrity and Peer Review\footnote{https://researchintegrityjournal.biomedcentral.com} and currently under peer review, investigates the use of machine learning to predict the retraction of scientific articles. A copy of the paper has been supplied - See Appendix \ref{app:Predicting_article_retractions}. A novel dataset was created by combining information from the Retraction Watch database (containing retracted articles) and the OpenAlex API (an academic publication catalogue). The dataset includes 9,028 articles published between 2000 and 2020, equally split between retracted and non-retracted, and features article metadata, abstracts, and citation metrics. Various machine learning models were trained on this data, including traditional feature-based classifiers (like Gradient Boosting, \gls*{svm}, XGBoost, and Random Forest) and \glspl*{llm} such as \gls*{bert}, BioBERT, Llama 3.2, and Gemma 2. The \gls*{svm} model achieved the highest precision (0.690) for identifying retracted articles, while Llama 3.2-base had the highest overall accuracy (0.682) and recall (0.689 for the retracted class). An ablation study revealed that the publication year was the most influential feature for prediction, followed by the primary topic. Interestingly, the abstract's content was less influential than expected. The dataset and code are made publicly available to facilitate further research. This research supports this PhD's main goal of efficiency by providing tools to reduce the larger work pool identified in the systematic review process.
+
+% \section{Ongoing research}
+
+% \subsection{CPET project}
+
+% A cardiopulmonary exercise test (CPET) is performed before certain anaesthetic procedures, the outcome of which is used to determine the patient's suitability for this procedure. Current approaches use summarised data to generate decision models, whose data are derived from summary values provided by the machine. The machine also records ''breath-by-breath" data measurements, which, while they are the basis for the summary values, are not used by these models. This research project attempts to determine whether using deep neural networks with these ''breath-by-breath" data is superior to the traditional summary-model approach. An National Health Service researcher devised this research.
+
+% \textbf{Threat to PhD :} Low. The author is providing coding assistance to this project and will not be involved in the analysis or extensively involved in research write-up outside of the technical side. Coding is largely complete. This is also likely to result in publishable research and will likely be published in medical domain venues, promoting interdisciplinary work.
+\section{Ethics statement}\label{sec:ethics}
+
+This PhD research will utilise pre-existing, publicly available datasets for analysis. Crucially, this research does not involve any direct interaction with human participants, and no new data collection will be undertaken. The datasets being analysed consist of anonymised data from prior research, ensuring the privacy of the original participants is already protected. Therefore, this research poses minimal ethical risk, as it avoids direct engagement with human subjects and relies solely on data where identifiability has already been removed through prior anonymisation processes.
+
+Furthermore, as this research re-uses existing data and archival data, its scope aligns with the University's ethical guidelines in Policy Note No. 13. Policy Note No. 9 respectively\footnote{https://students.sheffield.ac.uk/research-ethics/ethics/notes/policy-note-13} \footnote{https://students.sheffield.ac.uk/research-ethics/ethics/notes/policy-note-9}. Given these factors and by these policies, formal ethics approval was deemed unnecessary and has not been sought for this project.
+\section{Data management plan}
+
+A data management plan has been created for this PhD period and included in Appendix \ref{app:dmp}.
+
+
+\section{Threat Analysis}
+
+Table~\ref{tab:risk_matrix} summarises this project's key risks, likelihood, impact, overall risk score, and high-level responses. A major contingency in place for most of these threats is the non-sequential nature of the proposed research questions and the fact that each research proposal is independent of the others; if a major challenge threatens the ability to complete a research question in a reasonable time frame, it does not impede pursuing others.  
+
 \begin{itemize}
-    \item \textbf{Holiday Periods:} Two weeks of holiday have been accounted for during the summer and a two-week period over Christmas and New Year. This timeline does not account for additional holidays, which will be determined later.
-    \item \textbf{Front-Loaded Research:} The research plan is front-loaded, with significant emphasis placed on the early stages of the project. This approach allows additional literature searching, coding, and experimental setup to be completed in advance, providing a solid foundation for later stages of research, the research questions of which are currently flexible. This strategy also ensures that any necessary adaptations can be made based on early findings, reducing the risk of major delays later in the project. 
-    \item \textbf{Research Flexibility:} Breaks are scheduled between work on research questions to allow for adaptation or extension if research questions need to be adjusted. In addition, there is a dedicated period for each of the three research themes before beginning coding or experimental setups. This time is intended for further literature review, acknowledging the rapidly evolving nature of this field. The literature is expected to advance before each research question period starts.
-    \item \textbf{Undetermined Research Questions:} A single research period has deliberately been left open, \emph{RQ4}. Depending on the findings of the first three research questions, new research opportunities or developments in the field may emerge that require investigation. Additionally, it could be utilised if there are any delays to this project. 
-\end{itemize}
+    \item \textbf{Reliance on external data sources:}
+    Metadata, effect sizes, and document relationships come from external providers. There is a risk of missing or incomplete data (e.g.\ references do not exist, or coverage is sparse). This could degrade \gls*{gnn} node representations or hamper citation-based ranking. Early indication arises if more than 20\% of expected references return empty or null fields. Mitigated by using fallback providers (e.g., Crossref) to fill missing data or limiting the hop depth in \gls*{gnn} graphs if coverage is low.
+    
+    \item \textbf{Large graph construction:}
+    Creating large citation or co-authorship graphs may become memory-intensive, especially when higher hop depth is used or many metadata fields are concatenated. An early warning would be out-of-memory errors on HPC or the inability to load adjacency matrices fully. Mitigated by limiting graph depth (\emph{k}-hops), chunking the data or adopting mini-batch sampling (e.g., GraphSAGE). Can also test memory usage on a small pilot graph.
 
+    \item \textbf{Technological advancement:}
+    Rapid progress in machine learning or retrieval (e.g.\ new \gls*{llm}-based ranking methods) could make parts of this work less novel. The main indicator is a new state-of-the-art approach gaining traction in top conferences (e.g.\ SIGIR) for \gls*{cal}. Mitigated by allocating time for ongoing literature review and integrating major new methods into a comparative baseline if feasible. If a breakthrough approach significantly outperforms these, adjust the scope to show complementary results (e.g.\ combine these GNN-based methods with that approach).
 
-\section{Threat analysis}
+    \item \textbf{Publication risks:}
+    Results might not meet the publication bar, or revision cycles could take longer than expected. Multiple rejections or long revision rounds that stretch beyond the planned timeline are warning signs. If top-tier acceptance is uncertain for produced work, target secondary venues. 
 
-Table \ref{tab:risk_matrix} outlines a risk matrix of all potential threats.
-
-\begin{itemize}
-    \item \textbf{Research Delays:} Unforeseen challenges in research or coding (e.g., complex research questions, experimental setup issues, or unexpected results requiring further analysis) may cause delays.  An open research question period (\emph{RQ4}) mitigates this risk.
-    \item \textbf{Technological advancement:} Rapid technological advancements in the field may render parts of the planned research irrelevant or necessitate a significant change of focus. Ongoing literature review during research question experimentation and implementation mitigates this risk.
-    \item \textbf{Publication risks:} 
-    The research may not yield publishable results, or the publication process may take longer than anticipated, particularly if revisions are required. Extended gaps between research completion and publication, inherent to the publication system, hinder modifying the research to meet reviewer expectations.
-    \item \textbf{Personal and Health Factors:} Extended high-intensity work periods can cause burnout or health problems, impacting the planned schedule. The Gantt chart cannot fully account for extended absences due to illness or other personal factors.
-    \item \textbf{Open-ended research questions:} A suitable research area may not be identified by the time the open-ended research questions are reached. However, the author believes this is unlikely, as the amount of research in \gls*{cal} for systematic reviews is limited.
-    \item \textbf{Competing time constraints from PGDip:} Concurrent PGDip and PhD requirements will sometimes constrain available time. The author has maintained good time management and believes the schedule is reasonable despite these constraints. In case of conflict, PhD work will take priority over PGDip.
+    \item \textbf{Personal factors:}
+    Extended high-intensity work can lead to burnout, exacerbated by concurrent PGDip responsibilities. Signs include slipping over two weeks behind Gantt milestones due to personal overload or illness. Threats are reduced by regular holidays and promptly communicating schedule issues to supervisors. In any direct conflict, the PhD has priority over PGDip activities.
 \end{itemize}
 
 \begin{landscape}
@@ -1835,52 +1821,26 @@ Table \ref{tab:risk_matrix} outlines a risk matrix of all potential threats.
 \hline
 \textbf{Threat} & \textbf{Likelihood (L)} & \textbf{Impact (I)} & \textbf{Risk} & \textbf{Response} \\
 \hline
-Research Delays & 3 & 4 & 12 & Reduce the number of research questions to mitigate delays. \\
+Reliance on External Data & 3 & 4 & 12 &
+Monitor coverage after data retrieval; if $>20\%$ missing references, switch to alternative APIs or partial embeddings. \\
 \hline
-Technological Advancement & 3 & 3 & 9 & Increase time allocated for additional literature review to stay updated with advancements. \\
+Large Graph Construction & 3 & 3 & 9 & 
+Check HPC memory usage in pilot runs. Use mini-batching (GraphSAGE) or shallower graphs to avoid OOM errors. \\
 \hline
-Publication Risks & 3 & 3 & 9 & If results are not deemed valid during the analysis phase, proceed to the next research question without spending time on write-up. \\
+Technological Advancement & 3 & 3 & 9 & 
+Periodic literature checks. If a new SoTA emerges, integrate it as a baseline or adapt study scope.\\
 \hline
-Personal and Health Factors & 2 & 4& 8  & Prioritise health by taking regular breaks and managing workload effectively to avoid burnout. \\
+Publication Risks & 3 & 3 & 9 & 
+If top-tier acceptance is uncertain, pivot to alternate venues to keep timeline. \\
 \hline
-Open-ended Research Questions & 2 & 3 & 6 & Continuously monitor new publications within the domain to ensure relevant and timely research questions. \\
-\hline
-Competing Time Constraints (PGDip) & 3 & 3 & 9 & Minimize involvement in PGDip activities where possible to focus on PhD work. \\
+Personal Factors & 2 & 4 & 8 & 
+Plan health breaks. If illness exceeds two weeks, reschedule or reduce final tasks. PhD takes priority over PGDip.\\
 \hline
 \end{tabular}
-\caption{Risk Scoring Matrix for threats to PhD. Responses are provided for medium impact risks.}
+\caption{Risk Scoring Matrix for threats to this PhD.}
 \label{tab:risk_matrix}
 \end{table}
 \end{landscape}
-
-\section{Conclusion}
-
- This project brings together critical gaps in systematic review automation, such as more sophisticated document representations, inter-document relations, and user-centric stopping rules, to advance \gls*{cal} in medical literature screening. By combining citation information and metadata with modern encoder models and \gls*{gnn}, the planned research aims to systematically reduce the screening burden while preserving near-total recall. Moreover, by exploring utility-based stopping criteria, it seeks to align the screening endpoint with the actual value of additional studies, mitigating the inefficiency of rigid recall thresholds. The proposed investigations—spanning citation-augmented seed sets, \gls*{gnn}-driven metadata integration, and novel stopping heuristics — will be validated on widely used \gls*{clef}-\gls*{tar} and Synergy datasets to ensure robust, reproducible results. Ultimately, this work can potentially reduce costs in performing systematic reviews and bolster decision-making quality in \gls*{ebm}, offering an answer to the issue of the ever-growing volume of biomedical research.
-
-
-\chapter{Supporting works}
-\section{Completed research}
-
-\subsection{Presented research}
-
-\paragraph{Screening Prioritisation Lecture:}
-A tutorial was given by the author, along with their supervisor, at the British Computing Society on November 26th, 2024, for the Search Solutions 2024 conference on screening prioritisation\footnote{https://www.bcs.org/membership-and-registrations/member-communities/information-retrieval-specialist-group/conferences-and-events/search-solutions/search-solutions-2024}. A copy of the tutorial has been supplied - see Appendix \ref{app:Screening_Prioritisation}. The tutorial was designed to provide an accessible introduction to screening prioritisation within systematic reviews for an audience of \gls*{ir} practitioners and researchers attending the conference. It was structured as a half-day event, with the author delivering a dedicated hour-long lecture. This lecture aimed to demystify the complexities of systematic review screening and highlight the potential of prioritisation techniques to improve efficiency and reduce workload significantly. Key topics covered included the fundamental screening concepts, the challenges of manual screening in large datasets, and a comprehensive overview of various prioritisation strategies, drawing directly from the literature discussed in Section \ref{sec:screening Priorisation}. The lecture effectively served as a practical guide, offering attendees a clear understanding of the current approaches and the potential impact of screening prioritisation in real-world applications. For the author, this lecture experience provided a way to improve their skills in effectively conveying comprehensive overviews of complex literature to a diverse audience. Furthermore, the interactive nature of the tutorial, including the question and answer session, forced engagement with the audience (from the public to \gls*{ir} specialists) and directly supported the communication and dissemination aspects of their PhD research.
-
-\subsection{Research under peer review}
-
-\paragraph{Utility-Based Stopping Methods:}
-This research, submitted to SIGIR 2025 conference~\footnote{https://sigir2025.dei.unipd.it} and currently under peer review, introduces a novel utility-based approach to stopping rules for medical literature screening within \gls*{tar}. A copy of the paper has been supplied - See Appendix~\ref{app:Utility_Based_Stopping_Methods}. Moving beyond traditional recall-based methods, this work focuses on stopping the search process based on the utility of the information retrieved thus far, specifically its value in answering the underlying research question. Several new algorithms were developed, leveraging the statistical concept of moments of a probability distribution: Harmonic Shrinkage, Confidence Boundary, Skewness, Kurtosis, and Multi-Moments. Experiments demonstrated that the Confidence Boundary algorithm achieves high decision agreement with significantly reduced document review compared to target-recall approaches. This research supports this PhD's goal of improving efficiency in the medical screening process by offering a more efficient and user-centric approach, aligning stopping decisions with the actual information needs of the user.
-
-\paragraph{Predicting Article Retractions:}
-This research, submitted to the journal Research Integrity and Peer Review\footnote{https://researchintegrityjournal.biomedcentral.com} and currently under peer review, investigates the use of machine learning to predict the retraction of scientific articles. A copy of the paper has been supplied - See Appendix \ref{app:Predicting_article_retractions}. A novel dataset was created by combining information from the Retraction Watch database (containing retracted articles) and the OpenAlex API (an academic publication catalogue). The dataset includes 9,028 articles published between 2000 and 2020, equally split between retracted and non-retracted, and features article metadata, abstracts, and citation metrics. Various machine learning models were trained on this data, including traditional feature-based classifiers (like Gradient Boosting, \gls*{svm}, XGBoost, and Random Forest) and \glspl*{llm} such as \gls*{bert}, BioBERT, Llama 3.2, and Gemma 2. The \gls*{svm} model achieved the highest precision (0.690) for identifying retracted articles, while Llama 3.2-base had the highest overall accuracy (0.682) and recall (0.689 for the retracted class). An ablation study revealed that the publication year was the most influential feature for prediction, followed by the primary topic. Interestingly, the abstract's content was less influential than expected. The dataset and code are made publicly available to facilitate further research. This research supports this PhD's main goal of efficiency by providing tools to reduce the larger work pool identified in the systematic review process.
-
-\section{Ongoing research}
-
-\subsection{CPET project}
-
-A cardiopulmonary exercise test (CPET) is performed before certain anaesthetic procedures, the outcome of which is used to determine the patient's suitability for this procedure. Current approaches use summarised data to generate decision models, whose data are derived from summary values provided by the machine. The machine also records ''breath-by-breath" data measurements, which, while they are the basis for the summary values, are not used by these models. This research project attempts to determine whether using deep neural networks with these ''breath-by-breath" data is superior to the traditional summary-model approach. An National Health Service researcher devised this research.
-
-\textbf{Threat to PhD :} Low. The author is providing coding assistance to this project and will not be involved in the analysis or extensively involved in research write-up outside of the technical side. Coding is largely complete. This is also likely to result in publishable research and will likely be published in medical domain venues, promoting interdisciplinary work.
 
 
 \section{Research output venues}
@@ -1912,7 +1872,7 @@ A dissemination plan is crucial for any research to have an impact. Therefore, a
     \textbf{Journal of Biomedical Informatics}\footnote{\url{https://www.sciencedirect.com/journal/journal-of-biomedical-informatics}}: A leading journal in biomedical informatics, suitable for disseminating research on the application of the developed methods to medical systematic reviews.
      & 4.0 & Monthly \\
     &
-    \textbf{TACL} (Transactions of the Association for Computational Linguistics)\footnote{\url{https://transacl.org}}: A top-tier journal for NLP, relevant for publishing in-depth studies on the language modelling aspects of this research.
+    \textbf{TACL} (Transactions of the Association for Computational Linguistics)\footnote{\url{https://transacl.org}}: A top-tier journal for \gls*{nlp}, relevant for publishing in-depth studies on the language modelling aspects of this research.
     & 10.9 & Cont. \\
     \midrule
         \multicolumn{4}{l}{\textbf{Secondary Targets}} \\
@@ -1924,7 +1884,7 @@ A dissemination plan is crucial for any research to have an impact. Therefore, a
     \textbf{ECIR} (European Conference on Information Retrieval)\footnote{\url{https://ecir2025.eu}}: A major European \gls*{ir} conference offering a strong platform for disseminating research within the European research community.
      &  & Annual \\
     &
-    \textbf{EMNLP} (Empirical Methods in Natural Language Processing)\footnote{\url{https://aclanthology.org/venues/emnlp/}}: A major NLP conference with an emphasis on empirical methods, aligning with the experimental focus of this PhD.
+    \textbf{EMNLP} (Empirical Methods in Natural Language Processing)\footnote{\url{https://aclanthology.org/venues/emnlp/}}: A major \gls*{nlp} conference with an emphasis on empirical methods, aligning with the experimental focus of this PhD.
      &  & Annual \\
      \midrule
     Journals &
@@ -1951,33 +1911,38 @@ The specific choice of output target will be determined based on the nature and 
 
 \section{Doctoral development programme activities}
 
-The fulfilment of the Doctoral Development Programme has been achieved as the author is part of the \gls*{cdt} in Speech and Language Technologies and their Applications. The training provided as part of the PhD with integrated PGDip replaces the university's standard Doctoral Development Programme, and no further activities are required beyond that included in the \gls*{cdt}\footnote{https://sites.google.com/sheffield.ac.uk/slt-cdt-handbook/the-centre}.
+The fulfilment of the Doctoral Development Programme has been achieved as the author is part of the \gls*{cdt} in Speech and Language Technologies and their Applications. The training provided as part of the PhD with integrated PGDip replaces the university's standard Doctoral Development Programme, and no further activities are required beyond that included in the \gls*{cdt}\footnote{https://sites.google.com/sheffield.ac.uk/slt-cdt-handbook/the-centre}. Results obtained from COM61003\footnote{https://sites.google.com/sheffield.ac.uk/slt-cdt-handbook/training-programme/course-structure/com61003}, Introduction to Responsible SLT leadership, was 64\% and COM6104, Introduction to Collaborative Research Practice\footnote{https://sites.google.com/sheffield.ac.uk/slt-cdt-handbook/training-programme/course-structure/com61004} was 84\%. Feedback given for both models is available in Appendix \ref{app:ddp}.
 
 \section{Training needs analysis}
 
-A training needs analysis was carried out and agreed with my supervisor - see Appendix \ref{app:tna}.
+A training needs analysis and personal development plan was carried out and agreed with my supervisor - see Appendix \ref{app:tna}. This academic year, activities will focus on maintaining knowledge of relevant approaches for continuous active learning, adherence to the data management plan, public engagement and critical thinking.
 
 \printbibliography[title={References}]
 
 \appendix
 \appendixpage 
-
-\chapter{British Computing Society tutorial on screening prioritisation}
+\chapter{Completed works}
+\section{British Computing Society tutorial on screening prioritisation}
 \includepdf[pages=-]{Confirmation Review/supporting_work/Screening Prioritisation.pdf}
 \label{app:Screening_Prioritisation}
 
-\chapter{Predicting Article Retractions}
+\section{Predicting Article Retractions}
 \includepdf[pages=-]{Confirmation Review/supporting_work/Predicting_Article_Retractions.pdf}
 \label{app:Predicting_article_retractions}
 
-\chapter{Utility-Based Stopping Methods}
+\section{Utility-Based Stopping Methods}
 \includepdf[pages=-]{Confirmation Review/supporting_work/Utility_Based_Stopping_Methods.pdf}
 \label{app:Utility_Based_Stopping_Methods}
 
-\chapter{Data Management Plan}\label{app:dmp}
+\chapter{Supporting works}
+\section{Data management plan}\label{app:dmp}
 \includepdf[pages=-]{Confirmation Review/supporting_work/dmp.pdf}
 
-\chapter{Training Needs Analysis}\label{app:tna}
+\section{Doctoral development programme activities}\label{app:ddp}
+\includepdf[pages=-]{Confirmation Review/supporting_work/COM61003.pdf}
+\includepdf[pages=-]{Confirmation Review/supporting_work/COM61004.pdf}
+
+\section{Training needs analysis}\label{app:tna}
 \includepdf[pages=-]{Confirmation Review/supporting_work/tna.pdf}
 
 \end{document}
