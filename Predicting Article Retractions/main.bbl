@@ -1,0 +1,700 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{43}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\bibcommenthead
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem[\protect\citeauthoryear{Steen}{2011a}]{steen_retractions_2011-1}
+\begin{barticle}
+\bauthor{\bsnm{Steen}, \binits{R.G.}}:
+\batitle{Retractions in the scientific literature: is the incidence of research fraud increasing?}
+\bjtitle{Journal of Medical Ethics}
+\bvolume{37}(\bissue{4}),
+\bfpage{249}--\blpage{253}
+(\byear{2011})
+\doiurl{10.1136/jme.2010.040923}
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{Steen}{2011b}]{steen_retractions_2011}
+\begin{barticle}
+\bauthor{\bsnm{Steen}, \binits{R.G.}}:
+\batitle{Retractions in the scientific literature: do authors deliberately commit research fraud?}
+\bjtitle{Journal of Medical Ethics}
+\bvolume{37}(\bissue{2}),
+\bfpage{113}--\blpage{117}
+(\byear{2011})
+\doiurl{10.1136/jme.2010.038125}
+\end{barticle}
+\endbibitem
+
+%%% 3
+\bibitem[\protect\citeauthoryear{Steen et~al.}{}]{Steen2013-rr}
+\begin{botherref}
+\oauthor{\bsnm{Steen}, \binits{R.G.}},
+\oauthor{\bsnm{Casadevall}, \binits{A.}},
+\oauthor{\bsnm{Fang}, \binits{F.C.}}:
+Why has the number of scientific retractions increased?
+{PLoS} {ONE}
+\textbf{8}(7),
+68397
+\doiurl{10.1371/journal.pone.0068397}
+\end{botherref}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{Kühberger et~al.}{}]{Kuhberger2022-if}
+\begin{botherref}
+\oauthor{\bsnm{Kühberger}, \binits{A.}},
+\oauthor{\bsnm{Streit}, \binits{D.}},
+\oauthor{\bsnm{Scherndl}, \binits{T.}}:
+Self-correction in science: The effect of retraction on the frequency of citations.
+{PloS} One
+\textbf{17}(12),
+0277814
+\doiurl{10.1371/journal.pone.0277814}
+\end{botherref}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Teixeira Da~Silva}{}]{teixeira_da_silva_silent_2016}
+\begin{botherref}
+\oauthor{\bsnm{Teixeira Da~Silva}, \binits{J.A.}}:
+Silent or stealth retractions, the dangerous voices of the unknown, deleted literature.
+Publishing Research Quarterly
+\textbf{32}(1),
+44--53
+\doiurl{10.1007/s12109-015-9439-y}
+\end{botherref}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Perera and Nand}{2017}]{perera_recent_2017}
+\begin{barticle}
+\bauthor{\bsnm{Perera}, \binits{R.}},
+\bauthor{\bsnm{Nand}, \binits{P.}}:
+\batitle{Recent {Advances} in {Natural} {Language} {Generation}: {A} {Survey} and {Classification} of the {Empirical} {Literature}}.
+\bjtitle{Computing and Informatics}
+\bvolume{36}(\bissue{1}),
+\bfpage{1}--\blpage{32}
+(\byear{2017})
+\doiurl{10.4149/cai_2017_1_1}
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Kearney et~al.}{2024}]{kearney_research_2024}
+\begin{barticle}
+\bauthor{\bsnm{Kearney}, \binits{M.}},
+\bauthor{\bsnm{Downing}, \binits{M.}},
+\bauthor{\bsnm{Gignac}, \binits{E.A.}}:
+\batitle{Research integrity and academic medicine: the pressure to publish and research misconduct}.
+\bjtitle{Journal of Osteopathic Medicine}
+\bvolume{124}(\bissue{5}),
+\bfpage{187}--\blpage{194}
+(\byear{2024})
+\doiurl{10.1515/jom-2023-0211}
+\end{barticle}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Caporale and Zagarella}{2023}]{congiunti_ethics_2023}
+\begin{bchapter}
+\bauthor{\bsnm{Caporale}, \binits{C.}},
+\bauthor{\bsnm{Zagarella}, \binits{R.M.}}:
+\bctitle{Ethics and {Integrity} in {Academic} {Publishing}}.
+In: \beditor{\bsnm{Congiunti}, \binits{L.}},
+\beditor{\bsnm{Lo~Piccolo}, \binits{F.}},
+\beditor{\bsnm{Russo}, \binits{A.}},
+\beditor{\bsnm{Serio}, \binits{M.}} (eds.)
+\bbtitle{Ethics in {Research}},
+pp. \bfpage{53}--\blpage{69}.
+\bpublisher{Springer},
+\blocation{Cham}
+(\byear{2023}).
+\doiurl{10.1007/978-3-031-24060-7_5} .
+\bcomment{Series Title: UNIPA Springer Series}.
+\burl{https://link.springer.com/10.1007/978-3-031-24060-7_5}
+Accessed 2025-01-24
+\end{bchapter}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{{Collaborative Working Group from the conference “Keeping the Pool Clean: Prevention and Management of Misconduct Related Retractions”}}{2018}]{collaborative_working_group_from_the_conference_keeping_the_pool_clean_prevention_and_management_of_misconduct_related_retractions_repair_2018}
+\begin{barticle}
+\bauthor{\bsnm{{Collaborative Working Group from the conference “Keeping the Pool Clean: Prevention and Management of Misconduct Related Retractions”}}}:
+\batitle{{RePAIR} consensus guidelines: {Responsibilities} of {Publishers}, {Agencies}, {Institutions}, and {Researchers} in protecting the integrity of the research record}.
+\bjtitle{Research Integrity and Peer Review}
+\bvolume{3}(\bissue{1}),
+\bfpage{15}
+(\byear{2018})
+\doiurl{10.1186/s41073-018-0055-1} .
+Accessed 2025-01-24
+\end{barticle}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Grey et~al.}{2024}]{Grey2024}
+\begin{barticle}
+\bauthor{\bsnm{Grey}, \binits{A.}},
+\bauthor{\bsnm{Avenell}, \binits{A.}},
+\bauthor{\bsnm{Klein}, \binits{A.A.}},
+\bauthor{\bsnm{Byrne}, \binits{J.A.}},
+\bauthor{\bsnm{Wilmshurst}, \binits{P.}},
+\bauthor{\bsnm{Bolland}, \binits{M.J.}}:
+\batitle{How to improve assessments of publication integrity}.
+\bjtitle{Nature}
+\bvolume{632}(\bissue{8023}),
+\bfpage{26}--\blpage{28}
+(\byear{2024})
+\doiurl{10.1038/d41586-024-02449-8}
+\end{barticle}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Avenell et~al.}{2019}]{Avenelle031909}
+\begin{botherref}
+\oauthor{\bsnm{Avenell}, \binits{A.}},
+\oauthor{\bsnm{Stewart}, \binits{F.}},
+\oauthor{\bsnm{Grey}, \binits{A.}},
+\oauthor{\bsnm{Gamble}, \binits{G.}},
+\oauthor{\bsnm{Bolland}, \binits{M.}}:
+An investigation into the impact and implications of published papers from retracted research: systematic search of affected literature.
+BMJ Open
+\textbf{9}(10)
+(2019)
+\doiurl{10.1136/bmjopen-2019-031909}
+\end{botherref}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Schneider et~al.}{2020}]{schneider_continued_2020}
+\begin{barticle}
+\bauthor{\bsnm{Schneider}, \binits{J.}},
+\bauthor{\bsnm{Ye}, \binits{D.}},
+\bauthor{\bsnm{Hill}, \binits{A.M.}},
+\bauthor{\bsnm{Whitehorn}, \binits{A.S.}}:
+\batitle{Continued post-retraction citation of a fraudulent clinical trial report, 11 years after it was retracted for falsifying data}.
+\bjtitle{Scientometrics}
+\bvolume{125}(\bissue{3}),
+\bfpage{2877}--\blpage{2913}
+(\byear{2020})
+\doiurl{10.1007/s11192-020-03631-1}
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Hsiao and Schneider}{2021}]{10.1162/qss_a_00155}
+\begin{barticle}
+\bauthor{\bsnm{Hsiao}, \binits{T.-K.}},
+\bauthor{\bsnm{Schneider}, \binits{J.}}:
+\batitle{Continued use of retracted papers: Temporal trends in citations and (lack of) awareness of retractions shown in citation contexts in biomedicine}.
+\bjtitle{Quantitative Science Studies}
+\bvolume{2}(\bissue{4}),
+\bfpage{1144}--\blpage{1169}
+(\byear{2021})
+\doiurl{10.1162/qss_a_00155}
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Heibi and Peroni}{2021}]{heibi_qualitative_2021}
+\begin{barticle}
+\bauthor{\bsnm{Heibi}, \binits{I.}},
+\bauthor{\bsnm{Peroni}, \binits{S.}}:
+\batitle{A qualitative and quantitative analysis of open citations to retracted articles: the wakefield 1998 et al.'s case}.
+\bjtitle{Scientometrics}
+\bvolume{126}(\bissue{10}),
+\bfpage{8433}--\blpage{8470}
+(\byear{2021})
+\doiurl{10.1007/s11192-021-04097-5}
+\end{barticle}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{van~der Vet and Nijveen}{2016}]{van_der_vet_propagation_2016}
+\begin{barticle}
+\bauthor{\bsnm{Vet}, \binits{P.E.}},
+\bauthor{\bsnm{Nijveen}, \binits{H.}}:
+\batitle{Propagation of errors in citation networks: a study involving the entire citation network of a widely cited paper published in, and later retracted from, the journal nature}.
+\bjtitle{Research Integrity and Peer Review}
+\bvolume{1}(\bissue{1}),
+\bfpage{3}
+(\byear{2016})
+\doiurl{10.1186/s41073-016-0008-5}
+\end{barticle}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{Rittman}{}]{rittman_retraction_2025}
+\begin{botherref}
+\oauthor{\bsnm{Rittman}, \binits{M.}}:
+Retraction Watch Retractions Now in the Crossref {API}.
+\doiurl{10.13003/692016} .
+\url{https://www.crossref.org/blog/retraction-watch-retractions-now-in-the-crossref-api/}
+Accessed 2025-02-18
+\end{botherref}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Moylan and Kowalczuk}{2016}]{moylan_why_2016}
+\begin{botherref}
+\oauthor{\bsnm{Moylan}, \binits{E.C.}},
+\oauthor{\bsnm{Kowalczuk}, \binits{M.K.}}:
+Why articles are retracted: a retrospective cross-sectional study of retraction notices at biomed central.
+BMJ Open
+\textbf{6}(11)
+(2016)
+\doiurl{10.1136/bmjopen-2016-012047}
+\end{botherref}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Hvistendahl}{2013}]{doi:10.1126/science.342.6162.1035}
+\begin{barticle}
+\bauthor{\bsnm{Hvistendahl}, \binits{M.}}:
+\batitle{China's publication bazaar}.
+\bjtitle{Science}
+\bvolume{342}(\bissue{6162}),
+\bfpage{1035}--\blpage{1039}
+(\byear{2013})
+\doiurl{10.1126/science.342.6162.1035}
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{Liu and Chen}{2018}]{doi:10.3138/jsp.49.3.02}
+\begin{barticle}
+\bauthor{\bsnm{Liu}, \binits{X.}},
+\bauthor{\bsnm{Chen}, \binits{X.}}:
+\batitle{Journal retractions: Some unique features of research misconduct in china}.
+\bjtitle{Journal of Scholarly Publishing}
+\bvolume{49}(\bissue{3}),
+\bfpage{305}--\blpage{319}
+(\byear{2018})
+\doiurl{10.3138/jsp.49.3.02}
+\end{barticle}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Tian et~al.}{2016}]{publications4020009}
+\begin{botherref}
+\oauthor{\bsnm{Tian}, \binits{M.}},
+\oauthor{\bsnm{Su}, \binits{Y.}},
+\oauthor{\bsnm{Ru}, \binits{X.}}:
+Perish or publish in china: Pressures on young chinese scholars to publish in internationally indexed journals.
+Publications
+\textbf{4}(2)
+(2016)
+\doiurl{10.3390/publications4020009}
+\end{botherref}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Candal-Pedreira et~al.}{2022}]{candal-pedreira_retracted_2022}
+\begin{barticle}
+\bauthor{\bsnm{Candal-Pedreira}, \binits{C.}},
+\bauthor{\bsnm{Ross}, \binits{J.S.}},
+\bauthor{\bsnm{Ruano-Ravina}, \binits{A.}},
+\bauthor{\bsnm{Egilman}, \binits{D.S.}},
+\bauthor{\bsnm{Fernández}, \binits{E.}},
+\bauthor{\bsnm{Pérez-Ríos}, \binits{M.}}:
+\batitle{Retracted papers originating from paper mills: cross sectional study}.
+\bjtitle{BMJ}
+\bvolume{379},
+\bfpage{071517}
+(\byear{2022})
+\doiurl{10.1136/bmj-2022-071517}
+\end{barticle}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Gaudino et~al.}{2021}]{gaudino_trends_2021}
+\begin{barticle}
+\bauthor{\bsnm{Gaudino}, \binits{M.}},
+\bauthor{\bsnm{Robinson}, \binits{N.B.}},
+\bauthor{\bsnm{Audisio}, \binits{K.}},
+\bauthor{\bsnm{Rahouma}, \binits{M.}},
+\bauthor{\bsnm{Benedetto}, \binits{U.}},
+\bauthor{\bsnm{Kurlansky}, \binits{P.}},
+\bauthor{\bsnm{Fremes}, \binits{S.E.}}:
+\batitle{Trends and {Characteristics} of {Retracted} {Articles} in the {Biomedical} {Literature}, 1971 to 2020}.
+\bjtitle{JAMA Internal Medicine}
+\bvolume{181}(\bissue{8}),
+\bfpage{1118}--\blpage{1121}
+(\byear{2021})
+\doiurl{10.1001/jamainternmed.2021.1807}
+\end{barticle}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{Byrne and Christopher}{2020}]{https://doi.org/10.1002/1873-3468.13747}
+\begin{barticle}
+\bauthor{\bsnm{Byrne}, \binits{J.A.}},
+\bauthor{\bsnm{Christopher}, \binits{J.}}:
+\batitle{Digital magic, or the dark arts of the 21st century—how can journals and peer reviewers detect manuscripts and publications from paper mills?}
+\bjtitle{FEBS Letters}
+\bvolume{594}(\bissue{4}),
+\bfpage{583}--\blpage{589}
+(\byear{2020})
+\doiurl{10.1002/1873-3468.13747}
+\end{barticle}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{Rao et~al.}{}]{rao_withdrarxiv_2024}
+\begin{botherref}
+\oauthor{\bsnm{Rao}, \binits{D.}},
+\oauthor{\bsnm{Young}, \binits{J.}},
+\oauthor{\bsnm{Dietterich}, \binits{T.}},
+\oauthor{\bsnm{Callison-Burch}, \binits{C.}}:
+{WithdrarXiv}: A Large-Scale Dataset for Retraction Study.
+{arXiv}.
+\doiurl{10.48550/arXiv.2412.03775} .
+\url{http://arxiv.org/abs/2412.03775}
+Accessed 2025-02-18
+\end{botherref}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{}{2018}]{retraction_watch_retraction_2024}
+\begin{botherref}
+Retraction {Watch}.
+The Center for Scientific Integrity,
+New York
+(2018).
+\url{https://retractionwatch.com/}
+Accessed 2024-06-14
+\end{botherref}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{}{2024}]{retraction_watch_retraction_2024-1}
+\begin{botherref}
+Retraction {Watch} {Database} {User} {Guide}
+(2024).
+\url{https://retractionwatch.com/wp-content/uploads/2023/12/Building-The-Database.pdf}
+Accessed 2024-06-14
+\end{botherref}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{Priem et~al.}{2022}]{priem_openalex_2022}
+\begin{botherref}
+\oauthor{\bsnm{Priem}, \binits{J.}},
+\oauthor{\bsnm{Piwowar}, \binits{H.}},
+\oauthor{\bsnm{Orr}, \binits{R.}}:
+{OpenAlex}: {A} fully-open index of scholarly works, authors, venues, institutions, and concepts.
+arXiv
+(2022).
+\doiurl{10.48550/arXiv.2205.01833}
+\end{botherref}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Van~Noorden}{2023}]{van_noorden_more_2023}
+\begin{barticle}
+\bauthor{\bsnm{Van~Noorden}, \binits{R.}}:
+\batitle{More than 10,000 research papers were retracted in 2023 — a new record}.
+\bjtitle{Nature}
+\bvolume{624}(\bissue{7992}),
+\bfpage{479}--\blpage{481}
+(\byear{2023})
+\doiurl{10.1038/d41586-023-03974-8}
+\end{barticle}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Sebastiani}{2002}]{sebastiani2002machine}
+\begin{barticle}
+\bauthor{\bsnm{Sebastiani}, \binits{F.}}:
+\batitle{Machine learning in automated text categorization}.
+\bjtitle{ACM Comput. Surv.}
+\bvolume{34}(\bissue{1}),
+\bfpage{1}--\blpage{47}
+(\byear{2002})
+\doiurl{10.1145/505282.505283}
+\end{barticle}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{Li et~al.}{2022}]{li2022survey}
+\begin{botherref}
+\oauthor{\bsnm{Li}, \binits{Q.}},
+\oauthor{\bsnm{Peng}, \binits{H.}},
+\oauthor{\bsnm{Li}, \binits{J.}},
+\oauthor{\bsnm{Xia}, \binits{C.}},
+\oauthor{\bsnm{Yang}, \binits{R.}},
+\oauthor{\bsnm{Sun}, \binits{L.}},
+\oauthor{\bsnm{Yu}, \binits{P.S.}},
+\oauthor{\bsnm{He}, \binits{L.}}:
+A survey on text classification: From traditional to deep learning.
+ACM Trans. Intell. Syst. Technol.
+\textbf{13}(2)
+(2022)
+\doiurl{10.1145/3495162}
+\end{botherref}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{}{}]{noauthor_openai_nodate}
+\begin{botherref}
+{OpenAI} Platform.
+\url{https://platform.openai.com}
+Accessed 1/12/2024
+\end{botherref}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{}{}]{noauthor_introducing_nodate}
+\begin{botherref}
+Introducing Claude 3.5 Sonnet.
+\url{https://www.anthropic.com/news/claude-3-5-sonnet}
+Accessed 11/12/2024
+\end{botherref}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{Robertson and Zaragoza}{2009}]{INR-019}
+\begin{barticle}
+\bauthor{\bsnm{Robertson}, \binits{S.}},
+\bauthor{\bsnm{Zaragoza}, \binits{H.}}:
+\batitle{The probabilistic relevance framework: Bm25 and beyond}.
+\bjtitle{Found. Trends Inf. Retr.}
+\bvolume{3}(\bissue{4}),
+\bfpage{333}--\blpage{389}
+(\byear{2009})
+\doiurl{10.1561/1500000019}
+\end{barticle}
+\endbibitem
+
+%%% 34
+\bibitem[\protect\citeauthoryear{Banks}{2018}]{banks_thoughts_2018}
+\begin{barticle}
+\bauthor{\bsnm{Banks}, \binits{D.}}:
+\batitle{Thoughts on {Publishing} the {Research} {Article} over the {Centuries}}.
+\bjtitle{Publications}
+\bvolume{6}(\bissue{1}),
+\bfpage{10}
+(\byear{2018})
+\doiurl{10.3390/publications6010010}
+\end{barticle}
+\endbibitem
+
+%%% 35
+\bibitem[\protect\citeauthoryear{Steer and Ernst}{2021}]{steer_peer_2021}
+\begin{barticle}
+\bauthor{\bsnm{Steer}, \binits{P.J.}},
+\bauthor{\bsnm{Ernst}, \binits{S.}}:
+\batitle{Peer review - {Why}, when and how}.
+\bjtitle{International Journal of Cardiology Congenital Heart Disease}
+\bvolume{2},
+\bfpage{100083}
+(\byear{2021})
+\doiurl{10.1016/j.ijcchd.2021.100083}
+\end{barticle}
+\endbibitem
+
+%%% 36
+\bibitem[\protect\citeauthoryear{Warne}{2016}]{warne_rewarding_2016}
+\begin{barticle}
+\bauthor{\bsnm{Warne}, \binits{V.}}:
+\batitle{Rewarding reviewers – sense or sensibility? {A} {Wiley} study explained}.
+\bjtitle{Learned Publishing}
+\bvolume{29}(\bissue{1}),
+\bfpage{41}--\blpage{50}
+(\byear{2016})
+\doiurl{10.1002/leap.1002}
+\end{barticle}
+\endbibitem
+
+%%% 37
+\bibitem[\protect\citeauthoryear{Bai et~al.}{2022}]{bai2022constitutionalaiharmlessnessai}
+\begin{botherref}
+\oauthor{\bsnm{Bai}, \binits{Y.}},
+\oauthor{\bsnm{Kadavath}, \binits{S.}},
+\oauthor{\bsnm{Kundu}, \binits{S.}},
+\oauthor{\bsnm{Askell}, \binits{A.}},
+\oauthor{\bsnm{Kernion}, \binits{J.}},
+\oauthor{\bsnm{Jones}, \binits{A.}},
+\oauthor{\bsnm{Chen}, \binits{A.}},
+\oauthor{\bsnm{Goldie}, \binits{A.}},
+\oauthor{\bsnm{Mirhoseini}, \binits{A.}},
+\oauthor{\bsnm{McKinnon}, \binits{C.}},
+\oauthor{\bsnm{Chen}, \binits{C.}},
+\oauthor{\bsnm{Olsson}, \binits{C.}},
+\oauthor{\bsnm{Olah}, \binits{C.}},
+\oauthor{\bsnm{Hernandez}, \binits{D.}},
+\oauthor{\bsnm{Drain}, \binits{D.}},
+\oauthor{\bsnm{Ganguli}, \binits{D.}},
+\oauthor{\bsnm{Li}, \binits{D.}},
+\oauthor{\bsnm{Tran-Johnson}, \binits{E.}},
+\oauthor{\bsnm{Perez}, \binits{E.}},
+\oauthor{\bsnm{Kerr}, \binits{J.}},
+\oauthor{\bsnm{Mueller}, \binits{J.}},
+\oauthor{\bsnm{Ladish}, \binits{J.}},
+\oauthor{\bsnm{Landau}, \binits{J.}},
+\oauthor{\bsnm{Ndousse}, \binits{K.}},
+\oauthor{\bsnm{Lukosuite}, \binits{K.}},
+\oauthor{\bsnm{Lovitt}, \binits{L.}},
+\oauthor{\bsnm{Sellitto}, \binits{M.}},
+\oauthor{\bsnm{Elhage}, \binits{N.}},
+\oauthor{\bsnm{Schiefer}, \binits{N.}},
+\oauthor{\bsnm{Mercado}, \binits{N.}},
+\oauthor{\bsnm{DasSarma}, \binits{N.}},
+\oauthor{\bsnm{Lasenby}, \binits{R.}},
+\oauthor{\bsnm{Larson}, \binits{R.}},
+\oauthor{\bsnm{Ringer}, \binits{S.}},
+\oauthor{\bsnm{Johnston}, \binits{S.}},
+\oauthor{\bsnm{Kravec}, \binits{S.}},
+\oauthor{\bsnm{Showk}, \binits{S.E.}},
+\oauthor{\bsnm{Fort}, \binits{S.}},
+\oauthor{\bsnm{Lanham}, \binits{T.}},
+\oauthor{\bsnm{Telleen-Lawton}, \binits{T.}},
+\oauthor{\bsnm{Conerly}, \binits{T.}},
+\oauthor{\bsnm{Henighan}, \binits{T.}},
+\oauthor{\bsnm{Hume}, \binits{T.}},
+\oauthor{\bsnm{Bowman}, \binits{S.R.}},
+\oauthor{\bsnm{Hatfield-Dodds}, \binits{Z.}},
+\oauthor{\bsnm{Mann}, \binits{B.}},
+\oauthor{\bsnm{Amodei}, \binits{D.}},
+\oauthor{\bsnm{Joseph}, \binits{N.}},
+\oauthor{\bsnm{McCandlish}, \binits{S.}},
+\oauthor{\bsnm{Brown}, \binits{T.}},
+\oauthor{\bsnm{Kaplan}, \binits{J.}}:
+Constitutional AI: Harmlessness from AI Feedback
+(2022).
+\url{https://arxiv.org/abs/2212.08073}
+\end{botherref}
+\endbibitem
+
+%%% 38
+\bibitem[\protect\citeauthoryear{Stretton et~al.}{2012}]{stretton_publication_2012}
+\begin{barticle}
+\bauthor{\bsnm{Stretton}, \binits{S.}},
+\bauthor{\bsnm{Bramich}, \binits{N.J.}},
+\bauthor{\bsnm{Keys}, \binits{J.R.}},
+\bauthor{\bsnm{Monk}, \binits{J.A.}},
+\bauthor{\bsnm{Ely}, \binits{J.A.}},
+\bauthor{\bsnm{Haley}, \binits{C.}},
+\bauthor{\bsnm{Woolley}, \binits{M.J.}},
+\bauthor{\bsnm{Woolley}, \binits{K.L.}}:
+\batitle{Publication misconduct and plagiarism retractions: a systematic, retrospective study}.
+\bjtitle{Current Medical Research and Opinion}
+\bvolume{28}(\bissue{10}),
+\bfpage{1575}--\blpage{1583}
+(\byear{2012})
+\doiurl{10.1185/03007995.2012.728131}
+\end{barticle}
+\endbibitem
+
+%%% 39
+\bibitem[\protect\citeauthoryear{Caton and Haas}{2024}]{caton2024fairness}
+\begin{botherref}
+\oauthor{\bsnm{Caton}, \binits{S.}},
+\oauthor{\bsnm{Haas}, \binits{C.}}:
+Fairness in machine learning: A survey.
+ACM Comput. Surv.
+\textbf{56}(7)
+(2024)
+\doiurl{10.1145/3616865}
+\end{botherref}
+\endbibitem
+
+%%% 40
+\bibitem[\protect\citeauthoryear{Mehrabi et~al.}{2021}]{mehrabi2021survey}
+\begin{botherref}
+\oauthor{\bsnm{Mehrabi}, \binits{N.}},
+\oauthor{\bsnm{Morstatter}, \binits{F.}},
+\oauthor{\bsnm{Saxena}, \binits{N.}},
+\oauthor{\bsnm{Lerman}, \binits{K.}},
+\oauthor{\bsnm{Galstyan}, \binits{A.}}:
+A survey on bias and fairness in machine learning.
+ACM Comput. Surv.
+\textbf{54}(6)
+(2021)
+\doiurl{10.1145/3457607}
+\end{botherref}
+\endbibitem
+
+%%% 41
+\bibitem[\protect\citeauthoryear{Prictor}{}]{prictor_where_2023}
+\begin{botherref}
+\oauthor{\bsnm{Prictor}, \binits{M.}}:
+{WHERE} {DOES} {RESPONSIBILITY} {LIE}? {ANALYSING} {LEGAL} {AND} {REGULATORY} {RESPONSES} {TO} {FLAWED} {CLINICAL} {DECISION} {SUPPORT} {SYSTEMS} {WHEN} {PATIENTS} {SUFFER} {HARM}
+\textbf{31}(1),
+1--24
+\doiurl{10.1093/medlaw/fwac022} .
+Accessed 2025-03-13
+\end{botherref}
+\endbibitem
+
+%%% 42
+\bibitem[\protect\citeauthoryear{Funer et~al.}{}]{funer_responsibility_2023}
+\begin{botherref}
+\oauthor{\bsnm{Funer}, \binits{F.}},
+\oauthor{\bsnm{Liedtke}, \binits{W.}},
+\oauthor{\bsnm{Tinnemeyer}, \binits{S.}},
+\oauthor{\bsnm{Klausen}, \binits{A.D.}},
+\oauthor{\bsnm{Schneider}, \binits{D.}},
+\oauthor{\bsnm{Zacharias}, \binits{H.U.}},
+\oauthor{\bsnm{Langanke}, \binits{M.}},
+\oauthor{\bsnm{Salloch}, \binits{S.}}:
+Responsibility and decision-making authority in using clinical decision support systems: an empirical-ethical exploration of german prospective professionals' preferences and concerns
+\textbf{50}(1),
+6--11
+\doiurl{10.1136/jme-2022-108814}
+\end{botherref}
+\endbibitem
+
+%%% 43
+\bibitem[\protect\citeauthoryear{}{}]{noauthor_anonymized_nodate}
+\begin{botherref}
+Anonymised Repository - Anonymous {GitHub}.
+\url{https://anonymous.4open.science/r/RetractionWatch/README.md}
+Accessed 2025-01-15
+\end{botherref}
+\endbibitem
+
+\end{thebibliography}

@@ -1,0 +1,864 @@
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage[title]{appendix}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{manyfoot}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{soul,color}
+\usepackage[utf8]{inputenc}
+\usepackage{glossaries}
+
+\makeglossaries
+\newacronym[plural={LLMs}]{llm}{LLM}{Large Language Model}
+\newacronym{nlp}{NLP}{Natural Language Processing}
+\newacronym{svm}{SVM}{Support Vector Machine}
+\newacronym{mlp}{MLP}{Multilayer Perceptron}
+\newacronym{xgb}{XGBoost}{eXtreme Gradient Boosting}
+\newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
+\newacronym{llama}{Llama}{Large Language Model Meta AI}
+
+\soulregister\cite7
+\soulregister\ref7
+\soulregister\pageref7
+\pgfplotsset{compat=1.18}
+
+\raggedbottom
+
+
+\begin{document}
+
+\title[Article Title]{Predicting retracted research}
+
+\author[*]{\fnm{Aaron HA} \sur{Fletcher}}
+\email{ahafletcher1@sheffield.ac.uk}
+
+\author[*]{\fnm{Mark} \sur{Stevenson}}
+\email{mark.stevenson@sheffield.ac.uk}
+
+\affil[*]{\orgdiv{School of Computer Science}, \orgname{The University of Sheffield}, \orgaddress{\street{Regent Court}, \city{Sheffield}, \postcode{S1 4DP},  \country{United Kingdom}}}
+
+\abstract{
+
+	\textbf{Background:} Retractions undermine the scientific record's reliability and can lead to the continued propagation of flawed research. This study aimed to (1) create a dataset aggregating retraction information with bibliographic metadata, (2) train and evaluate various machine learning approaches to predict article retractions, and (3) assess each feature's contribution to feature-based classifier performance using ablation studies.\\
+	\textbf{Methods:} An open-access dataset was developed by combining information from the Retraction Watch database and the OpenAlex API.  Using a case-controlled design,  retracted research articles were paired with non-retracted articles published in the same period. Traditional feature-based classifiers and models leveraging contextual language representations were then trained and evaluated.  Model performance was assessed using accuracy, precision, recall, and the F1-score \\
+	\textbf{Results:} The Llama 3.2 base model achieved the highest overall accuracy.  The Random Forest classifier achieved a precision of 0.687 for identifying non-retracted articles, while the Llama 3.2 base model reached a precision of 0.683 for identifying retracted articles.  Traditional feature-based classifiers generally outperformed most contextual language models, except for the Llama 3.2 base model, which showed competitive performance across several metrics.\\
+	\textbf{Conclusions:}
+	Although no single model excelled across all metrics, our findings indicate that machine learning techniques can effectively support the identification of retracted research. These results provide a foundation for developing automated tools to assist publishers and reviewers in detecting potentially problematic publications.  Further research should focus on refining these models and investigating additional features to improve predictive performance.\\
+	\textbf{Trial registration:} Not applicable.\\
+}
+
+\keywords{Retraction prediction, Machine Learning, Scientific Publishing}
+
+\maketitle
+
+\section{Background}\label{sec1}
+
+Retracting scientific articles is essential for safeguarding the integrity of the research record, but the growing number of retractions also reveals weaknesses in peer review and editorial oversight \cite{steen_retractions_2011-1, steen_retractions_2011,Steen2013-rr, Kuhberger2022-if}. Determining the extent of retractions is complicated by ``stealth retractions", in which notices are omitted \cite{teixeira_da_silva_silent_2016}, and journals face a persistent tension between preventing the publication of flawed work and ensuring timely dissemination of results \cite{perera_recent_2017}. Although retracted research can still be useful—alerting the community to invalid findings or spurring new investigations—this utility depends on the clarity of its retracted status, which is often inconsistently handled. Unchecked, problematic work can damage authors' reputations \cite{kearney_research_2024}, tarnish journals \cite{congiunti_ethics_2023, collaborative_working_group_from_the_conference_keeping_the_pool_clean_prevention_and_management_of_misconduct_related_retractions_repair_2018}, and undermine domain integrity \cite{Grey2024}.
+
+Once published, retracted papers can continue to influence discourse if their invalidation is overlooked. Avenell et al. demonstrated how just 12 misconduct-tainted clinical trials were repeatedly cited in systematic reviews and guidelines, substantially altering or obscuring conclusions \cite{Avenelle031909}. Schneider et al. found that 96\% of direct citations to a retracted 2008 clinical trial did not acknowledge its retraction \cite{schneider_continued_2020}, while Hsiao and Schneider showed that only 5.4\% of citing contexts across 7,813 retracted papers reflected the retraction \cite{10.1162/qss_a_00155}. Even high-profile examples, such as the discredited vaccine-autism paper, accrue citations that rarely probe the retraction’s specific invalidations \cite{heibi_qualitative_2021}. Although flawed data do not generally spread through secondary citations \cite{van_der_vet_propagation_2016}, the persistence of direct citations underscores the need for consistent, visible retraction notices. While recent advances, such as the CrossRef API directly integrating the Retraction Watch database into their metadata~\cite{rittman_retraction_2025}, more approaches are needed to increase the visibility of retracted works.
+
+Retractions commonly stem from honest errors or from misconduct such as fabrication, plagiarism, or falsified authorship, but the relative prevalence of each is disputed. For example, Steen \cite{steen_retractions_2011} attributed 73.5\% of PubMed retractions to honest mistakes, whereas Moylan and Kowalczuk \cite{moylan_why_2016} reported that 76\% of retractions in BioMed Central journals were due to misconduct—suggesting that clarifying a paper’s retraction status is more straightforward than classifying its cause. Paper mills pose a growing challenge: they mass-produce fraudulent articles and often share textual or methodological signatures \cite{doi:10.1126/science.342.6162.1035, doi:10.3138/jsp.49.3.02, publications4020009}. Studies indicate an increase in retractions tied to paper mills, frequently concentrated in specific countries and article types \cite{candal-pedreira_retracted_2022,gaudino_trends_2021,https://doi.org/10.1002/1873-3468.13747}, hinting that metadata features—like author origin, affiliation, or study design—could aid retraction prediction.
+
+Despite the rising awareness of retracted research’s harms and the role of journal gatekeeping, there has been limited investigation into machine learning models to detect future retractions. Related work has classified \emph{why} a paper was withdrawn \cite{rao_withdrarxiv_2024}, but not whether it \emph{should} be retracted in the first place. This study aimed to (1) create a dataset aggregating retraction information with bibliographic metadata, (2) train and evaluate various machine learning approaches to predict article retractions, and (3) assess each feature's contribution to feature-based classifier performance using ablation studies.
+
+\section{Methods}
+
+This study used existing data from open-access catalogues, databases, machine learning models and closed/open-sourced \glspl{llm}.  The research design used was a retrospective observational study with a case-control approach.
+
+\subsection{Dataset Construction}\label{sec:datagen}
+
+Publicly available data from two online databases were used to construct the dataset (Retraction Watch and OpenAlex). Retraction Watch is a human-validated retraction dataset and is compiled from various sources, including journal databases, institutional reports, social media, and direct tips \cite{retraction_watch_retraction_2024, retraction_watch_retraction_2024-1}. Although not exhaustive due to unannounced or ``stealth'' retractions \cite{teixeira_da_silva_silent_2016}, it provides partial metadata for some retracted articles, such as title, journal, publisher, and author. OpenAlex is an open-access online catalogue of academic publications, similar to Scopus and Web of Science, which aggregates data from multiple sources and releases monthly updates. These resources were combined to create a single dataset suitable for predicting article retractions \cite{priem_openalex_2022}.
+
+A set of retracted articles were identified using the Retraction Watch dataset. Only articles and review works were considered. Conference papers were excluded due to a mass retraction of conference papers undertaken by the Institute of Electrical and Electronic Engineers between 2009 and 2011 (having retracted over 10,000 such papers in the past two decades) \cite{van_noorden_more_2023} and because there is no process to retract papers from many conference venues. Retractions were limited to a 20 year period from 2000 to 2020 due to the lack of retracted works before this date, the median post-publication time to retraction being 1.8 years \cite{gaudino_trends_2021} and the increased use of natural language technologies subsequent to this period. Information from OpenAlex (API queried on 24/07/2024) was also used to filter out some works. A full list of exclusion criteria for journals and articles are shown in Tables \ref{tab_journal_exclusion_criteria} and \ref{tab_work_exclusion_criteria}.
+
+
+\begin{table}
+	\caption{Journal Exclusion Criteria.\label{tab_journal_exclusion_criteria}}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		\textbf{Criteria} & \textbf{Description}                                                                                                                                \\
+		\midrule
+		CrossRef          & If journal was not included in CrossRef's journal title list.                                                                                       \\
+		Works Count       & If work count (\textit{based on OpenAlex API}) - total retraction count (\textit{based on Retraction Watch Dataset}) \(<\) Sample Size (\textit{1}) \\
+		Retraction Count  & If journal total retractions \(<\) 5 (\textit{determined by the Retraction Watch dataset}).                                                         \\
+
+		\bottomrule
+		\label{tab:Journals_Criteria}
+	\end{tabularx}
+\end{table}
+
+\begin{table}
+	\caption{Work Exclusion Criteria.\label{tab_work_exclusion_criteria}}
+	\small
+	\begin{tabularx}{\textwidth}{>{\hspace{0pt}}p{0.4\textwidth}>{\raggedright\arraybackslash\hspace{0pt}}X}
+		\toprule
+		\textbf{Criteria}                                                        & \textbf{Description}                                                                                                                                                                         \\
+		\midrule
+		Retracted Works                                                          & If Retraction Watch parameter \textit{`ArticleType'} not in \{Research Article, Conference Abstract/Paper, Clinical Study, Review Article, Case Report, Meta-Analysis\}                      \\
+		Retracted Works/Non-retracted works                                      & If OpenAlex \textit{`source'} not in \{Conference, Journal\} and \textit{`type'} not in \{article, review\}                                                                                  \\
+		English Language                                                         & Work excluded if OpenAlex API \textit{'language'} value not 'en'                                                                                                                             \\
+		ISSN Data                                                                & If OpenAlex API \textit{`issn'} value not available                                                                                                                                          \\
+		OpenAlex ID                                                              & If OpenAlex API \textit{`id'} value not available                                                                                                                                            \\
+		Article Type                                                             & If OpenAlex API \textit{`type'} value not in \{article, review, conference-paper\}                                                                                                           \\
+		Publication Year                                                         & If \textit{`publication\_year'} OpenAlex API value not available                                                                                                                             \\
+		Publication Year Minimum                                                 & If \textit{`publication\_year'} OpenAlex API value \(<\) 2000                                                                                                                                \\
+		Publication Year Maximum                                                 & If \textit{`publication\_year'} OpenAlex API value \(>\) 2020                                                                                                                                \\
+		Reformulated Abstract Length                                             & If \(<\) 5 words                                                                                                                                                                             \\
+		Unretracted works's whose title contained                                & \textit{``retraction", ``retraction:", ``withdrawn", ``correction", ``erratum", ``retracted", ``withdrawal", ``conclusion", ``editorial", ``contributions", ``commentary", ``contributors"}. \\
+		Retracted and unretracted works if abstract or title contained the words & \textit{``elsevier", ``notice", ``editor", ``editors", ``publisher"}.                                                                                                                        \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:Works_Criteria}
+\end{table}
+
+
+Another set of non-retracted articles was formed. For each retracted article, another article was randomly sampled that was published in the same year as the retracted article, did not meet the works exclusion criteria outlined in Table \ref{tab:Works_Criteria}, was not included in the retraction watch dataset and whose OpenAlex API flag of \textit{`is\_retracted'} was False.
+
+
+Articles containing keywords strongly indicating that it has been retracted were also excluded, using the following list of keywords: ``retraction'', ``retracted", ``retract", ``retractionwatch", ``retraction watch", ``removed", ``withdrawn", ``withdrawal", ``withdraw", ``retracted article" and ``article".
+
+
+The following features were extracted for each work (retracted and non-retracted): Abstract Inverted Index, Publication Date, Primary Topic, First Author, Institution, Citation Count, First Author Countries, Is Retracted Flag and Article Type.
+
+Both sets (retracted articles and non-retracted articles) were combined and balanced through undersampling, resulting in a total of 9,028 pieces of research, with equal numbers of retracted and non-retracted. It was divided into training (64\%), validation (16\%) and test sets (20\%). Group sizes were chosen with nested split using the Pareto principle.  A balanced dataset was used, as the distribution of retracted works to non-retracted works across all works is highly imbalanced. This imbalance potentially leads to models learning a priori class distributions rather than learning from the features provided.
+
+
+All textual fields were preprocessed by converted to lowercase, and eliminating non-ASCII characters, special punctuation, and numbers. The title and abstract were then combined. The Publication Date feature was converted solely to its year in YYYY format.
+
+
+\subsection{Classifier Creation}\label{sec:Materials and Methods}
+
+Multiple approaches to machine learning classification were trained: Feature-based and \glspl*{llm} (Encoder-based and Decoder-based) classifiers.
+
+
+Feature-based classifiers were selected that have demonstrated effectiveness for text-classification tasks: Gradient Boosting, \gls*{svm}, \gls*{xgb}, Random Forest, \gls*{mlp} and Decision Trees \cite{sebastiani2002machine,li2022survey}. A Super Learner model, an ensemble approach with multiple machine learning models, was also utilised \cite{van_noorden_more_2023}. Several \glspl*{llm} known for strong classification performance was selected.  Contrasting encoder-based pre-trained models were included: \gls*{bert} (``bert-base-uncased"), trained on a broad dataset, and BioBERT (``dmis-lab/biobert-base-cased-v1.2"), pre-trained on biomedical data.  Contrasting decoder-based \glspl*{llm} were selected, differentiated by their fine-tuning: \gls*{llama} 3.2 (``unsloth/Llama-3.2-3B-bnb-4bit"), its instruction-tuned variant (``unsloth/Llama-3.2-3B-Instruct-bnb-4bit"), Gemma 2 (``unsloth/gemma-2-9b"), and its instruction-tuned variant (``unsloth/gemma-2-9b-it-bnb-4bit"). Commercially available \glspl*{llm} were also evaluated: GPT-4o mini \cite{noauthor_openai_nodate} and Claude 3.5 sonnet \cite{noauthor_introducing_nodate}
+
+
+Different model architectures necessitated different input formats. Inputs for feature-based classifiers were formed into a single vector representation: Numerical features (Publication Year and Citation Count) were min-max normalised to scale between 0 and 1. Categorical features (First Author's country) were one-hot encoded based on the training data subset. All other text features were represented using term weights produced by Best Matching 25 \cite{INR-019} with $k = 2$, $b = 0.3$ and no maximum vocabulary length specified. All features were then concatenated to produce the single vector representation. Inputs for the encoder-based \gls*{llm} models consisted of the features (Text, Primary Topic, First Author, First Author Country, Citated By Count and Publication Year) concatenated with [SEP] tokens separating each feature - as shown in Figure \ref{fig:encoder_input_template}. Decoder-based \glspl*{llm}  used the prompt template illustrated in Figures \ref{fig:llm_input_template} and \ref{fig:prompt_template}.
+
+
+All models were trained using the training dataset, with early stopping being determined using the validation dataset to prevent overfitting. An expectation of this was the commercial models (i.e. GPT-4o mini and Claude 3.5 sonnet), where a zero-shot approach was used. \gls*{llm} fine-tuning was conducted using supervised fine-tuning for a maximum of 10 epochs. Only the pooling layer and the classification head were updated with encoder-based models. Decoder-based \glspl*{llm} were fine-tuned using the input format and prompt template illustrated in Figures \ref{fig:llm_input_template} and \ref{fig:prompt_template}. With these, a low-order rank adaptation approach was used, with output vocabulary restricted to ``yes" and ``no" tokens. During testing, these models were evaluated by providing the input text and the question without the label to assess their ability to predict the retraction status independently, with a softmax of the logits for the ``yes" and ``no" output tokens forming the model's prediction.
+
+All models output a binary classification label; ``0" denoting if a piece of work is retracted and ``1" not. Models were evaluated using the testing dataset. From this, model performance was measured using standard metrics for classification problems. Accuracy is the proportion of instances correctly classified as either retracted or non-retracted. Precision, recall and F1 scores are computed individually for the retracted and non-retracted classes and then averaged.
+
+\begin{figure}[h]
+	\begin{tcolorbox}[colback=lightgray!5!white,colframe=black,title=INPUT_TEXT Formation]
+		\begin{verbatim}
+{title + abstract} [SEP] {primary topic}
+[SEP] {first author}  [SEP] {first author country} 
+[SEP] {citated by count} [SEP] {publication year}
+\end{verbatim}
+	\end{tcolorbox}
+	\caption{Input format for encoder-based models.}
+	\label{fig:encoder_input_template}
+\end{figure}
+
+
+\begin{figure}[h]
+	\begin{tcolorbox}[colback=lightgray!5!white,colframe=black,title=INPUT_TEXT Formation]
+		\begin{verbatim}
+Text: {title + abstract} Primary Topic: {primary topic}
+First Author: {first author} 
+First author country: {first author country} 
+Citated by count: {citated by count} 
+Publication Year: {publication year}
+\end{verbatim}
+	\end{tcolorbox}
+	\caption{Input format for decoder-based models.}
+	\label{fig:llm_input_template}
+\end{figure}
+
+
+\begin{figure}[h]
+	\begin{tcolorbox}[colback=lightgray!5!white,colframe=black,title=Prompt Template]
+		\begin{verbatim}
+Here is a research article:
+{INPUT_TEXT}
+
+Is this paper retracted?
+The correct answer is: {LABEL}
+\end{verbatim}
+	\end{tcolorbox}
+	\caption{Prompt template used for structuring input data during model fine-tuning.}
+	\label{fig:prompt_template}
+\end{figure}
+
+
+
+
+\subsection{Ablation}
+
+To evaluate the relative contribution of each feature to classifier performance on all feature-based classifiers, an ablation study was performed. For each feature, an ``ablated'' version of the dataset was created by removing that feature from all training instances while leaving the remaining features intact. Every feature-based classifier was then re-trained from scratch using the ablated dataset, and evaluated on the same test set employed for the full-featured models.
+
+For instance, when ablating the \emph{Abstract} feature, all tokens originating from the abstract were excluded, but the \emph{Title}, \emph{Primary Topic}, \emph{Publication Year}, \emph{First Author}, \emph{First Author’s Country}, and \emph{Citation Count} features were retrained. This procedure was repeated for each of the remaining features in turn. The resulting evaluation metrics (accuracy, precision, recall, and F1) were then compared against the ``full-feature'' baselines to quantify the performance drop caused by removing that feature. Lower scores in the ablated setting indicate a more critical feature, as its removal impairs model performance more severely.
+
+
+\section{Results}
+
+
+
+\subsection{Dataset Characteristics}\label{sec3}
+
+
+
+Each year's works distribution is shown in Figure \ref{fig:publication_parity}. It can be seen that the number of included works associated with each year increases over time, reflecting the trend of retractions increasing over time in the original Retraction Watch dataset.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{output.png}
+	\caption{Publication year distribution for retracted and non-retracted works.}
+	\label{fig:publication_parity}
+\end{figure}
+
+In the generated dataset, 7.54\% of the articles reported as retracted in Retraction Watch were not marked as retracted by OpenAlex, possibly because OpenAlex's metadata is derived from multiple input sources. This discrepancy further illustrates the difficulty of identifying retracted research since it may not be labelled as such. This discrepancy has been recently directly addressed with CrossRef integrating the Retraction Watch database into the metadata returned from their API~\cite{rittman_retraction_2025}.
+
+Analysis of correlations between journal features revealed two notable findings:
+\begin{enumerate}
+	\item A weak, significant positive correlation between the work count log and the retraction count log (Pearson correlation coefficient 0.065, p-value \(<\) 0.05). This seems counterintuitive, as more retractions are likely to occur given more publications, and hence, a strong positive correlation would be present. This finding could indicate that journals that publish fewer works are less proactive at detecting potential retractions or that publishing research that will be retracted is more complicated within journals with greater work output, presumably due to increased scrutiny of these works.
+
+	\item A strong negative correlation between the retraction count and log of h-index (Pearson correlation coefficient -0.656, p-value \(<\) 0.05). This relationship is expected. The h-index, a widely used measure of a journal's productivity and impact, is based on its most cited papers. Typically when a work is considered for inclusion in a journal or conference, a peer reviewer is tasked with subjecting that research to the scrutiny of others who are experts in the same field \cite{banks_thoughts_2018}. This reviewer is sourced from academics who review for many reasons (primarily altruistic), such as keeping up with the latest developments, building associations with journals, and demonstrating a commitment to the scientific field \cite{steer_peer_2021}. Importantly, time available to review is a finite resource \cite{warne_rewarding_2016}. It is likely that more reviewers are available for greater h-index journals. Publishing venues with higher h-index values potentially have a more rigorous peer review process, authors are more diligent when submitting to these journals, or higher-quality journals attract better-quality research.
+
+\end{enumerate}
+
+\subsection{Classifier Performance}
+
+Results for all classifiers are presented in Table \ref{tab:classifier-scores-new}, showing performance for both the retracted and not retracted classes. The highest-scoring approaches for each metric are highlighted in bold. Commercial models were excluded from further analysis as all commercial models responded that no research was retracted within the testing dataset. This was thought to be due to the safety restrictions implemented within these models, which prevented responses that could be considered problematic \cite{bai2022constitutionalaiharmlessnessai}.
+
+
+All models outperformed random guessing (i.e. 0.5 as this is a binary classification task), although the improvement varies considerably between models. The highest accuracy (0.682) is achieved by \gls*{llama} 3.2-base, although accuracy scores overall are generally higher for more traditional feature-based approaches such as gradient boost, \gls*{svm}, \gls*{xgb}, and Random Forest achieved superior precision compared to the more modern contextually aware \glspl*{llm}.
+
+
+Regarding the retracted class, \gls*{svm} achieved the highest precision (0.690) and \gls*{llama} 3.2-base the highest recall (0.683). Interestingly, both instruction-tuned decoder-based \glspl*{llm} (Gemma 2-instruct and \gls*{llama} 3.2-instruct) also achieve high recall for the retracted class but this is achieved by predicting retracted for the majority of instances, as demonstrated by the very low recall for the non-retracted class. This could be due to instruction tuning, as they are trained to be more cautious and risk-averse, indicating that instruction-tuned models might not be suitable for this type of classification task.
+
+\begin{table}[htbp]
+	\caption{Retraction classifier performance results.}\label{tab:classifier-scores-new}
+	\small
+	\begin{tabular}{l*{7}{c}}
+		\toprule
+		\multirow{2}{*}{Model}    & \multirow{2}{*}{Acc.} & \multicolumn{3}{c}{Non-Retracted} & \multicolumn{3}{c}{Retracted}                                                                     \\
+		\cmidrule(lr){3-5} \cmidrule(lr){6-8}
+		                          &                       & P                                 & R                             & F1             & P              & R              & F1             \\
+		\midrule
+		Logistic Regression       & 0.638                 & 0.638                             & 0.647                         & 0.642          & 0.639          & 0.630          & 0.635          \\
+		Decision Tree             & 0.568                 & 0.570                             & 0.574                         & 0.572          & 0.568          & 0.564          & 0.566          \\
+		Random Forest             & 0.666                 & 0.648                             & \textbf {0.731}               & \textbf{0.687} & 0.689          & 0.601          & 0.642          \\
+		\gls*{svm}                & 0.671                 & 0.655                             & 0.725                         & 0.688          & \textbf{0.690} & 0.616          & 0.651          \\
+		\gls*{xgb}                & 0.665                 & 0.654                             & 0.705                         & 0.679          & 0.678          & 0.624          & 0.650          \\
+		AdaBoost                  & 0.631                 & 0.619                             & 0.684                         & 0.650          & 0.645          & 0.577          & 0.609          \\
+		Super Learner             & 0.669                 & 0.661                             & 0.699                         & 0.680          & 0.678          & 0.640          & 0.659          \\
+		\gls*{mlp}                & 0.655                 & 0.650                             & 0.675                         & 0.663          & 0.660          & 0.634          & 0.647          \\
+		Gemma 2-base              & 0.553                 & 0.615                             & 0.292                         & 0.396          & 0.534          & 0.816          & 0.645          \\
+		Gemma 2-instruct          & 0.529                 & \textbf{ 0.730}                   & 0.098                         & 0.173          & 0.515          & \textbf{0.963} & 0.671          \\
+		\gls*{bert}               & 0.609                 & 0.612                             & 0.602                         & 0.607          & 0.606          & 0.616          & 0.611          \\
+		BioBERT                   & 0.608                 & 0.598                             & 0.668                         & 0.631          & 0.621          & 0.548          & 0.582          \\
+		\gls*{llama} 3.2-base     & \textbf{0.682}        & 0.686                             & 0.674                         & 0.680          & 0.678          & 0.689          & \textbf{0.683} \\
+		\gls*{llama} 3.2-instruct & 0.535                 & 0.714                             & 0.121                         & 0.208          & 0.518          & 0.951          & 0.671          \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+These findings establish baseline results using the dataset.
+
+\subsection{Ablation Analysis}
+
+The importance of individual features to the feature-based classification models was explored by conducting an ablation study on all input features. Datasets were created for each feature by permuting the data to exclude that feature and then averaging the evaluation metrics (F1 score, precision, recall, accuracy) across all models for each ablation. Lower scoring metrics indicate a greater contribution to the performance of a classifier.
+
+\begin{table}[htbp]
+	\caption{Ablation performance metrics: lowest scoring ablations are in bold.}\label{tab:ablation}
+	\small
+	\begin{tabular}{l*{7}{c}}
+		\toprule
+		\multirow{2}{*}{Model} & \multirow{1}{*}{Acc.} & \multicolumn{3}{c}{Non-Retracted} & \multicolumn{3}{c}{Retracted}                                                                     \\
+		\cmidrule(lr){3-5} \cmidrule(lr){6-8}
+		                       &                       & P                                 & R                             & F1             & P              & R              & F1             \\
+		\midrule
+		Abstract               & 0.655                 & 0.670                             & 0.612                         & 0.638          & 0.645          & 0.678          & 0.669          \\
+		Citation Count         & 0.648                 & 0.659                             & 0.611                         & 0.634          & 0.638          & 0.684          & 0.660          \\
+		First Author           & 0.649                 & 0.662                             & 0.609                         & 0.634          & 0.639          & 0.689          & 0.663          \\
+		First Author Countries & 0.649                 & 0.663                             & 0.604                         & 0.632          & 0.638          & 0.693          & 0.664          \\
+		Primary Topic          & 0.644                 & 0.658                             & 0.602                         & 0.628          & 0.634          & 0.687          & 0.659          \\
+		Publication Year       & \textbf{0.641}        & \textbf{0.656}                    & \textbf{0.594}                & \textbf{0.622} & \textbf{0.630} & \textbf{0.688} & \textbf{0.657} \\
+		Title                  & 0.648                 & 0.657                             & 0.618                         & 0.636          & 0.641          & 0.678          & 0.658          \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+Several observations on the ablation of features can be made given the results reported in Table \ref{tab:ablation}.
+
+The publication year proved to be the most crucial feature, with its ablation resulting in the lowest scores across all metrics. This suggests that temporal information plays a more significant role in classification than detailed textual content, which is logical given the increase in publications and the corresponding increase in retractions. This temporal information component also highlights the challenge that traditional classification approaches potentially face in this area; given that publication year is such a strong signal, its presence might eclipse other valuable contributions from other features. The Primary Topic feature also demonstrated substantial importance, producing the second-lowest scores when ablated. Reduction in performance when First Author Countries are ablated provides some indication of the likelihood that a work will be retracted, supporting previous findings \cite{stretton_publication_2012}.
+
+Contrary to what might be intuitively expected, the abstract, despite being the longest and most detailed textual component, emerged as the least influential feature across all evaluation metrics. When ablated, it yielded the highest average scores for accuracy (0.655), precision (0.657), recall (0.655), and F1 score (0.654), indicating its removal had the least negative impact on model performance. This counterintuitive finding regarding the abstract's limited influence could be attributed to several factors. First, structured metadata features (like publication date and primary topic) may provide more consistent and unambiguous signals for classification compared to the potentially noisy and variable nature of abstract text. Second, there might be considerable information redundancy between the abstract and other textual features like the title, making its individual contribution less distinctive.
+
+\section{Discussion}\label{sec:Discussion}
+
+
+Machine learning approaches can successfully identify retracted papers using a created open-access dataset.
+
+
+One of the potential applications of the classifier described above is as a tool during the peer review process, in much the same way that text similarity tools are often used to identify potential plagiarism. The required level of precision or recall would depend on how the tools would be used. If used as a screening tool to flag potentially problematic papers for additional review, a high recall would be preferable to avoid missing articles that are subsequently retracted. However, if used as a check which a submitted article must pass then high precision would be necessary to avoid the suppression of valid research. The performance of the models reported above, while promising, indicates that identification of retracted articles is not a trivial prediction task and may not be sufficient for some purposes. The decision regarding the involvement of systems to detect potential retractions within the peer review process is ultimately the choice of publishers.
+
+
+The automatic prediction of potential retractions also raises ethical concerns. Predictive models, such as the ones described here, can introduce bias thereby raising potential fairness issues \cite{caton2024fairness,mehrabi2021survey}.
+
+
+Such biases can unfairly penalise the groups more likely to be identified as producing research that will be retracted (e.g., first authors from particular locations) while benefiting those it is less likely to identify. This could introduce inductive bias into investigations, potentially leading to unforeseen consequences in the scientific publishing landscape, such as influencing which research questions are investigated and which methodologies are applied. In addition, authors may attempt to report results in ways that avoid detection by these models, potentially leading to self-censorship or overly cautious reporting of results. Conversely, bad actors with knowledge of these models may exploit that information to avoid detection, potentially facilitating the dissemination of invalid results.
+
+An important consideration is how best to apply these models in practice. While machine learning classifiers can highlight publications at higher risk of retraction, final decisions on whether a paper should be investigated or retracted must rest with human experts—editors, reviewers, and domain specialists. For example, automated models flag potential anomalies in medical and clinical contexts, but the ultimate judgment requires expert oversight \cite{prictor_where_2023, funer_responsibility_2023}. Similarly, the classifiers reported here are intended to aid decision-making rather than stand-alone arbiters of scientific validity. A fully automated retraction process is not desirable, nor is it necessarily the duty of model developers to initiate or recommend retraction investigations on every flagged paper. Instead, these outputs can be a starting point for further human-led scrutiny. This workflow ensures that any potential reasons for retraction—which may be multifaceted and not always captured by the model—are carefully examined. It also prevents the undue penalisation of authors, institutions, or countries that might otherwise be overrepresented due to biases in the training data. By maintaining a robust human-in-the-loop process, publishers and editorial boards can leverage model predictions ethically and effectively to uphold the reliability of the scientific record.
+
+
+\section{Limitations}
+
+This study has several notable limitations. The study design relied on a single data source, the Retraction Watch database, which provides valuable but incomplete coverage. The presence of ``stealth retractions'', wherein papers are removed without official notice or may not be reported to Retraction Watch, creates the potential for missed or under-detected retractions. Additionally, it was retrospective, using data from 2000 to 2020, which limits the ability to assess the models' real-time or prospective effectiveness in detecting erroneous work at publication. Theoretical limitations exist within the model choice, as they capture correlational rather than causal relationships, potentially leading to false positives or negatives, as using these patterns can misrepresent the underlying reasons for retractions. Data was sampled from 2000 to 2020, which would not represent more recent changes in retracted works. Since 2020, there have been innovative natural language generation models that could potentially increase the count of retracted works. Features that are not fully representative of a piece of research were used. Due to copyright restrictions, abstracts and metadata were used rather than full-text articles. Indicators of methodological errors or unsupported conclusions might appear in the main text and not the title and abstract, potentially reducing the reliability of our retraction-prediction metrics.
+
+Additionally, some \gls*{llm} may have been partly trained on the same corpus used to develop or validate our dataset, inflating their performance scores. This issue does not affect purely feature-based approaches but undermines the reliability of \gls*{llm}-derived results. Features such as the first author’s country or institution may reflect systemic biases in scientific publishing rather than genuine predictors of flawed work. Such biases risk penalising authors from certain regions or affiliations if used in editorial decision-making. Models may overfit to spurious textual or demographic correlations in the training data, leading to unjustified flags or missed detections when applied to new, diverse datasets.
+
+\section{Conclusions}
+\label{sec:Conclusions}
+
+This research demonstrates the potential of machine learning approaches in predicting retracted articles, contributing to efforts aimed at enhancing the integrity of scientific publication. By creating a novel open-source dataset that combines information from the Retraction Watch database and the OpenAlex API, a resource for future investigations in this area has been contributed. Our dataset encompasses 9,028  articles published between 2000 and 2020, evenly divided between retracted and non-retracted works, and includes a variety of features such as abstracts, citation metrics, and author information.
+
+Experiments showed that, with the exception of the recently released \gls*{llama} 3.2 base model, traditional feature-based classifiers, such as gradient boosting machines and \glspl*{svm}, outperformed contextual language models like \gls*{bert}, BioBERT, and Gemma in terms of precision. The best-performing model achieved a precision of 0.690, indicating that while machine learning techniques hold promise, there remains a need for significant improvement before they can be effectively integrated into the peer review process. The ablation study highlighted the importance of the publication year, primary topic and the first author's country in predicting retractions, aligning with previous findings that suggest certain demographics may be more prone to retractions due to various factors.
+
+\subsection{Future work}
+
+There is potential for the approaches described here to be extended by making use of additional information with the potential to assist in the identification of retracted research. For example, the citation network of references to a paper and the references within the paper itself may provide useful information. In addition, the models described here analysed abstracts, but analysis of the full text itself could potentially allow models to evaluate flaws in methodology, result synthesis or false conclusions. Finally, analysis of the full author list of an article could reveal patterns of collaboration or even help to identify potential paper mills.
+
+\section{List of Abbreviations}
+
+\printglossary[type=\acronymtype]
+
+\section*{Declarations}
+\subsection*{Ethics approval and consent to participate}
+
+Not applicable.
+
+\subsection*{Consent for publication}
+
+Not applicable.
+
+\subsection*{Availability of data and material}
+\label{sec:Data Availability}
+The dataset supporting the conclusions of this article is available in the Predicting Article Retractions repository \cite{noauthor_anonymized_nodate}.
+
+\subsection*{Competing interests}
+The authors declare that they have no competing interests.
+
+
+\subsection*{Funding}
+\label{sec:Funding}
+This work was supported by the Centre for Doctoral Training in Speech and Language Technologies (SLT) and their Applications funded by UK Research and Innovation [grant number EP/S023062/1].
+
+
+\subsection*{Authors' contributions }
+
+AF contributed to this research's conception, design analysis, data interpretation, and submission drafting. MS contributed to this research's conception, design analysis, data interpretation, and submission drafting. All authors read and approved the final manuscript.
+
+
+\subsection*{Open Access}
+For the purpose of open access, the authors have applied a Creative Commons Attribution (CC BY) licence to any Author Accepted Manuscript version arising.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\bibliography{sn-bibliography}
+
+
+
+
+\end{document}
